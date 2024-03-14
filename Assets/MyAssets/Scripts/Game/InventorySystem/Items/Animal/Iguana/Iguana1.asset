@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b27a59eebe4e304ea5ecbed1bafc8c5, type: 3}
+  m_Name: Iguana1
+  m_EditorClassIdentifier: 
+  itemName: TicketA4P1
+  imageShadowTicket: {fileID: 21300000, guid: aa9e2e1f8660e634b8cee43b88ab3b6e, type: 3}
+  imageTicket: {fileID: 21300000, guid: aa9e2e1f8660e634b8cee43b88ab3b6e, type: 3}
+  imageShadowItem: {fileID: 21300000, guid: 75c8f61706e805a478cf711ab700d5dd, type: 3}
+  imageItem: {fileID: 21300000, guid: 75c8f61706e805a478cf711ab700d5dd, type: 3}
+  itemIsCheck: 0

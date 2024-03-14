@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c7f73acee14ff4993fefc2c2e2df56, type: 3}
+  m_Name: InfoKindom
+  m_EditorClassIdentifier: 
+  textName: Animal2
+  text2: Vista 3D
+  textInfo: Info
+  kindom:
+  - {fileID: 2759885286018085369, guid: d736a7ada97799e4889406dd357d40ee, type: 3}
+  - {fileID: 3108067785242569659, guid: 83859d580d49cc34ca835bc19dfd3d68, type: 3}
+  - {fileID: 6136178312442412578, guid: 756c5b65e865ab240b6425f89f68a1da, type: 3}
+  - {fileID: 76506382196101323, guid: b63dd4ca8a9b3f240ae161c5fca116bc, type: 3}
+  - {fileID: 1466742208559444614, guid: eb6b0ea53ee74354db6dd60ba6dfb824, type: 3}

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - txtGral
+  - tutorialCam
+  - animalCam
+  - myCanvas
+  - menuGameVL
+  - btnLoadGame
+  - btnSave
+  - IOA1P1
+  - IOA1P2
+  - IOA1P3
+  - IOA1P4
+  - IOA1P5
+  - cardMenuAnim
+  - btnClose
+  - object3D
+  - objectMovin
+  - btnExit
+  - btnOptions
+  - btnNewGame
+  - targetPlayer
+  - Enemy
+  - PlayerDamage
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
