@@ -3387,6 +3387,10 @@ PrefabInstance:
       value: EnemyFight5
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -4145,7 +4149,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1879193313}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999976
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5355,6 +5359,10 @@ PrefabInstance:
       value: EnemyFight4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -6088,6 +6096,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_Name
       value: EnemyFight3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_TagString
@@ -11505,10 +11517,10 @@ MonoBehaviour:
   levelSystem: {fileID: 1259189127}
   lifeControllerEnemy:
   - {fileID: 784976919}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1150172668}
+  - {fileID: 203013289}
+  - {fileID: 178252859}
+  - {fileID: 104112157}
   lifeControllerPlayer: {fileID: 0}
   alertModalManager: {fileID: 326398877}
   shootLogic: {fileID: 354055303}
@@ -11528,10 +11540,10 @@ MonoBehaviour:
   levelSystem: {fileID: 1259189127}
   lifeControllerEnemy:
   - {fileID: 784976919}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1150172668}
+  - {fileID: 203013289}
+  - {fileID: 178252859}
+  - {fileID: 104112157}
   lifeControllerPlayer: {fileID: 0}
   alertModalManager: {fileID: 326398877}
   shootLogic: {fileID: 354055303}
@@ -12514,7 +12526,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0005972619, y: 0}
+  m_AnchoredPosition: {x: -0.0014457601, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341750616
@@ -17081,7 +17093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &480312570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18789,7 +18801,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2041479629}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999976
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27962,6 +27974,10 @@ PrefabInstance:
       value: EnemyFight1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -31024,7 +31040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0005971967, y: 0}
+  m_AnchoredPosition: {x: -0.001445695, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871280820
@@ -39761,6 +39777,10 @@ PrefabInstance:
       value: EnemyFight2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -41840,7 +41860,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0005975031, y: 0}
+  m_AnchoredPosition: {x: -0.0014460013, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215126585
@@ -41980,7 +42000,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1650441145}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999976
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -45434,7 +45454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1316985815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -49286,7 +49306,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1581793245}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999976
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -57590,7 +57610,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2011201357}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999976
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -73479,7 +73499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00059490517, y: 0}
+  m_AnchoredPosition: {x: -0.0014434034, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106860232
@@ -75544,7 +75564,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0005973019, y: 0}
+  m_AnchoredPosition: {x: -0.0014458002, y: 0}
   m_SizeDelta: {x: 0, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &94972712649553205
