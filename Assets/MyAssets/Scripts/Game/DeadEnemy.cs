@@ -99,79 +99,79 @@ public class DeadEnemy : DeadManager
         switch (level)
         {
             case 3:
-                levelWinMethod.WinMethod(0);
+                levelWinMethod.WinMethod(0, true);
                 break;
             case 5:
-                levelWinMethod.WinMethod(1);
+                levelWinMethod.WinMethod(1, false);
                 break;
             case 7:
-                levelWinMethod.WinMethod(2);
+                levelWinMethod.WinMethod(2, false);
                 break;
             case 9:
-                levelWinMethod.WinMethod(3);
+                levelWinMethod.WinMethod(3, false);
                 break;
             case 11:
-                levelWinMethod.WinMethod(4);
+                levelWinMethod.WinMethod(4, false);
                 break;
             case 13:
-                levelWinMethod.WinMethod(5);
+                levelWinMethod.WinMethod(5, false);
                 break;
             case 15:
-                levelWinMethod.WinMethod(6);
+                levelWinMethod.WinMethod(6, false);
                 break;
             case 17:
-                levelWinMethod.WinMethod(7);
+                levelWinMethod.WinMethod(7, false);
                 break;
             case 19:
-                levelWinMethod.WinMethod(8);
+                levelWinMethod.WinMethod(8, false);
                 break;
             case 21:
-                levelWinMethod.WinMethod(9);
+                levelWinMethod.WinMethod(9, false);
                 break;
             case 23:
-                levelWinMethod.WinMethod(10);
+                levelWinMethod.WinMethod(10, false);
                 break;
             case 25:
-                levelWinMethod.WinMethod(11);
+                levelWinMethod.WinMethod(11, false);
                 break;
             case 27:
-                levelWinMethod.WinMethod(12);
+                levelWinMethod.WinMethod(12, false);
                 break;
             case 29:
-                levelWinMethod.WinMethod(13);
+                levelWinMethod.WinMethod(13, false);
                 break;
             case 31:
-                levelWinMethod.WinMethod(14);
+                levelWinMethod.WinMethod(14, false);
                 break;
             case 33:
-                levelWinMethod.WinMethod(15);
+                levelWinMethod.WinMethod(15, false);
                 break;
             case 35:
-                levelWinMethod.WinMethod(16);
+                levelWinMethod.WinMethod(16, false);
                 break;
             case 37:
-                levelWinMethod.WinMethod(17);
+                levelWinMethod.WinMethod(17, false);
                 break;
             case 39:
-                levelWinMethod.WinMethod(18);
+                levelWinMethod.WinMethod(18, false);
                 break;
             case 41:
-                levelWinMethod.WinMethod(19);
+                levelWinMethod.WinMethod(19, false);
                 break;
             case 43:
-                levelWinMethod.WinMethod(20);
+                levelWinMethod.WinMethod(20, false);
                 break;
             case 45:
-                levelWinMethod.WinMethod(21);
+                levelWinMethod.WinMethod(21, false);
                 break;
             case 47:
-                levelWinMethod.WinMethod(22);
+                levelWinMethod.WinMethod(22, false);
                 break;
             case 49:
-                levelWinMethod.WinMethod(23);
+                levelWinMethod.WinMethod(23, false);
                 break;
             case 51:
-                levelWinMethod.WinMethod(24);
+                levelWinMethod.WinMethod(24, false);
                 break;
         }
     }

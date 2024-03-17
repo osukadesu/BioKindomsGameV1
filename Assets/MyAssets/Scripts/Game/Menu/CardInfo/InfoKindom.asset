@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c7f73acee14ff4993fefc2c2e2df56, type: 3}
   m_Name: InfoKindom
   m_EditorClassIdentifier: 
-  textName: Animal2
-  text2: Vista 3D
-  textInfo: Info
+  textName: 
+  text2: 
+  textInfo: 
   kindom:
   - {fileID: 2759885286018085369, guid: d736a7ada97799e4889406dd357d40ee, type: 3}
   - {fileID: 3108067785242569659, guid: 83859d580d49cc34ca835bc19dfd3d68, type: 3}

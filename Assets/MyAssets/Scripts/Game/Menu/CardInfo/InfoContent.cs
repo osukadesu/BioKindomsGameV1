@@ -19,9 +19,9 @@ public class InfoContent : MonoBehaviour
     }
     void Awake()
     {
-        ButtonsOnclick();
         objec3D = GameObject.FindGameObjectWithTag("object3D").GetComponent<GameObject>();
         transform3D = GameObject.FindGameObjectWithTag("object3D").GetComponent<Transform>();
+        ButtonsOnclick();
     }
     private void ButtonsOnclick()
     {
@@ -55,7 +55,7 @@ public class InfoContent : MonoBehaviour
                 textName.text = "Carpa Asiática Dorada";
                 text2.text = "Vista 3D";
                 textInfo.text = "La carpa asiática dorada es como una celebridad entre los peces, con colores súper brillantes. Les encanta nadar en estanques y lucirse. Aunque son originarias de Asia, a veces las llevamos a otros lugares para que más personas las conozcan.";
-                textInfo2.text = "\n \n Clase: Pez. \n \n Tipo: Vertebrado.";
+                textInfo2.text = "\n Clase: Pez.\n Vive en el agua y puede respirar en ella gracias a sus branquias. \n Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[0], transform3D);
                 break;
             case 1:
@@ -63,7 +63,7 @@ public class InfoContent : MonoBehaviour
                 textName.text = "Chipichipi";
                 text2.text = "Vista 3D";
                 textInfo.text = "El chipichipi es un molusco pequeñito que vive en el mar, es como el tesoro escondido de la arena. Estos diminutos amigos tienen conchas lindas y pueden enterrarse en la playa. Si alguna vez estás construyendo castillos de arena puede que encuentres uno.";
-                textInfo2.text = "\n \n Clase: Molusco. \n \n Tipo: Invertebrado.";
+                textInfo2.text = "\n \n Clase: Molusco. \n Tipo: Invertebrado.\n No tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[1], transform3D);
                 break;
             case 2:
@@ -71,7 +71,7 @@ public class InfoContent : MonoBehaviour
                 textName.text = "Mariposa Monarca";
                 text2.text = "Vista 3D";
                 textInfo.text = "La mariposa monarca es como la reina de las mariposas cada año viajan muy lejos cruzando paises, Son como pequeñas exploradoras con alas mágicas. Además, es famosa por sus colores naranjas y negros. ¡Una verdadera belleza voladora";
-                textInfo2.text = "\n \n Clase: Insecto. \n \n Tipo: Invertebrado.";
+                textInfo2.text = "\n \n Clase: Insecto.\n Tipo: Invertebrado.\n No tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[2], transform3D);
                 break;
             case 3:
@@ -79,7 +79,7 @@ public class InfoContent : MonoBehaviour
                 textName.text = "Iguana Verde";
                 text2.text = "Vista 3D";
                 textInfo.text = "La iguana verde es como el dinosaurio pequeño de los días modernos. Vive en lugares cálidos, es buena escaladora de árboles, se broncea todo el día y tiene una cola larga. Con su piel verde, es como una supermodelo de la selva.";
-                textInfo2.text = "\n \n Clase: Reptil. \n \n Tipo: Vertebrado.";
+                textInfo2.text = "\n \n Clase: Reptil. \n  Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[3], transform3D);
                 break;
             case 4:
@@ -87,7 +87,7 @@ public class InfoContent : MonoBehaviour
                 textName.text = "Colibrí de Mulsant";
                 text2.text = "Vista 3D";
                 textInfo.text = "El colibrí de Mulsant es un ave diminuto y brillante. Como un pequeño arco iris con alas, le encanta chupar néctar de las flores. A menudo se encuentran en zonas montañosas de América del Sur y América Central. ¡Es como una bailarina mágica del aire!";
-                textInfo2.text = "\n \n Clase: Ave. \n \n Tipo: Vertebrado.";
+                textInfo2.text = "\n \n Clase: Ave. \n  Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[4], transform3D);
                 break;
             case 5:

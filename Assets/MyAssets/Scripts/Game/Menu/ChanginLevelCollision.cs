@@ -21,8 +21,7 @@ public class ChanginLevelCollision : MonoBehaviour
     {
         switch (_level)
         {
-            case 2:
-                //24
+            case 24:
                 questLevel.ChangeLevel();
                 StartCoroutine(ChageScene());
                 break;
@@ -33,7 +32,7 @@ public class ChanginLevelCollision : MonoBehaviour
     }
     IEnumerator ChageScene()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         SceneManager.LoadScene(4);
     }
 }

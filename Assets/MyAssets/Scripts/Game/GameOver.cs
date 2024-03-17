@@ -1,16 +1,24 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] EscapeLogicV1 escapeLogicV1;
+    [SerializeField] AlertModalManager alertModalManager;
     void Awake()
     {
-        escapeLogicV1 = FindObjectOfType<EscapeLogicV1>();
+        alertModalManager = FindObjectOfType<AlertModalManager>();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            escapeLogicV1.EscapeMethod();
+            alertModalManager.AlertInfo("Haz perdido vuelve a internarlo.");
+            StartCoroutine(IEChangeScene());
         }
+    }
+    IEnumerator IEChangeScene()
+    {
+        yield return new WaitForSeconds(.7f);
+        SceneManager.LoadScene(2);
     }
 }

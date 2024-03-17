@@ -1,7 +1,6 @@
 using UnityEngine;
 public abstract class ItemObjectTemplate : MonoBehaviour
 {
-    [SerializeField] protected LevelSystem levelSystem;
     [SerializeField] protected InventoryItemData referenceItem;
     [SerializeField] protected bool item, isNextLevel;
     [SerializeField] protected TextGralController textGralController;
@@ -14,7 +13,6 @@ public abstract class ItemObjectTemplate : MonoBehaviour
         AwakeCharge();
         textGralController = FindObjectOfType<TextGralController>();
         textCount = FindObjectOfType<TextCount>();
-        levelSystem = FindObjectOfType<LevelSystem>();
     }
     void Update()
     {
