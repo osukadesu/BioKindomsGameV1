@@ -2,7 +2,7 @@ using UnityEngine;
 public class QuestLevel : MonoBehaviour
 {
     public static QuestLevel questLevel;
-    [SerializeField] int caseValue = 0;
+    [SerializeField] int caseValue;
     public int CaseValue { get => caseValue; set => caseValue = value; }
     void Awake()
     {
@@ -20,7 +20,7 @@ public class QuestLevel : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    protected internal void ChangeLevel()
+    protected internal void ChangeQuestLevel()
     {
         caseValue++;
     }

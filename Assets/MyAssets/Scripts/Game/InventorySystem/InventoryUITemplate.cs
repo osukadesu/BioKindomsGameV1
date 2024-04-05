@@ -15,7 +15,7 @@ public abstract class InventoryUITemplate : MonoBehaviour
     {
         GameObject obj = Instantiate(itemSlotPrefab);
         obj.transform.SetParent(transform, false);
-        ItemSlot slot = obj.GetComponent<ItemSlot>();
+        ItemSlotV2 slot = obj.GetComponent<ItemSlotV2>();
         slot.Set(item);
     }
 }

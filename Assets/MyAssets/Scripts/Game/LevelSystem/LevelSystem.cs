@@ -63,7 +63,7 @@ public class LevelSystem : MonoBehaviour
             }
         }
     }
-    public void ChangeLevel()
+    protected internal void ChangeLevel()
     {
         currentLevel++;
         showLevelCase.ShowLevel(currentLevel);

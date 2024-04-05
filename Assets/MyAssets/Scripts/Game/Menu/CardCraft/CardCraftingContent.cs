@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 public class CardCraftingContent : MonoBehaviour
-{
+{/*
     [SerializeField] CanvasManager _canvasManager;
     [SerializeField] Button[] buttonCraftView;
     [SerializeField] Button btnBackCraft;
@@ -76,5 +76,5 @@ public class CardCraftingContent : MonoBehaviour
                 Hide();
                 break;
         }
-    }
+    }*/
 }

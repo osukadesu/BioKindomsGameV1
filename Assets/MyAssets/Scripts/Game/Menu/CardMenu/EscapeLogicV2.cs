@@ -7,7 +7,7 @@ public class EscapeLogicV2 : MonoBehaviour
 {
     [SerializeField] protected MenuController menuController;
     [SerializeField] protected MouseController mouseController;
-    [SerializeField] Button btnYes, btnClose;
+    [SerializeField] Button btnYes, btnClose, btnBack;
     [SerializeField] Animator alertModalAnimator;
     [SerializeField] bool canEscape;
     public bool CanEscape { get => canEscape; set => canEscape = value; }
@@ -17,6 +17,7 @@ public class EscapeLogicV2 : MonoBehaviour
         mouseController = FindObjectOfType<MouseController>();
         btnYes.onClick.AddListener(BtnYesPressed);
         btnClose.onClick.AddListener(StartCloseContinue);
+        btnBack.onClick.AddListener(ButtonBack);
     }
     void Start()
     {
@@ -43,7 +44,13 @@ public class EscapeLogicV2 : MonoBehaviour
             }
         }
     }
-    protected internal void StartCloseContinue()
+    void ButtonBack()
+    {
+        menuController.IsNewGame = false;
+        menuController.IsLoadGame = false;
+        SceneManager.LoadScene(1);
+    }
+    void StartCloseContinue()
     {
         StartCoroutine(CloseContinue());
     }
@@ -56,7 +63,7 @@ public class EscapeLogicV2 : MonoBehaviour
         menuController.IsLoadGame = false;
         SceneManager.LoadScene(1);
     }
-    protected internal void BtnYesPressed()
+    void BtnYesPressed()
     {
         menuController.IsSavingGame = true;
         SceneManager.LoadScene(3);
@@ -65,6 +72,8 @@ public class EscapeLogicV2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            menuController.IsNewGame = false;
+            menuController.IsLoadGame = false;
             mouseController.MouseUnLock();
             SceneManager.LoadScene(2);
         }

@@ -16,9 +16,4 @@ public class TextManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         textRoundInfoAnim.SetBool(animation, false);
     }
-    protected internal void HideText(string animation)
-    {
-        textRoundInfo.text = "";
-        textRoundInfoAnim.SetBool(animation, false);
-    }
 }

@@ -1,27 +1,16 @@
 using UnityEngine;
 public class LoadGame : MonoBehaviour
 {
-    [SerializeField] protected internal TextCount textCount;
     [SerializeField] protected internal PlayerMove playerMove;
     [SerializeField] protected internal LevelSystem levelSystem;
-    [SerializeField] protected internal ItemObject[] IOA1;
-    /*
-    [SerializeField] protected internal ItemObjectA2[] IOA2;
-    [SerializeField] protected internal ItemObjectA3[] IOA3;
-    [SerializeField] protected internal ItemObjectA4[] IOA4;
-    [SerializeField] protected internal ItemObjectA5[] IOA5;
-    [SerializeField] protected internal InventoryUIA2 inventoryUIA2;
-    [SerializeField] protected internal InventoryUIA3 inventoryUIA3;
-    [SerializeField] protected internal InventoryUIA4 inventoryUIA4;
-    [SerializeField] protected internal InventoryUIA5 inventoryUIA5;
-    */
-    [SerializeField] protected internal InventoryUI inventoryUI;
-    [SerializeField] protected internal CraftBuilderSystem craftBuilderSystem;
+    [SerializeField] protected internal ItemObject[] IOAS;
+    [SerializeField] protected internal ItemObjectA2[] IOVS;
+    [SerializeField] protected internal InventoryUI inventoryUIA;
+    [SerializeField] protected internal InventoryUIV inventoryUIV;
+    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
     void Awake()
     {
-        textCount = FindObjectOfType<TextCount>();
         levelSystem = FindObjectOfType<LevelSystem>();
-        craftBuilderSystem = FindObjectOfType<CraftBuilderSystem>();
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
     }
     protected internal void GoNew()
@@ -35,18 +24,14 @@ public class LoadGame : MonoBehaviour
         PlayerData playerData = SaveAndLoadManager.LoadDataGame();
         SettingLevels(playerData);
         SettingAnimals(playerData);
-        SettingTextCount(playerData);
-        CheckingAnimals(playerData);
+        CheckingAnimal(playerData);
+        SettingVegetals(playerData);
+        CheckingVegetal(playerData);
     }
     protected internal void SettingInventory()
     {
-        InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUI.OnUpdateInventory;
-        /*
-        InventorySystemA2.instance2.OnInventoryChangedEventCallBack += inventoryUIA2.OnUpdateInventory;
-        InventorySystemA3.instance3.OnInventoryChangedEventCallBack += inventoryUIA3.OnUpdateInventory;
-        InventorySystemA4.instance4.OnInventoryChangedEventCallBack += inventoryUIA4.OnUpdateInventory;
-        InventorySystemA5.instance5.OnInventoryChangedEventCallBack += inventoryUIA5.OnUpdateInventory;
-        */
+        InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUIA.OnUpdateInventory;
+        InventorySystemV.instance2.OnInventoryChangedEventCallBack += inventoryUIV.OnUpdateInventory;
     }
     protected internal void SettingLevels(PlayerData playerData)
     {
@@ -54,35 +39,36 @@ public class LoadGame : MonoBehaviour
     }
     protected internal void SettingAnimals(PlayerData playerData)
     {
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < inventoryItemDataV2.Length; i++)
         {
-            craftBuilderSystem._InventoryItemDatas[i].itemIsCheck = playerData.animal[i];
-        }
-        for (int j = 0; j < playerData.isCreatedA.Length; j++)
-        {
-            craftBuilderSystem.IsCreated[j] = playerData.isCreatedA[j];
+            inventoryItemDataV2[i].itemIsCheck = playerData.animal[i];
         }
     }
-    protected internal void SettingTextCount(PlayerData playerData)
+    protected internal void CheckingAnimal(PlayerData playerData)
     {
-        textCount.numItem = playerData.textCountData;
-    }
-    protected internal void CheckingAnimals(PlayerData playerData)
-    {
-        CheckingAnimal1(playerData);
-    }
-    protected internal void CheckingAnimal1(PlayerData playerData)
-    {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < IOAS.Length; i++)
         {
             if (playerData.animal[i])
             {
-                IOA1[i].OnHandlePickUpLoad();
+                IOAS[i].OnHandlePickUpLoad();
             }
         }
-        if (playerData.isCreatedA[0])
+    }
+    protected internal void SettingVegetals(PlayerData playerData)
+    {
+        for (int i = 0; i < inventoryItemDataV2.Length; i++)
         {
-            craftBuilderSystem.ButtonBuildItem(0);
+            inventoryItemDataV2[i].itemIsCheck = playerData.vegetal[i];
+        }
+    }
+    protected internal void CheckingVegetal(PlayerData playerData)
+    {
+        for (int i = 0; i < IOVS.Length; i++)
+        {
+            if (playerData.vegetal[i])
+            {
+                IOVS[i].OnHandlePickUpLoad();
+            }
         }
     }
 }
@@ -95,7 +81,7 @@ public class LoadGame : MonoBehaviour
     [SerializeField] ItemObjectA4 IOA4P1, IOA4P2, IOA4P3, IOA4P4, IOA4P5;
     [SerializeField] ItemObjectA5 IOA5P1, IOA5P2, IOA5P3, IOA5P4, IOA5P5;
     [SerializeField] InventoryUI inventoryUI;
-    [SerializeField] InventoryUIA2 inventoryUIA2;
+    [SerializeField] InventoryUIV InventoryUIV;
     [SerializeField] InventoryUIA3 inventoryUIA3;
     [SerializeField] InventoryUIA4 inventoryUIA4;
     [SerializeField] InventoryUIA5 inventoryUIA5;
@@ -115,7 +101,7 @@ public class LoadGame : MonoBehaviour
         if (timerLoad <= .0f)
         {
             InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUI.OnUpdateInventory;
-            InventorySystemA2.instance2.OnInventoryChangedEventCallBack += inventoryUIA2.OnUpdateInventory;
+            InventorySystemV.instance2.OnInventoryChangedEventCallBack += InventoryUIV.OnUpdateInventory;
             InventorySystemA3.instance3.OnInventoryChangedEventCallBack += inventoryUIA3.OnUpdateInventory;
             InventorySystemA4.instance4.OnInventoryChangedEventCallBack += inventoryUIA4.OnUpdateInventory;
             InventorySystemA5.instance5.OnInventoryChangedEventCallBack += inventoryUIA5.OnUpdateInventory;
@@ -127,7 +113,7 @@ public class LoadGame : MonoBehaviour
         if (timerLoad <= .0f)
         {
             InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUI.OnUpdateInventory;
-            InventorySystemA2.instance2.OnInventoryChangedEventCallBack += inventoryUIA2.OnUpdateInventory;
+            InventorySystemV.instance2.OnInventoryChangedEventCallBack += InventoryUIV.OnUpdateInventory;
             InventorySystemA3.instance3.OnInventoryChangedEventCallBack += inventoryUIA3.OnUpdateInventory;
             InventorySystemA4.instance4.OnInventoryChangedEventCallBack += inventoryUIA4.OnUpdateInventory;
             InventorySystemA5.instance5.OnInventoryChangedEventCallBack += inventoryUIA5.OnUpdateInventory;

@@ -13,9 +13,9 @@ public static class SaveAndLoadManager
         Debug.Log("Save Level");
         fileStream.Close();
     }
-    public static void SaveForLevelGame(LevelSystem levelSystem, CraftBuilderSystem craftBuilderSystem, TextCount textCount, DeadPlayer deadPlayer)
+    public static void SaveForLevelGame(LevelSystem levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
     {
-        PlayerData playerData = new(levelSystem, craftBuilderSystem, textCount, deadPlayer);
+        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
         string datapath = Application.persistentDataPath + "/levelgame.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();
@@ -59,9 +59,9 @@ public static class SaveAndLoadManager
             return null;
         }
     }
-    public static void SaveDataGame(LevelSystem levelSystem, CraftBuilderSystem craftBuilderSystem, TextCount textCount, DeadPlayer deadPlayer)
+    public static void SaveDataGame(LevelSystem levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
     {
-        PlayerData playerData = new(levelSystem, craftBuilderSystem, textCount, deadPlayer);
+        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
         string datapath = Application.persistentDataPath + "/player.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();

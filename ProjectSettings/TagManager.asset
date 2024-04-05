@@ -26,6 +26,7 @@ TagManager:
   - targetPlayer
   - Enemy
   - PlayerDamage
+  - btnInfo
   layers:
   - Default
   - TransparentFX

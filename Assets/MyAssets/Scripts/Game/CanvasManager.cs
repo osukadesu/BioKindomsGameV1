@@ -11,8 +11,8 @@ public class CanvasManager : MonoBehaviour
         _viewMenu.Configure(this);
         _cardMenu.Configure(this);
         _infoContent.Configure(this);
-        _cardCraftingContent.Configure(this);
-        _craftBuilderSystem.Configure(this);
+        //_cardCraftingContent.Configure(this);
+        //_craftBuilderSystem.Configure(this);
         ClosingAll();
     }
     public void ButtonGoKindomV2(int index)
@@ -43,13 +43,13 @@ public class CanvasManager : MonoBehaviour
                 break;
         }
         _infoContent.SetInfo(25);
-        _cardCraftingContent.SetCrafting(25);
+        //_cardCraftingContent.SetCrafting(25);
         ClosingAll();
     }
     public void CraftItem(int index)
     {
-        _cardCraftingContent.SetCrafting(25);
-        _craftBuilderSystem.ButtonBuildItem(index);
+        //_cardCraftingContent.SetCrafting(25);
+        //_craftBuilderSystem.ButtonBuildItem(index);
         ButtonGoKindomV2(index);
     }
     /*
@@ -72,7 +72,7 @@ public class CanvasManager : MonoBehaviour
     public void CloseInfo()
     {
         _infoContent.SetInfo(25);
-        _cardMenu.SetContent(1);
+        _cardMenu.SetContent(0);
     }
     public void InfoText1()
     {
@@ -97,29 +97,29 @@ public class CanvasManager : MonoBehaviour
     }
     public void BackCraft()
     {
-        _cardCraftingContent.SetCrafting(25);
+        // _cardCraftingContent.SetCrafting(25);
         _cardMenu.SetContent(0);
     }
     public void ViewKindom(int index)
     {
-        _cardCraftingContent.SetCrafting(index);
+        //_cardCraftingContent.SetCrafting(index);
         _cardMenu.SetContent(5);
     }
     public void InfoKindom(int index)
     {
         _infoContent.SetInfo(index);
         _cardMenu.SetContent(5);
-        _cardCraftingContent.SetCrafting(25);
+        //_cardCraftingContent.SetCrafting(25);
         InfoText1();
     }
     public void ClosingAll()
     {
-        CloseCraft();
+        //CloseCraft();
         CloseInfoV2();
     }
     private void CloseCraft()
     {
-        _cardCraftingContent.SetCrafting(25);
+        //_cardCraftingContent.SetCrafting(25);
     }
     private void CloseInfoV2()
     {

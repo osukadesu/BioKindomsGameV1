@@ -52,7 +52,7 @@ public class NextLevel : MonoBehaviour
     }
     protected internal void ItemCondition(int itemIndex)
     {
-        if (loadLevelSystem.IOA1[itemIndex].IsNextLevel)
+        if (loadLevelSystem.IOAS[itemIndex].IsNextLevel)
         {
             NextLevelMethod(6, true, "nextLevelShow", true);
         }
@@ -63,7 +63,7 @@ public class NextLevel : MonoBehaviour
     }
     protected internal void ItemConditionV2(int itemIndex, int _nextLevelFight)
     {
-        if (loadLevelSystem.IOA1[itemIndex].IsNextLevel)
+        if (loadLevelSystem.IOAS[itemIndex].IsNextLevel)
         {
             NextLevelMethod(_nextLevelFight, false, "nextLevelShow", false);
         }

@@ -1,10 +1,9 @@
 using UnityEngine;
 public abstract class ItemObjectTemplate : MonoBehaviour
 {
-    [SerializeField] protected InventoryItemData referenceItem;
+    [SerializeField] protected InventoryItemDataV2 referenceItem;
     [SerializeField] protected bool item, isNextLevel;
     [SerializeField] protected TextGralController textGralController;
-    [SerializeField] protected TextCount textCount;
     protected string textMessage;
     public bool IsNextLevel { get => isNextLevel; set => isNextLevel = value; }
 
@@ -12,7 +11,6 @@ public abstract class ItemObjectTemplate : MonoBehaviour
     {
         AwakeCharge();
         textGralController = FindObjectOfType<TextGralController>();
-        textCount = FindObjectOfType<TextCount>();
     }
     void Update()
     {

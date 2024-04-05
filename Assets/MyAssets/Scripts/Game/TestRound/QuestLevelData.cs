@@ -5,5 +5,5 @@ public class QuestLevelData : ScriptableObject
 {
     public int[] idQuest;
     public string[] texQuest;
-    public Sprite imageKindom;
+    public Sprite[] imageKindom;
 }

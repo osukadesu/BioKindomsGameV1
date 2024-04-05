@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SaveMethod : MonoBehaviour
 {
-    [SerializeField] CraftBuilderSystem craftBuilderSystem;
+    [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystem levelSystem;
     [SerializeField] TextGralController textGralController;
     [SerializeField] TextCount textCount;
@@ -16,7 +16,6 @@ public class SaveMethod : MonoBehaviour
         textCount = FindObjectOfType<TextCount>();
         textGralController = FindObjectOfType<TextGralController>();
         levelSystem = FindObjectOfType<LevelSystem>();
-        craftBuilderSystem = FindObjectOfType<CraftBuilderSystem>();
         deadPlayer = FindObjectOfType<DeadPlayer>();
     }
     void Update()
@@ -33,12 +32,12 @@ public class SaveMethod : MonoBehaviour
     }
     protected internal void MyButtonSave()
     {
-        SaveAndLoadManager.SaveDataGame(levelSystem, craftBuilderSystem, textCount, deadPlayer);
+        SaveAndLoadManager.SaveDataGame(levelSystem, inventoryItemDataV2);
         textGralController.StartingAT2("Partida Guardada!");
     }
     protected internal void SaveLevel()
     {
         SaveAndLoadManager.SaveLevel(levelSystem);
-        SaveAndLoadManager.SaveForLevelGame(levelSystem, craftBuilderSystem, textCount, deadPlayer);
+        SaveAndLoadManager.SaveForLevelGame(levelSystem, inventoryItemDataV2);
     }
 }

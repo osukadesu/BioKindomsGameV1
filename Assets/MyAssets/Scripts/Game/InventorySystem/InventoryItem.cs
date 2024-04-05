@@ -1,11 +1,11 @@
 [System.Serializable]
 public class InventoryItem
 {
-    public InventoryItemData inventoryItemData;
+    public InventoryItemDataV2 inventoryItemDataV2;
     public int stackSize;
-    public InventoryItem(InventoryItemData itemData)
+    public InventoryItem(InventoryItemDataV2 itemData)
     {
-        inventoryItemData = itemData;
+        inventoryItemDataV2 = itemData;
         AddStack();
     }
     public void AddStack()

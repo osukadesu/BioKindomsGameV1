@@ -2,23 +2,19 @@ using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
     [SerializeField] PlayerMove playerMove;
-    [SerializeField] TextCount textCount;
-    [SerializeField] protected internal ItemObject[] IOA1;
-    [SerializeField] CraftBuilderSystem craftBuilderSystem;
+    [SerializeField] protected internal ItemObject[] IOAS;
+    [SerializeField] protected internal InventoryUI inventoryUIA;
+    [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystem levelSystem;
-    [SerializeField] InventoryUI inventoryUI;
     [SerializeField] ShowLevelCase showLevelCase;
     [SerializeField] Transform[] targetPlayerPosition;
     void Awake()
     {
-        textCount = FindObjectOfType<TextCount>();
         levelSystem = FindObjectOfType<LevelSystem>();
-        inventoryUI = FindObjectOfType<InventoryUI>();
+        inventoryUIA = FindObjectOfType<InventoryUI>();
         showLevelCase = FindObjectOfType<ShowLevelCase>();
-        craftBuilderSystem = FindObjectOfType<CraftBuilderSystem>();
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
     }
-
     protected internal void GoNewGameAndLevel()
     {
         SetInventoryUI();
@@ -31,8 +27,7 @@ public class LoadLevelSystem : MonoBehaviour
         PlayerData playerData = SaveAndLoadManager.LoadDataGame();
         SettingLevels(playerData);
         SettingAnimals(playerData);
-        SettingTextCount(playerData);
-        CheckingAnimals(playerData);
+        CheckingAnimal(playerData);
     }
     protected internal void GoLoadLevel()
     {
@@ -40,18 +35,11 @@ public class LoadLevelSystem : MonoBehaviour
         PlayerData playerData = SaveAndLoadManager.LoadLevelGame();
         SettingLevels(playerData);
         SettingAnimals(playerData);
-        SettingTextCount(playerData);
-        CheckingAnimals(playerData);
+        CheckingAnimal(playerData);
     }
     protected internal void SetInventoryUI()
     {
-        InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUI.OnUpdateInventory;
-        /*        
-        InventorySystemA2.instance2.OnInventoryChangedEventCallBack += inventoryUIA2.OnUpdateInventory;
-        InventorySystemA3.instance3.OnInventoryChangedEventCallBack += inventoryUIA3.OnUpdateInventory;
-        InventorySystemA4.instance4.OnInventoryChangedEventCallBack += inventoryUIA4.OnUpdateInventory;
-        InventorySystemA5.instance5.OnInventoryChangedEventCallBack += inventoryUIA5.OnUpdateInventory;
-        */
+        InventorySystem.instance.OnInventoryChangedEventCallBack += inventoryUIA.OnUpdateInventory;
     }
     protected internal void SettingLevels(PlayerData playerData)
     {
@@ -61,35 +49,19 @@ public class LoadLevelSystem : MonoBehaviour
     }
     protected internal void SettingAnimals(PlayerData playerData)
     {
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < inventoryItemDataV2.Length; i++)
         {
-            craftBuilderSystem._InventoryItemDatas[i].itemIsCheck = playerData.animal[i];
-        }
-        for (int j = 0; j < playerData.isCreatedA.Length; j++)
-        {
-            craftBuilderSystem.IsCreated[j] = playerData.isCreatedA[j];
+            inventoryItemDataV2[i].itemIsCheck = playerData.animal[i];
         }
     }
-    protected internal void SettingTextCount(PlayerData playerData)
+    protected internal void CheckingAnimal(PlayerData playerData)
     {
-        textCount.SetCount(playerData.textCountData);
-    }
-    protected internal void CheckingAnimals(PlayerData playerData)
-    {
-        CheckingAnimal1(playerData);
-    }
-    protected internal void CheckingAnimal1(PlayerData playerData)
-    {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < IOAS.Length; i++)
         {
             if (playerData.animal[i])
             {
-                IOA1[i].OnHandlePickUpLoad();
+                IOAS[i].OnHandlePickUpLoad();
             }
-        }
-        if (playerData.isCreatedA[0])
-        {
-            craftBuilderSystem.ButtonBuildItem(0);
         }
     }
     protected internal void SetPlayerPositionUnLoad(int index)

@@ -4,89 +4,35 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class TestRoundSystem : MonoBehaviour
 {
-    [SerializeField] Animator containerCardAnim;
-    [SerializeField] GameObject timerContainer, CanvasTest;
-    [SerializeField] TimerManager timerManager;
-    [SerializeField] TextManager textManager;
-    [SerializeField] Animator[] cardSelects;
-    [SerializeField] Button[] btnCardSelects;
     [SerializeField] QuestLevel questLevel;
-    [SerializeField] int currentRound, idBtnSelect = 5;
-    [SerializeField] int[] idButton, idQuest;
-    [SerializeField] protected internal bool[] btnPressed = { false, false, false };
-    [SerializeField] QuestLevelData[] questLevelDatas;
+    [SerializeField] TextManager textManager;
+    [SerializeField] TimerManager timerManager;
+    [SerializeField] QuestLevelData questLevelDatas;
+    [SerializeField] AnimationsManager animationsManager;
     [SerializeField] AnswerButtonData[] answerButtonDatas;
+    [SerializeField] Text textQuest;
     [SerializeField] Image _imageKindom;
     [SerializeField] Image[] _imageItem;
-    [SerializeField] Text textQuest;
+    [SerializeField] Button[] btnCardSelects;
+    [SerializeField] int _Random, currentRound, score, idBtnSelect = 3;
+    [SerializeField] int[] idButton, idQuest;
+    [SerializeField] bool gameFinished = false, startGame;
+    [SerializeField] public bool StartGame { get => startGame; set => startGame = value; }
+    [SerializeField] protected internal int IdBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
+    public int _CurrentRound { get => currentRound; set => currentRound = value; }
     void Awake()
     {
-        questLevel = FindObjectOfType<QuestLevel>();
+        //questLevel = FindObjectOfType<QuestLevel>();
+        animationsManager = FindObjectOfType<AnimationsManager>();
         textManager = FindObjectOfType<TextManager>();
         timerManager = FindObjectOfType<TimerManager>();
         BtnCardsOnclick();
     }
     void Start()
     {
-        StartQuest();
         currentRound = 1;
-        timerContainer.SetActive(false);
-        CanvasTest.SetActive(false);
-    }
-    void Update()
-    {
-        SetCaseQuest(questLevel.CaseValue);
-        TimerEnd();
-        TimerToCompare();
-    }
-    void SetCaseQuest(int _value)
-    {
-        switch (_value)
-        {
-            case 1:
-                SetDataCases(0, 0, 0, 0, 0, 1, 2, 0, 1, 2);
-                break;
-        }
-    }
-    void SetDataCases(int _idQuest, int _aBtnDatas, int _textQuest, int _imageQuest, int _idImgQ1, int _idImgQ2, int _idImgQ3, int _idImgA1, int _idImgA2, int _idImgA3)
-    {
-        idQuest[_idQuest] = questLevelDatas[_idQuest].idQuest[_idQuest];
-        textQuest.text = questLevelDatas[_textQuest].texQuest[_textQuest];
-        _imageKindom.sprite = questLevelDatas[_imageQuest].imageKindom;
-        idButton[0] = answerButtonDatas[_aBtnDatas].idAnswer = 0;
-        _imageItem[_idImgQ1].sprite = answerButtonDatas[_aBtnDatas].imageItem[_idImgA1];
-        idButton[1] = answerButtonDatas[_aBtnDatas].idAnswer = 1;
-        _imageItem[_idImgQ2].sprite = answerButtonDatas[_aBtnDatas].imageItem[_idImgA2];
-        idButton[2] = answerButtonDatas[_aBtnDatas].idAnswer = 2;
-        _imageItem[_idImgQ3].sprite = answerButtonDatas[_aBtnDatas].imageItem[_idImgA3];
-        timerContainer.SetActive(true);
-        CanvasTest.SetActive(true);
-        MouseUnLock();
-    }
-    void MouseUnLock()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-    protected internal void SetCanvasTest()
-    {
-        CanvasTest.SetActive(true);
-        timerContainer.SetActive(true);
-    }
-    void StartQuest()
-    {
-        idBtnSelect = 5;
-        BtnAnimFalse();
-    }
-    void BtnAnimFalse()
-    {
-        AnimationButtons("cardSelect1Move", false);
-        AnimationButtons("cardSelect2Move", false);
-        AnimationButtons("cardSelect3Move", false);
-        containerCardAnim.SetBool("containerCardHide", false);
-        btnPressed[0] = false;
-        btnPressed[1] = false;
-        btnPressed[2] = false;
+        score = 0;
+        StartCoroutine(StartQuest(1));
     }
     void BtnCardsOnclick()
     {
@@ -98,100 +44,188 @@ public class TestRoundSystem : MonoBehaviour
     }
     void UserCardSelect(int btnCardValue)
     {
-        switch (btnCardValue)
+        if (!gameFinished)
         {
-            case 0: SetAnimations(0, "cardSelect1Move", 0); break;
-            case 1: SetAnimations(1, "cardSelect2Move", 1); break;
-            case 2: SetAnimations(2, "cardSelect3Move", 2); break;
-            default: BtnAnimFalse(); break;
+            switch (btnCardValue)
+            {
+                case 0: animationsManager.SetAnimations(0, "cardSelect1Move"); break;
+                case 1: animationsManager.SetAnimations(1, "cardSelect2Move"); break;
+                case 2: animationsManager.SetAnimations(2, "cardSelect3Move"); break;
+                default: animationsManager.BtnLogicFalse(); break;
+            }
         }
     }
-    void SetAnimations(int _index, string _nameAnim, int _idBtnSelect)
+    IEnumerator StartQuest(int _type)
     {
-        idBtnSelect = _idBtnSelect;
-        btnPressed[_index] = true;
-        AnimationButtons(_nameAnim, true);
-        containerCardAnim.SetBool("containerCardHide", true);
+        _Random = Random.Range(1, 3);
+        Debug.Log("Set Random" + _Random);
+        SetCases(1);
+        animationsManager.BtnLogicFalse();
+        startGame = true;
+        timerManager._TimerForMethod = 3f;
+        idBtnSelect = 3;
+        yield return new WaitForSeconds(1f);
+        textManager.ShowText("Round " + currentRound, "txtRoundShow");
+        StartCoroutine(TimeToCompare(_type));
     }
-    void TimerToCompare()
+    IEnumerator TimeToCompare(int _type)
     {
-        if (timerManager.timer < 0)
+        switch (_type)
         {
-            CompareCase(questLevel.CaseValue);
+            case 1:
+                yield return new WaitForSeconds(timerManager.Timer + 3f);
+                CompareCase(_Random);
+                break;
+            case 2:
+                yield return new WaitForSeconds(timerManager.Timer + 6f);
+                CompareCase(_Random);
+                break;
         }
     }
-    void AnimationButtons(string _nameAnim, bool _boolAnim)
+    void SetCases(int _value)
     {
-        for (int i = 0; i < cardSelects.Length; i++)
+        switch (_value)
         {
-            cardSelects[i].SetBool(_nameAnim, _boolAnim);
+            case 1:
+                AnimalQuest(_Random);
+                break;
         }
+    }
+    void AnimalQuest(int _value)
+    {
+        switch (_value)
+        {
+            case 1:
+                SetDataCases(0, 0, 0, 0, 1, 2);
+                break;
+            case 2:
+                SetDataCases(1, 1, 0, 0, 2, 3);
+                break;
+            /*
+              case 3:
+                  SetDataCases(0, 0, 0, 0, 1, 2, 0, 1, 2);
+                  break;
+              case 4:
+                  SetDataCases(0, 0, 0, 0, 1, 2, 0, 1, 2);
+                  break;
+              case 5:
+                  SetDataCases(0, 0, 0, 0, 1, 2, 0, 1, 2);
+                  break;
+            */
+            default:
+                Debug.LogError("Quest error!");
+                break;
+        }
+    }
+    void SetDataCases(int _idQuest, int _textQuest, int _imageQuest, int _idImgA1, int _idImgA2, int _idImgA3)
+    {
+        idQuest[_idQuest] = questLevelDatas.idQuest[_idQuest];
+        textQuest.text = questLevelDatas.texQuest[_textQuest];
+        _imageKindom.sprite = questLevelDatas.imageKindom[_imageQuest];
+        idButton[0] = answerButtonDatas[0].idAnswer = 0;
+        _imageItem[0].sprite = answerButtonDatas[0].imageItem[_idImgA1];
+        idButton[1] = answerButtonDatas[1].idAnswer = 1;
+        _imageItem[1].sprite = answerButtonDatas[1].imageItem[_idImgA2];
+        idButton[2] = answerButtonDatas[2].idAnswer = 2;
+        _imageItem[2].sprite = answerButtonDatas[2].imageItem[_idImgA3];
+        MouseUnLock();
+    }
+    void MouseUnLock()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
     void CompareCase(int cCase)
     {
         switch (cCase)
         {
             case 1:
-                CompareCards(0, false);
+                CompareCards(0);
+                break;
+            case 2:
+                CompareCards(1);
                 break;
         }
     }
-    void CompareCards(int _idquest, bool _isReset)
+    void CompareCards(int _idquest)
     {
-        if (idBtnSelect == idQuest[_idquest])
+        startGame = false;
+        gameFinished = true;
+        currentRound++;
+        Debug.Log("Current Round: " + currentRound);
+        if (idBtnSelect == idQuest[_idquest] && idBtnSelect != 3)
         {
-            WinRound(_isReset);
+            StartCoroutine(WinRound());
         }
         else
         {
-            LoseRound();
+            StartCoroutine(LoseRound());
         }
     }
-    void WinRound(bool _isReset)
+    IEnumerator WinRound()
     {
-        switch (_isReset)
-        {
-            case true:
-                textManager.ShowText("Incorrecto!", "txtRoundShow");
-                StartCoroutine(ResetGame());
-                break;
-            case false:
-                textManager.ShowText("Correcto!", "txtRoundShow");
-                StartCoroutine(ChangeScene());
-                break;
-        }
-    }
-    IEnumerator ChangeScene()
-    {
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(3);
-    }
-    void LoseRound()
-    {
-        textManager.ShowText("Incorrecto!", "txtRoundShow");
-        StartCoroutine(ResetGame());
-    }
-    IEnumerator ResetGame()
-    {
+        score++;
+        timerManager._TimerForMethod = 3f;
+        textManager.ShowText("Correcto!", "txtRoundShow");
         yield return new WaitForSeconds(2f);
-        StartQuest();
-    }
-    void TimerEnd()
-    {
-        for (int i = 0; i < btnPressed.Length; i++)
+        ResetGame(0);
+        if (currentRound > 4)
         {
-            if (timerManager.timer < 0 && !btnPressed[i])
+            textManager.ShowText("Juego terminado!", "txtRoundShow");
+            textManager.ShowText("Puntaje: " + score, "txtRoundShow");
+            if (score > 4)
             {
-                StartCoroutine(IETimer());
+                textManager.ShowText("Has ganado!", "txtRoundShow");
+                ChangeScene();
+            }
+            else
+            {
+                textManager.ShowText("Has perdido!", "txtRoundShow");
+                ResetGame(0);
             }
         }
+        else
+        {
+            ResetGame(0);
+        }
     }
-    IEnumerator IETimer()
+    void ChangeScene()
     {
-        textManager.ShowText("Perdiste!", "txtRoundShow");
+        SceneManager.LoadScene(2);
+    }
+    public IEnumerator LoseRound()
+    {
+        score--;
+        timerManager._TimerForMethod = 8f;
         yield return new WaitForSeconds(2f);
-        textManager.HideText("txtRoundShow");
-        timerManager.timer = 10f;
-        timerManager.currentFill = 10f;
+        textManager.ShowText("Incorrecto!", "txtRoundShow");
+        yield return new WaitForSeconds(2f);
+        ResetGame(1);
+        if (currentRound > 4 && score < 4)
+        {
+            textManager.ShowText("Has Perdido!", "txtRoundShow");
+            textManager.ShowText("Puntaje: " + score, "txtRoundShow");
+            ResetGame(2);
+        }
+    }
+    void ResetGame(int ver)
+    {
+        gameFinished = false;
+        switch (ver)
+        {
+            case 0:
+                StartCoroutine(timerManager.IEResetValues(2));
+                StartCoroutine(StartQuest(1));
+                break;
+            case 1:
+                StartCoroutine(timerManager.IEResetValues(currentRound));
+                StartCoroutine(StartQuest(2));
+                break;
+            case 2:
+                currentRound = 1;
+                score = 1; StartCoroutine(timerManager.IEResetValues(currentRound));
+                StartCoroutine(StartQuest(1));
+                break;
+        }
     }
 }

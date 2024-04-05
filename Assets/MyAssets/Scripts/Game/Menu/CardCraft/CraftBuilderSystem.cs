@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 public class CraftBuilderSystem : MonoBehaviour
-{
+{ /*
     [SerializeField] CanvasManager _canvasManager;
     [SerializeField] InventoryItemData[] _inventoryItemDatas;
     public InventoryItemData[] _InventoryItemDatas { get => _inventoryItemDatas; set => _inventoryItemDatas = value; }
