@@ -63,7 +63,7 @@ AnimatorController:
   m_Name: TxtRound
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: txtRoundShow
+  - m_Name: txtShow
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -116,7 +116,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: txtRoundShow
+    m_ConditionEvent: txtShow
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4745499232654399152}
@@ -141,7 +141,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: txtRoundShow
+    m_ConditionEvent: txtShow
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7462108506395955736}

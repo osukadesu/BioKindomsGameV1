@@ -4,10 +4,10 @@ using UnityEngine.UI;
 public class TimerManager : MonoBehaviour
 {
     [SerializeField] AnimationsManager animationsManager;
+    [SerializeField] CompareSystem compareSystem;
     [SerializeField] GameObject timerContainer;
     [SerializeField] Text textTimer;
     [SerializeField] TextManager textManager;
-    [SerializeField] TestRoundSystem testRoundSystem;
     [SerializeField] Image imgFiller;
     [SerializeField] int fillMax;
     [SerializeField] float timer, currentFill, timerForMethod;
@@ -16,7 +16,7 @@ public class TimerManager : MonoBehaviour
     void Awake()
     {
         animationsManager = FindObjectOfType<AnimationsManager>();
-        testRoundSystem = FindObjectOfType<TestRoundSystem>();
+        compareSystem = FindObjectOfType<CompareSystem>();
         textManager = FindObjectOfType<TextManager>();
     }
     void Start()
@@ -28,7 +28,6 @@ public class TimerManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(timerForMethod);
         StartCoroutine(TimerMethod());
         TimerEnd();
         imgFiller.fillAmount = currentFill / fillMax;
@@ -36,7 +35,7 @@ public class TimerManager : MonoBehaviour
     IEnumerator TimerMethod()
     {
         yield return new WaitForSeconds(timerForMethod);
-        if (timer > 0 && testRoundSystem.StartGame)
+        if (timer > 0 && compareSystem._startGame)
         {
             timerContainer.SetActive(true);
             timer -= Time.deltaTime;
@@ -52,36 +51,19 @@ public class TimerManager : MonoBehaviour
         {
             for (int i = 0; i < animationsManager.btnPressed.Length; i++)
             {
-                if (!animationsManager.btnPressed[i] && testRoundSystem.IdBtnSelect == 3 && testRoundSystem.StartGame)
+                if (!animationsManager.btnPressed[i] && compareSystem._idBtnSelect == 3 && !compareSystem._startGame)
                 {
-                    textManager.ShowText("No seleccionaste!", "txtRoundShow");
-                    switch (testRoundSystem._CurrentRound)
-                    {
-                        case 3:
-                            StartCoroutine(IEResetValues(1));
-                            break;
-                        default:
-                            StartCoroutine(IEResetValues(0));
-                            break;
-                    }
+                    textManager.ShowText(1, "No seleccionaste!", "txtShow");
+                    compareSystem.cardContent.SetActive(false);
+                    StartCoroutine(IEResetValues(5f));
+                    StartCoroutine(compareSystem.ResetGameForNotSelect(false, null, null, 9.5f, 5f));
                 }
             }
         }
     }
-    public IEnumerator IEResetValues(int _type)
+    public IEnumerator IEResetValues(float _timerIERV)
     {
-        switch (_type)
-        {
-            case 0:
-                yield return new WaitForSeconds(6f);
-                break;
-            case 1:
-                yield return new WaitForSeconds(12f);
-                break;
-            case 2:
-                yield return new WaitForSeconds(2f);
-                break;
-        }
+        yield return new WaitForSeconds(_timerIERV);
         timer = 5f;
         currentFill = 5f;
         animationsManager.SetTimerAnimation(false);

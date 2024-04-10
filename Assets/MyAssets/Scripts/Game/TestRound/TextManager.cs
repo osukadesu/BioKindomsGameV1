@@ -5,15 +5,25 @@ public class TextManager : MonoBehaviour
 {
     [SerializeField] protected internal Text textRoundInfo;
     [SerializeField] protected internal Animator textRoundInfoAnim;
-    protected internal void ShowText(string message, string animation)
+    [SerializeField] Transform textPosition, textPositionInit, textPositionEnd;
+    public void ShowText(int posType, string message, string animation)
     {
-        StartCoroutine(IEShowText(message, animation));
+        StartCoroutine(IEShowText(posType, message, animation));
     }
-    protected internal IEnumerator IEShowText(string message, string animation)
+    public IEnumerator IEShowText(int _posType, string _message, string _animation)
     {
-        textRoundInfo.text = message;
-        textRoundInfoAnim.SetBool(animation, true);
+        switch (_posType)
+        {
+            case 0:
+                textPosition.position = textPositionInit.position;
+                break;
+            case 1:
+                textPosition.position = textPositionEnd.position;
+                break;
+        }
+        textRoundInfo.text = _message;
+        textRoundInfoAnim.SetBool(_animation, true);
         yield return new WaitForSeconds(2f);
-        textRoundInfoAnim.SetBool(animation, false);
+        textRoundInfoAnim.SetBool(_animation, false);
     }
 }

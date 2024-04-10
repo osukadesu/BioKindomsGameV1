@@ -3,11 +3,11 @@ public class AnimationsManager : MonoBehaviour
 {
     [SerializeField] Animator[] cardSelects;
     [SerializeField] Animator containerCardAnim, timerAnim;
-    [SerializeField] TestRoundSystem testRoundSystem;
+    [SerializeField] CompareSystem compareSystem;
     [SerializeField] protected internal bool[] btnPressed = { false, false, false };
     void Awake()
     {
-        testRoundSystem = FindObjectOfType<TestRoundSystem>();
+        compareSystem = FindObjectOfType<CompareSystem>();
     }
     void Start()
     {
@@ -27,7 +27,7 @@ public class AnimationsManager : MonoBehaviour
     protected internal void SetAnimations(int _index, string _nameAnim)
     {
         btnPressed[_index] = true;
-        testRoundSystem.IdBtnSelect = _index;
+        compareSystem._idBtnSelect = _index;
         AnimationButtons(_nameAnim, true);
         containerCardAnim.SetBool("containerCardHide", true);
     }
