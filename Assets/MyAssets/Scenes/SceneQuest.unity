@@ -656,6 +656,7 @@ GameObject:
   - component: {fileID: 724360682}
   - component: {fileID: 724360681}
   - component: {fileID: 724360683}
+  - component: {fileID: 724360685}
   m_Layer: 0
   m_Name: TestRoundLogic
   m_TagString: Untagged
@@ -678,6 +679,7 @@ MonoBehaviour:
   animationsManager: {fileID: 724360680}
   compareSystem: {fileID: 724360683}
   timerContainer: {fileID: 1741193101}
+  startRoundSystem: {fileID: 0}
   textTimer: {fileID: 1958443283}
   textManager: {fileID: 724360677}
   imgFiller: {fileID: 1741193102}
@@ -753,7 +755,7 @@ MonoBehaviour:
   setQuestSystem: {fileID: 724360682}
   textManager: {fileID: 724360677}
   timerManager: {fileID: 724360676}
-  logicQuestSystem: {fileID: 0}
+  logicQuestSystem: {fileID: 724360684}
   compareSystem: {fileID: 724360683}
   currentRound: 0
 --- !u!114 &724360682
@@ -773,6 +775,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
   - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
   questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
+  mouseController: {fileID: 0}
   textQuest: {fileID: 934768123}
   imageItem:
   - {fileID: 1849707309}
@@ -823,6 +826,18 @@ MonoBehaviour:
   - {fileID: 43251880}
   - {fileID: 954657686}
   - {fileID: 768567270}
+--- !u!114 &724360685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724360674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6257b818609bd744bc409c50850d5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &768567268
 GameObject:
   m_ObjectHideFlags: 0

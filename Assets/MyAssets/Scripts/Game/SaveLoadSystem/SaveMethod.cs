@@ -5,7 +5,6 @@ public class SaveMethod : MonoBehaviour
     [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystem levelSystem;
     [SerializeField] TextGralController textGralController;
-    [SerializeField] TextCount textCount;
     [SerializeField] DeadPlayer deadPlayer;
     [SerializeField] Button btnSave;
     [SerializeField] bool enableBtnSave;
@@ -13,7 +12,6 @@ public class SaveMethod : MonoBehaviour
     void Awake()
     {
         btnSave.onClick.AddListener(MyButtonSave);
-        textCount = FindObjectOfType<TextCount>();
         textGralController = FindObjectOfType<TextGralController>();
         levelSystem = FindObjectOfType<LevelSystem>();
         deadPlayer = FindObjectOfType<DeadPlayer>();

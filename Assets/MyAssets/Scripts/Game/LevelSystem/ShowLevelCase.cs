@@ -78,10 +78,12 @@ public class ShowLevelCase : MonoBehaviour
                 showLevelSystem.PlataformGoTo(true);
                 showLevelSystem.SaveLevel();
                 break;
+                /*
             case 13:
                 showLevelSystem.LevelFight(5, null, false, 6);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
+                */
             default:
                 showLevelSystem.LevelDefault();
                 showLevelSystem.PlataformGoTo(false);
