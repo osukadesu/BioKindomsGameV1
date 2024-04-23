@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class ShowLevelCase : MonoBehaviour
 {
     [SerializeField] ShowLevelSystem showLevelSystem;
@@ -78,12 +79,9 @@ public class ShowLevelCase : MonoBehaviour
                 showLevelSystem.PlataformGoTo(true);
                 showLevelSystem.SaveLevel();
                 break;
-                /*
             case 13:
-                showLevelSystem.LevelFight(5, null, false, 6);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
+            SceneManager.LoadScene(2);
                 break;
-                */
             default:
                 showLevelSystem.LevelDefault();
                 showLevelSystem.PlataformGoTo(false);

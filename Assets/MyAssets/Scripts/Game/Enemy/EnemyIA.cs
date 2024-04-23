@@ -9,7 +9,6 @@ public class EnemyIA : MonoBehaviour
     public NavMeshAgent agent;
     public bool idle, timerotate;
     public Animator enemiAnim;
-
     void Update()
     {
         time += 1;
@@ -37,7 +36,7 @@ public class EnemyIA : MonoBehaviour
         {
             idle = false;
             agent.SetDestination(target.transform.position);
-            agent.speed = 2;
+            agent.speed = 1;
             StartCoroutine(EnemyAttack());
         }
         else

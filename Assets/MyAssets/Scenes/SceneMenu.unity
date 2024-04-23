@@ -5365,6 +5365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNewGame: 0
   isLoadGame: 0
+  isSavingGame: 0
 --- !u!82 &569722157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5863,7 +5864,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Bio kindoms Game
+  m_Text: Bio kinGame
 --- !u!222 &1086154673
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5910,7 +5911,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 155.99948}
-  m_SizeDelta: {x: 800, y: 150}
+  m_SizeDelta: {x: 700, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094148255
 MonoBehaviour:

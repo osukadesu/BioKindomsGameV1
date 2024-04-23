@@ -9,15 +9,15 @@ public class SavingController : MonoBehaviour
     void Awake()
     {
         menuController = FindObjectOfType<MenuController>();
-        saveMethod = FindObjectOfType<SaveMethod>();
-    }
-    void Start()
-    {
-        SavingBackground.SetActive(false);
+        saveMethod = FindObjectOfType<SaveMethod>(); 
         if (menuController.IsSavingGame)
         {
             StartCoroutine(SavingGame());
         }
+    }
+    void Start()
+    {
+        SavingBackground.SetActive(false);
     }
     IEnumerator SavingGame()
     {

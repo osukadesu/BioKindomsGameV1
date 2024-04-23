@@ -3,11 +3,11 @@ using UnityEngine.UI;
 public class ViewMenu : MonoBehaviour
 {
     [SerializeField] CanvasManager _canvasManager;
+    [SerializeField] MouseController mouseController;
     [SerializeField] Animator animTabView;
     [SerializeField] bool active;
     [SerializeField] Button btnClose;
     [SerializeField] protected Text messageText;
-    [SerializeField] MouseController mouseController;
     void Awake()
     {
         mouseController = FindObjectOfType<MouseController>();

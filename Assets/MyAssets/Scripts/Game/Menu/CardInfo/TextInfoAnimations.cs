@@ -4,6 +4,10 @@ public class TextInfoAnimations : MonoBehaviour
 {
     [SerializeField] Animator viewInfoText;
     [SerializeField] Text text3;
+    void Start()
+    {
+        text3.text = "Pág 1.";
+    }
     public void viewInfoText1()
     {
         viewInfoText.SetBool("intextinfo1", true);

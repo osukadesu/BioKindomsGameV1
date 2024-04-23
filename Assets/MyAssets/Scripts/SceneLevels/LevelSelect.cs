@@ -7,10 +7,11 @@ public class LevelSelect : MonoBehaviour
     [SerializeField] LevelController _levelController;
     [SerializeField] LevelAnimations levelAnimations;
     [SerializeField] LoadLevelSelect loadLevel;
-    [SerializeField] Button[] btnGoGameOrQuest;
     [SerializeField] LoadControllerLevelSelect loadLevelSelect;
     [SerializeField] MouseController mouseController;
     [SerializeField] EscapeLogicV2 escapeLogicV2;
+    [SerializeField] Button[] btnLevelSelect;
+    [SerializeField] bool questFinished;
     public int currentLevel, btnLevel;
     void Awake()
     {
@@ -20,6 +21,7 @@ public class LevelSelect : MonoBehaviour
     }
     void Start()
     {
+        questFinished = false;
         InitialButtons();
         escapeLogicV2.CanEscape = true;
         mouseController.MouseUnLock();
@@ -27,18 +29,18 @@ public class LevelSelect : MonoBehaviour
     }
     void InitialButtons()
     {
-        for (int i = 0; i < btnGoGameOrQuest.Length; i++)
+        for (int i = 0; i < btnLevelSelect.Length; i++)
         {
             switch (i)
             {
                 case 0:
-                    btnGoGameOrQuest[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(0));
+                    btnLevelSelect[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(0));
                     break;
                 case 1:
-                    btnGoGameOrQuest[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(0));
+                    btnLevelSelect[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(0));
                     break;
                 case 2:
-                    btnGoGameOrQuest[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(1));
+                    btnLevelSelect[i].onClick.AddListener(() => _levelController.ButtonGoGameOrQuest(1));
                     break;
             }
         }
@@ -75,9 +77,9 @@ public class LevelSelect : MonoBehaviour
     }
     void AllBtnFalse()
     {
-        for (int i = 1; i < btnGoGameOrQuest.Length; i++)
+        for (int i = 1; i < btnLevelSelect.Length; i++)
         {
-            btnGoGameOrQuest[i].enabled = false;
+            btnLevelSelect[i].enabled = false;
         }
     }
     public void Configure(LevelController levelController)
@@ -97,74 +99,87 @@ public class LevelSelect : MonoBehaviour
         switch (level)
         {
             case 1:
-                LevelAnimations(1, null, null, 0);
+                LevelAnimations(1, null, null, false);
                 break;
             case 2:
-                LevelAnimations(1, 0, null, 0);
+                LevelAnimations(1, 0, null, false);
                 break;
             case 3:
-                LevelAnimations(2, 0, 0, 0);
-                LevelAnimations(null, 1, null, 0);
+                LevelAnimations(2, 0, 0, false);
+                LevelAnimations(null, 1, null, false);
                 break;
             case 4:
-                LevelAnimations(2, 2, 0, 0);
+                LevelAnimations(2, 2, 0, false);
                 break;
             case 5:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
                 break;
             case 6:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
                 break;
             case 7:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
-                LevelAnimations(null, 4, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
+                LevelAnimations(null, 4, null, false);
                 break;
             case 8:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
-                LevelAnimations(null, 4, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
+                LevelAnimations(null, 4, null, false);
                 break;
             case 9:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
-                LevelAnimations(null, 4, null, 0);
-                LevelAnimations(null, 5, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
+                LevelAnimations(null, 4, null, false);
+                LevelAnimations(null, 5, null, false);
                 break;
             case 10:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
-                LevelAnimations(null, 4, null, 0);
-                LevelAnimations(null, 5, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
+                LevelAnimations(null, 4, null, false);
+                LevelAnimations(null, 5, null, false);
                 break;
             case 11:
-                LevelAnimations(2, 2, 0, 0);
-                LevelAnimations(null, 3, null, 0);
-                LevelAnimations(null, 4, null, 0);
-                LevelAnimations(null, 5, null, 0);
-                LevelAnimations(null, 6, null, 0);
+                LevelAnimations(2, 2, 0, false);
+                LevelAnimations(null, 3, null, false);
+                LevelAnimations(null, 4, null, false);
+                LevelAnimations(null, 5, null, false);
+                LevelAnimations(null, 6, null, false);
                 break;
             case 12:
-                LevelAnimations(2, null, 0, 0);
-                LevelAnimations(2, null, 1, 0);
-                LevelAnimations(3, null, 1, 1);
+                switch (questFinished)
+                {
+                    case true:
+                        LevelAnimations(2, null, 0, false);
+                        LevelAnimations(2, null, 1, false);
+                        LevelAnimations(3, null, 1, false);
+                        LevelAnimations(4, null, 1, true);
+                        levelAnimations.OtherAnims(4, "info");
+                        break;
+                    case false:
+                        LevelAnimations(2, null, 0, false);
+                        LevelAnimations(2, null, 1, false);
+                        LevelAnimations(3, null, 1, true);
+                        levelAnimations.OtherAnims(3, "quest");
+                        break;
+                }
                 break;
             default:
-                LevelAnimations(1, 0, null, 0);
+                LevelAnimations(1, 0, null, false);
                 break;
         }
         SetButtonStates();
     }
     void SetButtonStates()
     {
-        for (int i = 0; i < btnGoGameOrQuest.Length; i++)
+        for (int i = 0; i < btnLevelSelect.Length; i++)
         {
-            btnGoGameOrQuest[i].enabled = i == btnLevel - 1;
+            btnLevelSelect[i].enabled = i == btnLevel - 1;
         }
     }
-    void LevelAnimations(int? _btnLevel, int? _subLevel, int? _levelFinished, int? _version)
+    void LevelAnimations(int? _btnLevel, int? _subLevel, int? _levelFinished, bool _canRotate)
     {
         if (_btnLevel.HasValue)
         {
@@ -174,9 +189,15 @@ public class LevelSelect : MonoBehaviour
         {
             levelAnimations.SubLevel(_subLevel.Value);
         }
-        if (_levelFinished.HasValue && _version.HasValue)
+        if (_levelFinished.HasValue)
+        {
+            levelAnimations.LevelFinished(_levelFinished.Value, _canRotate);
+        }
+        /*
+         if (_levelFinished.HasValue && _version.HasValue)
         {
             levelAnimations.LevelFinished(_levelFinished.Value, _version.Value);
         }
+        */
     }
 }

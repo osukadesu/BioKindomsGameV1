@@ -4,13 +4,13 @@ public class InfoContent : MonoBehaviour
 {
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] InfoKindomData infoKindomData;
+    [SerializeField] TextInfoAnimations textInfoAnimations;
+    [SerializeField] CanvasManager _canvasManager;
     [SerializeField] GameObject objec3D;
     [SerializeField] Transform transform3D;
     [SerializeField] Text textName;
     [SerializeField] Text text2;
     [SerializeField] Text textInfo, textInfo2;
-    [SerializeField] TextInfoAnimations textInfoAnimations;
-    [SerializeField] CanvasManager _canvasManager;
     [SerializeField] Button btnInfoText1, btnInfoText2, btnBackInfo;
     [SerializeField] Button[] btnInfoKindom;
     void Awake()
