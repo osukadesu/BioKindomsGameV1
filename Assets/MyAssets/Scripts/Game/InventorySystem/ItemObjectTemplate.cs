@@ -42,7 +42,7 @@ public abstract class ItemObjectTemplate : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textMessage = "Presiona E para recoger " + "( " + referenceItem.itemName + " )";
+            textMessage = "Presiona E para guardar " + "( " + referenceItem.itemName + " )";
             textGralController.ShowText(textMessage);
             item = true;
             Debug.Log("In Enter");

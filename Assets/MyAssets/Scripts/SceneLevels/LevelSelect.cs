@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour
 {
     [SerializeField] LevelController _levelController;
+    [SerializeField] ScoreSystem scoreSystem;
     [SerializeField] LevelAnimations levelAnimations;
     [SerializeField] LoadLevelSelect loadLevel;
     [SerializeField] LoadControllerLevelSelect loadLevelSelect;
     [SerializeField] MouseController mouseController;
     [SerializeField] EscapeLogicV2 escapeLogicV2;
     [SerializeField] Button[] btnLevelSelect;
-    [SerializeField] bool questFinished;
     public int currentLevel, btnLevel;
     void Awake()
     {
@@ -21,7 +21,6 @@ public class LevelSelect : MonoBehaviour
     }
     void Start()
     {
-        questFinished = false;
         InitialButtons();
         escapeLogicV2.CanEscape = true;
         mouseController.MouseUnLock();
@@ -149,7 +148,7 @@ public class LevelSelect : MonoBehaviour
                 LevelAnimations(null, 6, null, false);
                 break;
             case 12:
-                switch (questFinished)
+                switch (scoreSystem.questFinished)
                 {
                     case true:
                         LevelAnimations(2, null, 0, false);

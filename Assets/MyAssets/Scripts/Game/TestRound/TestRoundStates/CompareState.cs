@@ -13,7 +13,8 @@ public class CompareState : QuestBaseState
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     void Start()
     {
-        score = 1;
+        idBtnSelect = 5;
+        score = 0;
     }
     public override void EnterState(QuestStateManager questStateManager)
     {
@@ -37,11 +38,17 @@ public class CompareState : QuestBaseState
         }
         else
         {
+            animationsManager.containerCardAnim.SetBool("containerCardHide", true);
             StartCoroutine(WinOrLoseMethod(1, "Incorrecto!"));
+            if (idBtnSelect == 5)
+            {
+                StartCoroutine(WinOrLoseMethod(1, "No seleccionaste!"));
+            }
         }
     }
     IEnumerator WinOrLoseMethod(int _scoreType, string _text)
     {
+        yield return new WaitForSeconds(.5f);
         if (roundState._currentRound > 5)
         {
             if (score > 2)
@@ -56,7 +63,7 @@ public class CompareState : QuestBaseState
             {
                 animationsManager.containerCardAnim.SetBool("containerCardHide", true);
                 yield return new WaitForSeconds(1f);
-                score = 1;
+                score = 0;
                 roundState._currentRound = 1;
                 yield return new WaitForSeconds(1f);
                 textManager.ShowText(1, "Has perdido!", "txtShow");
@@ -72,7 +79,9 @@ public class CompareState : QuestBaseState
             switch (_scoreType)
             {
                 case 0: score++; break;
-                case 1: score--; break;
+                case 1:
+                    if (score > 1) score--;
+                    break;
             }
             textManager.ShowText(1, _text, "txtShow");
             yield return new WaitForSeconds(2f);
