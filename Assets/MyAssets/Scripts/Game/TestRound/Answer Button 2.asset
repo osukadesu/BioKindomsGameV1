@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad372706f3ab34f90a491e8596fb24, type: 3}
   m_Name: Answer Button 2
   m_EditorClassIdentifier: 
-  idAnswer: 1
+  idAnswer: 2
   imageItem:
   - {fileID: 21300000, guid: d44fe9adcb009474d87f0373b47ae8bb, type: 3}
   - {fileID: 21300000, guid: a2f9baa6f73425646bd1474a857ad61a, type: 3}

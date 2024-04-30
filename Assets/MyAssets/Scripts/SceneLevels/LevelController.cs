@@ -2,9 +2,11 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [SerializeField] LevelSelect levelSelect;
+    [SerializeField] LearnedInfo learnedInfo;
     void Awake()
     {
         levelSelect.Configure(this);
+        learnedInfo = FindObjectOfType<LearnedInfo>();
     }
     public void ButtonGoGameOrQuest(int _value)
     {

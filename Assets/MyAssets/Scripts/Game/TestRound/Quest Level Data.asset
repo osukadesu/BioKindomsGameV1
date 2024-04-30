@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1de9df012a4584dbd04972bff07838, type: 3}
   m_Name: Quest Level Data
   m_EditorClassIdentifier: 
-  idQuest: 0000000001000000
+  idQuest: 0000000001000000020000000300000004000000
   texQuest:
-  - 'Selecciona al animal que puede nadar y respirar en el agua: '
-  - 'Selecciona al animal de tipo invertebrado:'
+  - Selecciona al animal que puede nadar y respirar en el agua.
+  - 'Selecciona al animal que pertenece a la clase: Molusco.'
+  - Selecciona al animal de tipo invertebrado y clase insecto.
+  - 'Selecciona al animal que pertenece a la clase: Ave.'
+  - 'Selecciona al animal que pertenece a la clase: Reptil.'
   imageKindom:
   - {fileID: 21300000, guid: 3c632dcaf8110a94697bec99f88c0ca0, type: 3}

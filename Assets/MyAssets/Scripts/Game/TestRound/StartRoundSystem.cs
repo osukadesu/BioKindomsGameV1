@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class StartRoundSystem : MonoBehaviour
 {
-    [SerializeField] QuestLevel questLevel;
+    //[SerializeField] QuestLevel questLevel;
     [SerializeField] SetQuestSystem setQuestSystem;
     [SerializeField] TextManager textManager;
     [SerializeField] TimerManager timerManager;
@@ -12,7 +12,7 @@ public class StartRoundSystem : MonoBehaviour
     public int _CurrentRound { get => currentRound; set => currentRound = value; }
     void Awake()
     {
-        questLevel = FindObjectOfType<QuestLevel>();
+        //questLevel = FindObjectOfType<QuestLevel>();
         setQuestSystem = FindObjectOfType<SetQuestSystem>();
         compareSystem = FindObjectOfType<CompareSystem>();
         timerManager = FindObjectOfType<TimerManager>();
@@ -25,7 +25,7 @@ public class StartRoundSystem : MonoBehaviour
     }
     public void StartQuest(float _timeToCompare, float _timemethod, float _timeNotSelect1, float _timeNotSelect2)
     {
-        setQuestSystem.SetCase(questLevel.CaseValue/*0*/);
+        setQuestSystem.SetCase(0/*questLevel.CaseValue*/);
         logicQuestSystem.ResetUCS();
         compareSystem._startGame = true;
         timerManager._TimerForMethod = _timemethod;

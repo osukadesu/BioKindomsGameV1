@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &724360676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -679,7 +679,6 @@ MonoBehaviour:
   animationsManager: {fileID: 724360680}
   compareSystem: {fileID: 724360683}
   timerContainer: {fileID: 1741193101}
-  startRoundSystem: {fileID: 0}
   textTimer: {fileID: 1958443283}
   textManager: {fileID: 724360677}
   imgFiller: {fileID: 1741193102}
@@ -731,13 +730,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f38a48cef191634f96117e474589ef0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  compareState: {fileID: 0}
   cardSelects:
   - {fileID: 43251881}
   - {fileID: 954657687}
   - {fileID: 768567271}
   containerCardAnim: {fileID: 1938540687}
   timerAnim: {fileID: 1741193103}
-  compareSystem: {fileID: 724360683}
   btnPressed: 000000
 --- !u!114 &724360681
 MonoBehaviour:
@@ -751,7 +750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c17e27b248b3d9e429d6eb74916c52b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 0}
   setQuestSystem: {fileID: 724360682}
   textManager: {fileID: 724360677}
   timerManager: {fileID: 724360676}
@@ -770,12 +768,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c617ea5590d33bf4fae812321d9c936b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerButtonDatas:
-  - {fileID: 11400000, guid: 812d0cc92db129940ac1e3cd702c9c5a, type: 2}
-  - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
-  - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
+  answerButtonDatas: []
   questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
-  mouseController: {fileID: 0}
   textQuest: {fileID: 934768123}
   imageItem:
   - {fileID: 1849707309}
@@ -821,7 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationsManager: {fileID: 724360680}
-  compareSystem: {fileID: 724360683}
+  setQuestSystem: {fileID: 0}
   btnCardSelects:
   - {fileID: 43251880}
   - {fileID: 954657686}
@@ -1594,6 +1588,214 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417119736}
   m_CullTransparentMesh: 1
+--- !u!1 &1504035618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1504035625}
+  - component: {fileID: 1504035619}
+  - component: {fileID: 1504035627}
+  - component: {fileID: 1504035626}
+  - component: {fileID: 1504035628}
+  - component: {fileID: 1504035624}
+  - component: {fileID: 1504035623}
+  - component: {fileID: 1504035622}
+  - component: {fileID: 1504035621}
+  - component: {fileID: 1504035629}
+  m_Layer: 0
+  m_Name: TestRoundSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1504035619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c31afb887cca11c4a8a8466b4adee589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textRoundInfo: {fileID: 305689372}
+  textRoundInfoAnim: {fileID: 305689371}
+  textPosition: {fileID: 305689370}
+  textPositionInit: {fileID: 276236073}
+  textPositionEnd: {fileID: 1590019389}
+--- !u!114 &1504035621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c180075afc134af4ab12bfdb8d67606c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setQuestSystem: {fileID: 1504035627}
+  animationsManager: {fileID: 1504035628}
+  roundState: {fileID: 1504035623}
+  textManager: {fileID: 1504035619}
+  timerContent: {fileID: 1967231029}
+  questContent: {fileID: 1417119736}
+  cardContent: {fileID: 1938540685}
+  idBtnSelect: 0
+  score: 0
+  resetGame: 0
+--- !u!114 &1504035622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3dfa262d96cef84f8576d3773d3ed15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationsManager: {fileID: 1504035628}
+  roundState: {fileID: 1504035623}
+  timerContainer: {fileID: 1741193101}
+  textTimer: {fileID: 1958443283}
+  imgFiller: {fileID: 1741193102}
+  fillMax: 0
+  timer: 0
+  currentFill: 0
+--- !u!114 &1504035623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483697938838f72479bb324e22595e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textManager: {fileID: 1504035619}
+  setQuestSystem: {fileID: 1504035627}
+  logicQuestSystem: {fileID: 1504035626}
+  compareState: {fileID: 1504035621}
+  currentRound: 0
+  startGame: 0
+--- !u!114 &1504035624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e26dc8cc045f0b64b85b953b1ad80e36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roundState: {fileID: 1504035623}
+  timerState: {fileID: 1504035622}
+  compareState: {fileID: 1504035621}
+--- !u!4 &1504035625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1504035626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be961a55e46a2c49a311f42c45374ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationsManager: {fileID: 724360680}
+  setQuestSystem: {fileID: 1504035627}
+  btnCardSelects:
+  - {fileID: 43251880}
+  - {fileID: 954657686}
+  - {fileID: 768567270}
+--- !u!114 &1504035627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c617ea5590d33bf4fae812321d9c936b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerButtonDatas:
+  - {fileID: 11400000, guid: 812d0cc92db129940ac1e3cd702c9c5a, type: 2}
+  - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
+  - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
+  questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
+  textQuest: {fileID: 934768123}
+  imageItem:
+  - {fileID: 1849707309}
+  - {fileID: 1407378264}
+  - {fileID: 1614898629}
+  imageKindom: {fileID: 948079314}
+  random: 0
+  idButton: 000000000000000000000000
+  idQuest: 0000000001000000020000000300000004000000
+--- !u!114 &1504035628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f38a48cef191634f96117e474589ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareState: {fileID: 1504035621}
+  cardSelects:
+  - {fileID: 43251881}
+  - {fileID: 954657687}
+  - {fileID: 768567271}
+  containerCardAnim: {fileID: 1938540687}
+  timerAnim: {fileID: 1741193103}
+  btnPressed: 000000
+--- !u!114 &1504035629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6257b818609bd744bc409c50850d5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1505316935
 GameObject:
   m_ObjectHideFlags: 0

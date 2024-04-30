@@ -1,14 +1,10 @@
 using UnityEngine;
 public class AnimationsManager : MonoBehaviour
 {
+    [SerializeField] CompareState compareState;
     [SerializeField] Animator[] cardSelects;
-    [SerializeField] Animator containerCardAnim, timerAnim;
-    [SerializeField] CompareSystem compareSystem;
+    [SerializeField] protected internal Animator containerCardAnim, timerAnim;
     [SerializeField] protected internal bool[] btnPressed = { false, false, false };
-    void Awake()
-    {
-        compareSystem = FindObjectOfType<CompareSystem>();
-    }
     void Start()
     {
         BtnLogicFalse();
@@ -24,10 +20,10 @@ public class AnimationsManager : MonoBehaviour
         }
         containerCardAnim.SetBool("containerCardHide", false);
     }
-    protected internal void SetAnimations(int _index, string _nameAnim)
+    protected internal void SetAnimations(int _index, int _index2, string _nameAnim)
     {
-        btnPressed[_index] = true;
-        compareSystem._idBtnSelect = _index;
+        btnPressed[_index2] = true;
+        compareState._idBtnSelect = _index;
         AnimationButtons(_nameAnim, true);
         containerCardAnim.SetBool("containerCardHide", true);
     }
