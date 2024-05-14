@@ -5327,8 +5327,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 569722155}
-  - component: {fileID: 569722156}
   - component: {fileID: 569722157}
+  - component: {fileID: 569722158}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -5351,21 +5351,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &569722156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569722151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af49c13b57382e240b57605c1e2cebfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isNewGame: 0
-  isLoadGame: 0
-  isSavingGame: 0
 --- !u!82 &569722157
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5462,6 +5447,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &569722158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569722151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b104f8cc0f7af15479f0bc7874908804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isNewGame: 0
+  isLoadGame: 0
+  isSavingGame: 0
+  isInfo: 0
+  btnId: 0
 --- !u!1 &603259643
 GameObject:
   m_ObjectHideFlags: 0
@@ -6823,7 +6825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnLoadGame: {fileID: 274982061}
-  menuController: {fileID: 569722156}
+  menuController: {fileID: 569722158}
   verticalLayoutGroup: {fileID: 1599157837}
 --- !u!4 &1986926668
 Transform:

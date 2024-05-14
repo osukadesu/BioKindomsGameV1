@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CompareState : QuestBaseState
 {
+    [SerializeField] SaveScoreMethod saveScoreMethod;
     [SerializeField] AnimationsManager animationsManager;
     [SerializeField] SetQuestSystem setQuestSystem;
     [SerializeField] RoundState roundState;
@@ -11,10 +12,12 @@ public class CompareState : QuestBaseState
     [SerializeField] bool resetGame;
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
+    public int _score { get => score; set => score = value; }
+
     void Start()
     {
         idBtnSelect = 5;
-        score = 0;
+        //score = 0;
     }
     public override void EnterState(QuestStateManager questStateManager)
     {
@@ -56,6 +59,8 @@ public class CompareState : QuestBaseState
                 textManager.ShowText(1, "Has ganado el juego!", "txtShow");
                 yield return new WaitForSeconds(4f);
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
+                yield return new WaitForSeconds(2f);
+                saveScoreMethod.SavingScore();
                 yield return new WaitForSeconds(2f);
                 SceneManager.LoadScene(2);
             }

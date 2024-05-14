@@ -47,7 +47,8 @@ public class LevelSelect : MonoBehaviour
     void ReadLevel()
     {
         string datapath = Application.persistentDataPath + "/level.data";
-        if (File.Exists(datapath))
+        string datapath2 = Application.persistentDataPath + "/score.data";
+        if (File.Exists(datapath) && File.Exists(datapath2))
         {
             loadLevel.GoLoadLevelSelect();
         }
@@ -59,7 +60,7 @@ public class LevelSelect : MonoBehaviour
             }
             else
             {
-                if (File.Exists(datapath) && !loadLevelSelect.LevelLoad)
+                if (File.Exists(datapath) && File.Exists(datapath2) && !loadLevelSelect.LevelLoad)
                 {
                     loadLevel.GoLoadLevelSelect();
                 }
@@ -148,22 +149,10 @@ public class LevelSelect : MonoBehaviour
                 LevelAnimations(null, 6, null, false);
                 break;
             case 12:
-                switch (scoreSystem.questFinished)
-                {
-                    case true:
-                        LevelAnimations(2, null, 0, false);
-                        LevelAnimations(2, null, 1, false);
-                        LevelAnimations(3, null, 1, false);
-                        LevelAnimations(4, null, 1, true);
-                        levelAnimations.OtherAnims(4, "info");
-                        break;
-                    case false:
-                        LevelAnimations(2, null, 0, false);
-                        LevelAnimations(2, null, 1, false);
-                        LevelAnimations(3, null, 1, true);
-                        levelAnimations.OtherAnims(3, "quest");
-                        break;
-                }
+                LevelAnimations(2, null, 0, false);
+                LevelAnimations(2, null, 1, false);
+                LevelAnimations(3, null, 1, true);
+                levelAnimations.OtherAnims(3, "quest");
                 break;
             default:
                 LevelAnimations(1, 0, null, false);

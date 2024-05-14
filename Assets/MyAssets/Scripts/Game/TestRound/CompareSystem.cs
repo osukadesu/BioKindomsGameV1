@@ -13,6 +13,7 @@ public class CompareSystem : MonoBehaviour
     public bool _startGame { get => startGame; set => startGame = value; }
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _gameFinished { get => gameFinished; set => gameFinished = value; }
+    public int _score { get => score; set => score = value; }
     void Awake()
     {
         startRoundSystem = FindObjectOfType<StartRoundSystem>();

@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class LoadLevelSelect : MonoBehaviour
 {
     [SerializeField] LevelSelect levelSelect;
+    [SerializeField] Text txtScoreValue;
     void Awake()
     {
         levelSelect = FindObjectOfType<LevelSelect>();
@@ -15,11 +17,18 @@ public class LoadLevelSelect : MonoBehaviour
     {
         PlayerData playerData = SaveAndLoadManager.LoadDataGame();
         SettingLevelsSelect(playerData);
+        ScoreData scoreData = SaveScoreData.LoadScore();
+        txtScoreValue.text = scoreData.scoreValue.ToString();
+        Debug.Log("score load: " + scoreData.scoreValue);
+
     }
     protected internal void GoLoadLevelSelect()
     {
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
         SettingLevelsSelect(playerData);
+        ScoreData scoreData = SaveScoreData.LoadScore();
+        txtScoreValue.text = scoreData.scoreValue.ToString();
+        Debug.Log("score load: " + scoreData.scoreValue);
     }
     protected internal void SettingLevelsSelect(PlayerData playerData)
     {

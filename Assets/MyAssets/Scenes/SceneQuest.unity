@@ -1606,6 +1606,7 @@ GameObject:
   - component: {fileID: 1504035622}
   - component: {fileID: 1504035621}
   - component: {fileID: 1504035629}
+  - component: {fileID: 1504035630}
   m_Layer: 0
   m_Name: TestRoundSystem
   m_TagString: Untagged
@@ -1642,13 +1643,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c180075afc134af4ab12bfdb8d67606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setQuestSystem: {fileID: 1504035627}
+  saveScoreMethod: {fileID: 1504035630}
   animationsManager: {fileID: 1504035628}
+  setQuestSystem: {fileID: 1504035627}
   roundState: {fileID: 1504035623}
   textManager: {fileID: 1504035619}
-  timerContent: {fileID: 1967231029}
-  questContent: {fileID: 1417119736}
-  cardContent: {fileID: 1938540685}
   idBtnSelect: 0
   score: 0
   resetGame: 0
@@ -1796,6 +1795,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6257b818609bd744bc409c50850d5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1504035630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f20ea2b0c8c9549be0ac249fc7dae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareState: {fileID: 1504035621}
 --- !u!1 &1505316935
 GameObject:
   m_ObjectHideFlags: 0

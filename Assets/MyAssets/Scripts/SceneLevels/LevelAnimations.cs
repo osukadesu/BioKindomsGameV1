@@ -5,7 +5,7 @@ public class LevelAnimations : MonoBehaviour
 {
     [SerializeField] Button[] btnKindom;
     [SerializeField] Animator[] imgCheckUnlock, subUnlock, imageHide, txtUnlock, imgCompleteUnlock, txtHide, imgKindom, imgUnlock, imgHide2, btnCardRotate;
-    [SerializeField] Animator imgInfo, imgQuest, btnInfo, btnQuest;
+    [SerializeField] Animator imgQuest, btnQuest;
     public void SubLevel(int _SubLevelIndex)
     {
         subUnlock[_SubLevelIndex].SetBool("subunlock", true);
@@ -64,8 +64,6 @@ public class LevelAnimations : MonoBehaviour
                 imgQuest.SetBool("imgkindomunlock", true);
                 break;
             case "info":
-                btnInfo.SetBool("questShow", true);
-                imgInfo.SetBool("imgkindomunlock", true);
                 btnQuest.SetBool("questShow", false);
                 imgQuest.SetBool("imgkindomunlock", false);
                 break;
