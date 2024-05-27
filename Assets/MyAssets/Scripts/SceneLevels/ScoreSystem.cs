@@ -11,11 +11,6 @@ public class ScoreSystem : MonoBehaviour
     {
         btnInfoGo.onClick.AddListener(() => GoInfo());
     }
-    void Start()
-    {
-        finalScore = 0;
-        txtFinalScore.text = "P.F";
-    }
     void GoInfo()
     {
         SceneManager.LoadScene(5);

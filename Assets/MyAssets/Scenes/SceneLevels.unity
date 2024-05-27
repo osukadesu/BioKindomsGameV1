@@ -3899,7 +3899,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1354857136}
   m_Direction: 0
   m_Value: -0.00000010172526
-  m_Size: 0.5862064
+  m_Size: 0.58618885
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7779,7 +7779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Turorial
+  m_Text: Tutorial
 --- !u!222 &986914784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7829,7 +7829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -849.99994, y: 252}
+  m_AnchoredPosition: {x: -849.9999, y: 252}
   m_SizeDelta: {x: 0, y: 504}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1020500775
@@ -15195,7 +15195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnInfoGo: {fileID: 1234165552}
-  txtFinalScore: {fileID: 642433197}
+  txtFinalScore: {fileID: 1240297404}
   finalScore: 0
   questFinished: 0
 --- !u!114 &1895137106

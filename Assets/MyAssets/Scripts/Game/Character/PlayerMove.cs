@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
-        moveDirection = new(horizontalMove, 0, verticalMove);
+        moveDirection = new( -verticalMove, 0, horizontalMove);
         moveDirection.Normalize();
         transform.position = transform.position + moveDirection * playerSpeed * Time.deltaTime;
         if (moveDirection != Vector3.zero) transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), rotationSpeed);

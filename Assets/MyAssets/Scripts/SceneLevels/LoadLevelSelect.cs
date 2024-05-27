@@ -4,6 +4,7 @@ public class LoadLevelSelect : MonoBehaviour
 {
     [SerializeField] LevelSelect levelSelect;
     [SerializeField] Text txtScoreValue;
+    int num = 0;
     void Awake()
     {
         levelSelect = FindObjectOfType<LevelSelect>();
@@ -12,6 +13,7 @@ public class LoadLevelSelect : MonoBehaviour
     {
         levelSelect.currentLevel = 1;
         levelSelect.ShowLevel(levelSelect.currentLevel);
+        txtScoreValue.text = num.ToString();
     }
     protected internal void GoLoadGame()
     {
