@@ -89,7 +89,7 @@ public class DeadEnemy : DeadManager
         if (lifeControllerEnemy[_lifeControllerEnemyIndex].currentLife <= 0)
         {
             shootLogic.canShoot = false;
-            alertModalManager.AlertInfo("Bien hecho lo has derrotado guarda la moneda y ve al siguiente nivel!");
+            alertModalManager.AlertInfo("Bien hecho lo has derrotado guarda la relíquia!");
             WinMethodSwitch(levelSystem.CurrentLevel);
             StartCoroutine(ResetEnemy());
         }

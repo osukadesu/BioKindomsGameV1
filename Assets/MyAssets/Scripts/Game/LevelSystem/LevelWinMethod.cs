@@ -36,7 +36,7 @@ public class LevelWinMethod : MonoBehaviour
     }
     IEnumerator TabAlert()
     {
-        yield return new WaitForSeconds(2f);
-        alertModalManager.AlertInfo("Presiona la tecla TAB para acceder al menú y ver tu inventario.");
+        yield return new WaitForSeconds(4f);
+        alertModalManager.AlertInfo("Presiona la tecla TAB para ver el inventario.");
     }
 }

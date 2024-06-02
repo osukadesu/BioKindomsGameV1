@@ -51,20 +51,22 @@ public class ShowLevelSystem : MonoBehaviour
     IEnumerator LevelTutorialCoroutine()
     {
         mouseController.MouseUnLock();
-        alertModalManager.AlertInfo("¡Hola bienvenido a BioKindomsGame aprendamos mientras nos divertimos!");
-        yield return new WaitForSeconds(.7f);
+        alertModalManager.AlertInfo("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!");
+        yield return new WaitForSeconds(1.5f);
         mouseController.MouseUnLock();
-        alertModalManager.AlertInfo("¡Presiona [ W, A, S, D ] y avanza al siguiente nivel!");
+        alertModalManager.AlertModal2(true);
+        yield return new WaitForSeconds(7f);
+        alertModalManager.AlertModal2(false);
     }
-    protected internal void LevelPlataforms(int _nextLevel, string _alertInfo, bool _needAlert)
+    protected internal void LevelPlataforms(int _nextLevel, int sCIEA)
     {
         SetLevel(1, false);
         isNextLevel = true;
         nextLevel.NextLevelMethod(_nextLevel, true, "nextLevelShow", true);
-        SwitchAlertInfo(_alertInfo, _needAlert);
+        SCIEAlerts(sCIEA);
         saveMethod._EnableBtnSave = true;
     }
-    protected internal void LevelFight(int _idenxItems, string _alertInfo, bool _needAlert, int _nextLevel)
+    protected internal void LevelFight(int _idenxItems, int sCIEA, int _nextLevel)
     {
         SetLevel(2, true);
         nextLevel.NextLevelMethod(_nextLevel, false, "nextLevelShow", false);
@@ -72,7 +74,7 @@ public class ShowLevelSystem : MonoBehaviour
         enemy[_idenxItems].SetActive(true);
         money[_idenxItems].SetActive(false);
         pedestal.SetActive(false);
-        SwitchAlertInfo(_alertInfo, _needAlert);
+        SCIEAlerts(sCIEA);
         saveMethod._EnableBtnSave = false;
     }
     void SetLevel(int _level, bool _canShoot)
@@ -110,6 +112,29 @@ public class ShowLevelSystem : MonoBehaviour
             case false:
                 plataformQuest.SetActive(false);
                 nextLevel.NextLevelMethod(7, false, "nextLevelShow", false);
+                break;
+        }
+    }
+    void SCIEAlerts(int ver)
+    {
+        StartCoroutine(IEAlerts(ver));
+    }
+    IEnumerator IEAlerts(int ver)
+    {
+        switch (ver)
+        {
+            case 0:
+                Debug.Log("Nothing");
+                break;
+            case 1:
+                alertModalManager.AlertModal3(true);
+                yield return new WaitForSeconds(7f);
+                alertModalManager.AlertModal3(false);
+                break;
+            case 2:
+                alertModalManager.AlertModal4(true);
+                yield return new WaitForSeconds(7f);
+                alertModalManager.AlertModal4(false);
                 break;
         }
     }

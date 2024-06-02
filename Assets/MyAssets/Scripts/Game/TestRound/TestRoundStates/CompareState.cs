@@ -17,7 +17,7 @@ public class CompareState : QuestBaseState
     void Start()
     {
         idBtnSelect = 5;
-        //score = 0;
+        score = 5;
     }
     public override void EnterState(QuestStateManager questStateManager)
     {
@@ -42,15 +42,26 @@ public class CompareState : QuestBaseState
         else
         {
             animationsManager.containerCardAnim.SetBool("containerCardHide", true);
-            StartCoroutine(WinOrLoseMethod(1, "Incorrecto!"));
             if (idBtnSelect == 5)
             {
                 StartCoroutine(WinOrLoseMethod(1, "No seleccionaste!"));
+            }
+            else
+            {
+                StartCoroutine(WinOrLoseMethod(1, "Incorrecto!"));
             }
         }
     }
     IEnumerator WinOrLoseMethod(int _scoreType, string _text)
     {
+        if (_scoreType == 0 && score < 5)
+        {
+            score++;
+        }
+        else if (_scoreType == 1 && score > 1)
+        {
+            score--;
+        }
         yield return new WaitForSeconds(.5f);
         if (roundState._currentRound > 5)
         {
@@ -68,26 +79,19 @@ public class CompareState : QuestBaseState
             {
                 animationsManager.containerCardAnim.SetBool("containerCardHide", true);
                 yield return new WaitForSeconds(1f);
-                score = 0;
                 roundState._currentRound = 1;
                 yield return new WaitForSeconds(1f);
                 textManager.ShowText(1, "Has perdido!", "txtShow");
                 yield return new WaitForSeconds(4f);
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
-                resetGame = true;
-                animationsManager.containerCardAnim.SetBool("containerCardHide", false);
+                saveScoreMethod.SavingScore();
+                yield return new WaitForSeconds(2f);
+                SceneManager.LoadScene(2);
             }
         }
         else
         {
-            switch (_scoreType)
-            {
-                case 0: score++; break;
-                case 1:
-                    if (score > 1) score--;
-                    break;
-            }
             textManager.ShowText(1, _text, "txtShow");
             yield return new WaitForSeconds(2f);
             resetGame = true;
