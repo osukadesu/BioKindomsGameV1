@@ -1,9 +1,14 @@
 using UnityEngine;
 public class CameraView : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    void Update()
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float smoothSpeed = 0.125f;
+    [SerializeField] Vector3 offset;
+
+    void LateUpdate()
     {
-        transform.position = target.transform.position + new Vector3(40f, 21f, 4f);
+        Vector3 desiredPosition = playerTransform.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
     }
 }

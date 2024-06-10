@@ -6117,7 +6117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Opciones
+  m_Text: Mi perfil
 --- !u!222 &1242098805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6856,7 +6856,7 @@ GameObject:
   - component: {fileID: 2019837070}
   - component: {fileID: 2019837073}
   m_Layer: 5
-  m_Name: BtnOptions
+  m_Name: BtnProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6929,7 +6929,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1986926667}
         m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
-        m_MethodName: ButtonOptions
+        m_MethodName: ButtonProfile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

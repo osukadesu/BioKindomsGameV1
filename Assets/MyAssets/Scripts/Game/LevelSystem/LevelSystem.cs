@@ -17,11 +17,11 @@ public class LevelSystem : MonoBehaviour
         showLevelCase = FindObjectOfType<ShowLevelCase>();
         escapeLogicV1 = FindObjectOfType<EscapeLogicV1>();
         escapeLogicV1.CanEscape = true;
+        ReadLevel();
     }
     void Start()
     {
         ElementsHide();
-        ReadLevel();
     }
     void ElementsHide()
     {

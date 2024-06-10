@@ -5,12 +5,10 @@ public class LoadControllerGame : LoadControllerTemplate
         if (menuController.IsNewGame)
         {
             levelLoad = false;
-            //loadGame.GoNew();
         }
         if (menuController.IsLoadGame)
         {
             levelLoad = true;
-            //loadGame.GoLoad();
         }
     }
 }

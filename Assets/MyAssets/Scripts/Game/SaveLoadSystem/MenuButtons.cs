@@ -17,16 +17,16 @@ public class MenuButtons : MonoBehaviour
     public void ButtonNewGame()
     {
         menuController.IsNewGame = true;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
     public void ButtonLoadGame()
     {
         menuController.IsLoadGame = true;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
-    public void ButtonOptions()
+    public void ButtonProfile()
     {
-        //despues. 
+        SceneManager.LoadScene(2);
     }
     public void ButtonExit()
     {

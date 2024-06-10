@@ -18,13 +18,13 @@ public class LevelSelect : MonoBehaviour
         escapeLogicV2 = FindObjectOfType<EscapeLogicV2>();
         mouseController = FindObjectOfType<MouseController>();
         loadLevel = FindObjectOfType<LoadLevelSelect>();
+        ReadLevel();
     }
     void Start()
     {
         InitialButtons();
         escapeLogicV2.CanEscape = true;
         mouseController.MouseUnLock();
-        ReadLevel();
     }
     void InitialButtons()
     {
@@ -46,9 +46,13 @@ public class LevelSelect : MonoBehaviour
     }
     void ReadLevel()
     {
-        string datapath = Application.persistentDataPath + "/level.data";
-        string datapath2 = Application.persistentDataPath + "/score.data";
-        if (File.Exists(datapath) && File.Exists(datapath2))
+        string leveldata = Application.persistentDataPath + "/level.data";
+        string scoredata = Application.persistentDataPath + "/score.data";
+        if (File.Exists(scoredata))
+        {
+            loadLevel.GLLSScore();
+        }
+        if (File.Exists(leveldata))
         {
             loadLevel.GoLoadLevelSelect();
         }
@@ -60,7 +64,7 @@ public class LevelSelect : MonoBehaviour
             }
             else
             {
-                if (File.Exists(datapath) && File.Exists(datapath2) && !loadLevelSelect.LevelLoad)
+                if (File.Exists(leveldata) && File.Exists(scoredata) && !loadLevelSelect.LevelLoad)
                 {
                     loadLevel.GoLoadLevelSelect();
                 }
@@ -96,6 +100,7 @@ public class LevelSelect : MonoBehaviour
     }
     public void ShowLevel(int level)
     {
+        Debug.Log("Level select: " + level);
         switch (level)
         {
             case 1:

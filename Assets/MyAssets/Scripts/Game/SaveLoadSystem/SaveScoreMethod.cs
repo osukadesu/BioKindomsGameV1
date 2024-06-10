@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class SaveScoreMethod : MonoBehaviour
 {
     [SerializeField] CompareState compareState;

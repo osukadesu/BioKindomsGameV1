@@ -28,6 +28,9 @@ public class LoadLevelSelect : MonoBehaviour
     {
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
         SettingLevelsSelect(playerData);
+    }
+    public void GLLSScore()
+    {
         ScoreData scoreData = SaveScoreData.LoadScore();
         txtScoreValue.text = scoreData.scoreValue.ToString();
         Debug.Log("score load: " + scoreData.scoreValue);

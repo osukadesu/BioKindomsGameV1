@@ -13,16 +13,6 @@ public static class SaveAndLoadManager
         Debug.Log("Save Level");
         fileStream.Close();
     }
-    public static void SaveForLevelGame(LevelSystem levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
-    {
-        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
-        string datapath = Application.persistentDataPath + "/levelgame.data";
-        FileStream fileStream = new(datapath, FileMode.Create);
-        BinaryFormatter binaryFormatter = new();
-        binaryFormatter.Serialize(fileStream, playerData);
-        Debug.Log("Save Level Game");
-        fileStream.Close();
-    }
     public static PlayerData LoadLevel()
     {
         string datapath = Application.persistentDataPath + "/level.data";
@@ -40,6 +30,16 @@ public static class SaveAndLoadManager
             Debug.LogError("Level is missing!");
             return null;
         }
+    }
+    public static void SaveForLevelGame(LevelSystem levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
+    {
+        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
+        string datapath = Application.persistentDataPath + "/levelgame.data";
+        FileStream fileStream = new(datapath, FileMode.Create);
+        BinaryFormatter binaryFormatter = new();
+        binaryFormatter.Serialize(fileStream, playerData);
+        Debug.Log("Save Level Game");
+        fileStream.Close();
     }
     public static PlayerData LoadLevelGame()
     {

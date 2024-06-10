@@ -1,5 +1,5 @@
 using System.IO;
-//using UnityEditor;
+using UnityEditor;
 using UnityEngine;
 public class MenuController : MonoBehaviour
 {
@@ -44,19 +44,19 @@ public class MenuController : MonoBehaviour
         if (!isNewGame && !isLoadGame && File.Exists(datapath))
         {
             File.Delete(Application.persistentDataPath + "/level.data");
-            //AssetDatabase.Refresh();
+            AssetDatabase.Refresh();
         }
         else Debug.Log("Not delete level.");
     }
     void DeleteV2()
     {
         string datapath = Application.persistentDataPath + "/levelgame.data";
-        if (!isNewGame && !isLoadGame && File.Exists(datapath))
+        if (!isNewGame && !isLoadGame && File.Exists(datapath) )
         {
             File.Delete(Application.persistentDataPath + "/levelgame.data");
-            //AssetDatabase.Refresh();
+            AssetDatabase.Refresh();
         }
-        else Debug.Log("Not delete level.");
+        else Debug.Log("Not delete levelgame.");
     }
     void MouseUnLock()
     {

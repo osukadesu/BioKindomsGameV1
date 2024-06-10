@@ -37,7 +37,7 @@ public class EscapeLogicV1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             mouseController.MouseUnLock();
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
     }
     void EscapeFromLevelSelect()

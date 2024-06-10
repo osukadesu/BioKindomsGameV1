@@ -1,7 +1,7 @@
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 3.5f, rotationSpeed = .25f, jumpValue = 4f, shootOffset = .5f;
+    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 4f, rotationSpeed = 200f, jumpValue = 4f, shootOffset = .5f;
     [SerializeField] Rigidbody playerRB;
     [SerializeField] Animator myAnim;
     [SerializeField] Vector3 moveDirection;
@@ -25,11 +25,16 @@ public class PlayerMove : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
-        moveDirection = new( -verticalMove, 0, horizontalMove);
+        transform.Rotate(0, horizontalMove * Time.deltaTime * rotationSpeed, 0);
+        transform.Translate(0, 0, verticalMove * Time.deltaTime * playerSpeed);
+        /*
+        moveDirection = new(horizontalMove, 0, verticalMove);
         moveDirection.Normalize();
         transform.position = transform.position + moveDirection * playerSpeed * Time.deltaTime;
         if (moveDirection != Vector3.zero) transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), rotationSpeed);
+        */
         AnimationsSett();
+        /*
         if (canJump)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -37,6 +42,7 @@ public class PlayerMove : MonoBehaviour
                 playerRB.AddForce(new(0, jumpValue, 0), ForceMode.Impulse);
             }
         }
+        */
     }
     void AnimationsSett()
     {

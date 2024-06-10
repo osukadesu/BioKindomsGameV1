@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/MyAssets/Scenes/SceneMenu.unity
     guid: 1344a42557396794fa4328d8f0c4c8ef
   - enabled: 1
-    path: Assets/MyAssets/Scenes/SceneLevels.unity
+    path: Assets/MyAssets/Scenes/SceneProfile.unity
     guid: 7c80e9c6506602b4b9d17306dcc78f7c
   - enabled: 1
+    path: Assets/MyAssets/Scenes/SceneGame 1.unity
+    guid: 96ac79417edde2d40ac46c5b347725b9
+  - enabled: 0
     path: Assets/MyAssets/Scenes/SceneGame.unity
     guid: b5d9b232345b962488ed678271dc51fb
   - enabled: 1
