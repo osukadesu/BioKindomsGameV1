@@ -1,34 +1,55 @@
 using UnityEngine;
-public class EstanteCol : MonoBehaviour
+using UnityEngine.SceneManagement;
+public class EstanteCol : EstanteColTemplate
 {
-    bool isRecovered;
-    string textMessage;
-    [SerializeField] protected TextGralController textInfo;
-    void Start()
+    bool isF, isG;
+    private void Awake()
     {
-        isRecovered = true;
+        if (isF)
+        {
+            levelSystemV2.ChangeLevel();
+        }
+        if (isG)
+        {
+            SceneManager.LoadScene(5);
+        }
+    }
+    void Update()
+    {
+        if (canpressF)
+        {
+            if (Input.GetKey(KeyCode.F))
+            {
+                isF = true;
+            }
+            isF = false;
+        }
+        if (canpressG)
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                isG = true;
+            }
+            isG = false;
+        }
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (isRecovered)
-            {
-                textMessage = "Presiona la tecla 'E' para ver la reliquia.";
-                textInfo.ShowText(textMessage);
-            }
-            else
-            {
-                textMessage = "Presiona la tecla 'F' y recupera la reliquia.";
-                textInfo.ShowText(textMessage);
-            }
-        }
+        WhenEnter(other);
     }
-    void OnTriggerExit(Collider other)
+    protected internal override void WhenEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textInfo.HideText();
+            if (referenceItem.itemIsCheck)
+            {
+                SetInfo(1); canpressG = true;
+            }
+            else
+            {
+                SetInfo(2); canpressF = true;
+            }
+            Debug.Log(canpressF);
         }
     }
 }

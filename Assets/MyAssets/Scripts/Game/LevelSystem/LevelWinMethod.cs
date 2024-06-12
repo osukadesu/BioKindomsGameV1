@@ -2,13 +2,13 @@ using UnityEngine;
 using System.Collections;
 public class LevelWinMethod : MonoBehaviour
 {
-    [SerializeField] ShowLevelSystem showLevelSystem;
+    [SerializeField] ShowLevelCaseV2 showLevelSystem;
     [SerializeField] ShootLogic shootLogic;
     [SerializeField] AlertModalManager alertModalManager;
     void Awake()
     {
         shootLogic = FindObjectOfType<ShootLogic>();
-        showLevelSystem = FindObjectOfType<ShowLevelSystem>();
+        showLevelSystem = FindObjectOfType<ShowLevelCaseV2>();
         alertModalManager = FindObjectOfType<AlertModalManager>();
     }
     protected internal void WinMethod(int _indexItems, bool _tabAlert)
@@ -26,7 +26,6 @@ public class LevelWinMethod : MonoBehaviour
                 StopCoroutine(TabAlert());
                 break;
         }
-
     }
     IEnumerator DestroyingEnemy(int _IEenemy)
     {

@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using System.Collections;
 public class AlertModalManager : MonoBehaviour
 {
-    [SerializeField] Text txtInfoAlert;
-    [SerializeField] Animator alertModalAnimator, alertModal2, alertModal3, alertModal4;
+    [SerializeField] Text txtInfoAlert, txtAlertNew;
+    [SerializeField] Animator alertModalAnimator, alertModalNew;
     [SerializeField] MouseController mouseController;
     [SerializeField] EscapeLogicV1 escapeLogicV1;
     [SerializeField] Button btnContinueAM;
+    [SerializeField] GameObject[] imgAlertNew;
     void Awake()
     {
         alertModalAnimator.SetBool("alertmodal", false);
-        alertModal2.SetBool("alertmodal", false);
         btnContinueAM.onClick.AddListener(CloseContinue);
         escapeLogicV1 = FindObjectOfType<EscapeLogicV1>();
     }
@@ -32,7 +32,7 @@ public class AlertModalManager : MonoBehaviour
         mouseController.MouseUnLock();
         alertModalAnimator.SetBool("alertmodal", true);
         ShowText(textAIM);
-        yield return new WaitForSecondsRealtime(.6f);
+        yield return new WaitForSecondsRealtime(.7f);
         PauseGame();
     }
     void ShowText(string textST)
@@ -50,14 +50,17 @@ public class AlertModalManager : MonoBehaviour
     }
     public void AlertModal2(bool mybool)
     {
-        alertModal2.SetBool("alertmodal", mybool);
     }
     public void AlertModal3(bool mybool)
     {
-        alertModal3.SetBool("alertmodal", mybool);
     }
     public void AlertModal4(bool mybool)
     {
-        alertModal4.SetBool("alertmodal", mybool);
+    }
+    public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg)
+    {
+        alertModalNew.SetBool("alertmodal", myBoolAnim);
+        txtAlertNew.text = myText;
+        imgAlertNew[indexImg].SetActive(myBoolImg);
     }
 }

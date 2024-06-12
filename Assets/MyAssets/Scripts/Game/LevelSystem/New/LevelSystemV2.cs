@@ -1,4 +1,3 @@
-using System.Collections;
 using System.IO;
 using UnityEngine;
 public class LevelSystemV2 : MonoBehaviour
@@ -18,6 +17,18 @@ public class LevelSystemV2 : MonoBehaviour
         currentLevel = 1;
         platformBase.SetActive(true);
         platformFight.SetActive(false);
+        ElementsHide();
+    }
+    void ElementsHide()
+    {
+        for (int i = 0; i < showLevelCaseV2.money.Length; i++)
+        {
+            showLevelCaseV2.money[i].SetActive(false);
+        }
+        for (int i = 0; i < showLevelCaseV2.enemy.Length; i++)
+        {
+            showLevelCaseV2.enemy[i].SetActive(false);
+        }
     }
     void ReadLevel()
     {

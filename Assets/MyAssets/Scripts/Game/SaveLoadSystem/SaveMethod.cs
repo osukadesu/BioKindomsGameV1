@@ -3,7 +3,7 @@ using UnityEngine.UI;
 public class SaveMethod : MonoBehaviour
 {
     [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
-    [SerializeField] LevelSystem levelSystem;
+    [SerializeField] LevelSystemV2 levelSystem;
     [SerializeField] TextGralController textGralController;
     [SerializeField] DeadPlayer deadPlayer;
     [SerializeField] Button btnSave;
@@ -13,7 +13,7 @@ public class SaveMethod : MonoBehaviour
     {
         btnSave.onClick.AddListener(MyButtonSave);
         textGralController = FindObjectOfType<TextGralController>();
-        levelSystem = FindObjectOfType<LevelSystem>();
+        levelSystem = FindObjectOfType<LevelSystemV2>();
         deadPlayer = FindObjectOfType<DeadPlayer>();
     }
     void Update()

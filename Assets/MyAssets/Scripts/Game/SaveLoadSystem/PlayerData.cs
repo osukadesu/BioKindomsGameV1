@@ -4,17 +4,17 @@ public class PlayerData
     public bool[] animal = new bool[5];
     public bool[] vegetal = new bool[5];
     public int currentLevelData;
-    public PlayerData(LevelSystem levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
+    public PlayerData(LevelSystemV2 levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
     {
         MappingLevels(levelSystem);
         MappingAnimals(inventoryItemDataV2);
         MappingVegetals(inventoryItemDataV2);
     }
-    public PlayerData(LevelSystem levelSystem)
+    public PlayerData(LevelSystemV2 levelSystem)
     {
         MappingLevels(levelSystem);
     }
-    void MappingLevels(LevelSystem levelSystem)
+    void MappingLevels(LevelSystemV2 levelSystem)
     {
         currentLevelData = levelSystem.CurrentLevel;
     }
