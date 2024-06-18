@@ -4,7 +4,7 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] PlayerMove playerMove;
     [SerializeField] protected internal ItemObject[] IOAS;
     [SerializeField] protected internal InventoryUI inventoryUIA;
-    [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
+    [SerializeField]  protected internal InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystemV2 levelSystem;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] Transform[] targetPlayerPosition;

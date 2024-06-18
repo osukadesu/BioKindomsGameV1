@@ -1,43 +1,32 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class EstanteCol : EstanteColTemplate
+public class EstanteCol : MonoBehaviour
 {
-    bool isF, isG;
-    private void Awake()
-    {
-        if (isF)
-        {
-            levelSystemV2.ChangeLevel();
-        }
-        if (isG)
-        {
-            SceneManager.LoadScene(5);
-        }
-    }
+    [SerializeField] LevelSystemV2 levelSystemV2;
+    [SerializeField] InventoryItemDataV2 referenceItem;
+    [SerializeField] TextGralController textInfo;
+    string textMessage;
+    public int id;
+    bool canpressG, canpressF;
     void Update()
     {
         if (canpressF)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                isF = true;
+                levelSystemV2.ChangeLevel();
             }
-            isF = false;
         }
         if (canpressG)
         {
-            if (Input.GetKey(KeyCode.G))
+            if (Input.GetKeyDown(KeyCode.G))
             {
-                isG = true;
+                SceneManager.LoadScene(5);
             }
-            isG = false;
         }
     }
     void OnTriggerEnter(Collider other)
-    {
-        WhenEnter(other);
-    }
-    protected internal override void WhenEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -49,7 +38,33 @@ public class EstanteCol : EstanteColTemplate
             {
                 SetInfo(2); canpressF = true;
             }
-            Debug.Log(canpressF);
         }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            textInfo.HideText(); canpressG = false; canpressF = false;
+        }
+    }
+    public void SetInfo(int value)
+    {
+        switch (value)
+        {
+            case 1:
+                textMessage = "Presiona la tecla 'G' para ver la reliquia.";
+                StartCoroutine(IETextShow(textMessage));
+                break;
+            case 2:
+                textMessage = "Presiona la tecla 'F' y recupera la reliquia.";
+                StartCoroutine(IETextShow(textMessage));
+                break;
+        }
+    }
+    IEnumerator IETextShow(string text)
+    {
+        textInfo.ShowText(text);
+        yield return new WaitForSeconds(4f);
+        textInfo.HideText();
     }
 }

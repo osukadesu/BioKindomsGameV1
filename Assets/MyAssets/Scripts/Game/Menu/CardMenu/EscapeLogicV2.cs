@@ -34,7 +34,7 @@ public class EscapeLogicV2 : MonoBehaviour
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 2:
-                    EscapeFromLevelSelect();
+                    EscapeFromProfile();
                     break;
                 case 3:
                     EscapeFromGame();
@@ -78,7 +78,7 @@ public class EscapeLogicV2 : MonoBehaviour
             SceneManager.LoadScene(2);
         }
     }
-    void EscapeFromLevelSelect()
+    void EscapeFromProfile()
     {
         string datapath = Application.persistentDataPath + "/player.data";
         if (Input.GetKeyDown(KeyCode.Escape) && !File.Exists(datapath))

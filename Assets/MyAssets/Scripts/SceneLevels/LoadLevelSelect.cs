@@ -22,7 +22,6 @@ public class LoadLevelSelect : MonoBehaviour
         ScoreData scoreData = SaveScoreData.LoadScore();
         txtScoreValue.text = scoreData.scoreValue.ToString();
         Debug.Log("score load: " + scoreData.scoreValue);
-
     }
     protected internal void GoLoadLevelSelect()
     {

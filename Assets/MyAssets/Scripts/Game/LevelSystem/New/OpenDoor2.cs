@@ -1,23 +1,19 @@
 using UnityEngine;
-public class OpenDoor : MonoBehaviour
+public class OpenDoor2 : MonoBehaviour
 {
-    [SerializeField] Animator doorAnim;
-    void Start()
-    {
-        doorAnim.SetBool("openDoor", false);
-    }
+    [SerializeField] Animator openDoorAnim;
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            doorAnim.SetBool("openDoor", true);
+            openDoorAnim.SetBool("openDoor", true);
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            doorAnim.SetBool("openDoor", false);
+            openDoorAnim.SetBool("openDoor", false);
         }
     }
 }

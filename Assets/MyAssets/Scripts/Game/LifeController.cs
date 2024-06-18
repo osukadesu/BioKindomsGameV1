@@ -7,7 +7,6 @@ public class LifeController : MonoBehaviour
     [SerializeField] protected internal float currentLife;
     [SerializeField] Image imgLife;
     [SerializeField] bool hit;
-    public float _CurrentLife { get => currentLife; set => currentLife = value; }
     void Start()
     {
         currentLife = maxLife;

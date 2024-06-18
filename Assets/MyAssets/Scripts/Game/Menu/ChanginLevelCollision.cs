@@ -3,11 +3,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ChanginLevelCollision : MonoBehaviour
 {
-    [SerializeField] LevelSystem levelSystem;
+    [SerializeField] LevelSystemV2 levelSystem;
     [SerializeField] QuestLevel questLevel;
     void Awake()
     {
-        levelSystem = FindObjectOfType<LevelSystem>();
+        levelSystem = FindObjectOfType<LevelSystemV2>();
         questLevel = FindObjectOfType<QuestLevel>();
     }
     void OnTriggerEnter(Collider other)

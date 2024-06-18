@@ -57,10 +57,11 @@ public class AlertModalManager : MonoBehaviour
     public void AlertModal4(bool mybool)
     {
     }
-    public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg)
+    public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg,int indexImg2, bool myBoolImg2)
     {
         alertModalNew.SetBool("alertmodal", myBoolAnim);
         txtAlertNew.text = myText;
         imgAlertNew[indexImg].SetActive(myBoolImg);
+        imgAlertNew[indexImg2].SetActive(myBoolImg2);
     }
 }

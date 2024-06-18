@@ -23,6 +23,8 @@ public class LearnedInfo : MonoBehaviour
     }
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         ShowContent();
     }
     void ButtonsOnclick()

@@ -14,7 +14,6 @@ public class LevelSystemV2 : MonoBehaviour
     }
     void Start()
     {
-        currentLevel = 1;
         platformBase.SetActive(true);
         platformFight.SetActive(false);
         ElementsHide();

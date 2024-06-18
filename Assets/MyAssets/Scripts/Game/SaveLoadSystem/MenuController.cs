@@ -18,7 +18,7 @@ public class MenuController : MonoBehaviour
         isLoadGame = false;
         isSavingGame = false;
         IsInfo = false;
-        DeleteLevelData();
+        //DeleteLevelData();
         MouseUnLock();
     }
     void Singleton()

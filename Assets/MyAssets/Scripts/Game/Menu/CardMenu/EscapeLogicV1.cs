@@ -22,7 +22,7 @@ public class EscapeLogicV1 : MonoBehaviour
             switch (SceneManager.GetActiveScene().buildIndex)
             {
                 case 2:
-                    EscapeFromLevelSelect();
+                    EscapeFromProfile();
                     break;
                 case 3:
                     EscapeFromGame();
@@ -37,10 +37,10 @@ public class EscapeLogicV1 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             mouseController.MouseUnLock();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
-    void EscapeFromLevelSelect()
+    void EscapeFromProfile()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
