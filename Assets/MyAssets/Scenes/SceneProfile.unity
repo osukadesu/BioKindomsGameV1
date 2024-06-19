@@ -17004,7 +17004,7 @@ GameObject:
   - component: {fileID: 1498058864}
   - component: {fileID: 1498058865}
   m_Layer: 0
-  m_Name: LoadController
+  m_Name: LoadControllerProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17034,7 +17034,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1498058862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f40fbcd1785e84fa603881698b8daf, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d948217768b3cb488a35c4e31f444ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 0}
@@ -19049,7 +19049,7 @@ GameObject:
   - component: {fileID: 1735309202}
   - component: {fileID: 1735309203}
   m_Layer: 0
-  m_Name: GameData
+  m_Name: LoadProfile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19079,11 +19079,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1735309199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6a19f0e213064469b86b1927c3101c, type: 3}
+  m_Script: {fileID: 11500000, guid: b328b40277130f441afdc2fea611c387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   levelSelect: {fileID: 1895137100}
-  txtScoreValue: {fileID: 1240297404}
+  txtScoreA: {fileID: 1497818528}
+  txtScoreV: {fileID: 445608859}
+  txtScoreF: {fileID: 1862342876}
+  txtScoreP: {fileID: 499013566}
+  txtScoreM: {fileID: 1525008528}
 --- !u!1 &1736746365
 GameObject:
   m_ObjectHideFlags: 0
@@ -20286,11 +20290,8 @@ GameObject:
   - component: {fileID: 1895137101}
   - component: {fileID: 1895137102}
   - component: {fileID: 1895137103}
-  - component: {fileID: 1895137104}
-  - component: {fileID: 1895137105}
-  - component: {fileID: 1895137106}
   m_Layer: 0
-  m_Name: LevelsScripts
+  m_Name: ProfileScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20320,26 +20321,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895137096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f680a388a8e3321459dda192065b1858, type: 3}
+  m_Script: {fileID: 11500000, guid: f075eac9db718974ea043eb3f2337dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelController: {fileID: 1895137104}
-  scoreSystem: {fileID: 1895137105}
   levelAnimations: {fileID: 1895137101}
   loadLevel: {fileID: 1735309203}
   loadLevelSelect: {fileID: 1498058865}
   mouseController: {fileID: 1895137102}
   escapeLogicV2: {fileID: 1895137103}
-  btnLevelSelect:
-  - {fileID: 409677297}
-  - {fileID: 1518362491}
-  - {fileID: 202617601}
-  - {fileID: 1377231201}
-  - {fileID: 1619711322}
-  - {fileID: 2042683436}
-  - {fileID: 1185181997}
   currentLevel: 0
-  btnLevel: 1
 --- !u!114 &1895137101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20349,17 +20339,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895137096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53b026cb093ccea48b90f956121d737f, type: 3}
+  m_Script: {fileID: 11500000, guid: a76e0624f2bb67e4480e61b276c1a222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnKindom:
-  - {fileID: 409677297}
-  - {fileID: 1518362491}
-  - {fileID: 202617601}
-  - {fileID: 1377231201}
-  - {fileID: 1619711322}
-  - {fileID: 2042683436}
-  - {fileID: 1185181997}
   imgCheckUnlock:
   - {fileID: 1205899232}
   - {fileID: 180310385}
@@ -20392,11 +20374,6 @@ MonoBehaviour:
   imgHide2:
   - {fileID: 1354116269}
   - {fileID: 1354116269}
-  btnCardRotate:
-  - {fileID: 1518362494}
-  - {fileID: 202617604}
-  imgQuest: {fileID: 1266343074}
-  btnQuest: {fileID: 202617604}
 --- !u!114 &1895137102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20418,7 +20395,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895137096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732e230283bfe5c4ca56d600727d4c59, type: 3}
+  m_Script: {fileID: 11500000, guid: 08017956c5e65f142941927fb33628e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 0}
@@ -20428,50 +20405,6 @@ MonoBehaviour:
   btnBack: {fileID: 314143111}
   alertModalAnimator: {fileID: 917147762}
   canEscape: 0
---- !u!114 &1895137104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895137096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2485e89c960381f46b6c15aa625ec02c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelSelect: {fileID: 1895137100}
-  learnedInfo: {fileID: 0}
---- !u!114 &1895137105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895137096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc73d8c36a763214988b816bde465c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnInfoGo: {fileID: 1234165552}
-  txtFinalScore: {fileID: 1240297404}
-  finalScore: 0
-  questFinished: 0
---- !u!114 &1895137106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1895137096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46f58e5ea2003bc41baa00906b9389ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreValueAnim: {fileID: 1240297406}
-  scoreSystem: {fileID: 1895137105}
 --- !u!1 &1920177872
 GameObject:
   m_ObjectHideFlags: 0

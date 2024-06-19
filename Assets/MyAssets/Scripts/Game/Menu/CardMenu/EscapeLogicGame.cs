@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class EscapeLogicV1 : MonoBehaviour
+public class EscapeLogicGame : MonoBehaviour
 {
     [SerializeField] protected MenuController menuController;
     [SerializeField] protected MouseController mouseController;
@@ -17,30 +17,16 @@ public class EscapeLogicV1 : MonoBehaviour
     }
     public void EscapeMethod()
     {
-        if (canEscape)
-        {
+        
             switch (SceneManager.GetActiveScene().buildIndex)
             {
-                case 2:
-                    EscapeFromProfile();
-                    break;
                 case 3:
                     EscapeFromGame();
                     break;
-                default:
-                    break;
             }
-        }
+      
     }
     void EscapeFromGame()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            mouseController.MouseUnLock();
-            SceneManager.LoadScene(2);
-        }
-    }
-    void EscapeFromProfile()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {

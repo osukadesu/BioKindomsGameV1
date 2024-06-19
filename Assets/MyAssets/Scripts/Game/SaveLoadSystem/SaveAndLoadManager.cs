@@ -31,35 +31,7 @@ public static class SaveAndLoadManager
             return null;
         }
     }
-    public static void SaveForLevelGame(LevelSystemV2 levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
-    {
-        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
-        string datapath = Application.persistentDataPath + "/levelgame.data";
-        FileStream fileStream = new(datapath, FileMode.Create);
-        BinaryFormatter binaryFormatter = new();
-        binaryFormatter.Serialize(fileStream, playerData);
-        Debug.Log("Save Level Game");
-        fileStream.Close();
-    }
-    public static PlayerData LoadLevelGame()
-    {
-        string datapath = Application.persistentDataPath + "/levelgame.data";
-        if (File.Exists(datapath))
-        {
-            FileStream fileStream = new(datapath, FileMode.Open);
-            BinaryFormatter binaryFormatter = new();
-            PlayerData playerData = (PlayerData)binaryFormatter.Deserialize(fileStream);
-            fileStream.Close();
-            Debug.Log("Load Level Game");
-            return playerData;
-        }
-        else
-        {
-            Debug.LogError("Level is missing!");
-            return null;
-        }
-    }
-    public static void SaveDataGame(LevelSystemV2 levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
+    public static void SaveGame(LevelSystemV2 levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
     {
         PlayerData playerData = new(levelSystem, inventoryItemDataV2);
         string datapath = Application.persistentDataPath + "/player.data";
@@ -69,7 +41,7 @@ public static class SaveAndLoadManager
         Debug.Log("Save Game");
         fileStream.Close();
     }
-    public static PlayerData LoadDataGame()
+    public static PlayerData LoadGame()
     {
         string datapath = Application.persistentDataPath + "/player.data";
         if (File.Exists(datapath))
@@ -83,7 +55,7 @@ public static class SaveAndLoadManager
         }
         else
         {
-            Debug.LogError("No se encontró la partida");
+            Debug.LogError("Game is missing!");
             return null;
         }
     }

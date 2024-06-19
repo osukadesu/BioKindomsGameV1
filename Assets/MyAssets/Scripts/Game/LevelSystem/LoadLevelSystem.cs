@@ -4,7 +4,7 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] PlayerMove playerMove;
     [SerializeField] protected internal ItemObject[] IOAS;
     [SerializeField] protected internal InventoryUI inventoryUIA;
-    [SerializeField]  protected internal InventoryItemDataV2[] inventoryItemDataV2;
+    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystemV2 levelSystem;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] Transform[] targetPlayerPosition;
@@ -15,24 +15,18 @@ public class LoadLevelSystem : MonoBehaviour
         showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
     }
-    protected internal void GoNewGameAndLevel()
+    protected internal void GoNewGame()
     {
+        Debug.Log("New Game!");
         SetInventoryUI();
         levelSystem.CurrentLevel = 1;
         showLevelCaseV2.ShowLevel(levelSystem.CurrentLevel);
     }
     protected internal void GoLoadGame()
     {
+        Debug.Log("Game Loaded!");
         SetInventoryUI();
-        PlayerData playerData = SaveAndLoadManager.LoadDataGame();
-        SettingLevels(playerData);
-        SettingAnimals(playerData);
-        CheckingAnimal(playerData);
-    }
-    protected internal void GoLoadLevel()
-    {
-        SetInventoryUI();
-        PlayerData playerData = SaveAndLoadManager.LoadLevelGame();
+        PlayerData playerData = SaveAndLoadManager.LoadGame();
         SettingLevels(playerData);
         SettingAnimals(playerData);
         CheckingAnimal(playerData);

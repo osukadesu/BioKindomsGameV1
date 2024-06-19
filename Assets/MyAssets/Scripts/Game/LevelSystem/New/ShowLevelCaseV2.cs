@@ -16,15 +16,15 @@ public class ShowLevelCaseV2 : MonoBehaviour
     {
         ItemCondition();
     }
-    public void ShowLevel(int level)
+    protected internal void ShowLevel(int level)
     {
+        Debug.Log("Current Level: " + level);
         switch (level)
         {
             case 1:
                 platformV2.SetActive(true);
                 StartCoroutine(LevelTutorialCoroutine());
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
-                SaveLevel();
                 break;
             case 2:
                 LevelFight();
@@ -81,6 +81,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     IEnumerator LevelTutorialCoroutine()
     {
+        yield return new WaitForSeconds(1f);
         mouseController.MouseUnLock();
         alertModalManager.AlertInfo("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!");
         yield return new WaitForSeconds(1f);
@@ -107,7 +108,6 @@ public class ShowLevelCaseV2 : MonoBehaviour
         enemy[playerEstanteCol.setId].SetActive(true);
         money[playerEstanteCol.setId].SetActive(false);
         pedestal.SetActive(false);
-        saveMethod._EnableBtnSave = false;
     }
 
     IEnumerator IECanshot(bool _canShoot)
@@ -117,15 +117,12 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     public void SaveLevel()
     {
-        saveMethod._EnableBtnSave = true;
         StartCoroutine(IESaveLevel());
     }
     IEnumerator IESaveLevel()
     {
-        yield return new WaitForSeconds(.6f);
-        saveMethod.SaveLevel();
-        //saveMethod.MyButtonSave();
-        Debug.Log("Partida Guardada!");
+        yield return new WaitForSeconds(1f);
+        saveMethod.SaveGame();
     }
     protected internal void ItemCondition()
     {

@@ -1,9 +1,9 @@
 using UnityEngine;
-public class LoadControllerGame : MonoBehaviour
+public class LoadControllerProfile : MonoBehaviour
 {
     [SerializeField] protected MenuController menuController;
-    [SerializeField] protected bool levelLoadGame;
-    public bool LevelLoadGame { get { return levelLoadGame; } set { levelLoadGame = value; } }
+    [SerializeField] protected bool loadProfile;
+    public bool LoadProfile { get { return loadProfile; } set { loadProfile = value; } }
     void Awake()
     {
         menuController = FindObjectOfType<MenuController>();
@@ -13,11 +13,11 @@ public class LoadControllerGame : MonoBehaviour
     {
         if (menuController.IsNewGame)
         {
-            levelLoadGame = false;
+            loadProfile = false;
         }
-        if (menuController.IsLoadGame)
+        if (menuController.IsMyProfile)
         {
-            levelLoadGame = true;
+            loadProfile = true;
         }
     }
 }

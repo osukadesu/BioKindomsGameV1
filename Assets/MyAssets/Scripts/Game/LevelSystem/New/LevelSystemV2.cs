@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 public class LevelSystemV2 : MonoBehaviour
 {
@@ -6,17 +5,34 @@ public class LevelSystemV2 : MonoBehaviour
     [SerializeField] LoadControllerGame loadController;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] LoadLevelSystem loadLevelSystem;
+    [SerializeField] protected MouseController mouseController;
     int currentLevel;
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     void Awake()
     {
-        ReadLevel();
+        mouseController = FindObjectOfType<MouseController>();
+        mouseController.MouseLock();
     }
     void Start()
     {
+        ReadData();
         platformBase.SetActive(true);
         platformFight.SetActive(false);
         ElementsHide();
+    }
+    void ReadData()
+    {
+        if (loadController.LevelLoadGame)
+        {
+            loadLevelSystem.GoLoadGame();
+        }
+        else
+        {
+            if (!loadController.LevelLoadGame)
+            {
+                loadLevelSystem.GoNewGame();
+            }
+        }
     }
     void ElementsHide()
     {
@@ -27,35 +43,6 @@ public class LevelSystemV2 : MonoBehaviour
         for (int i = 0; i < showLevelCaseV2.enemy.Length; i++)
         {
             showLevelCaseV2.enemy[i].SetActive(false);
-        }
-    }
-    void ReadLevel()
-    {
-        string datapath = Application.persistentDataPath + "/levelgame.data";
-        if (File.Exists(datapath))
-        {
-            loadLevelSystem.GoLoadLevel();
-        }
-        else
-        {
-            if (loadController.LevelLoad)
-            {
-                loadLevelSystem.GoLoadGame();
-            }
-            else
-            {
-                if (File.Exists(datapath) && !loadController.LevelLoad)
-                {
-                    loadLevelSystem.GoLoadLevel();
-                }
-                else
-                {
-                    if (!loadController.LevelLoad)
-                    {
-                        loadLevelSystem.GoNewGameAndLevel();
-                    }
-                }
-            }
         }
     }
     protected internal void ChangeLevel()

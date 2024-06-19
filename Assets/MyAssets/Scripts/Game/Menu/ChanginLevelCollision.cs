@@ -26,13 +26,6 @@ public class ChanginLevelCollision : MonoBehaviour
                 StartCoroutine(ChageScene());
                 levelSystem.ChangeLevel();
                 break;
-            /*
-             case 24:
-                questLevel.ChangeQuestLevel();
-                StartCoroutine(ChageScene());
-                levelSystem.ChangeLevel();
-                break;
-            */
             default:
                 levelSystem.ChangeLevel();
                 break;

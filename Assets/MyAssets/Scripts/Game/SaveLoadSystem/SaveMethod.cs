@@ -1,41 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 public class SaveMethod : MonoBehaviour
 {
     [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystemV2 levelSystem;
     [SerializeField] TextGralController textGralController;
-    [SerializeField] DeadPlayer deadPlayer;
-    [SerializeField] Button btnSave;
-    [SerializeField] bool enableBtnSave;
-    public bool _EnableBtnSave { get => enableBtnSave; set => enableBtnSave = value; }
     void Awake()
     {
-        btnSave.onClick.AddListener(MyButtonSave);
         textGralController = FindObjectOfType<TextGralController>();
         levelSystem = FindObjectOfType<LevelSystemV2>();
-        deadPlayer = FindObjectOfType<DeadPlayer>();
     }
-    void Update()
+    protected internal void SaveGame()
     {
-        ButtonMethod();
-    }
-    void ButtonMethod()
-    {
-        if (enableBtnSave)
-        {
-            btnSave.enabled = true;
-        }
-        else btnSave.enabled = false;
-    }
-    protected internal void MyButtonSave()
-    {
-        SaveAndLoadManager.SaveDataGame(levelSystem, inventoryItemDataV2);
-        textGralController.StartingAT2("Partida Guardada!");
-    }
-    protected internal void SaveLevel()
-    {
+        SaveAndLoadManager.SaveGame(levelSystem, inventoryItemDataV2);
         SaveAndLoadManager.SaveLevel(levelSystem);
-        SaveAndLoadManager.SaveForLevelGame(levelSystem, inventoryItemDataV2);
+        textGralController.StartingAT2("Partida Guardada!");
     }
 }

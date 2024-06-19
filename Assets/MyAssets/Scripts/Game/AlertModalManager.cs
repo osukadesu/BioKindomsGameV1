@@ -6,14 +6,14 @@ public class AlertModalManager : MonoBehaviour
     [SerializeField] Text txtInfoAlert, txtAlertNew;
     [SerializeField] Animator alertModalAnimator, alertModalNew;
     [SerializeField] MouseController mouseController;
-    [SerializeField] EscapeLogicV1 escapeLogicV1;
+    [SerializeField] EscapeLogicGame escapeLogicV1;
     [SerializeField] Button btnContinueAM;
     [SerializeField] GameObject[] imgAlertNew;
     void Awake()
     {
         alertModalAnimator.SetBool("alertmodal", false);
         btnContinueAM.onClick.AddListener(CloseContinue);
-        escapeLogicV1 = FindObjectOfType<EscapeLogicV1>();
+        escapeLogicV1 = FindObjectOfType<EscapeLogicGame>();
     }
     void CloseContinue()
     {

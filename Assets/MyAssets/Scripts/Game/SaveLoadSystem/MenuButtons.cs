@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
-    [SerializeField] GameObject btnLoadGame, btnMyProfile;
+    [SerializeField] GameObject btnLoadGame;
     [SerializeField] MenuController menuController;
     [SerializeField] VerticalLayoutGroup verticalLayoutGroup;
     void Awake()
@@ -26,27 +26,25 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonProfile()
     {
+        menuController.IsMyProfile = true;
         SceneManager.LoadScene(2);
     }
     public void ButtonExit()
     {
         Application.Quit();
-        menuController.DeleteLevelData();
     }
     public void MenuOrder()
     {
-        string datapath = Application.persistentDataPath + "/levelgame.data";
-        if (File.Exists(datapath))
+        string playerData = Application.persistentDataPath + "/player.data";
+        if (File.Exists(playerData))
         {
             btnLoadGame.SetActive(true);
-            btnMyProfile.SetActive(true);
             verticalLayoutGroup.padding.top = 0;
         }
         else
         {
             btnLoadGame.SetActive(false);
-            btnMyProfile.SetActive(false);
-            verticalLayoutGroup.padding.top = 145;
+            verticalLayoutGroup.padding.top = 70;
         }
     }
 }

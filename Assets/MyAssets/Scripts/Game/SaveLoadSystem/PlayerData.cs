@@ -32,19 +32,4 @@ public class PlayerData
             vegetal[i] = inventoryItemDataV2[i].itemIsCheck;
         }
     }
-    /*
-    void MappingMonera(CraftBuilderSystem craftBuilderSystem)
-    {
-        for (int i = 0; i < monera.Length; i++)
-        {
-            int iterateIndex = i;
-            monera[i] = craftBuilderSystem._InventoryItemDatas[iterateIndex].itemIsCheck;
-        }
-        for (int j = 0; j < craftBuilderSystem.IsCreated.Length; j++)
-        {
-            int iterateIndex = j;
-            isCreatedM[j] = craftBuilderSystem.IsCreated[iterateIndex];
-        }
-    }
-    */
 }

@@ -9,7 +9,7 @@ public class SavingController : MonoBehaviour
     void Awake()
     {
         menuController = FindObjectOfType<MenuController>();
-        saveMethod = FindObjectOfType<SaveMethod>(); 
+        saveMethod = FindObjectOfType<SaveMethod>();
         if (menuController.IsSavingGame)
         {
             StartCoroutine(SavingGame());
@@ -22,7 +22,7 @@ public class SavingController : MonoBehaviour
     IEnumerator SavingGame()
     {
         SavingBackground.SetActive(true);
-        saveMethod.MyButtonSave();
+        saveMethod.SaveGame();
         yield return new WaitForSeconds(1f);
         SavingBackground.SetActive(false);
         SceneManager.LoadScene(1);
