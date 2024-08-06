@@ -4,7 +4,7 @@ public class DeadEnemy : DeadManager
 {
     protected internal override void DeadActions()
     {
-        CaseDeadActionsMethod(levelSystem.CurrentLevel);
+        CaseDeadActionsMethod(levelSystemV2.CurrentLevel);
     }
     void CaseDeadActionsMethod(int value)
     {
@@ -25,6 +25,9 @@ public class DeadEnemy : DeadManager
             case 10:
                 DeadActionsMethod(true, false);
                 break;
+            case 12:
+                DeadActionsMethod(true, false);
+                break;
             default:
                 DeadActionsMethod(false, false);
                 break;
@@ -37,10 +40,17 @@ public class DeadEnemy : DeadManager
             if (lifeControllerEnemy[playerEstanteCol.setId].currentLife <= 0)
             {
                 shootLogic.canShoot = false;
-                alertModalManager.AlertInfo("Bien hecho lo has derrotado guarda la relíquia!");
+                ForAlertInfo(value2);
                 levelWinMethod.WinMethod(playerEstanteCol.setId, value2);
                 StartCoroutine(ResetEnemy());
             }
+        }
+    }
+    void ForAlertInfo(bool value2)
+    {
+        if (value2)
+        {
+            alertModalManager.AlertInfo("Bien hecho lo has derrotado guarda la relíquia!");
         }
     }
     IEnumerator ResetEnemy()

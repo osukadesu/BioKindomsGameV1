@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class InfoContent : MonoBehaviour
 {
+    //Deprecated
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] InfoKindomData infoKindomData;
     [SerializeField] TextInfoAnimations textInfoAnimations;

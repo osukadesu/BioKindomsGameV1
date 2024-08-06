@@ -5,7 +5,7 @@ public class EnemyIA : MonoBehaviour
 {
     public int time;
     public float vel, rotationSpeed = 5f, rotY, distance;
-    public GameObject target;
+    public Transform target;
     public NavMeshAgent agent;
     public bool idle, timerotate;
     public Animator enemiAnim;
@@ -17,7 +17,7 @@ public class EnemyIA : MonoBehaviour
             enemiAnim.SetBool("attack", false);
             transform.Translate(Vector3.forward * vel * Time.deltaTime);
             transform.Rotate(new Vector3(0, rotY, 0));
-            if (time >= Random.Range(100, 1000))
+            if (time >= Random.Range(200, 1500))
             {
                 Rotate();
                 time = 0;
@@ -25,17 +25,17 @@ public class EnemyIA : MonoBehaviour
             }
             if (timerotate)
             {
-                if (time >= Random.Range(10, 30))
+                if (time >= Random.Range(200, 300))
                 {
                     rotY = 0;
                     timerotate = false;
                 }
             }
         }
-        if (Vector3.Distance(target.transform.position, transform.position) < distance)
+        if (Vector3.Distance(target.position, transform.position) < distance)
         {
             idle = false;
-            agent.SetDestination(target.transform.position);
+            agent.SetDestination(target.position);
             agent.speed = 1;
             StartCoroutine(EnemyAttack());
         }
@@ -53,6 +53,6 @@ public class EnemyIA : MonoBehaviour
     }
     public void Rotate()
     {
-        rotY = Random.Range(0, 4);
+        rotY = Random.Range(-3, 3);
     }
 }

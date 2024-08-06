@@ -7,16 +7,13 @@ public class OpenDoorV1 : MonoBehaviour
     bool canOpen;
     void Update()
     {
-        for (int i = 0; i < referenceItemA.Length; i++)
+        if (referenceItemA[0].itemIsCheck && referenceItemA[1].itemIsCheck && referenceItemA[2].itemIsCheck && referenceItemA[3].itemIsCheck && referenceItemA[4].itemIsCheck)
         {
-            if (referenceItemA[i].itemIsCheck)
-            {
-                canOpen = true;
-            }
-            else
-            {
-                canOpen = false;
-            }
+            canOpen = true;
+        }
+        else
+        {
+            canOpen = false;
         }
     }
     void OnTriggerEnter(Collider other)
@@ -27,7 +24,10 @@ public class OpenDoorV1 : MonoBehaviour
         }
         else
         {
-            openDoorMessage.SetMessage();
+            if (!canOpen)
+            {
+                openDoorMessage.SetMessage();
+            }
         }
     }
     void OnTriggerExit(Collider other)

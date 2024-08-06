@@ -1,18 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class SaveMethod : MonoBehaviour
 {
-    [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
-    [SerializeField] LevelSystemV2 levelSystem;
+    [SerializeField] LoadLevelSystem loadLevelSystem;
+    [SerializeField] LevelSystemV2 levelSystemV2;
     [SerializeField] TextGralController textGralController;
     void Awake()
     {
         textGralController = FindObjectOfType<TextGralController>();
-        levelSystem = FindObjectOfType<LevelSystemV2>();
+        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
+        loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
     }
     protected internal void SaveGame()
     {
-        SaveAndLoadManager.SaveGame(levelSystem, inventoryItemDataV2);
-        SaveAndLoadManager.SaveLevel(levelSystem);
+        SaveAndLoadManager.SaveGame(levelSystemV2, loadLevelSystem);
+        SaveAndLoadManager.SaveLevel(levelSystemV2);
         textGralController.StartingAT2("Partida Guardada!");
     }
 }

@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 public class LevelSystemV2 : MonoBehaviour
 {
@@ -22,7 +23,8 @@ public class LevelSystemV2 : MonoBehaviour
     }
     void ReadData()
     {
-        if (loadController.LevelLoadGame)
+        string datapath = Application.persistentDataPath + "/player.data";
+        if (File.Exists(datapath))
         {
             loadLevelSystem.GoLoadGame();
         }
@@ -31,6 +33,10 @@ public class LevelSystemV2 : MonoBehaviour
             if (!loadController.LevelLoadGame)
             {
                 loadLevelSystem.GoNewGame();
+            }
+            else
+            {
+                loadLevelSystem.GoLoadGame();
             }
         }
     }

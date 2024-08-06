@@ -21,9 +21,36 @@ public class SetQuestSystem : MonoBehaviour
             case 0:
                 AnimalQuest(random);
                 break;
+            case 1:
+                VegetalQuest(random);
+                break;
         }
     }
     void AnimalQuest(int _value)
+    {
+        switch (_value)
+        {
+            case 0:
+                SetDataCases(0, 0, 1, 2, 0, 1, 2);
+                break;
+            case 1:
+                SetDataCases(1, 2, 0, 1, 2, 0, 1);
+                break;
+            case 2:
+                SetDataCases(2, 0, 2, 1, 0, 2, 1);
+                break;
+            case 3:
+                SetDataCases(3, 3, 1, 2, 3, 1, 2);
+                break;
+            case 4:
+                SetDataCases(4, 1, 4, 3, 1, 4, 3);
+                break;
+            default:
+                Debug.LogError("Quest error!");
+                break;
+        }
+    }
+    void VegetalQuest(int _value)
     {
         switch (_value)
         {

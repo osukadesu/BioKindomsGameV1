@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "954618515855",
+    "project_id": "biokingdomsgame",
+    "storage_bucket": "biokingdomsgame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954618515855:android:c311abfb1c70b18450fbfa",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.BioKindomsGame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwQ0TfkQw77R05XSAev1v1PKunqrcJX6c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

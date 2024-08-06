@@ -3,9 +3,9 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveAndLoadManager
 {
-    public static void SaveLevel(LevelSystemV2 levelSystem)
+    public static void SaveLevel(LevelSystemV2 levelSystemV2)
     {
-        PlayerData playerData = new(levelSystem);
+        PlayerData playerData = new(levelSystemV2);
         string datapath = Application.persistentDataPath + "/level.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();
@@ -31,9 +31,9 @@ public static class SaveAndLoadManager
             return null;
         }
     }
-    public static void SaveGame(LevelSystemV2 levelSystem, InventoryItemDataV2[] inventoryItemDataV2)
+    public static void SaveGame(LevelSystemV2 levelSystemV2, LoadLevelSystem loadLevelSystem)
     {
-        PlayerData playerData = new(levelSystem, inventoryItemDataV2);
+        PlayerData playerData = new(levelSystemV2, loadLevelSystem);
         string datapath = Application.persistentDataPath + "/player.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();

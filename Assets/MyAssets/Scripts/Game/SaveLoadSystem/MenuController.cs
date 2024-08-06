@@ -1,15 +1,16 @@
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 public class MenuController : MonoBehaviour
 {
     public static MenuController menuController;
-    [SerializeField] bool isNewGame, isLoadGame, isSavingGame, isMyProfile;
+    [SerializeField] bool isNewGame, isLoadGame, isMyProfile;
     public bool IsNewGame { get => isNewGame; set => isNewGame = value; }
     public bool IsLoadGame { get => isLoadGame; set => isLoadGame = value; }
-    public bool IsSavingGame { get => isSavingGame; set => isSavingGame = value; }
     public bool IsMyProfile { get => isMyProfile; set => isMyProfile = value; }
     void Awake()
     {
-        Singleton(); isNewGame = false; isLoadGame = false; isSavingGame = false; isMyProfile = false;
+        Singleton(); isNewGame = false; isLoadGame = false; isMyProfile = false;
         Cursor.visible = true; Cursor.lockState = CursorLockMode.None;
     }
     void Singleton()
@@ -23,5 +24,15 @@ public class MenuController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void DeletePlayerData()
+    {
+        string datapath = Application.persistentDataPath + "/player.data";
+        if (File.Exists(datapath) && !isNewGame && !isLoadGame)
+        {
+            File.Delete(Application.persistentDataPath + "/player.data");
+            //AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
+        }
+        else Debug.Log("Not delete player.");
     }
 }

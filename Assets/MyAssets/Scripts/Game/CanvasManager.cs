@@ -45,23 +45,6 @@ public class CanvasManager : MonoBehaviour
     {
         ButtonGoKindomV2(index);
     }
-    /*
-    public void CraftAnimal5()
-    {
-        craftinCode = 25;
-        _cardCraftingContent.SetCrafting();
-        _craftBuilderSystem.ButtonBuildItem5();
-        StartCoroutine(GoNextKindom(ButtonGoAnimalV2, ButtonGoVegetalV2, ButtonGoAnimalV2));
-    }
-    IEnumerator GoNextKindom(Action firstAction, Action secondAction, Action thirdAction)
-    {
-        firstAction.Invoke();
-        yield return new WaitForSeconds(1f);
-        secondAction.Invoke();
-        yield return new WaitForSeconds(2f);
-        thirdAction.Invoke();
-    }
-    */
     public void CloseInfo()
     {
         _infoContent.SetInfo(25);

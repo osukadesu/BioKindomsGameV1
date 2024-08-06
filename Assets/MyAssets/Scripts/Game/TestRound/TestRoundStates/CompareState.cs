@@ -13,7 +13,6 @@ public class CompareState : QuestBaseState
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     public int _score { get => score; set => score = value; }
-
     void Start()
     {
         idBtnSelect = 5;
@@ -73,7 +72,7 @@ public class CompareState : QuestBaseState
                 yield return new WaitForSeconds(2f);
                 saveScoreMethod.SavingScore();
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
             }
             else
             {
@@ -87,7 +86,7 @@ public class CompareState : QuestBaseState
                 yield return new WaitForSeconds(2f);
                 saveScoreMethod.SavingScore();
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
             }
         }
         else

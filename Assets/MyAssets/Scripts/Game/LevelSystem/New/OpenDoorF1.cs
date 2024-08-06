@@ -1,7 +1,7 @@
 using UnityEngine;
 public class OpenDoorF1 : MonoBehaviour
 {
-   [SerializeField] OpenDoorMessage openDoorMessage;
+    [SerializeField] OpenDoorMessage openDoorMessage;
     [SerializeField] InventoryItemDataV2[] referenceItemV;
     [SerializeField] Animator openDoorAnim;
     bool canOpen;
@@ -27,7 +27,10 @@ public class OpenDoorF1 : MonoBehaviour
         }
         else
         {
-            openDoorMessage.SetMessage();
+            if (!canOpen)
+            {
+                openDoorMessage.SetMessage();
+            }
         }
     }
     void OnTriggerExit(Collider other)

@@ -33,7 +33,7 @@ public class EscapeLogicProfile : MonoBehaviour
     void ButtonBack()
     {
         menuController.IsMyProfile = false;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
     void EscapeFromProfile()
     {
@@ -43,7 +43,7 @@ public class EscapeLogicProfile : MonoBehaviour
             menuController.IsLoadGame = false;
             menuController.IsMyProfile = false;
             mouseController.MouseUnLock();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

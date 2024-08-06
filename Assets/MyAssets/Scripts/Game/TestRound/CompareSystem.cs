@@ -72,7 +72,7 @@ public class CompareSystem : MonoBehaviour
                 yield return new WaitForSeconds(2f);
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
             }
             else
             {

@@ -1,39 +1,16 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class ChanginLevelCollision : MonoBehaviour
 {
-    [SerializeField] LevelSystemV2 levelSystem;
-    [SerializeField] QuestLevel questLevel;
+    [SerializeField] LevelSystemV2 levelSystemV2;
     void Awake()
     {
-        levelSystem = FindObjectOfType<LevelSystemV2>();
-        questLevel = FindObjectOfType<QuestLevel>();
+        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            GoToWhat(levelSystem.CurrentLevel);
+            levelSystemV2.ChangeLevel();
         }
-    }
-    void GoToWhat(int _level)
-    {
-        switch (_level)
-        {
-            case 12:
-                questLevel.ChangeQuestLevel();
-                StartCoroutine(ChageScene());
-                levelSystem.ChangeLevel();
-                break;
-            default:
-                levelSystem.ChangeLevel();
-                break;
-        }
-    }
-    IEnumerator ChageScene()
-    {
-        yield return new WaitForSeconds(.05f);
-        SceneManager.LoadScene(4);
     }
 }
