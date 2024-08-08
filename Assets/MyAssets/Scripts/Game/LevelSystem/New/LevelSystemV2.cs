@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using UnityEngine;
 public class LevelSystemV2 : MonoBehaviour
@@ -11,6 +12,9 @@ public class LevelSystemV2 : MonoBehaviour
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     void Awake()
     {
+        loadController = FindObjectOfType<LoadControllerGame>();
+        loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
+        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
         mouseController = FindObjectOfType<MouseController>();
         mouseController.MouseLock();
     }
@@ -24,19 +28,19 @@ public class LevelSystemV2 : MonoBehaviour
     void ReadData()
     {
         string datapath = Application.persistentDataPath + "/player.data";
-        if (File.Exists(datapath))
+        if (File.Exists(datapath) && !loadController.LevelLoadGame)
         {
             loadLevelSystem.GoLoadGame();
         }
         else
         {
-            if (!loadController.LevelLoadGame)
+            if (loadController.LevelLoadGame)
             {
-                loadLevelSystem.GoNewGame();
+                loadLevelSystem.GoLoadGame();
             }
             else
             {
-                loadLevelSystem.GoLoadGame();
+                loadLevelSystem.GoNewGame();
             }
         }
     }

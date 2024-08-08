@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class LearnedInfo : MonoBehaviour
 {
-    [SerializeField] Camera camera;
+    [SerializeField] Camera _camera;
     [SerializeField] InfoViewController _infoViewController;
     [SerializeField] InfoKindomData infoKindomData;
     [SerializeField] TextInfoAnimations textInfoAnimations;
@@ -93,7 +93,7 @@ public class LearnedInfo : MonoBehaviour
     }
     void ShowContent(int _alpha, int FOV, bool _interactible)
     {
-        camera.fieldOfView = FOV;
+        _camera.fieldOfView = FOV;
         kingdomContent.alpha = _alpha;
         kingdomContent.interactable = _interactible;
         kingdomContent.blocksRaycasts = _interactible;

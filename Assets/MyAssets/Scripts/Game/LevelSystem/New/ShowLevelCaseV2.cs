@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 public class ShowLevelCaseV2 : MonoBehaviour
 {
+    [SerializeField] QuestLevel questLevel;
     [SerializeField] LoadLevelSystem loadLevelSystem;
     [SerializeField] MouseController mouseController;
     [SerializeField] AlertModalManager alertModalManager;
@@ -10,8 +11,12 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] SaveMethod saveMethod;
     [SerializeField] GameObject _NextLevel, levelFight, platformV2;
     [SerializeField] Animator nextLevelAnim;
-    [SerializeField] protected internal GameObject[] enemy, money, questKing;
+    [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest;
     [SerializeField] protected internal GameObject pedestal;
+    void Awake()
+    {
+        questLevel = FindObjectOfType<QuestLevel>();
+    }
     void Update()
     {
         ItemCondition();
@@ -24,12 +29,14 @@ public class ShowLevelCaseV2 : MonoBehaviour
             case 1:
                 platformV2.SetActive(true);
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 StartCoroutine(LevelTutorialCoroutine());
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 2:
                 LevelFight();
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
@@ -37,6 +44,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
@@ -49,6 +57,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
@@ -61,61 +70,44 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 8:
                 LevelFight();
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 9:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 10:
                 LevelFight();
                 questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 questKing[0].SetActive(true);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 12:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(false);
+                exitQuest[0].SetActive(questLevel._endQuest);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
-                break;
-            /*
-            case 11:
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            case 12:
-                LevelFight();
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 13:
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            */
-            case 14:
-                LevelFight();
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
         }
     }
@@ -157,11 +149,16 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     public void SaveLevel()
     {
+        StartCoroutine(IESaveLevel());
+    }
+    IEnumerator IESaveLevel()
+    {
+        yield return new WaitForSeconds(.5f);
         saveMethod.SaveGame();
     }
     protected internal void ItemCondition()
     {
-        if (loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck || loadLevelSystem.iIDV[playerEstanteCol.setId].itemIsCheck)
+        if (loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck)
         {
             NextLevelMethod(true);
         }

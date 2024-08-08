@@ -3,6 +3,7 @@ public class QuestLevel : MonoBehaviour
 {
     public static QuestLevel questLevel;
     [SerializeField] int caseValue = -1;
+    public bool _endQuest = false;
     public int CaseValue { get => caseValue; set => caseValue = value; }
     void Awake()
     {

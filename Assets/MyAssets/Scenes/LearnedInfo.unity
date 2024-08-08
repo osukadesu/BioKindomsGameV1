@@ -5621,7 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6253e470daab9945b9b4b7ce91ca40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 580389332}
+  _camera: {fileID: 580389332}
   _infoViewController: {fileID: 0}
   infoKindomData: {fileID: 11400000, guid: 23b3d156e7506d44db73cce5556ee7a3, type: 2}
   textInfoAnimations: {fileID: 367903649}

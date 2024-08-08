@@ -3,8 +3,8 @@ using UnityEngine;
 public class EnemyStateManager : MonoBehaviour
 {
     EnemyBaseState currentState;
-    public WalkingState walkingState = new();
-    public AttackState attackState = new();
+    public WalkingState walkingState;
+    public AttackState attackState;
     public void Start()
     {
         currentState = walkingState;

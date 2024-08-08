@@ -4,11 +4,11 @@ public class PlayerData
     public bool[] animal = new bool[5];
     public bool[] vegetal = new bool[5];
     public int currentLevelData;
-    public PlayerData(LevelSystemV2 levelSystemV2, LoadLevelSystem loadLevelSystem)
+    public PlayerData(LevelSystemV2 levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
     {
         MappingLevels(levelSystemV2);
-        MappingAnimals(loadLevelSystem);
-        MappingVegetals(loadLevelSystem);
+        MappingAnimals(inventoryItemDataV2);
+        MappingVegetals(inventoryItemDataV2);
     }
     public PlayerData(LevelSystemV2 levelSystemV2)
     {
@@ -18,18 +18,21 @@ public class PlayerData
     {
         currentLevelData = levelSystemV2.CurrentLevel;
     }
-    void MappingAnimals(LoadLevelSystem loadLevelSystem)
+    void MappingAnimals(InventoryItemDataV2[] inventoryItemDataV2)
     {
-        for (int i = 0; i < animal.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
-            animal[i] = loadLevelSystem.inventoryItemDataV2[i].itemIsCheck;
+            animal[i] = inventoryItemDataV2[i].itemIsCheck;
         }
     }
-    void MappingVegetals(LoadLevelSystem loadLevelSystem)
+    void MappingVegetals(InventoryItemDataV2[] inventoryItemDataV2)
     {
-        for (int i = 0; i < vegetal.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
-            vegetal[i] = loadLevelSystem.iIDV[i].itemIsCheck;
+            for (int j = 5; j < 10; j++)
+            {
+                vegetal[i] = inventoryItemDataV2[j].itemIsCheck;
+            }
         }
     }
 }

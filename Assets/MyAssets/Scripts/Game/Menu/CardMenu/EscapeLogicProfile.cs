@@ -25,7 +25,7 @@ public class EscapeLogicProfile : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().buildIndex)
         {
-            case 2:
+            case 3:
                 EscapeFromProfile();
                 break;
         }

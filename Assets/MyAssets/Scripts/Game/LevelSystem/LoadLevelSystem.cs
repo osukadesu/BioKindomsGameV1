@@ -6,7 +6,7 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] protected internal ItemObjectA2[] IOV;
     [SerializeField] protected internal InventoryUI inventoryUIA;
     [SerializeField] protected internal InventoryUIV inventoryUIV;
-    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2, iIDV;
+    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] LevelSystemV2 levelSystemV2;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] Transform[] targetPlayerPosition;
@@ -24,6 +24,10 @@ public class LoadLevelSystem : MonoBehaviour
         SetInventoryUI();
         levelSystemV2.CurrentLevel = 1;
         showLevelCaseV2.ShowLevel(levelSystemV2.CurrentLevel);
+        for (int i = 0; i < inventoryItemDataV2.Length; i++)
+        {
+            inventoryItemDataV2[i].itemIsCheck = false;
+        }
     }
     protected internal void GoLoadGame()
     {
@@ -68,7 +72,10 @@ public class LoadLevelSystem : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            iIDV[i].itemIsCheck = playerData.vegetal[i];
+            for (int j = 5; j < 10; j++)
+            {
+                inventoryItemDataV2[j].itemIsCheck = playerData.vegetal[i];
+            }
         }
     }
     protected internal void CheckingVegetal(PlayerData playerData)

@@ -1,20 +1,24 @@
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 4f, rotationSpeed = 200f, jumpValue = 4f, shootOffset = .5f;
-    [SerializeField] Rigidbody playerRB;
+    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 4f, rotationSpeed = 200f; //jumpValue = 4f, shootOffset = .5f;
     [SerializeField] Animator myAnim;
-    [SerializeField] Vector3 moveDirection;
     [SerializeField] bool canJump;
     public bool CanJump
     {
         get { return canJump; }
         set { canJump = value; }
     }
+    /*
+    [SerializeField] Rigidbody playerRB;
+    [SerializeField] Vector3 moveDirection;
+    
     void Awake()
     {
         playerRB = FindObjectOfType<Rigidbody>();
     }
+    */
+
     void Start()
     {
         canJump = false;

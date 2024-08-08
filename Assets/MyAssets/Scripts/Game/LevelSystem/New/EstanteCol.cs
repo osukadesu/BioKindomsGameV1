@@ -9,7 +9,7 @@ public class EstanteCol : MonoBehaviour
     [SerializeField] InfoViewController infoViewController;
     string textMessage;
     public int id;
-    bool canpressG, canpressF;
+    [SerializeField] bool canpressG, canpressF;
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
@@ -21,6 +21,7 @@ public class EstanteCol : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                canpressF = false;
                 levelSystemV2.ChangeLevel();
             }
         }
@@ -28,22 +29,23 @@ public class EstanteCol : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
+                canpressG = false;
                 infoViewController._kingdomIndex = id;
                 SceneManager.LoadScene(6);
             }
         }
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             if (referenceItem.itemIsCheck)
             {
-                SetInfo(1); canpressG = true; canpressF = false;
+                SetInfo(1); canpressG = true;
             }
             else
             {
-                SetInfo(2); canpressF = true; canpressG = false;
+                SetInfo(2); canpressF = true;
             }
         }
     }

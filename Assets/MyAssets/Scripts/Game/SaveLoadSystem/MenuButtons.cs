@@ -1,4 +1,5 @@
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -32,6 +33,7 @@ public class MenuButtons : MonoBehaviour
     public void ButtonYes()
     {
         menuController.IsNewGame = true;
+        menuController.DeletePlayerData();
         SceneManager.LoadScene(4);
     }
     public void ButtonNo()
@@ -51,7 +53,6 @@ public class MenuButtons : MonoBehaviour
     public void ButtonExit()
     {
         SceneManager.LoadScene(1);
-        menuController.DeletePlayerData();
     }
     public void MenuOrder()
     {

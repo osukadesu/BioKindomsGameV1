@@ -28,10 +28,10 @@ public class MenuController : MonoBehaviour
     public void DeletePlayerData()
     {
         string datapath = Application.persistentDataPath + "/player.data";
-        if (File.Exists(datapath) && !isNewGame && !isLoadGame)
+        if (File.Exists(datapath))
         {
             File.Delete(Application.persistentDataPath + "/player.data");
-            //AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
+            AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
         }
         else Debug.Log("Not delete player.");
     }

@@ -4,10 +4,8 @@ using UnityEngine.SceneManagement;
 public class ForGoToQuest : MonoBehaviour
 {
     [SerializeField] QuestLevel questLevel;
-    [SerializeField] LevelSystemV2 levelSystemV2;
     void Awake()
     {
-        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         questLevel = FindObjectOfType<QuestLevel>();
     }
     void OnTriggerEnter(Collider other)
@@ -24,8 +22,7 @@ public class ForGoToQuest : MonoBehaviour
     }
     IEnumerator ChageScene()
     {
-        yield return new WaitForSeconds(.6f);
-        levelSystemV2.ChangeLevel();
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(5);
     }
 }

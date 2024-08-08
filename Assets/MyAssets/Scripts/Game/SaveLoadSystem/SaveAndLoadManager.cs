@@ -31,9 +31,9 @@ public static class SaveAndLoadManager
             return null;
         }
     }
-    public static void SaveGame(LevelSystemV2 levelSystemV2, LoadLevelSystem loadLevelSystem)
+    public static void SaveGame(LevelSystemV2 levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
     {
-        PlayerData playerData = new(levelSystemV2, loadLevelSystem);
+        PlayerData playerData = new(levelSystemV2, inventoryItemDataV2);
         string datapath = Application.persistentDataPath + "/player.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();

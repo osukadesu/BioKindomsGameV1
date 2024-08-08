@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CompareState : QuestBaseState
 {
+    [SerializeField] QuestLevel questLevel;
     [SerializeField] SaveScoreMethod saveScoreMethod;
     [SerializeField] AnimationsManager animationsManager;
     [SerializeField] SetQuestSystem setQuestSystem;
@@ -13,6 +14,10 @@ public class CompareState : QuestBaseState
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     public int _score { get => score; set => score = value; }
+    void Awake()
+    {
+        questLevel = FindObjectOfType<QuestLevel>();
+    }
     void Start()
     {
         idBtnSelect = 5;
@@ -71,6 +76,7 @@ public class CompareState : QuestBaseState
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
                 saveScoreMethod.SavingScore();
+                questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
                 SceneManager.LoadScene(4);
             }
@@ -85,6 +91,7 @@ public class CompareState : QuestBaseState
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
                 saveScoreMethod.SavingScore();
+                questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
                 SceneManager.LoadScene(4);
             }
@@ -93,6 +100,7 @@ public class CompareState : QuestBaseState
         {
             textManager.ShowText(1, _text, "txtShow");
             yield return new WaitForSeconds(2f);
+            questLevel._endQuest = false;
             resetGame = true;
         }
     }

@@ -17,14 +17,14 @@ public class EscapeLogicGame : MonoBehaviour
     }
     public void EscapeMethod()
     {
-        
-            switch (SceneManager.GetActiveScene().buildIndex)
-            {
-                case 3:
-                    EscapeFromGame();
-                    break;
-            }
-      
+
+        switch (SceneManager.GetActiveScene().buildIndex)
+        {
+            case 4:
+                EscapeFromGame();
+                break;
+        }
+
     }
     void EscapeFromGame()
     {
@@ -33,7 +33,7 @@ public class EscapeLogicGame : MonoBehaviour
             mouseController.MouseUnLock();
             menuController.IsNewGame = false;
             menuController.IsLoadGame = false;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }
