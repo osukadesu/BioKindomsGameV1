@@ -2,8 +2,8 @@ using UnityEngine;
 public class QuestLevel : MonoBehaviour
 {
     public static QuestLevel questLevel;
-    [SerializeField] int caseValue = -1;
-    public bool _endQuest = false;
+    [SerializeField] int caseValue;
+    public bool _endQuest;
     public int CaseValue { get => caseValue; set => caseValue = value; }
     void Awake()
     {

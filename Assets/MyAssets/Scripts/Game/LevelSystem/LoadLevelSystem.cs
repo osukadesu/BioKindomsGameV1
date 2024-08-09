@@ -2,6 +2,7 @@ using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
     [SerializeField] PlayerMove playerMove;
+    [SerializeField] QuestLevel questLevel;
     [SerializeField] protected internal ItemObject[] IOA;
     [SerializeField] protected internal ItemObjectA2[] IOV;
     [SerializeField] protected internal InventoryUI inventoryUIA;
@@ -12,6 +13,7 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] Transform[] targetPlayerPosition;
     void Awake()
     {
+        questLevel = FindObjectOfType<QuestLevel>();
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         inventoryUIA = FindObjectOfType<InventoryUI>();
         inventoryUIV = FindObjectOfType<InventoryUIV>();
@@ -28,6 +30,8 @@ public class LoadLevelSystem : MonoBehaviour
         {
             inventoryItemDataV2[i].itemIsCheck = false;
         }
+        questLevel._endQuest = false;
+        questLevel.CaseValue = -1;
     }
     protected internal void GoLoadGame()
     {
@@ -39,6 +43,7 @@ public class LoadLevelSystem : MonoBehaviour
         CheckingAnimal(playerData);
         SettingVegetals(playerData);
         CheckingVegetal(playerData);
+        SetQuestSingleton(playerData);
     }
     protected internal void SetInventoryUI()
     {
@@ -87,6 +92,11 @@ public class LoadLevelSystem : MonoBehaviour
                 IOV[i].OnHandlePickUpLoad();
             }
         }
+    }
+    protected internal void SetQuestSingleton(PlayerData playerData)
+    {
+        questLevel._endQuest = playerData._endQuestV2;
+        questLevel.CaseValue = playerData._caseValueV2;
     }
     protected internal void SetPlayerPositionUnLoad(int index)
     {

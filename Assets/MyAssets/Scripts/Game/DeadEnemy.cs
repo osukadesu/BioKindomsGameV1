@@ -25,7 +25,7 @@ public class DeadEnemy : DeadManager
             case 10:
                 DeadActionsMethod(true, false);
                 break;
-            case 12:
+            case 13:
                 DeadActionsMethod(true, false);
                 break;
             default:

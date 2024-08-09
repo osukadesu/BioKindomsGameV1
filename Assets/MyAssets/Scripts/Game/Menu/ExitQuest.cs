@@ -1,14 +1,19 @@
 using UnityEngine;
 public class ExitQuest : MonoBehaviour
 {
-    [SerializeField] GameObject[] questKing, changeLevel;
     [SerializeField] LevelSystemV2 levelSystemV2;
+    [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] QuestLevel questLevel;
+    [SerializeField] GameObject[] changeLevel;
+    private void Start()
+    {
+        changeLevel[0].SetActive(false);
+    }
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         questLevel = FindObjectOfType<QuestLevel>();
-        changeLevel[0].SetActive(false);
+        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -23,7 +28,7 @@ public class ExitQuest : MonoBehaviour
         switch (_value)
         {
             case 11:
-                Destroy(questKing[0], .4f);
+                Destroy(showLevelCaseV2.questKing[0], .2f);
                 changeLevel[0].SetActive(true);
                 break;
         }

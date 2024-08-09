@@ -28,88 +28,144 @@ public class ShowLevelCaseV2 : MonoBehaviour
         {
             case 1:
                 platformV2.SetActive(true);
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 StartCoroutine(LevelTutorialCoroutine());
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 2:
                 LevelFight();
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 3:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 4:
                 LevelFight();
-                questKing[0].SetActive(false);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 5:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 6:
                 LevelFight();
-                questKing[0].SetActive(false);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 7:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 8:
                 LevelFight();
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 9:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 10:
                 LevelFight();
-                questKing[0].SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                questKing[0].SetActive(true);
-                exitQuest[0].SetActive(questLevel._endQuest);
+                SwitchQuestExitKing(1);
                 loadLevelSystem.SetPlayerPositionUnLoad(1);
                 SaveLevel();
                 break;
             case 12:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                exitQuest[0].SetActive(questLevel._endQuest);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
+                Destroy(exitQuest[0], .2f);
+                loadLevelSystem.SetPlayerPositionUnLoad(0);
                 SaveLevel();
                 break;
+            case 13:
+                LevelFight();
+                SwitchQuestExitKing(2);
+                loadLevelSystem.SetPlayerPositionUnLoad(0);
+                break;
         }
+    }
+    void SwitchQuestExitKing(int _value)
+    {
+        switch (_value)
+        {
+            case 0:
+                for (int i = 0; i < 5; i++)
+                {
+                    QuestExitKing(i, false);
+                }
+                break;
+            case 1:
+                QuestExitKing(0, true);
+                QuestExitKing(1, false);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 2:
+                QuestExitKing(1, false);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 3:
+                QuestExitKing(1, true);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 4:
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 5:
+                QuestExitKing(2, true);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 6:
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 7:
+                QuestExitKing(3, true);
+                QuestExitKing(4, false);
+                break;
+            case 8:
+                QuestExitKing(4, false);
+                break;
+            case 9:
+                QuestExitKing(4, true);
+                break;
+        }
+    }
+    void QuestExitKing(int _index, bool _bool)
+    {
+        questKing[_index].SetActive(_bool);
+        exitQuest[_index].SetActive(questLevel._endQuest);
     }
     IEnumerator LevelTutorialCoroutine()
     {

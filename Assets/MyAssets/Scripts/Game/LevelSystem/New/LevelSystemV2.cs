@@ -28,7 +28,8 @@ public class LevelSystemV2 : MonoBehaviour
     void ReadData()
     {
         string datapath = Application.persistentDataPath + "/player.data";
-        if (File.Exists(datapath) && !loadController.LevelLoadGame)
+        string datapath2 = Application.persistentDataPath + "/quest.data";
+        if (File.Exists(datapath) && !loadController.LevelLoadGame || File.Exists(datapath2) && !loadController.LevelLoadGame)
         {
             loadLevelSystem.GoLoadGame();
         }

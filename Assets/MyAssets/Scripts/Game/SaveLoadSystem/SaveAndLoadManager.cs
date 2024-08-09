@@ -59,4 +59,32 @@ public static class SaveAndLoadManager
             return null;
         }
     }
+    public static void SaveQuest(QuestLevel questLevel)
+    {
+        PlayerData playerData = new(questLevel);
+        string datapath = Application.persistentDataPath + "/quest.data";
+        FileStream fileStream = new(datapath, FileMode.Create);
+        BinaryFormatter binaryFormatter = new();
+        binaryFormatter.Serialize(fileStream, playerData);
+        Debug.Log("Save Game");
+        fileStream.Close();
+    }
+    public static PlayerData LoadQuest()
+    {
+        string datapath = Application.persistentDataPath + "/quest.data";
+        if (File.Exists(datapath))
+        {
+            FileStream fileStream = new(datapath, FileMode.Open);
+            BinaryFormatter binaryFormatter = new();
+            PlayerData playerData = (PlayerData)binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            Debug.Log("Load Game");
+            return playerData;
+        }
+        else
+        {
+            Debug.LogError("Game is missing!");
+            return null;
+        }
+    }
 }
