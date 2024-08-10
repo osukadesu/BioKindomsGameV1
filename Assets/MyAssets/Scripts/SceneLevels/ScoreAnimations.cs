@@ -2,14 +2,9 @@ using UnityEngine;
 public class ScoreAnimations : MonoBehaviour
 {
     [SerializeField] Animator scoreValueAnim;
-    [SerializeField] ScoreSystem scoreSystem;
-    void Start()
+    public void SwitchAnimations(int _index)
     {
-        scoreValueAnim.SetBool("score5", true);
-    }
-    private void Update()
-    {
-        switch (scoreSystem.finalScore)
+        switch (_index)
         {
             case 5:
                 scoreValueAnim.SetBool("score5", true);
@@ -41,11 +36,11 @@ public class ScoreAnimations : MonoBehaviour
                 scoreValueAnim.SetBool("score3", false);
                 scoreValueAnim.SetBool("scorelose", true);
                 break;
-            default:
-                scoreValueAnim.SetBool("score5", true);
+            case 0:
+                scoreValueAnim.SetBool("score5", false);
                 scoreValueAnim.SetBool("score4", false);
                 scoreValueAnim.SetBool("score3", false);
-                scoreValueAnim.SetBool("scorelose", false);
+                scoreValueAnim.SetBool("scorelose", true);
                 break;
         }
     }

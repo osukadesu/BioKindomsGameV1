@@ -10,6 +10,7 @@ public class CompareState : QuestBaseState
     [SerializeField] RoundState roundState;
     [SerializeField] TextManager textManager;
     [SerializeField] int idBtnSelect, score;
+    public int _scoreA, _scoreV, _scoreF, _scoreP, _scoreM;
     [SerializeField] bool resetGame;
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
@@ -75,6 +76,7 @@ public class CompareState : QuestBaseState
                 yield return new WaitForSeconds(4f);
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
+                ScoreCase(questLevel.CaseValue);
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
@@ -90,6 +92,7 @@ public class CompareState : QuestBaseState
                 yield return new WaitForSeconds(4f);
                 textManager.ShowText(1, "Puntaje: " + score, "txtShow");
                 yield return new WaitForSeconds(2f);
+                ScoreCase(questLevel.CaseValue);
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
@@ -102,6 +105,27 @@ public class CompareState : QuestBaseState
             yield return new WaitForSeconds(2f);
             questLevel._endQuest = false;
             resetGame = true;
+        }
+    }
+    void ScoreCase(int _case)
+    {
+        switch (_case)
+        {
+            case 0:
+                _scoreA = score;
+                break;
+            case 1:
+                _scoreV = score;
+                break;
+            case 2:
+                _scoreF = score;
+                break;
+            case 3:
+                _scoreP = score;
+                break;
+            case 4:
+                _scoreM = score;
+                break;
         }
     }
 }

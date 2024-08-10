@@ -4818,12 +4818,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
   questLevel: {fileID: 1222646214}
-  changeLevel:
-  - {fileID: 1463740089}
-  - {fileID: 245214407}
-  - {fileID: 1337394505}
-  - {fileID: 2079153617}
-  - {fileID: 482977741}
 --- !u!1 &196338676
 GameObject:
   m_ObjectHideFlags: 0
@@ -9645,6 +9639,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71a9096d1f025f14784ad73efb8eca16, type: 2}
   levelSystemV2: {fileID: 1259189127}
   textGralController: {fileID: 326398874}
+  questLevel: {fileID: 0}
 --- !u!114 &326398879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11705,12 +11700,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
   questLevel: {fileID: 1222646214}
-  changeLevel:
-  - {fileID: 1463740089}
-  - {fileID: 245214407}
-  - {fileID: 1337394505}
-  - {fileID: 2079153617}
-  - {fileID: 482977741}
 --- !u!65 &428844472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30960,12 +30949,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
   questLevel: {fileID: 1222646214}
-  changeLevel:
-  - {fileID: 1463740089}
-  - {fileID: 245214407}
-  - {fileID: 1337394505}
-  - {fileID: 2079153617}
-  - {fileID: 482977741}
 --- !u!65 &1251418329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31334,6 +31317,12 @@ MonoBehaviour:
   - {fileID: 1251418326}
   - {fileID: 428844469}
   - {fileID: 1497055623}
+  changeLevel:
+  - {fileID: 1463740089}
+  - {fileID: 245214407}
+  - {fileID: 1337394505}
+  - {fileID: 2079153617}
+  - {fileID: 482977741}
   pedestal: {fileID: 781186656}
 --- !u!114 &1259189129
 MonoBehaviour:
@@ -31348,6 +31337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 354055298}
+  questLevel: {fileID: 1222646214}
   IOA:
   - {fileID: 1142242187}
   - {fileID: 288253231}
@@ -37738,12 +37728,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
   questLevel: {fileID: 1222646214}
-  changeLevel:
-  - {fileID: 1463740089}
-  - {fileID: 245214407}
-  - {fileID: 1337394505}
-  - {fileID: 2079153617}
-  - {fileID: 482977741}
 --- !u!65 &1497055626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50420,7 +50404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1904752007
 Transform:
   m_ObjectHideFlags: 0
@@ -52127,12 +52111,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
   questLevel: {fileID: 1222646214}
-  changeLevel:
-  - {fileID: 1463740089}
-  - {fileID: 245214407}
-  - {fileID: 1337394505}
-  - {fileID: 2079153617}
-  - {fileID: 482977741}
 --- !u!65 &1967265479
 BoxCollider:
   m_ObjectHideFlags: 0

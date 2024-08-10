@@ -11,7 +11,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] SaveMethod saveMethod;
     [SerializeField] GameObject _NextLevel, levelFight, platformV2;
     [SerializeField] Animator nextLevelAnim;
-    [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest;
+    [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest, changeLevel;
     [SerializeField] protected internal GameObject pedestal;
     void Awake()
     {
@@ -96,7 +96,8 @@ public class ShowLevelCaseV2 : MonoBehaviour
             case 12:
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
-                Destroy(exitQuest[0], .2f);
+                SwitchQuestExitKing(2);
+                DestroyingObjects(0, 0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 SaveLevel();
                 break;
@@ -104,6 +105,19 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 LevelFight();
                 SwitchQuestExitKing(2);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
+                break;
+        }
+    }
+    public void DestroyingObjects(int _index, int _case)
+    {
+        switch (_case)
+        {
+            case 0:
+                Destroy(questKing[_index], .2f);
+                Destroy(exitQuest[_index], .2f);
+                break;
+            case 1:
+                Destroy(changeLevel[_index], .2f);
                 break;
         }
     }

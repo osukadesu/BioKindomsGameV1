@@ -4,10 +4,12 @@ public class ExitQuest : MonoBehaviour
     [SerializeField] LevelSystemV2 levelSystemV2;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] QuestLevel questLevel;
-    [SerializeField] GameObject[] changeLevel;
-    private void Start()
+    void Start()
     {
-        changeLevel[0].SetActive(false);
+        for (int i = 0; i < showLevelCaseV2.changeLevel.Length; i++)
+        {
+            showLevelCaseV2.changeLevel[i].SetActive(false);
+        }
     }
     void Awake()
     {
@@ -29,7 +31,7 @@ public class ExitQuest : MonoBehaviour
         {
             case 11:
                 Destroy(showLevelCaseV2.questKing[0], .2f);
-                changeLevel[0].SetActive(true);
+                showLevelCaseV2.changeLevel[0].SetActive(true);
                 break;
         }
     }

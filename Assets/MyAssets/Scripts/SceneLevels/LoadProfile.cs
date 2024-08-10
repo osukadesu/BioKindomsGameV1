@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LoadProfile : MonoBehaviour
 {
+    [SerializeField] ScoreAnimations[] scoreAnimations;
     [SerializeField] ProfileSystem levelSelect;
-    [SerializeField] Text txtScoreA, txtScoreV, txtScoreF, txtScoreP, txtScoreM;
-    int num = 0;
+    [SerializeField] Text txtScoreA, txtScoreV, txtScoreF, txtScoreP, txtScoreM, txtFinalScore;
+    public int numA, numV, numF, numP, numM, finalScore;
     void Awake()
     {
         levelSelect = FindObjectOfType<ProfileSystem>();
@@ -13,11 +14,22 @@ public class LoadProfile : MonoBehaviour
     {
         levelSelect.currentLevel = 1;
         levelSelect.ShowLevel(levelSelect.currentLevel);
-        txtScoreA.text = num.ToString();
-        txtScoreV.text = num.ToString();
-        txtScoreF.text = num.ToString();
-        txtScoreP.text = num.ToString();
-        txtScoreM.text = num.ToString();
+        txtScoreA.text = numA.ToString();
+        txtScoreV.text = numV.ToString();
+        txtScoreF.text = numF.ToString();
+        txtScoreP.text = numP.ToString();
+        txtScoreM.text = numM.ToString();
+        txtFinalScore.text = FinalScore().ToString();
+        scoreAnimations[0].SwitchAnimations(numA);
+        scoreAnimations[1].SwitchAnimations(numV);
+        scoreAnimations[2].SwitchAnimations(numF);
+        scoreAnimations[3].SwitchAnimations(numP);
+        scoreAnimations[4].SwitchAnimations(numM);
+        scoreAnimations[5].SwitchAnimations(finalScore);
+    }
+    int FinalScore()
+    {
+        return finalScore = (numA + numV + numF + numP + numM) / 5;
     }
     protected internal void GoLoadProfile()
     {
@@ -34,11 +46,18 @@ public class LoadProfile : MonoBehaviour
     }
     public void SettScore(ScoreData scoreData)
     {
-        txtScoreA.text = scoreData.scoreValue.ToString();
-        txtScoreV.text = scoreData.scoreValue.ToString();
-        txtScoreF.text = scoreData.scoreValue.ToString();
-        txtScoreP.text = scoreData.scoreValue.ToString();
-        txtScoreM.text = scoreData.scoreValue.ToString();
-        Debug.Log("score load: " + scoreData.scoreValue);
+        txtScoreA.text = scoreData.scoreA.ToString();
+        txtScoreV.text = scoreData.scoreV.ToString();
+        txtScoreF.text = scoreData.scoreF.ToString();
+        txtScoreP.text = scoreData.scoreP.ToString();
+        txtScoreM.text = scoreData.scoreM.ToString();
+        txtFinalScore.text = scoreData.finalScore.ToString();
+        scoreAnimations[0].SwitchAnimations(numA);
+        scoreAnimations[1].SwitchAnimations(numV);
+        scoreAnimations[2].SwitchAnimations(numF);
+        scoreAnimations[3].SwitchAnimations(numP);
+        scoreAnimations[4].SwitchAnimations(numM);
+        scoreAnimations[5].SwitchAnimations(finalScore);
+        Debug.Log("score load: " + scoreData.scoreA + " " + scoreData.scoreV + " " + scoreData.scoreF + " " + scoreData.scoreP + " " + scoreData.scoreM);
     }
 }

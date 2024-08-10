@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class LoadLevelSystem : MonoBehaviour
         SettingVegetals(playerData);
         CheckingVegetal(playerData);
         SetQuestSingleton(playerData);
+        SetDestroyObject(levelSystemV2.CurrentLevel);
     }
     protected internal void SetInventoryUI()
     {
@@ -101,5 +103,14 @@ public class LoadLevelSystem : MonoBehaviour
     protected internal void SetPlayerPositionUnLoad(int index)
     {
         playerMove.transform.position = targetPlayerPosition[index].position;
+    }
+    protected internal void SetDestroyObject(int _value)
+    {
+        switch (_value)
+        {
+            case 12:
+                showLevelCaseV2.DestroyingObjects(0,1);
+                break;
+        }
     }
 }
