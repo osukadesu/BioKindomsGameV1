@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour
         if (File.Exists(datapath))
         {
             File.Delete(Application.persistentDataPath + "/player.data");
-            AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
+            //AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
         }
         else Debug.Log("Not delete player.");
     }
