@@ -35,88 +35,56 @@ public class ProfileSystem : MonoBehaviour
         Debug.Log("Current Level: " + level);
         switch (level)
         {
-            case 1:
-                LevelAnimations(null, null);
-                break;
-            case 2:
-                LevelAnimations(null, null);
-                break;
             case 3:
-                LevelAnimations(0, null);
-                break;
-            case 4:
-                LevelAnimations(0, null);
+                SetAnimSubLevels(1);
                 break;
             case 5:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                break;
-            case 6:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
+                SetAnimSubLevels(2);
                 break;
             case 7:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                break;
-            case 8:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
+                SetAnimSubLevels(3);
                 break;
             case 9:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
-                break;
-            case 10:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
+                SetAnimSubLevels(4);
                 break;
             case 11:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
-                LevelAnimations(4, null);
+                SetAnimFinish(1);
                 break;
             case 12:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
-                LevelAnimations(4, null);
-                break;
-            case 13:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
-                LevelAnimations(4, null);
+                SetAnimFinish(1);
                 break;
             case 14:
-                LevelAnimations(0, null);
-                LevelAnimations(1, null);
-                LevelAnimations(2, null);
-                LevelAnimations(3, null);
-                LevelAnimations(4, null);
-                LevelAnimations(5, null);
+                SetAnimFinish(1);
+                SetAnimSubLevels(6);
+                break;
+            default:
+                LevelAnimations(null, null);
                 break;
         }
     }
-    void LevelAnimations(int? _subLevel, int? _levelFinished)
+    void SetAnimFinish(int _length)
     {
-        if (_subLevel.HasValue)
+        for (int i = 0; i < _length; i++)
         {
-            levelAnimations.SubLevel(_subLevel.Value);
+            LevelAnimations(null, i);
         }
-        if (_levelFinished.HasValue)
+    }
+    void SetAnimSubLevels(int _length)
+    {
+        for (int i = 0; i < _length; i++)
         {
-            levelAnimations.LevelFinished(_levelFinished.Value);
+            LevelAnimations(i, null);
+        }
+    }
+    void LevelAnimations(int? subLevel, int? levelFinished)
+    {
+        if (subLevel.HasValue)
+        {
+            levelAnimations.SubLevel(subLevel.Value);
+        }
+        if (levelFinished.HasValue)
+        {
+            levelAnimations.LevelFinished(levelFinished.Value);
         }
     }
 }
