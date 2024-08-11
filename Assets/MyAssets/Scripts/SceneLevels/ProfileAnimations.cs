@@ -11,7 +11,8 @@ public class ProfileAnimations : MonoBehaviour
     {
         for (int i = 0; i < btnRepiteQuest.Length; i++)
         {
-            btnRepiteQuest[i].onClick.AddListener(AgainQuest);
+            int increment = i;
+            btnRepiteQuest[i].onClick.AddListener(() => AgainQuest(increment));
         }
     }
     void Start()
