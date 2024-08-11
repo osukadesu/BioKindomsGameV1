@@ -80,7 +80,14 @@ public class CompareState : QuestBaseState
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(4);
+                if (MenuController.menuController.IsMyProfile)
+                {
+                    SceneManager.LoadScene(3);
+                }
+                else
+                {
+                    SceneManager.LoadScene(4);
+                }
             }
             else
             {
@@ -96,7 +103,14 @@ public class CompareState : QuestBaseState
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(4);
+                if (MenuController.menuController.IsMyProfile)
+                {
+                    SceneManager.LoadScene(3);
+                }
+                else
+                {
+                    SceneManager.LoadScene(4);
+                }
             }
         }
         else
