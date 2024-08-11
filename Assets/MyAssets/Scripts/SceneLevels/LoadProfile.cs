@@ -46,6 +46,12 @@ public class LoadProfile : MonoBehaviour
     }
     public void SettScore(ScoreData scoreData)
     {
+        numA = scoreData.scoreA;
+        numV = scoreData.scoreV;
+        numF = scoreData.scoreF;
+        numP = scoreData.scoreP;
+        numM = scoreData.scoreM;
+        finalScore = scoreData.finalScore;
         txtScoreA.text = scoreData.scoreA.ToString();
         txtScoreV.text = scoreData.scoreV.ToString();
         txtScoreF.text = scoreData.scoreF.ToString();
