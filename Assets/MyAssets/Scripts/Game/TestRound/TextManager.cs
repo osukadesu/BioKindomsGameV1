@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,15 +13,13 @@ public class TextManager : MonoBehaviour
     }
     public IEnumerator IEShowText(int _posType, string _message, string _animation)
     {
-        switch (_posType)
+        Action action = _posType switch
         {
-            case 0:
-                textPosition.position = textPositionInit.position;
-                break;
-            case 1:
-                textPosition.position = textPositionEnd.position;
-                break;
-        }
+            0 => () => textPosition.position = textPositionInit.position,
+            1 => () => textPosition.position = textPositionEnd.position,
+            _ => () => Debug.LogError("Value Error!")
+        };
+        action();
         textRoundInfo.text = _message;
         textRoundInfoAnim.SetBool(_animation, true);
         yield return new WaitForSeconds(2f);

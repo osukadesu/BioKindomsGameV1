@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -28,24 +29,16 @@ public class ProfileAnimations : MonoBehaviour
     }
     void AgainQuest(int _btn)
     {
-        switch (_btn)
+        Action action = _btn switch
         {
-            case 0:
-                questLevel.CaseValue = 0;
-                break;
-            case 1:
-                questLevel.CaseValue = 1;
-                break;
-            case 2:
-                questLevel.CaseValue = 2;
-                break;
-            case 3:
-                questLevel.CaseValue = 3;
-                break;
-            case 4:
-                questLevel.CaseValue = 4;
-                break;
-        }
+            0 => () => questLevel.CaseValue = 0,
+            1 => () => questLevel.CaseValue = 1,
+            2 => () => questLevel.CaseValue = 2,
+            3 => () => questLevel.CaseValue = 3,
+            4 => () => questLevel.CaseValue = 4,
+            _ => () => Debug.LogError("Value Error!")
+        };
+        action();
         StartCoroutine(ChageScene());
     }
     IEnumerator ChageScene()

@@ -55,35 +55,31 @@ public class CompareState : QuestBaseState
     {
         score = (_scoreType == 0 && score < 5) ? score + 1 : (_scoreType == 1 && score > 1) ? score - 1 : score;
         yield return new WaitForSeconds(.5f);
+        IEnumerator ShowResult(string _message)
+        {
+            textManager.ShowText(1, _message, "txtShow");
+            yield return new WaitForSeconds(4f);
+            textManager.ShowText(1, "Puntaje: " + score, "txtShow");
+            yield return new WaitForSeconds(2f);
+            ScoreCase(questLevel.CaseValue);
+            saveScoreMethod.SavingScore();
+            questLevel._endQuest = true;
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
+        }
         if (roundState._currentRound > 5)
         {
             if (score > 2)
             {
-                textManager.ShowText(1, "Has ganado el juego!", "txtShow");
-                yield return new WaitForSeconds(4f);
-                textManager.ShowText(1, "Puntaje: " + score, "txtShow");
-                yield return new WaitForSeconds(2f);
-                ScoreCase(questLevel.CaseValue);
-                saveScoreMethod.SavingScore();
-                questLevel._endQuest = true;
-                yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
+                yield return ShowResult("Has ganado el juego!");
             }
             else
             {
                 animationsManager.containerCardAnim.SetBool("containerCardHide", true);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(.5f);
                 roundState._currentRound = 1;
-                yield return new WaitForSeconds(1f);
-                textManager.ShowText(1, "Has perdido!", "txtShow");
-                yield return new WaitForSeconds(4f);
-                textManager.ShowText(1, "Puntaje: " + score, "txtShow");
-                yield return new WaitForSeconds(2f);
-                ScoreCase(questLevel.CaseValue);
-                saveScoreMethod.SavingScore();
-                questLevel._endQuest = true;
-                yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
+                yield return new WaitForSeconds(.5f);
+                yield return ShowResult("Has perdido el juego!");
             }
         }
         else

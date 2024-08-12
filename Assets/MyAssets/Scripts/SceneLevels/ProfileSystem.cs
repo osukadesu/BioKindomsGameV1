@@ -42,8 +42,7 @@ public class ProfileSystem : MonoBehaviour
             9 => () => SetAnimSubLevels(4),
             11 => () => SetAnimFinish(1),
             12 => () => SetAnimFinish(1),
-            14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); }
-            ,
+            14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); },
             _ => () => LevelAnimations(null, null)
         };
         action();

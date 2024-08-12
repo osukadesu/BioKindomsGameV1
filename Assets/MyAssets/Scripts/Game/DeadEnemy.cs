@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class DeadEnemy : DeadManager
@@ -8,30 +9,13 @@ public class DeadEnemy : DeadManager
     }
     void CaseDeadActionsMethod(int value)
     {
-        switch (value)
+        Action action = value switch
         {
-            case 2:
-                DeadActionsMethod(true, true);
-                break;
-            case 4:
-                DeadActionsMethod(true, false);
-                break;
-            case 6:
-                DeadActionsMethod(true, false);
-                break;
-            case 8:
-                DeadActionsMethod(true, false);
-                break;
-            case 10:
-                DeadActionsMethod(true, false);
-                break;
-            case 13:
-                DeadActionsMethod(true, false);
-                break;
-            default:
-                DeadActionsMethod(false, false);
-                break;
-        }
+            2 => () => DeadActionsMethod(true, true),
+            4 or 6 or 8 or 10 or 13 => () => DeadActionsMethod(true, false),
+            _ => () => DeadActionsMethod(false, false)
+        };
+        action();
     }
     void DeadActionsMethod(bool value, bool value2)
     {

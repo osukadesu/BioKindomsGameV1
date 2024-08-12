@@ -20445,12 +20445,13 @@ MonoBehaviour:
   - {fileID: 1525008530}
   - {fileID: 1893918684}
   levelSelect: {fileID: 1895137100}
-  txtScoreA: {fileID: 1497818528}
-  txtScoreV: {fileID: 445608859}
-  txtScoreF: {fileID: 1862342876}
-  txtScoreP: {fileID: 499013566}
-  txtScoreM: {fileID: 1525008528}
   txtFinalScore: {fileID: 1893918682}
+  txtScore:
+  - {fileID: 1497818528}
+  - {fileID: 445608859}
+  - {fileID: 1862342876}
+  - {fileID: 499013566}
+  - {fileID: 1525008528}
   num: 0000000000000000000000000000000000000000
   finalScore: 0
 --- !u!1 &1736746365
@@ -22142,6 +22143,8 @@ MonoBehaviour:
   loadLevelSelect: {fileID: 1498058865}
   mouseController: {fileID: 1895137102}
   currentLevel: 0
+  _subLevel: 0
+  _levelFinished: 0
 --- !u!114 &1895137101
 MonoBehaviour:
   m_ObjectHideFlags: 0

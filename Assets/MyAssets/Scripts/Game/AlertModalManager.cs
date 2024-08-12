@@ -48,15 +48,6 @@ public class AlertModalManager : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    public void AlertModal2(bool mybool)
-    {
-    }
-    public void AlertModal3(bool mybool)
-    {
-    }
-    public void AlertModal4(bool mybool)
-    {
-    }
     public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg,int indexImg2, bool myBoolImg2)
     {
         alertModalNew.SetBool("alertmodal", myBoolAnim);

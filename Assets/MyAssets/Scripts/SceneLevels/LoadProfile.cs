@@ -5,7 +5,8 @@ public class LoadProfile : MonoBehaviour
     [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] ScoreAnimations[] scoreAnimations;
     [SerializeField] ProfileSystem levelSelect;
-    [SerializeField] Text txtScoreA, txtScoreV, txtScoreF, txtScoreP, txtScoreM, txtFinalScore;
+    [SerializeField] Text txtFinalScore;
+    [SerializeField] Text[] txtScore;
     public int[] num = new int[5];
     public int finalScore;
     void Awake()
@@ -17,18 +18,16 @@ public class LoadProfile : MonoBehaviour
     {
         levelSelect.currentLevel = 1;
         levelSelect.ShowLevel(levelSelect.currentLevel);
-        txtScoreA.text = num[0].ToString();
-        txtScoreV.text = num[1].ToString();
-        txtScoreF.text = num[2].ToString();
-        txtScoreP.text = num[3].ToString();
-        txtScoreM.text = num[4].ToString();
+        for (int i = 0; i < txtScore.Length; i++)
+        {
+            txtScore[i].text = num[i].ToString();
+        }
         txtFinalScore.text = FinalScore().ToString();
-        scoreAnimations[0].SwitchAnimations(num[0]);
-        scoreAnimations[1].SwitchAnimations(num[1]);
-        scoreAnimations[2].SwitchAnimations(num[2]);
-        scoreAnimations[3].SwitchAnimations(num[3]);
-        scoreAnimations[4].SwitchAnimations(num[4]);
-        scoreAnimations[5].SwitchAnimations(finalScore);
+        for (int i = 0; i < scoreAnimations.Length; i++)
+        {
+            int scoreValue = i < 5 ? num[i] : finalScore;
+            scoreAnimations[i].SwitchAnimations(scoreValue);
+        }
     }
     int FinalScore()
     {
@@ -54,19 +53,17 @@ public class LoadProfile : MonoBehaviour
             num[i] = scoreData.score[i];
             loadProfileSingleton._num[i] = scoreData.score[i];
         }
+        for (int i = 0; i < txtScore.Length; i++)
+        {
+            txtScore[i].text = num[i].ToString();
+        }
         finalScore = scoreData.finalScore;
-        txtScoreA.text = num[0].ToString();
-        txtScoreV.text = num[1].ToString();
-        txtScoreF.text = num[2].ToString();
-        txtScoreP.text = num[3].ToString();
-        txtScoreM.text = num[4].ToString();
         txtFinalScore.text = finalScore.ToString();
-        scoreAnimations[0].SwitchAnimations(num[0]);
-        scoreAnimations[1].SwitchAnimations(num[1]);
-        scoreAnimations[2].SwitchAnimations(num[2]);
-        scoreAnimations[3].SwitchAnimations(num[3]);
-        scoreAnimations[4].SwitchAnimations(num[4]);
-        scoreAnimations[5].SwitchAnimations(finalScore);
+        for (int i = 0; i < scoreAnimations.Length; i++)
+        {
+            int scoreValue = i < 5 ? num[i] : finalScore;
+            scoreAnimations[i].SwitchAnimations(scoreValue);
+        }
         Debug.Log("score load: " + scoreData.score[0] + " " + scoreData.score[1] + " " + scoreData.score[2] + " " + scoreData.score[3] + " " + scoreData.score[4]);
     }
 }
