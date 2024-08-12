@@ -9,7 +9,7 @@ public class WalkingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemyStateManager)
     {
         agent.SetDestination(wayPoints[wayIndex].position);
-        agent.speed = 1;
+        agent.speed = 2;
         if (Vector3.Distance(wayPoints[wayIndex].position, transform.position) < 3f)
         {
 

@@ -12,9 +12,21 @@ public class SetQuestSystem : MonoBehaviour
     public int _myRandom { get => random; set => random = value; }
     public int[] _idQuest { get => idQuest; set => idQuest = value; }
     public int[] _idButton { get => idButton; set => idButton = value; }
+    void SetRandom(int _value)
+    {
+        switch (_value)
+        {
+            case 0:
+                random = Random.Range(0, 5);
+                break;
+            case 1:
+                random = Random.Range(5, 10);
+                break;
+        }
+    }
     public void SetCase(int _value)
     {
-        random = Random.Range(0, 5);
+        SetRandom(_value);
         Debug.Log("Quest: " + random);
         switch (_value)
         {
@@ -54,20 +66,20 @@ public class SetQuestSystem : MonoBehaviour
     {
         switch (_value)
         {
-            case 0:
-                SetDataCases(0, 0, 1, 2, 0, 1, 2);
+            case 5:
+                SetDataCases(5, 6, 7, 5, 6, 7, 5);
                 break;
-            case 1:
-                SetDataCases(1, 2, 0, 1, 2, 0, 1);
+            case 6:
+                SetDataCases(6, 9, 6, 5, 9, 6, 5);
                 break;
-            case 2:
-                SetDataCases(2, 0, 2, 1, 0, 2, 1);
+            case 7:
+                SetDataCases(7, 6, 7, 8, 6, 7, 8);
                 break;
-            case 3:
-                SetDataCases(3, 3, 1, 2, 3, 1, 2);
+            case 8:
+                SetDataCases(8, 8, 7, 5, 8, 7, 5);
                 break;
-            case 4:
-                SetDataCases(4, 1, 4, 3, 1, 4, 3);
+            case 9:
+                SetDataCases(9, 8, 7, 9, 8, 7, 9);
                 break;
             default:
                 Debug.LogError("Quest error!");

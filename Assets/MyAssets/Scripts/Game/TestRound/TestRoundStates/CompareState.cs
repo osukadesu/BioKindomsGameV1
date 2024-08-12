@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CompareState : QuestBaseState
 {
+    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] QuestLevel questLevel;
     [SerializeField] SaveScoreMethod saveScoreMethod;
     [SerializeField] AnimationsManager animationsManager;
@@ -10,18 +11,18 @@ public class CompareState : QuestBaseState
     [SerializeField] RoundState roundState;
     [SerializeField] TextManager textManager;
     [SerializeField] int idBtnSelect, score;
-    public int _scoreA, _scoreV, _scoreF, _scoreP, _scoreM;
+    public int[] _score = new int[5];
     [SerializeField] bool resetGame;
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
-    public int _score { get => score; set => score = value; }
     void Awake()
     {
         questLevel = FindObjectOfType<QuestLevel>();
+        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     void Start()
     {
-        idBtnSelect = 5;
+        idBtnSelect = 10;
         score = 5;
     }
     public override void EnterState(QuestStateManager questStateManager)
@@ -32,7 +33,7 @@ public class CompareState : QuestBaseState
     {
         if (resetGame)
         {
-            idBtnSelect = 5;
+            idBtnSelect = 10;
             questStateManager.SwitchState(questStateManager.roundState);
         }
     }
@@ -40,33 +41,19 @@ public class CompareState : QuestBaseState
     {
         roundState._startGame = false;
         roundState._currentRound++;
-        if (idBtnSelect == setQuestSystem._idQuest[_idquest] && idBtnSelect != 5)
+        if (idBtnSelect == setQuestSystem._idQuest[_idquest] && idBtnSelect != 10)
         {
             StartCoroutine(WinOrLoseMethod(0, "Correcto!"));
         }
         else
         {
             animationsManager.containerCardAnim.SetBool("containerCardHide", true);
-            if (idBtnSelect == 5)
-            {
-                StartCoroutine(WinOrLoseMethod(1, "No seleccionaste!"));
-            }
-            else
-            {
-                StartCoroutine(WinOrLoseMethod(1, "Incorrecto!"));
-            }
+            StartCoroutine(WinOrLoseMethod(1, idBtnSelect == 10 ? "No seleccionaste!" : "Incorrecto!"));
         }
     }
     IEnumerator WinOrLoseMethod(int _scoreType, string _text)
     {
-        if (_scoreType == 0 && score < 5)
-        {
-            score++;
-        }
-        else if (_scoreType == 1 && score > 1)
-        {
-            score--;
-        }
+        score = (_scoreType == 0 && score < 5) ? score + 1 : (_scoreType == 1 && score > 1) ? score - 1 : score;
         yield return new WaitForSeconds(.5f);
         if (roundState._currentRound > 5)
         {
@@ -80,14 +67,7 @@ public class CompareState : QuestBaseState
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
-                if (MenuController.menuController.IsMyProfile)
-                {
-                    SceneManager.LoadScene(3);
-                }
-                else
-                {
-                    SceneManager.LoadScene(4);
-                }
+                SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
             }
             else
             {
@@ -103,14 +83,7 @@ public class CompareState : QuestBaseState
                 saveScoreMethod.SavingScore();
                 questLevel._endQuest = true;
                 yield return new WaitForSeconds(2f);
-                if (MenuController.menuController.IsMyProfile)
-                {
-                    SceneManager.LoadScene(3);
-                }
-                else
-                {
-                    SceneManager.LoadScene(4);
-                }
+                SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
             }
         }
         else
@@ -123,23 +96,9 @@ public class CompareState : QuestBaseState
     }
     void ScoreCase(int _case)
     {
-        switch (_case)
+        for (int i = 0; i < _score.Length; i++)
         {
-            case 0:
-                _scoreA = score;
-                break;
-            case 1:
-                _scoreV = score;
-                break;
-            case 2:
-                _scoreF = score;
-                break;
-            case 3:
-                _scoreP = score;
-                break;
-            case 4:
-                _scoreM = score;
-                break;
+            _score[i] = (i == _case) ? score : loadProfileSingleton._num[i];
         }
     }
 }

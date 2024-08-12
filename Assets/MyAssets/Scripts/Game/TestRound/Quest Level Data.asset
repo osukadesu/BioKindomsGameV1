@@ -12,12 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1de9df012a4584dbd04972bff07838, type: 3}
   m_Name: Quest Level Data
   m_EditorClassIdentifier: 
-  idQuest: 0000000001000000020000000300000004000000
+  idQuest: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
   texQuest:
   - Selecciona al animal que puede nadar y respirar en el agua.
   - 'Selecciona al animal que pertenece a la clase: Molusco.'
   - Selecciona al animal de tipo invertebrado y clase insecto.
   - 'Selecciona al animal que pertenece a la clase: Ave.'
   - 'Selecciona al animal que pertenece a la clase: Reptil.'
+  - Selecciona el vegetal que vive bajo del agual.
+  - 'Selecciona el vegetal que no necesita agua para vivir. '
+  - Selecciona el vegetal que se puede comer.
+  - Selecciona el vegetal que tiene mayor altura.
+  - 'Selecciona el vegetal que puede dar fruto. '
   imageKindom:
   - {fileID: 21300000, guid: 3c632dcaf8110a94697bec99f88c0ca0, type: 3}
+  - {fileID: 21300000, guid: ae211ff3625b64646a9241499da4b6a0, type: 3}
+  - {fileID: 21300000, guid: 3442f230ae2fff04cb39c8ea588623f7, type: 3}
+  - {fileID: 21300000, guid: bf782269a0e9feb4aa0eebb6c368ce05, type: 3}
+  - {fileID: 21300000, guid: f3c6944ec61bcbb489f9fbc7664c42ba, type: 3}

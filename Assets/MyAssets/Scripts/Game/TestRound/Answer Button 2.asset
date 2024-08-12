@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ad372706f3ab34f90a491e8596fb24, type: 3}
   m_Name: Answer Button 2
   m_EditorClassIdentifier: 
-  idAnswer: 2
+  idAnswer: 1
   imageItem:
   - {fileID: 21300000, guid: d44fe9adcb009474d87f0373b47ae8bb, type: 3}
   - {fileID: 21300000, guid: a2f9baa6f73425646bd1474a857ad61a, type: 3}
   - {fileID: 21300000, guid: fbd506577087c9746b0430e34e1365a0, type: 3}
   - {fileID: 21300000, guid: c2170d7e4adaaa64988b2912cf39391b, type: 3}
   - {fileID: 21300000, guid: 75c8f61706e805a478cf711ab700d5dd, type: 3}
+  - {fileID: 21300000, guid: 87e44cf92b09285479ee38662833ab92, type: 3}
+  - {fileID: 21300000, guid: 85b15b5d88c2ed245995f81f08f73f4f, type: 3}
+  - {fileID: 21300000, guid: f1a61d4dbf056a44585b19851151cc4e, type: 3}
+  - {fileID: 21300000, guid: f1a61d4dbf056a44585b19851151cc4e, type: 3}
+  - {fileID: 21300000, guid: f1a61d4dbf056a44585b19851151cc4e, type: 3}

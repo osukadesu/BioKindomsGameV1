@@ -10,14 +10,14 @@ public class AttackState : EnemyBaseState
     {
         if (Vector3.Distance(player.position, transform.position) > 6f)
         {
-            agent.speed = 0;
+            agent.speed = 2;
             StopCoroutine(EnemyAttack());
             enemyStateManager.SwitchState(enemyStateManager.walkingState);
         }
         else
         {
             agent.SetDestination(player.position);
-            agent.speed = 1;
+            agent.speed = 3;
             StartCoroutine(EnemyAttack());
         }
     }

@@ -1,14 +1,15 @@
 [System.Serializable]
 public class ScoreData
 {
-    public int scoreA, scoreV, scoreF, scoreP, scoreM, finalScore;
+    public int[] score = new int[5];
+    public int finalScore;
     public ScoreData(CompareState compareState)
     {
-        scoreA = compareState._scoreA;
-        scoreV = compareState._scoreV;
-        scoreF = compareState._scoreF;
-        scoreP = compareState._scoreP;
-        scoreM = compareState._scoreM;
-        finalScore = (scoreA + scoreV + scoreF + scoreP + scoreM) / 5;
+        for (int i = 0; i < 5; i++)
+        {
+            int increment = i;
+            score[i] = compareState._score[increment];
+        }
+        finalScore = (score[0] + score[1] + score[2] + score[3] + score[4]) / 5;
     }
 }
