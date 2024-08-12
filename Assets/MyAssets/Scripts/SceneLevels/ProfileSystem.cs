@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class ProfileSystem : MonoBehaviour
 {
@@ -5,7 +6,7 @@ public class ProfileSystem : MonoBehaviour
     [SerializeField] LoadProfile loadLevel;
     [SerializeField] LoadControllerProfile loadLevelSelect;
     [SerializeField] MouseController mouseController;
-    public int currentLevel;
+    public int currentLevel, _subLevel, _levelFinished;
     void Awake()
     {
         mouseController = FindObjectOfType<MouseController>();
@@ -33,34 +34,19 @@ public class ProfileSystem : MonoBehaviour
     public void ShowLevel(int level)
     {
         Debug.Log("Current Level: " + level);
-        switch (level)
+        Action action = level switch
         {
-            case 3:
-                SetAnimSubLevels(1);
-                break;
-            case 5:
-                SetAnimSubLevels(2);
-                break;
-            case 7:
-                SetAnimSubLevels(3);
-                break;
-            case 9:
-                SetAnimSubLevels(4);
-                break;
-            case 11:
-                SetAnimFinish(1);
-                break;
-            case 12:
-                SetAnimFinish(1);
-                break;
-            case 14:
-                SetAnimFinish(1);
-                SetAnimSubLevels(6);
-                break;
-            default:
-                LevelAnimations(null, null);
-                break;
-        }
+            3 => () => SetAnimSubLevels(1),
+            5 => () => SetAnimSubLevels(2),
+            7 => () => SetAnimSubLevels(3),
+            9 => () => SetAnimSubLevels(4),
+            11 => () => SetAnimFinish(1),
+            12 => () => SetAnimFinish(1),
+            14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); }
+            ,
+            _ => () => LevelAnimations(null, null)
+        };
+        action();
     }
     void SetAnimFinish(int _length)
     {
@@ -78,13 +64,9 @@ public class ProfileSystem : MonoBehaviour
     }
     void LevelAnimations(int? subLevel, int? levelFinished)
     {
-        if (subLevel.HasValue)
-        {
-            levelAnimations.SubLevel(subLevel.Value);
-        }
-        if (levelFinished.HasValue)
-        {
-            levelAnimations.LevelFinished(levelFinished.Value);
-        }
+        _subLevel = subLevel ?? _subLevel;
+        levelAnimations.SubLevel(_subLevel);
+        _levelFinished = levelFinished ?? _levelFinished;
+        levelAnimations.LevelFinished(_levelFinished);
     }
 }

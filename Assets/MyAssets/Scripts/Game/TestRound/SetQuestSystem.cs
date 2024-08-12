@@ -91,12 +91,13 @@ public class SetQuestSystem : MonoBehaviour
         idQuest[_idQuest] = questLevelDatas.idQuest[_idQuest];
         textQuest.text = questLevelDatas.texQuest[_idQuest];
         imageKindom.sprite = questLevelDatas.imageKindom[0];
-        idButton[0] = answerButtonDatas[0].idAnswer = _idAnswer1;
-        imageItem[0].sprite = answerButtonDatas[0].imageItem[_idImgA1];
-        idButton[1] = answerButtonDatas[1].idAnswer = _idAnswer2;
-        imageItem[1].sprite = answerButtonDatas[1].imageItem[_idImgA2];
-        idButton[2] = answerButtonDatas[2].idAnswer = _idAnswer3;
-        imageItem[2].sprite = answerButtonDatas[2].imageItem[_idImgA3];
+        int[] answers = { _idAnswer1, _idAnswer2, _idAnswer3 };
+        int[] images = { _idImgA1, _idImgA2, _idImgA3 };
+        for (int i = 0; i < 3; i++)
+        {
+            idButton[i] = answerButtonDatas[i].idAnswer = answers[i];
+            imageItem[i].sprite = answerButtonDatas[i].imageItem[images[i]];
+        }
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
