@@ -39,14 +39,8 @@ public class EstanteCol : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            if (referenceItem.itemIsCheck)
-            {
-                SetInfo(1); canpressG = true;
-            }
-            else
-            {
-                SetInfo(2); canpressF = true;
-            }
+            (canpressG, canpressF) = referenceItem.itemIsCheck ? (true, false) : (false, true);
+            SetInfo(referenceItem.itemIsCheck ? 1 : 2);
         }
     }
     void OnTriggerExit(Collider other)

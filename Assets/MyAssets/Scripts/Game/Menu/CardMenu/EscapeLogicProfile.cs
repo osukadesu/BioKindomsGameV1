@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,12 +24,12 @@ public class EscapeLogicProfile : MonoBehaviour
     }
     public void EscapeMethod()
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
+        Action action = SceneManager.GetActiveScene().buildIndex switch
         {
-            case 3:
-                EscapeFromProfile();
-                break;
-        }
+            3 => () => EscapeFromProfile(),
+            _ => () => Debug.LogError("Value Error!"),
+        };
+        action();
     }
     void ButtonBack()
     {

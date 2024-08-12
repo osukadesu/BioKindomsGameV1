@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 public class LevelWinMethod : MonoBehaviour
 {
     [SerializeField] ShowLevelCaseV2 showLevelSystem;
@@ -17,15 +18,12 @@ public class LevelWinMethod : MonoBehaviour
         showLevelSystem.money[_indexItems].SetActive(true);
         showLevelSystem.pedestal.SetActive(true);
         StartCoroutine(DestroyingEnemy(_indexItems));
-        switch (_tabAlert)
+        Action action = _tabAlert switch
         {
-            case true:
-                StartCoroutine(TabAlert());
-                break;
-            case false:
-                StopCoroutine(TabAlert());
-                break;
-        }
+            true => () => StartCoroutine(TabAlert()),
+            false => () => StopCoroutine(TabAlert()),
+        };
+        action();
     }
     IEnumerator DestroyingEnemy(int _IEenemy)
     {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class ExitQuest : MonoBehaviour
 {
@@ -27,12 +28,12 @@ public class ExitQuest : MonoBehaviour
     }
     void DestroyingObjetc(int _value)
     {
-        switch (_value)
+        Action action = _value switch
         {
-            case 11:
-                Destroy(showLevelCaseV2.questKing[0], .2f);
-                showLevelCaseV2.changeLevel[0].SetActive(true);
-                break;
-        }
+            11 => () => { Destroy(showLevelCaseV2.questKing[0], .2f); showLevelCaseV2.changeLevel[0].SetActive(true); }
+            ,
+            _ => () => Debug.LogError("Set Case Error!")
+        };
+        action();
     }
 }

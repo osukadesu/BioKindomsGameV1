@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -19,16 +20,13 @@ public class MenuButtons : MonoBehaviour
     public void ButtonNewGame()
     {
         string playerData = Application.persistentDataPath + "/player.data";
-        switch (File.Exists(playerData))
+        Action action = File.Exists(playerData) switch
         {
-            case true:
-                alertDelete.SetBool("alertDelete", true);
-                break;
-            case false:
-                menuController.IsNewGame = true;
-                SceneManager.LoadScene(4);
-                break;
-        }
+            true => () => alertDelete.SetBool("alertDelete", true),
+            false => () => { menuController.IsNewGame = true; SceneManager.LoadScene(4); }
+            ,
+        };
+        action();
     }
     public void ButtonYes()
     {
@@ -57,15 +55,12 @@ public class MenuButtons : MonoBehaviour
     public void MenuOrder()
     {
         string playerData = Application.persistentDataPath + "/player.data";
-        if (File.Exists(playerData))
-        {
-            btnLoadGame.SetActive(true);
-            verticalLayoutGroup.padding.top = 0;
-        }
-        else
-        {
-            btnLoadGame.SetActive(false);
-            verticalLayoutGroup.padding.top = 70;
-        }
+        bool _fileExist = File.Exists(playerData);
+        SetBtnAndLayout(_fileExist, _fileExist ? 0 : 70);
+    }
+    void SetBtnAndLayout(bool _bool, int _value)
+    {
+        btnLoadGame.SetActive(_bool);
+        verticalLayoutGroup.padding.top = _value;
     }
 }

@@ -1,3 +1,5 @@
+using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EscapeLogicGame : MonoBehaviour
@@ -17,14 +19,12 @@ public class EscapeLogicGame : MonoBehaviour
     }
     public void EscapeMethod()
     {
-
-        switch (SceneManager.GetActiveScene().buildIndex)
+        Action action = SceneManager.GetActiveScene().buildIndex switch
         {
-            case 4:
-                EscapeFromGame();
-                break;
-        }
-
+            4 => () => EscapeFromGame(),
+            _ => () => Debug.LogError("Value Error!"),
+        };
+        action();
     }
     void EscapeFromGame()
     {

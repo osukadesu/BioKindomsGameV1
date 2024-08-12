@@ -3,12 +3,15 @@ public class MouseController : MonoBehaviour
 {
     public void MouseLock()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        SetCursorState(false, CursorLockMode.Locked);
     }
     public void MouseUnLock()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        SetCursorState(true, CursorLockMode.None);
+    }
+    void SetCursorState(bool _bool, CursorLockMode Mode)
+    {
+        Cursor.visible = _bool;
+        Cursor.lockState = Mode;
     }
 }

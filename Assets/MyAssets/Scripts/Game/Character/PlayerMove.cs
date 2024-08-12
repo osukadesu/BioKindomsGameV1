@@ -18,7 +18,6 @@ public class PlayerMove : MonoBehaviour
         playerRB = FindObjectOfType<Rigidbody>();
     }
     */
-
     void Start()
     {
         canJump = false;
@@ -50,16 +49,9 @@ public class PlayerMove : MonoBehaviour
     }
     void AnimationsSett()
     {
-        if (horizontalMove != 0f || verticalMove != 0f)
-        {
-            myAnim.SetBool("idle", false);
-            myAnim.SetBool("run", true);
-        }
-        else
-        {
-            myAnim.SetBool("idle", true);
-            myAnim.SetBool("run", false);
-        }
+        bool ismoving = horizontalMove != 0f || verticalMove != 0f;
+        myAnim.SetBool("idle", !ismoving);
+        myAnim.SetBool("run", ismoving);
     }
 }
 /*

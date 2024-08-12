@@ -11,13 +11,6 @@ public class LoadControllerGame : MonoBehaviour
     }
     void LoadControllerMethod()
     {
-        if (menuController.IsNewGame)
-        {
-            levelLoadGame = false;
-        }
-        if (menuController.IsLoadGame)
-        {
-            levelLoadGame = true;
-        }
+        levelLoadGame = !menuController.IsNewGame && menuController.IsLoadGame;
     }
 }

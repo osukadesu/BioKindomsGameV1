@@ -11,13 +11,6 @@ public class LoadControllerProfile : MonoBehaviour
     }
     void LoadControllerMethod()
     {
-        if (menuController.IsNewGame)
-        {
-            loadProfile = false;
-        }
-        if (menuController.IsMyProfile)
-        {
-            loadProfile = true;
-        }
+        loadProfile = !menuController.IsNewGame && menuController.IsMyProfile;
     }
 }

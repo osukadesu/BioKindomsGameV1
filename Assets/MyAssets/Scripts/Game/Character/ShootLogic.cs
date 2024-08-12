@@ -3,9 +3,7 @@ public class ShootLogic : MonoBehaviour
 {
     public GameObject bullet;
     public Transform spawnBullet;
-    public float shootForce = 1500f;
-    public float shootRate = 0.5f;
-    public float shootRateTime = 0.5f;
+    public float shootForce = 1500f, shootRate = 0.5f, shootRateTime = 0.5f;
     public bool canShoot;
     void Start()
     {

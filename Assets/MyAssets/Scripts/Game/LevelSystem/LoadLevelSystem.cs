@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
@@ -106,11 +107,11 @@ public class LoadLevelSystem : MonoBehaviour
     }
     protected internal void SetDestroyObject(int _value)
     {
-        switch (_value)
+        Action action = _value switch
         {
-            case 12:
-                showLevelCaseV2.DestroyingObjects(0,1);
-                break;
-        }
+            12 => () => showLevelCaseV2.DestroyingObjects(0, 1),
+            _ => () => Debug.LogError("Set Case Error!")
+        };
+        action();
     }
 }

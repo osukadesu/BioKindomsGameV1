@@ -12,7 +12,6 @@ public class WalkingState : EnemyBaseState
         agent.speed = 2;
         if (Vector3.Distance(wayPoints[wayIndex].position, transform.position) < 3f)
         {
-
             wayIndex++;
             if (wayIndex >= wayPoints.Length)
             {
