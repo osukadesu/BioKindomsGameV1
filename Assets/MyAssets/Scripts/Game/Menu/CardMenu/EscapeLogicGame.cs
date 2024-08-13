@@ -22,7 +22,7 @@ public class EscapeLogicGame : MonoBehaviour
         Action action = SceneManager.GetActiveScene().buildIndex switch
         {
             4 => () => EscapeFromGame(),
-            _ => () => Debug.LogError("Value Error!"),
+            _ => () => Debug.Log("Case default!")
         };
         action();
     }

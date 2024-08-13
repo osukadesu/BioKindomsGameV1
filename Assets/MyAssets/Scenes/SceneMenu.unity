@@ -7542,6 +7542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnLoadGame: {fileID: 274982061}
+  btnProfile: {fileID: 2019837068}
   menuController: {fileID: 569722158}
   verticalLayoutGroup: {fileID: 1599157837}
   alertDelete: {fileID: 729630994}
@@ -7575,7 +7576,7 @@ GameObject:
   - component: {fileID: 2019837073}
   m_Layer: 5
   m_Name: BtnProfile
-  m_TagString: Untagged
+  m_TagString: btnProfile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -16,8 +16,6 @@ public class LoadProfile : MonoBehaviour
     }
     protected internal void GoNewProfile()
     {
-        levelSelect.currentLevel = 1;
-        levelSelect.ShowLevel(levelSelect.currentLevel);
         for (int i = 0; i < txtScore.Length; i++)
         {
             txtScore[i].text = num[i].ToString();
@@ -28,6 +26,8 @@ public class LoadProfile : MonoBehaviour
             int scoreValue = i < 5 ? num[i] : finalScore;
             scoreAnimations[i].SwitchAnimations(scoreValue);
         }
+        PlayerData playerData = SaveAndLoadManager.LoadLevel();
+        SettingLevelsSelect(playerData);
     }
     int FinalScore()
     {

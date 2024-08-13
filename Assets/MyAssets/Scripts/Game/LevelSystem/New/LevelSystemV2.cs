@@ -27,26 +27,44 @@ public class LevelSystemV2 : MonoBehaviour
     }
     void ReadData()
     {
-        string datapath = Application.persistentDataPath + "/player.data";
-        string datapath2 = Application.persistentDataPath + "/quest.data";
-        if (File.Exists(datapath) && !loadController.LevelLoadGame || File.Exists(datapath2) && !loadController.LevelLoadGame)
+        string datapath = Application.persistentDataPath + "/level.data";
+        if (File.Exists(datapath) && !loadController.LevelLoadGame)
         {
             loadLevelSystem.GoLoadGame();
         }
         else
         {
-            if (loadController.LevelLoadGame)
+            if (!loadController.LevelLoadGame)
             {
-                loadLevelSystem.GoLoadGame();
+                loadLevelSystem.GoNewGame();
             }
             else
             {
-                if (!loadController.LevelLoadGame)
-                {
-                    loadLevelSystem.GoNewGame();
-                }
+                loadLevelSystem.GoLoadGame();
             }
         }
+        /*
+         string datapath = Application.persistentDataPath + "/player.data";
+         string datapath2 = Application.persistentDataPath + "/quest.data";
+         if (File.Exists(datapath) && !loadController.LevelLoadGame || File.Exists(datapath2) && !loadController.LevelLoadGame)
+         {
+             loadLevelSystem.GoLoadGame();
+         }
+         else
+         {
+             if (loadController.LevelLoadGame)
+             {
+                 loadLevelSystem.GoLoadGame();
+             }
+             else
+             {
+                 if (!loadController.LevelLoadGame)
+                 {
+                     loadLevelSystem.GoNewGame();
+                 }
+             }
+         }
+        */
     }
     void ElementsHide()
     {

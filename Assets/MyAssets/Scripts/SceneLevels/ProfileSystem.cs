@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using UnityEngine;
 public class ProfileSystem : MonoBehaviour
 {
@@ -19,13 +20,14 @@ public class ProfileSystem : MonoBehaviour
     }
     void ReadData()
     {
-        if (loadLevelSelect.LoadProfile)
+        string datapath = Application.persistentDataPath + "/score.data";
+        if (loadLevelSelect.LoadProfile && File.Exists(datapath))
         {
             loadLevel.GoLoadProfile();
         }
         else
         {
-            if (!loadLevelSelect.LoadProfile)
+            if (loadLevelSelect.LoadProfile && !File.Exists(datapath))
             {
                 loadLevel.GoNewProfile();
             }
@@ -36,14 +38,15 @@ public class ProfileSystem : MonoBehaviour
         Debug.Log("Current Level: " + level);
         Action action = level switch
         {
-            3 => () => SetAnimSubLevels(1),
-            5 => () => SetAnimSubLevels(2),
-            7 => () => SetAnimSubLevels(3),
-            9 => () => SetAnimSubLevels(4),
-            11 => () => SetAnimFinish(1),
-            12 => () => SetAnimFinish(1),
-            14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); },
-            _ => () => LevelAnimations(null, null)
+            1 or 2 => () => LevelAnimations(null, null),
+            3 or 4 => () => SetAnimSubLevels(1),
+            5 or 6 => () => SetAnimSubLevels(2),
+            7 or 8 => () => SetAnimSubLevels(3),
+            9 or 10 => () => SetAnimSubLevels(4),
+            11 or 12 => () => SetAnimFinish(1),
+            13 or 14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); }
+            ,
+            _ => () => Debug.Log("Case Default!")
         };
         action();
     }

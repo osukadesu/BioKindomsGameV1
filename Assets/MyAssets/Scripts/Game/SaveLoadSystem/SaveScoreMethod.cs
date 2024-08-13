@@ -10,8 +10,7 @@ public class SaveScoreMethod : MonoBehaviour
     }
     public void SavingScore()
     {
-        SaveScoreData.SaveScore(compareState);
-        SaveAndLoadManager.SaveQuest(questLevel);
+        SaveScoreData.SaveScore(compareState, questLevel);
         Debug.Log("score saved");
     }
 }

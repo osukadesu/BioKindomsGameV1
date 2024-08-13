@@ -45,8 +45,12 @@ public class LoadLevelSystem : MonoBehaviour
         CheckingAnimal(playerData);
         SettingVegetals(playerData);
         CheckingVegetal(playerData);
-        SetQuestSingleton(playerData);
         SetDestroyObject(levelSystemV2.CurrentLevel);
+    }
+    protected internal void GoLoadSingletonQuest()
+    {
+        ScoreData scoreData = SaveScoreData.LoadScore();
+        SetQuestSingleton(scoreData);
     }
     protected internal void SetInventoryUI()
     {
@@ -96,10 +100,10 @@ public class LoadLevelSystem : MonoBehaviour
             }
         }
     }
-    protected internal void SetQuestSingleton(PlayerData playerData)
+    protected internal void SetQuestSingleton(ScoreData scoreData)
     {
-        questLevel._endQuest = playerData._endQuestV2;
-        questLevel.CaseValue = playerData._caseValueV2;
+        questLevel._endQuest = scoreData._endQuestV2;
+        questLevel.CaseValue = scoreData._caseValueV2;
     }
     protected internal void SetPlayerPositionUnLoad(int index)
     {
@@ -110,7 +114,7 @@ public class LoadLevelSystem : MonoBehaviour
         Action action = _value switch
         {
             12 => () => showLevelCaseV2.DestroyingObjects(0),
-            _ => () => Debug.LogError("Set Case Error!")
+            _ => () => Debug.Log("Case default!")
         };
         action();
     }

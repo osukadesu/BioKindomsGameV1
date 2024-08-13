@@ -10,7 +10,7 @@ public class SetQuestSystem : MonoBehaviour
     [SerializeField] Text textQuest;
     [SerializeField] Image[] imageItem;
     [SerializeField] Image imageKindom;
-    [SerializeField] int random;
+    [SerializeField] int random, lastRandom = -1;
     [SerializeField] int[] idButton, idQuest;
     public int _myRandom { get => random; set => random = value; }
     public int[] _idQuest { get => idQuest; set => idQuest = value; }
@@ -19,11 +19,22 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            0 => () => random = Random.Range(0, 5),
-            1 => () => random = Random.Range(5, 10),
-            _ => () => Debug.LogError("Value Error!")
+            0 => () => random = NotRepiteRandom(0, 5),
+            1 => () => random = NotRepiteRandom(5, 10),
+            _ => () => Debug.Log("Case default!")
         };
         action();
+    }
+    int NotRepiteRandom(int rangeInit, int rangeEnd)
+    {
+        int newRandom;
+        do
+        {
+            newRandom = Random.Range(rangeInit, rangeEnd);
+        } while (newRandom == lastRandom);
+
+        lastRandom = newRandom;
+        return newRandom;
     }
     public void SetCase(int _value)
     {
@@ -33,7 +44,7 @@ public class SetQuestSystem : MonoBehaviour
         {
             0 => () => AnimalQuest(random),
             1 => () => VegetalQuest(random),
-            _ => () => Debug.LogError("Set Case Error!")
+            _ => () => Debug.Log("Case default!")
         };
         action();
     }

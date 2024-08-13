@@ -3198,6 +3198,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15afb6360f867694cb32d21202941582, type: 2}
     - target: {fileID: 919132149155446097, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
       propertyPath: m_Name
       value: Money1
@@ -5332,6 +5336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
+  LevelSystemV2: {fileID: 0}
 --- !u!1 &207694862
 GameObject:
   m_ObjectHideFlags: 0
@@ -9483,7 +9488,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _viewMenu: {fileID: 326398852}
   _cardMenu: {fileID: 326398855}
-  _infoContent: {fileID: 326398854}
 --- !u!114 &326398852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17519,6 +17523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
+  LevelSystemV2: {fileID: 0}
 --- !u!65 &702693150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19494,6 +19499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
+  LevelSystemV2: {fileID: 0}
 --- !u!65 &777099943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26672,6 +26678,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15afb6360f867694cb32d21202941582, type: 2}
     - target: {fileID: 919132149155446097, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
       propertyPath: m_Name
       value: Money5
@@ -29981,6 +29991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
+  LevelSystemV2: {fileID: 0}
 --- !u!65 &1210687113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32993,6 +33004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
+  LevelSystemV2: {fileID: 0}
 --- !u!65 &1313753775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35611,6 +35623,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15afb6360f867694cb32d21202941582, type: 2}
     - target: {fileID: 919132149155446097, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
       propertyPath: m_Name
       value: Money4
@@ -38406,6 +38422,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15afb6360f867694cb32d21202941582, type: 2}
     - target: {fileID: 919132149155446097, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
       propertyPath: m_Name
       value: Money3
@@ -56522,6 +56542,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15afb6360f867694cb32d21202941582, type: 2}
     - target: {fileID: 919132149155446097, guid: ca8e9e4dd0b77194091a82309e5cd710, type: 3}
       propertyPath: m_Name
       value: Money2

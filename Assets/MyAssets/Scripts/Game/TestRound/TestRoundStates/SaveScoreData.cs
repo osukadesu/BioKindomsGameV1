@@ -3,9 +3,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 public static class SaveScoreData
 {
-    public static void SaveScore(CompareState compareState)
+    public static void SaveScore(CompareState compareState, QuestLevel questLevel)
     {
-        ScoreData scoreData = new(compareState);
+        ScoreData scoreData = new(compareState, questLevel);
         string datapath = Application.persistentDataPath + "/score.data";
         FileStream fileStream = new(datapath, FileMode.Create);
         BinaryFormatter binaryFormatter = new();

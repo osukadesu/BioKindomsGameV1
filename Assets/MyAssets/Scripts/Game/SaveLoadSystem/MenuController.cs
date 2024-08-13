@@ -28,15 +28,14 @@ public class MenuController : MonoBehaviour
     }
     public void DeletePlayerData()
     {
-        string[] fileNames = { "/player.data", "/level.data", "/quest.data", "/score.data" };
-        foreach (var fileName in fileNames)
+        string[] fileNames = { Application.persistentDataPath + "/player.data", Application.persistentDataPath + "/level.data", Application.persistentDataPath + "/quest.data", Application.persistentDataPath + "/score.data" };
+        for (int i = 0; i < fileNames.Length; i++)
         {
-            string filePath = Path.Combine(Application.persistentDataPath, fileName);
-            if (File.Exists(filePath))
+            if (File.Exists(fileNames[i]))
             {
-                File.Delete(filePath);
+                File.Delete(fileNames[i]);
+                AssetDatabase.Refresh();
             }
         }
-        AssetDatabase.Refresh();
     }
 }

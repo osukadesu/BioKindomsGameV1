@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
-    [SerializeField] GameObject btnLoadGame;
+    [SerializeField] GameObject btnLoadGame, btnProfile;
     [SerializeField] MenuController menuController;
     [SerializeField] VerticalLayoutGroup verticalLayoutGroup;
     [SerializeField] Animator alertDelete;
@@ -15,6 +16,7 @@ public class MenuButtons : MonoBehaviour
         menuController = FindObjectOfType<MenuController>();
         verticalLayoutGroup = GameObject.FindGameObjectWithTag("menuGameVL").GetComponent<VerticalLayoutGroup>();
         btnLoadGame = GameObject.FindGameObjectWithTag("btnLoadGame");
+        btnProfile = GameObject.FindGameObjectWithTag("btnProfile");
         MenuOrder();
     }
     public void ButtonNewGame()
@@ -30,8 +32,13 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonYes()
     {
-        menuController.IsNewGame = true;
         menuController.DeletePlayerData();
+        StartCoroutine(waitSettings());
+    }
+    IEnumerator waitSettings()
+    {
+        yield return new WaitForSeconds(.5f);
+        menuController.IsNewGame = true;
         SceneManager.LoadScene(4);
     }
     public void ButtonNo()
@@ -54,13 +61,24 @@ public class MenuButtons : MonoBehaviour
     }
     public void MenuOrder()
     {
-        string playerData = Application.persistentDataPath + "/player.data";
-        bool _fileExist = File.Exists(playerData);
-        SetBtnAndLayout(_fileExist, _fileExist ? 0 : 70);
+        string datapath = Application.persistentDataPath + "/level.data";
+        if (File.Exists(datapath))
+        {
+            btnProfile.SetActive(true);
+        }
+        else
+        {
+            (string filePath, GameObject button)[] filebuttonPairs = { ("/player.data", btnLoadGame), ("/score.data", btnProfile) };
+            foreach ((string filePath, GameObject button) in filebuttonPairs)
+            {
+                bool _fileExist = File.Exists(Application.persistentDataPath + filePath);
+                SetBtnAndLayout(button, _fileExist);
+            }
+        }
     }
-    void SetBtnAndLayout(bool _bool, int _value)
+    void SetBtnAndLayout(GameObject _button, bool _isFile)
     {
-        btnLoadGame.SetActive(_bool);
-        verticalLayoutGroup.padding.top = _value;
+        _button.SetActive(_isFile);
+        verticalLayoutGroup.padding.top = _isFile ? 0 : 70;
     }
 }

@@ -95,6 +95,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 SaveLevel();
                 break;
             case 12:
+                loadLevelSystem.GoLoadSingletonQuest();
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(2);
