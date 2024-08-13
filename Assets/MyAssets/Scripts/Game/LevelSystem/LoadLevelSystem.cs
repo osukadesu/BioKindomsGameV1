@@ -109,7 +109,7 @@ public class LoadLevelSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            12 => () => showLevelCaseV2.DestroyingObjects(0, 1),
+            12 => () => showLevelCaseV2.DestroyingObjects(0),
             _ => () => Debug.LogError("Set Case Error!")
         };
         action();
