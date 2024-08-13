@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ public class LearnedInfo : MonoBehaviour
     [SerializeField] GameObject[] imageKingdom;
     [SerializeField] Transform transform3D;
     [SerializeField] Button btnClose, btnBack, btnInfoText1, btnInfoText2, btnKingdomContent;
-    // [SerializeField] Button[] btnInfo;
     [SerializeField] Text textName, text2, textInfo, textInfo2, textTitle, textInfoKingdom;
     void Awake()
     {
@@ -38,56 +38,78 @@ public class LearnedInfo : MonoBehaviour
     }
     void ShowInfo(int value)
     {
+        text2.text = "Vista 3D";
         switch (value)
         {
             case 0:
                 ShowForKingdom(0);
-                textName.text = "Carpa Asiática Dorada";
-                text2.text = "Vista 3D";
-                textInfo.text = "La carpa asiática dorada es como una celebridad entre los peces, con colores súper brillantes. Les encanta nadar en estanques y lucirse. Aunque son originarias de Asia, a veces las llevamos a otros lugares para que más personas las conozcan.";
+                textName.text = infoKindomData.TextName[0];
+                textInfo.text = infoKindomData.TextInfo[0];
                 textInfo2.text = "\n Clase: Pez.\n Vive en el agua y puede respirar en ella gracias a sus branquias. \n Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[0], transform3D);
                 break;
             case 1:
                 ShowForKingdom(0);
-                textName.text = "Chipichipi";
-                text2.text = "Vista 3D";
-                textInfo.text = "El chipichipi es un molusco pequeñito que vive en el mar, es como el tesoro escondido de la arena. Estos diminutos amigos tienen conchas lindas y pueden enterrarse en la playa. Si alguna vez estás construyendo castillos de arena puede que encuentres uno.";
+                textName.text = infoKindomData.TextName[1];
+                textInfo.text = infoKindomData.TextInfo[1];
                 textInfo2.text = "\n \n Clase: Molusco. \n Tipo: Invertebrado.\n No tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[1], transform3D);
                 break;
             case 2:
                 ShowForKingdom(0);
-                textName.text = "Colibrí de Mulsant";
-                text2.text = "Vista 3D";
-                textInfo.text = "El colibrí de Mulsant es un ave diminuto y brillante. Como un pequeño arco iris con alas, le encanta chupar néctar de las flores. A menudo se encuentran en zonas montañosas de América del Sur y América Central. ¡Es como una bailarina mágica del aire!";
+                textName.text = infoKindomData.TextName[2];
+                textInfo.text = infoKindomData.TextInfo[2];
                 textInfo2.text = "\n \n Clase: Ave. \n  Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[2], transform3D);
                 break;
             case 3:
                 ShowForKingdom(0);
-                textName.text = "Iguana Verde";
-                text2.text = "Vista 3D";
-                textInfo.text = "La iguana verde es como el dinosaurio pequeño de los días modernos. Vive en lugares cálidos, es buena escaladora de árboles, se broncea todo el día y tiene una cola larga. Con su piel verde, es como una supermodelo de la selva.";
+                textName.text = infoKindomData.TextName[3];
+                textInfo.text = infoKindomData.TextInfo[3];
                 textInfo2.text = "\n \n Clase: Reptil. \n  Tipo: Vertebrado. \n tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[3], transform3D);
                 break;
             case 4:
                 ShowForKingdom(0);
-                textName.text = "Mariposa Monarca";
-                text2.text = "Vista 3D";
-                textInfo.text = "La mariposa monarca es como la reina de las mariposas cada año viajan muy lejos cruzando paises, Son como pequeñas exploradoras con alas mágicas. Además, es famosa por sus colores naranjas y negros. ¡Una verdadera belleza voladora";
+                textName.text = infoKindomData.TextName[4];
+                textInfo.text = infoKindomData.TextInfo[4];
                 textInfo2.text = "\n \n Clase: Insecto.\n Tipo: Invertebrado.\n No tiene huesos en su cuerpo.";
                 objec3D = Instantiate(infoKindomData.Kindom[4], transform3D);
                 break;
             case 5:
-                /*
-                ShowForKingdom(0);
-                Destroy(objec3D);
-                textName.text = "";
-                text2.text = "";
-                textInfo.text = "";
-                */
+                ShowForKingdom(1);
+                textName.text = infoKindomData.TextName[5];
+                textInfo.text = infoKindomData.TextInfo[5];
+                textInfo2.text = "\n \n Ambiente: Desiertos y áreas áridas. \n Tipo: Cactus \n ";
+                objec3D = Instantiate(infoKindomData.Kindom[5], transform3D);
+                break;
+            case 6:
+                ShowForKingdom(1);
+                textName.text = infoKindomData.TextName[6];
+                textInfo.text = infoKindomData.TextInfo[6];
+                textInfo2.text = "\n \n Ambiente: bosques y selvas. \n Tipo: Helecho \n ";
+                objec3D = Instantiate(infoKindomData.Kindom[6], transform3D);
+                break;
+            case 7:
+                ShowForKingdom(1);
+                textName.text = infoKindomData.TextName[7];
+                textInfo.text = infoKindomData.TextInfo[7];
+                textInfo2.text = "\n \n Ambiente: Zonas templadas y cálidas. Se cultiva en huertos y jardines. \n Tipo: Arbol frutal \n ";
+                objec3D = Instantiate(infoKindomData.Kindom[7], transform3D);
+                break;
+            case 8:
+                ShowForKingdom(1);
+                textName.text = infoKindomData.TextName[8];
+                textInfo.text = infoKindomData.TextInfo[8];
+                textInfo2.text = "\n \n Ambiente: Bosques y áreas frías o templadas. \n Tipo: Cónifera \n ";
+                objec3D = Instantiate(infoKindomData.Kindom[8], transform3D);
+                break;
+            case 9:
+                ShowForKingdom(1);
+                textName.text = infoKindomData.TextName[9];
+                textInfo.text = infoKindomData.TextInfo[9];
+                textInfo2.text = "\n \n Ambiente: Fondos marinos. \n Tipo: Alga Marina \n ";
+                objec3D = Instantiate(infoKindomData.Kindom[9], transform3D);
                 break;
         }
     }
@@ -126,43 +148,9 @@ public class LearnedInfo : MonoBehaviour
     }
     private void SetImageK(int _index)
     {
-        switch (_index)
+        for (int i = 0; i < imageKingdom.Length; i++)
         {
-            case 0:
-                imageKingdom[0].SetActive(true);
-                imageKingdom[1].SetActive(false);
-                imageKingdom[2].SetActive(false);
-                imageKingdom[3].SetActive(false);
-                imageKingdom[4].SetActive(false);
-                break;
-            case 1:
-                imageKingdom[0].SetActive(false);
-                imageKingdom[1].SetActive(true);
-                imageKingdom[2].SetActive(false);
-                imageKingdom[3].SetActive(false);
-                imageKingdom[4].SetActive(false);
-                break;
-            case 2:
-                imageKingdom[0].SetActive(false);
-                imageKingdom[1].SetActive(false);
-                imageKingdom[2].SetActive(true);
-                imageKingdom[3].SetActive(false);
-                imageKingdom[4].SetActive(false);
-                break;
-            case 3:
-                imageKingdom[0].SetActive(false);
-                imageKingdom[1].SetActive(false);
-                imageKingdom[2].SetActive(false);
-                imageKingdom[3].SetActive(true);
-                imageKingdom[4].SetActive(false);
-                break;
-            case 4:
-                imageKingdom[0].SetActive(false);
-                imageKingdom[1].SetActive(false);
-                imageKingdom[2].SetActive(false);
-                imageKingdom[3].SetActive(false);
-                imageKingdom[4].SetActive(true);
-                break;
+            imageKingdom[i].SetActive(i == _index);
         }
     }
     void Back()
@@ -175,17 +163,12 @@ public class LearnedInfo : MonoBehaviour
     }
     void SetTextInfo(int value)
     {
-        switch (value)
+        Action action = value switch
         {
-            case 1:
-                textInfoAnimations.viewInfoText1();
-                break;
-            case 2:
-                textInfoAnimations.viewInfoText2();
-                break;
-            default:
-                textInfoAnimations.viewInfoText1();
-                break;
-        }
+            1 => () => textInfoAnimations.viewInfoText1(),
+            2 => () => textInfoAnimations.viewInfoText2(),
+            _ => () => textInfoAnimations.viewInfoText1(),
+        };
+        action();
     }
 }

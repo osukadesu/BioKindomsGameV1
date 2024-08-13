@@ -3,12 +3,12 @@ public class CanvasManager : MonoBehaviour
 {
     [SerializeField] ViewMenu _viewMenu;
     [SerializeField] CardMenu _cardMenu;
-    [SerializeField] InfoContent _infoContent;
+    //[SerializeField] InfoContent _infoContent;
     void Awake()
     {
         _viewMenu.Configure(this);
         _cardMenu.Configure(this);
-        _infoContent.Configure(this);
+        //_infoContent.Configure(this);
         ClosingAll();
     }
     public void ButtonGoKindomV2(int index)
@@ -38,7 +38,7 @@ public class CanvasManager : MonoBehaviour
                 _cardMenu.SetContent(0);
                 break;
         }
-        _infoContent.SetInfo(25);
+        //_infoContent.SetInfo(25);
         ClosingAll();
     }
     public void CraftItem(int index)
@@ -47,16 +47,16 @@ public class CanvasManager : MonoBehaviour
     }
     public void CloseInfo()
     {
-        _infoContent.SetInfo(25);
+        //_infoContent.SetInfo(25);
         _cardMenu.SetContent(0);
     }
     public void InfoText1()
     {
-        _infoContent.SetTextInfo(1);
+        //_infoContent.SetTextInfo(1);
     }
     public void InfoText2()
     {
-        _infoContent.SetTextInfo(2);
+        //_infoContent.SetTextInfo(2);
     }
     public void TabViewMenu()
     {
@@ -65,11 +65,11 @@ public class CanvasManager : MonoBehaviour
     public void ButtonCloseTab()
     {
         _viewMenu.CloseTabView();
-        _infoContent.SetInfo(25);
+        //_infoContent.SetInfo(25);
     }
     public void CloseTabViewv2()
     {
-        _infoContent.SetInfo(25);
+        //_infoContent.SetInfo(25);
     }
     public void BackCraft()
     {
@@ -81,7 +81,7 @@ public class CanvasManager : MonoBehaviour
     }
     public void InfoKindom(int index)
     {
-        _infoContent.SetInfo(index);
+        //_infoContent.SetInfo(index);
         _cardMenu.SetContent(5);
         InfoText1();
     }
@@ -91,6 +91,6 @@ public class CanvasManager : MonoBehaviour
     }
     private void CloseInfoV2()
     {
-        _infoContent.Hide();
+        //_infoContent.Hide();
     }
 }

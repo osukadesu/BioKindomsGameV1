@@ -12,17 +12,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c7f73acee14ff4993fefc2c2e2df56, type: 3}
   m_Name: InfoKindom
   m_EditorClassIdentifier: 
-  textName: 
-  text2: 
-  textInfo: 
+  textName:
+  - "Carpa Asi\xE1tica Dorada"
+  - Chipichipi
+  - "Colibr\xED de Mulsant"
+  - Iguana Verde
+  - Mariposa Monarca
+  - "Cactus Mel\xF3n"
+  - Helecho
+  - "Lim\xF3n"
+  - Pino
+  - Alga
+  textInfo:
+  - "La carpa asi\xE1tica dorada es como una celebridad entre los peces, con colores
+    s\xFAper brillantes. Les encanta nadar en estanques y lucirse. Aunque son originarias
+    de Asia, a veces las llevamos a otros lugares para que m\xE1s personas las conozcan."
+  - "El chipichipi es un molusco peque\xF1ito que vive en el mar, es como el tesoro
+    escondido de la arena. Estos diminutos amigos tienen conchas lindas y pueden
+    enterrarse en la playa. Si alguna vez est\xE1s construyendo castillos de arena
+    puede que encuentres uno."
+  - "El colibr\xED de Mulsant es un ave diminuto y brillante. Como un peque\xF1o
+    arco iris con alas, le encanta chupar n\xE9ctar de las flores. A menudo se encuentran
+    en zonas monta\xF1osas de Am\xE9rica del Sur y Am\xE9rica Central. \xA1Es como
+    una bailarina m\xE1gica del aire!"
+  - "La iguana verde es como el dinosaurio peque\xF1o de los d\xEDas modernos. Vive
+    en lugares c\xE1lidos, es buena escaladora de \xE1rboles, se broncea todo el
+    d\xEDa y tiene una cola larga. Con su piel verde, es como una supermodelo de
+    la selva."
+  - "La mariposa monarca es como la reina de las mariposas cada a\xF1o viajan muy
+    lejos cruzando paises, Son como peque\xF1as exploradoras con alas m\xE1gicas.
+    Adem\xE1s, es famosa por sus colores naranjas y negros. \xA1Una verdadera belleza
+    voladora."
+  - "El cactus mel\xF3n, es un cactus redondo y gordito, que se parece a un mel\xF3n.
+    Tiene espinas cortas y suele crecer en lugares secos y soleados. En la parte
+    de arriba le crece una especie de sombrero colorido, llamado \"cefalio\", de
+    donde pueden salir flores."
+  - El helecho es una planta verde con hojas largas que parecen plumas El helecho
+    es una planta verde con hojas largas que parecen plumas, crece en lugares frescos,
+    humedos  y sombreados, como en los bosques.
+  - "El limonero es un \xE1rbol que da limones, frutas amarillas y \xE1cidas. Sus
+    flores huelen delicioso y sus frutos son perfectos para hacer jugo de limonada.
+    \xA1Es como un \xE1rbol que regala frescura!"
+  - "El pino es un \xE1rbol muy alto y siempre verde, con hojas en forma de agujas.
+    Sus pi\xF1as guardan semillas y huele a bosque fresco. Sirve de decoracion para
+    las fiestas de navidad!"
+  - "El alga uva marina es un alga verde submarina con bolitas verdes que parecen
+    uvas. Se puede comer y es crujiente y salada. \xA1Es como un snack del mar!"
   kindom:
   - {fileID: 2759885286018085369, guid: d736a7ada97799e4889406dd357d40ee, type: 3}
   - {fileID: 3108067785242569659, guid: 83859d580d49cc34ca835bc19dfd3d68, type: 3}
   - {fileID: 1466742208559444614, guid: eb6b0ea53ee74354db6dd60ba6dfb824, type: 3}
   - {fileID: 76506382196101323, guid: b63dd4ca8a9b3f240ae161c5fca116bc, type: 3}
   - {fileID: 6136178312442412578, guid: 756c5b65e865ab240b6425f89f68a1da, type: 3}
-  - {fileID: 4216293699573356618, guid: 19611228c23c3d642aba8e5ba117d02e, type: 3}
-  - {fileID: 3938157708530620012, guid: 57f66b14519409946ab7bbb396243a10, type: 3}
   - {fileID: 6877486473313604972, guid: b37d4c4ecf33bfe4e80b3d234158ba8c, type: 3}
   - {fileID: 3798253230925153765, guid: 9940ebd16030cb5468bb831f0cb395dd, type: 3}
+  - {fileID: 4216293699573356618, guid: 19611228c23c3d642aba8e5ba117d02e, type: 3}
+  - {fileID: 3938157708530620012, guid: 57f66b14519409946ab7bbb396243a10, type: 3}
   - {fileID: 9215431152779906193, guid: 681749147d4afe7489954c77f077bef7, type: 3}
