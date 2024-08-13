@@ -7,7 +7,7 @@ public class ProfileSystem : MonoBehaviour
     [SerializeField] LoadProfile loadLevel;
     [SerializeField] LoadControllerProfile loadLevelSelect;
     [SerializeField] MouseController mouseController;
-    public int currentLevel, _subLevel, _levelFinished;
+    public int currentLevel;
     void Awake()
     {
         mouseController = FindObjectOfType<MouseController>();
@@ -50,13 +50,6 @@ public class ProfileSystem : MonoBehaviour
         };
         action();
     }
-    void SetAnimFinish(int _length)
-    {
-        for (int i = 0; i < _length; i++)
-        {
-            LevelAnimations(null, i);
-        }
-    }
     void SetAnimSubLevels(int _length)
     {
         for (int i = 0; i < _length; i++)
@@ -64,11 +57,22 @@ public class ProfileSystem : MonoBehaviour
             LevelAnimations(i, null);
         }
     }
+    void SetAnimFinish(int _length)
+    {
+        for (int i = 0; i < _length; i++)
+        {
+            LevelAnimations(null, i);
+        }
+    }
     void LevelAnimations(int? subLevel, int? levelFinished)
     {
-        _subLevel = subLevel ?? _subLevel;
-        levelAnimations.SubLevel(_subLevel);
-        _levelFinished = levelFinished ?? _levelFinished;
-        levelAnimations.LevelFinished(_levelFinished);
+        if (subLevel.HasValue)
+        {
+            levelAnimations.SubLevel(subLevel.Value);
+        }
+        if (levelFinished.HasValue)
+        {
+            levelAnimations.LevelFinished(levelFinished.Value);
+        }
     }
 }
