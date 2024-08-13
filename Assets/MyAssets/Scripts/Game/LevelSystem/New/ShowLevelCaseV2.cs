@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class ShowLevelCaseV2 : MonoBehaviour
@@ -110,70 +111,49 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     public void DestroyingObjects(int _index, int _case)
     {
-        switch (_case)
+        Action action = _case switch
         {
-            case 0:
-                Destroy(questKing[_index], .2f);
-                Destroy(exitQuest[_index], .2f);
-                break;
-            case 1:
-                Destroy(changeLevel[_index], .2f);
-                break;
-        }
+            0 => () => { Destroy(questKing[_index], .2f); Destroy(exitQuest[_index], .2f); }
+            ,
+            1 => () => { Destroy(changeLevel[_index], .2f); }
+            ,
+            _ => throw new NotImplementedException(),
+        };
+        action();
     }
     void SwitchQuestExitKing(int _value)
     {
-        switch (_value)
+        Action action = _value switch
         {
-            case 0:
-                for (int i = 0; i < 5; i++)
-                {
-                    QuestExitKing(i, false);
-                }
-                break;
-            case 1:
-                QuestExitKing(0, true);
-                QuestExitKing(1, false);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 2:
-                QuestExitKing(1, false);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 3:
-                QuestExitKing(1, true);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 4:
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 5:
-                QuestExitKing(2, true);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 6:
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 7:
-                QuestExitKing(3, true);
-                QuestExitKing(4, false);
-                break;
-            case 8:
-                QuestExitKing(4, false);
-                break;
-            case 9:
-                QuestExitKing(4, true);
-                break;
+            0 => () => { SetQuestExitKing(0, false); }
+            ,
+            1 => () => { SetQuestExitKing(0, true); }
+            ,
+            2 => () => { SetQuestExitKing(1, false); }
+            ,
+            3 => () => { SetQuestExitKing(1, true); }
+            ,
+            4 => () => { SetQuestExitKing(2, false); }
+            ,
+            5 => () => { SetQuestExitKing(2, true); }
+            ,
+            6 => () => { SetQuestExitKing(3, false); }
+            ,
+            7 => () => { SetQuestExitKing(3, true); }
+            ,
+            8 => () => { SetQuestExitKing(4, false); }
+            ,
+            9 => () => { SetQuestExitKing(4, true); }
+            ,
+            _ => throw new NotImplementedException(),
+        };
+        action();
+    }
+    void SetQuestExitKing(int _index, bool activateFirts)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            QuestExitKing(i, i == _index && activateFirts);
         }
     }
     void QuestExitKing(int _index, bool _bool)
@@ -226,18 +206,11 @@ public class ShowLevelCaseV2 : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         saveMethod.SaveGame();
     }
-    protected internal void ItemCondition()
+    void ItemCondition()
     {
-        if (loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck)
-        {
-            NextLevelMethod(true);
-        }
-        else
-        {
-            NextLevelMethod(false);
-        }
+        NextLevelMethod(loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck);
     }
-    protected internal void NextLevelMethod(bool _value)
+    void NextLevelMethod(bool _value)
     {
         _NextLevel.SetActive(_value);
         nextLevelAnim.SetBool("nextLevelShow", _value);
