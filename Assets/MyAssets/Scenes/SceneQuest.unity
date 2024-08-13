@@ -539,6 +539,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305689369}
   m_CullTransparentMesh: 1
+--- !u!1 &408723790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408723792}
+  - component: {fileID: 408723791}
+  m_Layer: 0
+  m_Name: ProfileSingleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &408723791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408723790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb05595478769040befd353f5da6f49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _num: 0000000000000000000000000000000000000000
+--- !u!4 &408723792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408723790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519150457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c180075afc134af4ab12bfdb8d67606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadProfileSingleton: {fileID: 0}
   questLevel: {fileID: 0}
   saveScoreMethod: {fileID: 1504035630}
   animationsManager: {fileID: 1504035628}
@@ -1647,11 +1693,7 @@ MonoBehaviour:
   textManager: {fileID: 1504035619}
   idBtnSelect: 0
   score: 0
-  _scoreA: 0
-  _scoreV: 0
-  _scoreF: 0
-  _scoreP: 0
-  _scoreM: 0
+  _score: 0000000000000000000000000000000000000000
   resetGame: 0
 --- !u!114 &1504035622
 MonoBehaviour:

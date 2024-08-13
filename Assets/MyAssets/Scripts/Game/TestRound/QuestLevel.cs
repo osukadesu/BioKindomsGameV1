@@ -7,6 +7,7 @@ public class QuestLevel : MonoBehaviour
     public int CaseValue { get => caseValue; set => caseValue = value; }
     void Awake()
     {
+        caseValue = -1;
         Singleton();
     }
     void Singleton()

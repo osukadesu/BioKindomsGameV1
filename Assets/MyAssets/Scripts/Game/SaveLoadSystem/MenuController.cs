@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -27,12 +28,15 @@ public class MenuController : MonoBehaviour
     }
     public void DeletePlayerData()
     {
-        string datapath = Application.persistentDataPath + "/player.data";
-        if (File.Exists(datapath))
+        string[] fileNames = { "/player.data", "/level.data", "/quest.data", "/score.data" };
+        foreach (var fileName in fileNames)
         {
-            File.Delete(Application.persistentDataPath + "/player.data");
-            //AssetDatabase.Refresh(); //delete This AssetDatabase.Refresh();
+            string filePath = Path.Combine(Application.persistentDataPath, fileName);
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
-        else Debug.Log("Not delete player.");
+        AssetDatabase.Refresh();
     }
 }

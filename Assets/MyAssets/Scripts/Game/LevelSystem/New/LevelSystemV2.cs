@@ -41,7 +41,10 @@ public class LevelSystemV2 : MonoBehaviour
             }
             else
             {
-                loadLevelSystem.GoNewGame();
+                if (!loadController.LevelLoadGame)
+                {
+                    loadLevelSystem.GoNewGame();
+                }
             }
         }
     }

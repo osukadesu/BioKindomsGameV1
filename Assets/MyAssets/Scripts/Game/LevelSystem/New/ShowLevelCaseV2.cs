@@ -98,7 +98,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(2);
-                DestroyingObjects(0, 0);
+                DestroyingObjects(0);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 SaveLevel();
                 break;
@@ -109,51 +109,65 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 break;
         }
     }
-    public void DestroyingObjects(int _index, int _case)
+    public void DestroyingObjects(int _index)
     {
-        Action action = _case switch
-        {
-            0 => () => { Destroy(questKing[_index], .2f); Destroy(exitQuest[_index], .2f); }
-            ,
-            1 => () => { Destroy(changeLevel[_index], .2f); }
-            ,
-            _ => throw new NotImplementedException(),
-        };
-        action();
+        Destroy(questKing[_index], .2f);
+        Destroy(exitQuest[_index], .2f);
+        Destroy(changeLevel[_index], .2f);
     }
     void SwitchQuestExitKing(int _value)
     {
-        Action action = _value switch
+        switch (_value)
         {
-            0 => () => { SetQuestExitKing(0, false); }
-            ,
-            1 => () => { SetQuestExitKing(0, true); }
-            ,
-            2 => () => { SetQuestExitKing(1, false); }
-            ,
-            3 => () => { SetQuestExitKing(1, true); }
-            ,
-            4 => () => { SetQuestExitKing(2, false); }
-            ,
-            5 => () => { SetQuestExitKing(2, true); }
-            ,
-            6 => () => { SetQuestExitKing(3, false); }
-            ,
-            7 => () => { SetQuestExitKing(3, true); }
-            ,
-            8 => () => { SetQuestExitKing(4, false); }
-            ,
-            9 => () => { SetQuestExitKing(4, true); }
-            ,
-            _ => throw new NotImplementedException(),
-        };
-        action();
-    }
-    void SetQuestExitKing(int _index, bool activateFirts)
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            QuestExitKing(i, i == _index && activateFirts);
+            case 0:
+                for (int i = 0; i < 5; i++)
+                {
+                    QuestExitKing(i, false);
+                }
+                break;
+            case 1:
+                QuestExitKing(0, true);
+                QuestExitKing(1, false);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 2:
+                QuestExitKing(1, false);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 3:
+                QuestExitKing(1, true);
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 4:
+                QuestExitKing(2, false);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 5:
+                QuestExitKing(2, true);
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 6:
+                QuestExitKing(3, false);
+                QuestExitKing(4, false);
+                break;
+            case 7:
+                QuestExitKing(3, true);
+                QuestExitKing(4, false);
+                break;
+            case 8:
+                QuestExitKing(4, false);
+                break;
+            case 9:
+                QuestExitKing(4, true);
+                break;
         }
     }
     void QuestExitKing(int _index, bool _bool)
