@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5799879832127563724}
   m_Layer: 5
   m_Name: Goto
-  m_TagString: Untagged
+  m_TagString: btnGoto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 0}
+  loadProfileSingleton: {fileID: 0}
   btnGoto: {fileID: 822853623}
 --- !u!1 &5667128334295332264
 GameObject:

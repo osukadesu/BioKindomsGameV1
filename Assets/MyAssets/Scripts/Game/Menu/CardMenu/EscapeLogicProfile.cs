@@ -6,10 +6,12 @@ public class EscapeLogicProfile : MonoBehaviour
 {
     [SerializeField] protected MenuController menuController;
     [SerializeField] protected MouseController mouseController;
+    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] Button btnBack;
     [SerializeField] Animator alertModalAnimator;
     void Awake()
     {
+        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
         menuController = FindObjectOfType<MenuController>();
         mouseController = FindObjectOfType<MouseController>();
         btnBack.onClick.AddListener(ButtonBack);
@@ -33,6 +35,7 @@ public class EscapeLogicProfile : MonoBehaviour
     }
     void ButtonBack()
     {
+        loadProfileSingleton.isFirtsTime = false;
         menuController.IsMyProfile = false;
         SceneManager.LoadScene(2);
     }

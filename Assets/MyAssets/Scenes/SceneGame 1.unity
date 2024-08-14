@@ -3397,7 +3397,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Felicidades completaste este reino ahora ve y realiza el siguiente Quiz!
+  m_Text: "Antes de ir al Reino Vegetal realiza el siguiente Quiz!  \n\"para guardar
+    tu calificaci\xF3n\""
 --- !u!222 &129784613
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5495,7 +5496,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 0}
+  LevelSystemV2: {fileID: 1259189127}
+  QuestAlertModalAnim: {fileID: 2040373163}
+  btnAcept: {fileID: 1270858365}
 --- !u!1 &207694862
 GameObject:
   m_ObjectHideFlags: 0
@@ -10009,7 +10012,8 @@ MonoBehaviour:
   notificationContent: {fileID: 2138242326}
   notificationPrefab: {fileID: 5667128334816991707, guid: 5af0ed9c14f0e1042a0eb17a5ebc758b, type: 3}
   transformContent: {fileID: 678505669}
-  mouseController: {fileID: 0}
+  mouseController: {fileID: 354055302}
+  isButton: 0
 --- !u!1 &326589562
 GameObject:
   m_ObjectHideFlags: 0
@@ -18104,6 +18108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
   LevelSystemV2: {fileID: 0}
+  QuestAlertModalAnim: {fileID: 0}
+  btnAcept: {fileID: 0}
 --- !u!65 &702693150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20080,6 +20086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
   LevelSystemV2: {fileID: 0}
+  QuestAlertModalAnim: {fileID: 0}
+  btnAcept: {fileID: 0}
 --- !u!65 &777099943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30791,6 +30799,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
   LevelSystemV2: {fileID: 0}
+  QuestAlertModalAnim: {fileID: 0}
+  btnAcept: {fileID: 0}
 --- !u!65 &1210687113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33918,6 +33928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
   LevelSystemV2: {fileID: 0}
+  QuestAlertModalAnim: {fileID: 0}
+  btnAcept: {fileID: 0}
 --- !u!65 &1313753775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44719,7 +44731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5019608, b: 0, a: 0.9019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -46252,7 +46264,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continuar
+  m_Text: Aceptar
 --- !u!222 &1723793458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56169,7 +56181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2040373162
 RectTransform:
   m_ObjectHideFlags: 0

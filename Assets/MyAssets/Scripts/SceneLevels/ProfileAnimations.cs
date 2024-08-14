@@ -8,9 +8,11 @@ public class ProfileAnimations : MonoBehaviour
     [SerializeField] QuestLevel questLevel;
     [SerializeField] Animator[] subUnlockAnim, imgCompleteAnim, txtCompleteAnim, btnResetQuestAnim;
     [SerializeField] Button[] btnResetQuest;
+    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] GameObject[] Attention;
     void Awake()
     {
+        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
         questLevel = FindObjectOfType<QuestLevel>();
         for (int i = 0; i < btnResetQuest.Length; i++)
         {
@@ -24,7 +26,7 @@ public class ProfileAnimations : MonoBehaviour
     }
     void ShowAttentionAnimation()
     {
-        Attention[0].SetActive(questLevel.CaseValue is 0 or -1 && questLevel._endQuest);
+        Attention[0].SetActive(questLevel.CaseValue is 0 or -1 && !questLevel._endQuest);
         for (int i = 1; i < Attention.Length; i++)
         {
             Attention[i].SetActive(questLevel.CaseValue == i && questLevel._endQuest);

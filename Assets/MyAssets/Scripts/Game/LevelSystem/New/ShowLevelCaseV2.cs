@@ -42,7 +42,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 3:
-                notification.AddNotification("Haz avanzado al nivel 3 ya puedes ver tu perfil!");
+                notification.AddNotification("Haz desbloqueado tu perfil!");
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(0);
@@ -91,7 +91,8 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
-                notification.AddNotification("Felicidades haz terminado el reino animal!");
+                notification.AddNotification("Felicidades haz completado el reino animal!");
+                StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!"));
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(1);
@@ -113,6 +114,11 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
         }
+    }
+    IEnumerator WaitForNotify(string _message)
+    {
+        yield return new WaitForSeconds(1f);
+        notification.AddNotification(_message);
     }
     public void DestroyingObjects(int _index)
     {

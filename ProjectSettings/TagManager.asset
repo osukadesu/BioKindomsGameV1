@@ -28,6 +28,7 @@ TagManager:
   - PlayerDamage
   - btnInfo
   - btnProfile
+  - btnGoto
   layers:
   - Default
   - TransparentFX

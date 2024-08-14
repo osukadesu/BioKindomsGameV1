@@ -10,14 +10,18 @@ public class MenuButtons : MonoBehaviour
     [SerializeField] GameObject btnLoadGame, btnProfile;
     [SerializeField] MenuController menuController;
     [SerializeField] VerticalLayoutGroup verticalLayoutGroup;
+    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] Animator alertDelete;
+    [SerializeField] Image ImageNotify;
     void Awake()
     {
         menuController = FindObjectOfType<MenuController>();
+        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
         verticalLayoutGroup = GameObject.FindGameObjectWithTag("menuGameVL").GetComponent<VerticalLayoutGroup>();
         btnLoadGame = GameObject.FindGameObjectWithTag("btnLoadGame");
         btnProfile = GameObject.FindGameObjectWithTag("btnProfile");
         MenuOrder();
+        ImageNotify.gameObject.SetActive(loadProfileSingleton.isFirtsTime);
     }
     public void ButtonNewGame()
     {

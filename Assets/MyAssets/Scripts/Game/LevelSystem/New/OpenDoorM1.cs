@@ -27,7 +27,7 @@ public class OpenDoorM1 : MonoBehaviour
         }
         else
         {
-            openDoorMessage.SetMessage();
+            openDoorMessage.SetMessage(0, 0f);
         }
     }
     void OnTriggerExit(Collider other)
@@ -35,6 +35,7 @@ public class OpenDoorM1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             openDoorAnim.SetBool("openDoor", false);
+            openDoorMessage.SetMessage(1, 1f);
         }
     }
 }

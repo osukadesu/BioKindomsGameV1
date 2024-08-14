@@ -47,7 +47,7 @@ public class EstanteCol : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textInfo.HideText(); canpressG = false; canpressF = false;
+            StartCoroutine(WaitForHideText()); canpressG = false; canpressF = false;
         }
     }
     public void SetInfo(int value)
@@ -56,18 +56,16 @@ public class EstanteCol : MonoBehaviour
         {
             case 1:
                 textMessage = "Presiona la tecla 'G' para ver la reliquia.";
-                StartCoroutine(IETextShow(textMessage));
                 break;
             case 2:
                 textMessage = "Presiona la tecla 'F' y recupera la reliquia.";
-                StartCoroutine(IETextShow(textMessage));
                 break;
         }
+        textInfo.ShowText(textMessage);
     }
-    IEnumerator IETextShow(string text)
+    IEnumerator WaitForHideText()
     {
-        textInfo.ShowText(text);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(.5f);
         textInfo.HideText();
     }
 }

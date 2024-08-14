@@ -71,7 +71,7 @@ public class CompareState : QuestBaseState
         {
             if (score > 2)
             {
-                yield return ShowResult("Has ganado el juego!");
+                yield return ShowResult("Has ganado el quiz!");
             }
             else
             {
@@ -79,7 +79,7 @@ public class CompareState : QuestBaseState
                 yield return new WaitForSeconds(.5f);
                 roundState._currentRound = 1;
                 yield return new WaitForSeconds(.5f);
-                yield return ShowResult("Has perdido el juego!");
+                yield return ShowResult("Has perdido el quiz!");
             }
         }
         else
