@@ -35,7 +35,7 @@ public class OpenDoorP1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             openDoorAnim.SetBool("openDoor", false);
-            openDoorMessage.SetMessage(1, 1f);
+            openDoorMessage.SetMessage(1, .2f);
         }
     }
 }

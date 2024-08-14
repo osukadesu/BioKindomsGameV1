@@ -56,6 +56,10 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonProfile()
     {
+        if (loadProfileSingleton.isFirtsTime)
+        {
+            loadProfileSingleton.isFirtsTime = false;
+        }
         menuController.IsMyProfile = true;
         SceneManager.LoadScene(3);
     }
