@@ -24,10 +24,10 @@ public class ProfileAnimations : MonoBehaviour
     }
     void ShowAttentionAnimation()
     {
-        Attention[0].SetActive(questLevel.CaseValue is 0 or -1);
+        Attention[0].SetActive(questLevel.CaseValue is 0 or -1 && questLevel._endQuest);
         for (int i = 1; i < Attention.Length; i++)
         {
-            Attention[i].SetActive(questLevel.CaseValue == i);
+            Attention[i].SetActive(questLevel.CaseValue == i && questLevel._endQuest);
         }
     }
     public void SubLevel(int _SubLevelIndex)

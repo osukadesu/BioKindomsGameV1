@@ -8,6 +8,7 @@ public class ViewMenu : MonoBehaviour
     [SerializeField] bool active;
     [SerializeField] Button btnClose;
     [SerializeField] protected Text messageText;
+    [SerializeField] Text textTab;
     void Awake()
     {
         mouseController = FindObjectOfType<MouseController>();
@@ -23,7 +24,8 @@ public class ViewMenu : MonoBehaviour
     }
     void Update()
     {
-        //_canvasManager.TabViewMenu();
+        _canvasManager.TabViewMenu();
+        textTab.text = "Presiona \"Tab\" para activar el mouse!";
     }
     public void Configure(CanvasManager canvasManager)
     {
@@ -33,6 +35,8 @@ public class ViewMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            mouseController.MouseUnLock();
+            /*
             active = !active;
             animTabView.SetBool("tabview", active);
             if (!active)
@@ -47,6 +51,7 @@ public class ViewMenu : MonoBehaviour
                 _canvasManager.ButtonGoKindomV2(0);
                 mouseController.MouseUnLock();
             }
+            */
         }
     }
     public void CloseTabView()
