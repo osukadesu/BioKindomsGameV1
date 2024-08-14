@@ -23,7 +23,7 @@ public class ViewMenu : MonoBehaviour
     }
     void Update()
     {
-        _canvasManager.TabViewMenu();
+        //_canvasManager.TabViewMenu();
     }
     public void Configure(CanvasManager canvasManager)
     {

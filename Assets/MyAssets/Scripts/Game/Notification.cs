@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class Notification : MonoBehaviour
@@ -13,6 +14,14 @@ public class Notification : MonoBehaviour
     {
         btnNotification.onClick.AddListener(ShowNotification);
     }
+    void Update()
+    {
+        //Delete This.
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AddNotification("Felicidades haz terminado el reino animal!");
+        }
+    }
     void Start()
     {
         Cursor.visible = true;
@@ -21,20 +30,23 @@ public class Notification : MonoBehaviour
         SetVariables(false, "");
         notificationContent.SetActive(false);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddNotification("La tecla P ha sido presionada");
-        }
-    }
     void ShowNotification()
     {
         active = !active;
         notificationContent.SetActive(active);
+        if (!active)
+        {
+            notificationCount = 0;
+            SetVariables(false, notificationCount.ToString());
+        }
     }
     public void AddNotification(string message)
     {
+        StartCoroutine(WaitForNotification(message));
+    }
+    IEnumerator WaitForNotification(string message)
+    {
+        yield return new WaitForSeconds(1f);
         notificationCount++;
         SetVariables(true, notificationCount.ToString());
         AddNotificationToList(message);

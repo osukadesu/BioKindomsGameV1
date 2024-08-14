@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 public class ShowLevelCaseV2 : MonoBehaviour
 {
+    [SerializeField] Notification notification;
     [SerializeField] QuestLevel questLevel;
     [SerializeField] LoadLevelSystem loadLevelSystem;
     [SerializeField] MouseController mouseController;
@@ -17,6 +18,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     void Awake()
     {
         questLevel = FindObjectOfType<QuestLevel>();
+        notification = FindObjectOfType<Notification>();
     }
     void Update()
     {
@@ -40,6 +42,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 3:
+                notification.AddNotification("Haz avanzado al nivel 3 ya puedes ver tu perfil!");
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(0);
@@ -88,6 +91,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
+                notification.AddNotification("Felicidades haz terminado el reino animal!");
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(1);
