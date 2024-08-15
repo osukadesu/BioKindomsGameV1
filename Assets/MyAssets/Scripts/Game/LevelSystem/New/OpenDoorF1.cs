@@ -4,7 +4,7 @@ public class OpenDoorF1 : MonoBehaviour
     [SerializeField] OpenDoorMessage openDoorMessage;
     [SerializeField] InventoryItemDataV2[] referenceItemV;
     [SerializeField] Animator openDoorAnim;
-    bool canOpen;
+    [SerializeField] bool canOpen;
     void Update()
     {
         for (int i = 0; i < referenceItemV.Length; i++)
@@ -24,6 +24,7 @@ public class OpenDoorF1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && canOpen)
         {
             openDoorAnim.SetBool("openDoor", true);
+            openDoorMessage.SetMessage(1, .2f);
         }
         else
         {

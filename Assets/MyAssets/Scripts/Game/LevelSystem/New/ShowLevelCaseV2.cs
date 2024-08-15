@@ -6,6 +6,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] Notification notification;
     [SerializeField] QuestLevel questLevel;
     [SerializeField] LoadLevelSystem loadLevelSystem;
+    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] MouseController mouseController;
     [SerializeField] AlertModalManager alertModalManager;
     [SerializeField] PlayerEstanteCol playerEstanteCol;
@@ -19,6 +20,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     {
         questLevel = FindObjectOfType<QuestLevel>();
         notification = FindObjectOfType<Notification>();
+        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     void Update()
     {
@@ -42,7 +44,10 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 3:
-                notification.AddNotification("Haz desbloqueado tu perfil!");
+                if (!loadProfileSingleton.wasFirtsTime)
+                {
+                    notification.AddNotification("Haz desbloqueado tu perfil!");
+                }
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(0);
@@ -91,8 +96,11 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
-                notification.AddNotification("Felicidades haz completado el reino animal!");
-                StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!"));
+                if (!questLevel._endQuest)
+                {
+                    notification.AddNotification("Felicidades haz completado el reino animal!");
+                    StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!"));
+                }
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(1);

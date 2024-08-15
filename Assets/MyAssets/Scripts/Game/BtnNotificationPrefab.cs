@@ -19,7 +19,13 @@ public class BtnNotificationPrefab : MonoBehaviour
         MenuController.menuController.IsLoadGame = false;
         MenuController.menuController.IsMyProfile = true;
         SceneManager.LoadScene(levelSystemV2.CurrentLevel == 3 ? 2 : 3);
-        loadProfileSingleton.isFirtsTime = levelSystemV2.CurrentLevel == 3;
-        
+        if (loadProfileSingleton.wasFirtsTime)
+        {
+            loadProfileSingleton.isFirtsTime = false;
+        }
+        else
+        {
+            loadProfileSingleton.isFirtsTime = levelSystemV2.CurrentLevel == 3;
+        }
     }
 }

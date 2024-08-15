@@ -5498,6 +5498,7 @@ MonoBehaviour:
   questLevel: {fileID: 1222646214}
   LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
+  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!1 &207694862
 GameObject:
@@ -10013,7 +10014,6 @@ MonoBehaviour:
   notificationPrefab: {fileID: 5667128334816991707, guid: 5af0ed9c14f0e1042a0eb17a5ebc758b, type: 3}
   transformContent: {fileID: 678505669}
   mouseController: {fileID: 354055302}
-  isButton: 0
 --- !u!1 &326589562
 GameObject:
   m_ObjectHideFlags: 0
@@ -18107,9 +18107,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 0}
-  QuestAlertModalAnim: {fileID: 0}
-  btnAcept: {fileID: 0}
+  LevelSystemV2: {fileID: 1259189127}
+  QuestAlertModalAnim: {fileID: 2040373163}
+  mouseController: {fileID: 0}
+  btnAcept: {fileID: 1270858365}
 --- !u!65 &702693150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20085,9 +20086,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 0}
-  QuestAlertModalAnim: {fileID: 0}
-  btnAcept: {fileID: 0}
+  LevelSystemV2: {fileID: 1259189127}
+  QuestAlertModalAnim: {fileID: 2040373163}
+  mouseController: {fileID: 0}
+  btnAcept: {fileID: 1270858365}
 --- !u!65 &777099943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30798,9 +30800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 0}
-  QuestAlertModalAnim: {fileID: 0}
-  btnAcept: {fileID: 0}
+  LevelSystemV2: {fileID: 1259189127}
+  QuestAlertModalAnim: {fileID: 2040373163}
+  mouseController: {fileID: 0}
+  btnAcept: {fileID: 1270858365}
 --- !u!65 &1210687113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32132,6 +32135,7 @@ MonoBehaviour:
   notification: {fileID: 0}
   questLevel: {fileID: 1222646214}
   loadLevelSystem: {fileID: 1259189129}
+  loadProfileSingleton: {fileID: 0}
   mouseController: {fileID: 354055302}
   alertModalManager: {fileID: 326398877}
   playerEstanteCol: {fileID: 354055304}
@@ -32311,6 +32315,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c909bcae6b2f1cd44af30f3e9f6d34fb, type: 2}
   - {fileID: 11400000, guid: 3a2d30af503016e468c56b4a279bc5b1, type: 2}
   openDoorAnim: {fileID: 5762853099563118905}
+  canOpen: 0
 --- !u!1 &1267579773
 GameObject:
   m_ObjectHideFlags: 0
@@ -33927,9 +33932,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 0}
-  QuestAlertModalAnim: {fileID: 0}
-  btnAcept: {fileID: 0}
+  LevelSystemV2: {fileID: 1259189127}
+  QuestAlertModalAnim: {fileID: 2040373163}
+  mouseController: {fileID: 0}
+  btnAcept: {fileID: 1270858365}
 --- !u!65 &1313753775
 BoxCollider:
   m_ObjectHideFlags: 0

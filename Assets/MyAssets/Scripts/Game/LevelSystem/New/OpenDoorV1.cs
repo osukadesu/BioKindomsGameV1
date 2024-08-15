@@ -4,16 +4,19 @@ public class OpenDoorV1 : MonoBehaviour
     [SerializeField] OpenDoorMessage openDoorMessage;
     [SerializeField] InventoryItemDataV2[] referenceItemA;
     [SerializeField] Animator openDoorAnim;
-    bool canOpen;
+    [SerializeField] bool canOpen;
     void Update()
     {
-        if (referenceItemA[0].itemIsCheck && referenceItemA[1].itemIsCheck && referenceItemA[2].itemIsCheck && referenceItemA[3].itemIsCheck && referenceItemA[4].itemIsCheck)
+        for (int i = 0; i < referenceItemA.Length; i++)
         {
-            canOpen = true;
-        }
-        else
-        {
-            canOpen = false;
+            if (referenceItemA[i].itemIsCheck)
+            {
+                canOpen = true;
+            }
+            else
+            {
+                canOpen = false;
+            }
         }
     }
     void OnTriggerEnter(Collider other)
@@ -21,6 +24,7 @@ public class OpenDoorV1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && canOpen)
         {
             openDoorAnim.SetBool("openDoor", true);
+            openDoorMessage.SetMessage(1, .2f);
         }
         else
         {
