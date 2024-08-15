@@ -995,6 +995,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 73356349}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 0}
 --- !u!54 &73356351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1577,6 +1580,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 104112157}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 104112160}
 --- !u!95 &104112160
 Animator:
   serializedVersion: 5
@@ -2735,6 +2741,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 178252859}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 178252862}
 --- !u!95 &178252862
 Animator:
   serializedVersion: 5
@@ -3286,6 +3295,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 203013289}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 203013292}
 --- !u!95 &203013292
 Animator:
   serializedVersion: 5
@@ -5449,6 +5461,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 306655115}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 0}
 --- !u!114 &306655115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6234,6 +6249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1325566188569129189, guid: 5aef4ed4237c94c40ac651f7c185aee8, type: 3}
+  newBullet: {fileID: 0}
   spawnBullet: {fileID: 1588898373}
   shootForce: 1500
   shootRate: 0.5
@@ -9878,6 +9894,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 771384783}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 0}
 --- !u!54 &771384785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10189,6 +10208,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4072328212759570078, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072328212759570078, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7812d8e0869b924faed3ae2edaff94c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02cea90933aabec4aa19891cf8c7fa82, type: 3}
 --- !u!4 &784976915 stripped
@@ -10216,6 +10243,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 784976919}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 784976921}
 --- !u!114 &784976919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13439,6 +13469,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 1097786763}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 0}
 --- !u!54 &1097786765
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13917,6 +13950,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 1150172668}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 784976921}
 --- !u!95 &1150172671
 Animator:
   serializedVersion: 5
@@ -14985,6 +15021,9 @@ MonoBehaviour:
   "da\xF1o": 4
   lifeControllerEnemy: {fileID: 1225762027}
   lifeControllerPlayer: {fileID: 270708098}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: {fileID: 0}
 --- !u!54 &1225762029
 Rigidbody:
   m_ObjectHideFlags: 0

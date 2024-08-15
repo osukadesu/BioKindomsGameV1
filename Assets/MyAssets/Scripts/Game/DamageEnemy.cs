@@ -10,6 +10,8 @@ public class DamageEnemy : DamageSystem
         if (other.tag == "Enemy")
         {
             lifeControllerEnemy.RestarVida(daño);
+            damageAnim.SetTrigger("damage");
+            shootLogic.DestroyNewBullet();
         }
     }
 }

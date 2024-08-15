@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 public class ShootLogic : MonoBehaviour
 {
-    public GameObject bullet;
+    public GameObject bullet, newBullet;
     public Transform spawnBullet;
     public float shootForce = 1500f, shootRate = 0.5f, shootRateTime = 0.5f;
     public bool canShoot;
@@ -15,12 +16,14 @@ public class ShootLogic : MonoBehaviour
         {
             if (Time.time > shootRateTime)
             {
-                GameObject newBullet;
                 newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
                 newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
                 shootRateTime = Time.time + shootRate;
-                Destroy(newBullet, 1);
             }
         }
+    }
+    public void DestroyNewBullet()
+    {
+        Destroy(newBullet, .5f);
     }
 }
