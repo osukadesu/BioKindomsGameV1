@@ -24,25 +24,29 @@ public class DeadEnemy : DeadManager
             if (lifeControllerEnemy[playerEstanteCol.setId].currentLife <= 0)
             {
                 shootLogic.canShoot = false;
-                ForAlertInfo(value2);
-                levelWinMethod.WinMethod(playerEstanteCol.setId, value2);
+                SetAlertInfo(value2);
+                levelWinMethod.WinMethod(playerEstanteCol.setId);
                 StartCoroutine(ResetEnemy());
             }
         }
     }
-    void ForAlertInfo(bool value2)
+    void SetAlertInfo(bool value2)
     {
         if (value2)
         {
             alertModalManager.AlertInfo("Bien hecho lo has derrotado guarda la relíquia!");
         }
+        else
+        {
+            alertModalManager.HideText();
+        }
     }
     IEnumerator ResetEnemy()
     {
         yield return new WaitForSeconds(.5f);
-        ForLifeControllerEnemy();
+        SetLifeControllerEnemy();
     }
-    void ForLifeControllerEnemy()
+    void SetLifeControllerEnemy()
     {
         for (int i = 0; i < lifeControllerEnemy.Length; i++)
         {

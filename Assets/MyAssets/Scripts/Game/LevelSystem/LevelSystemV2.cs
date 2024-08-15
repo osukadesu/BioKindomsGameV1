@@ -1,4 +1,3 @@
-using System.Collections;
 using System.IO;
 using UnityEngine;
 public class LevelSystemV2 : MonoBehaviour
@@ -43,28 +42,6 @@ public class LevelSystemV2 : MonoBehaviour
                 loadLevelSystem.GoLoadGame();
             }
         }
-        /*
-         string datapath = Application.persistentDataPath + "/player.data";
-         string datapath2 = Application.persistentDataPath + "/quest.data";
-         if (File.Exists(datapath) && !loadController.LevelLoadGame || File.Exists(datapath2) && !loadController.LevelLoadGame)
-         {
-             loadLevelSystem.GoLoadGame();
-         }
-         else
-         {
-             if (loadController.LevelLoadGame)
-             {
-                 loadLevelSystem.GoLoadGame();
-             }
-             else
-             {
-                 if (!loadController.LevelLoadGame)
-                 {
-                     loadLevelSystem.GoNewGame();
-                 }
-             }
-         }
-        */
     }
     void ElementsHide()
     {

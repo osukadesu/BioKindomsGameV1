@@ -40,6 +40,10 @@ public class AlertModalManager : MonoBehaviour
         txtInfoAlert.fontSize = 22;
         txtInfoAlert.text = textST;
     }
+    protected internal void HideText()
+    {
+        alertModalAnimator.SetBool("alertmodal", false);
+    }
     protected internal void PauseGame()
     {
         Time.timeScale = 0f;
@@ -48,7 +52,7 @@ public class AlertModalManager : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg,int indexImg2, bool myBoolImg2)
+    public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg, int indexImg2, bool myBoolImg2)
     {
         alertModalNew.SetBool("alertmodal", myBoolAnim);
         txtAlertNew.text = myText;

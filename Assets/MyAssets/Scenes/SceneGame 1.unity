@@ -2732,6 +2732,13 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
+  lifeControllerEnemy:
+  - {fileID: 784976919}
+  - {fileID: 1150172668}
+  - {fileID: 203013289}
+  - {fileID: 178252859}
+  - {fileID: 104112157}
+  playerEstanteCol: {fileID: 354055304}
   wayIndex: 0
 --- !u!114 &104112165
 MonoBehaviour:
@@ -4332,6 +4339,8 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
+  lifeControllerEnemy: []
+  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &178252867
 MonoBehaviour:
@@ -5232,6 +5241,8 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
+  lifeControllerEnemy: []
+  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &203013297
 MonoBehaviour:
@@ -9261,7 +9272,6 @@ GameObject:
   m_Component:
   - component: {fileID: 326398848}
   - component: {fileID: 326398852}
-  - component: {fileID: 326398873}
   - component: {fileID: 326398874}
   - component: {fileID: 326398877}
   - component: {fileID: 326398878}
@@ -9304,20 +9314,6 @@ MonoBehaviour:
   mouseController: {fileID: 354055302}
   textTab: {fileID: 1670972099}
   active: 0
---- !u!114 &326398873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326398847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b7f25f724badef4ab579d8e646d6ed4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewInfoText: {fileID: 0}
-  text3: {fileID: 0}
 --- !u!114 &326398874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19927,6 +19923,8 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
+  lifeControllerEnemy: []
+  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &784976926
 MonoBehaviour:
@@ -28185,6 +28183,8 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
+  lifeControllerEnemy: []
+  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &1150172676
 MonoBehaviour:
@@ -30795,7 +30795,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showLevelSystem: {fileID: 1259189128}
   shootLogic: {fileID: 354055303}
-  alertModalManager: {fileID: 326398877}
 --- !u!1 &1266973021
 GameObject:
   m_ObjectHideFlags: 0
