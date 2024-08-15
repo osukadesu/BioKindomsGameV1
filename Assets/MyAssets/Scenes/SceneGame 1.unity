@@ -5860,6 +5860,7 @@ GameObject:
   - component: {fileID: 326398878}
   - component: {fileID: 326398880}
   - component: {fileID: 326398881}
+  - component: {fileID: 326398882}
   m_Layer: 0
   m_Name: UiScripts
   m_TagString: Untagged
@@ -5978,6 +5979,21 @@ MonoBehaviour:
   menuController: {fileID: 0}
   mouseController: {fileID: 354055302}
   canEscape: 0
+--- !u!114 &326398882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326398847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32c04823601787f43b8d629dd5b81b51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseController: {fileID: 354055302}
+  textTab: {fileID: 1670972099}
+  active: 0
 --- !u!1 &326589562
 GameObject:
   m_ObjectHideFlags: 0
@@ -15565,8 +15581,6 @@ MonoBehaviour:
   - {fileID: 1508315550}
   - {fileID: 1407256311}
   - {fileID: 1068016550}
-  inventoryUIA: {fileID: 0}
-  inventoryUIV: {fileID: 0}
   inventoryItemDataV2:
   - {fileID: 11400000, guid: d81fb7ef0adf5544cb36274561f62f72, type: 2}
   - {fileID: 11400000, guid: a21dcff25c7fd9b4e8c5a83e26b470fd, type: 2}
