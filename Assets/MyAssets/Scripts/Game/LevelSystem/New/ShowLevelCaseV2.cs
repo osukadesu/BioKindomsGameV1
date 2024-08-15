@@ -46,7 +46,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
             case 3:
                 if (!loadProfileSingleton.wasFirtsTime)
                 {
-                    notification.AddNotification("Haz desbloqueado tu perfil!");
+                    notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!");
                 }
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
