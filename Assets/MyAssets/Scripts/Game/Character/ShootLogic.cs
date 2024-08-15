@@ -24,6 +24,6 @@ public class ShootLogic : MonoBehaviour
     }
     public void DestroyNewBullet()
     {
-        Destroy(newBullet, .5f);
+        Destroy(newBullet, 0f);
     }
 }
