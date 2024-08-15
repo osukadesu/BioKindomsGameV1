@@ -8,17 +8,12 @@ public class EscapeLogicProfile : MonoBehaviour
     [SerializeField] protected MouseController mouseController;
     [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] Button btnBack;
-    [SerializeField] Animator alertModalAnimator;
     void Awake()
     {
         loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
         menuController = FindObjectOfType<MenuController>();
         mouseController = FindObjectOfType<MouseController>();
         btnBack.onClick.AddListener(ButtonBack);
-    }
-    void Start()
-    {
-        alertModalAnimator.SetBool("alertmodal", false);
     }
     void Update()
     {

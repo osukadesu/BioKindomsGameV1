@@ -2732,13 +2732,6 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
-  lifeControllerEnemy:
-  - {fileID: 784976919}
-  - {fileID: 1150172668}
-  - {fileID: 203013289}
-  - {fileID: 178252859}
-  - {fileID: 104112157}
-  playerEstanteCol: {fileID: 354055304}
   wayIndex: 0
 --- !u!114 &104112165
 MonoBehaviour:
@@ -4339,8 +4332,6 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
-  lifeControllerEnemy: []
-  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &178252867
 MonoBehaviour:
@@ -5241,8 +5232,6 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
-  lifeControllerEnemy: []
-  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &203013297
 MonoBehaviour:
@@ -9019,7 +9008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f54dffee8f8294f991dc99e0e04866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSystemV2: {fileID: 0}
+  levelSystemV2: {fileID: 1259189127}
   playerEstanteCol: {fileID: 354055304}
   lifeControllerEnemy:
   - {fileID: 784976919}
@@ -9271,12 +9260,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326398848}
-  - component: {fileID: 326398852}
   - component: {fileID: 326398874}
   - component: {fileID: 326398877}
   - component: {fileID: 326398878}
-  - component: {fileID: 326398879}
   - component: {fileID: 326398880}
+  - component: {fileID: 326398881}
   m_Layer: 0
   m_Name: UiScripts
   m_TagString: Untagged
@@ -9299,21 +9287,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &326398852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326398847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7910603e51c41564db541b0750846a5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseController: {fileID: 354055302}
-  textTab: {fileID: 1670972099}
-  active: 0
 --- !u!114 &326398874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9345,7 +9318,7 @@ MonoBehaviour:
   alertModalAnimator: {fileID: 480312571}
   alertModalNew: {fileID: 1690977979}
   mouseController: {fileID: 354055302}
-  escapeLogicV1: {fileID: 326398879}
+  escapeLogicV1: {fileID: 326398881}
   btnContinueAM: {fileID: 534471620}
   imgAlertNew:
   - {fileID: 82551762}
@@ -9376,21 +9349,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 1259189127}
   textGralController: {fileID: 326398874}
   questLevel: {fileID: 0}
---- !u!114 &326398879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326398847}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 336eaa0c4fafb2848b7e7a63f50bc124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuController: {fileID: 0}
-  mouseController: {fileID: 354055302}
-  canEscape: 0
 --- !u!114 &326398880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9410,6 +9368,21 @@ MonoBehaviour:
   notificationPrefab: {fileID: 5667128334816991707, guid: 5af0ed9c14f0e1042a0eb17a5ebc758b, type: 3}
   transformContent: {fileID: 678505669}
   mouseController: {fileID: 354055302}
+--- !u!114 &326398881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326398847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171ada325173bf54991bcb0baafdb447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuController: {fileID: 0}
+  mouseController: {fileID: 354055302}
+  canEscape: 0
 --- !u!1 &326589562
 GameObject:
   m_ObjectHideFlags: 0
@@ -19923,8 +19896,6 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
-  lifeControllerEnemy: []
-  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &784976926
 MonoBehaviour:
@@ -28183,8 +28154,6 @@ MonoBehaviour:
   - {fileID: 1188365554}
   - {fileID: 860089443}
   player: {fileID: 354055296}
-  lifeControllerEnemy: []
-  playerEstanteCol: {fileID: 0}
   wayIndex: 0
 --- !u!114 &1150172676
 MonoBehaviour:
@@ -30679,7 +30648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b6068e973b1ba49b3c22ed724eec2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notification: {fileID: 0}
+  notification: {fileID: 326398880}
   questLevel: {fileID: 1222646214}
   loadLevelSystem: {fileID: 1259189129}
   loadProfileSingleton: {fileID: 0}
