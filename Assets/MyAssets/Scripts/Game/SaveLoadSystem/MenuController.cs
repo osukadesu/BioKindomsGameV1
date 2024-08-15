@@ -1,4 +1,3 @@
-using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
@@ -34,7 +33,7 @@ public class MenuController : MonoBehaviour
             if (File.Exists(fileNames[i]))
             {
                 File.Delete(fileNames[i]);
-                AssetDatabase.Refresh();
+                //AssetDatabase.Refresh();
             }
         }
     }

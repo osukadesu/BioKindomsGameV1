@@ -58,7 +58,7 @@ public class CompareState : QuestBaseState
         IEnumerator ShowResult(string _message)
         {
             textManager.ShowText(1, _message, "txtShow");
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2.5f);
             textManager.ShowText(1, "Puntaje: " + score, "txtShow");
             yield return new WaitForSeconds(2f);
             ScoreCase(questLevel.CaseValue);
