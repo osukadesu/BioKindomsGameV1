@@ -3,8 +3,6 @@ using UnityEngine;
 public class InventorySystemA5 : MonoBehaviour
 {/*
     public static InventorySystemA5 instance5;
-    public delegate void onInventoryChangedEvent();
-    public event onInventoryChangedEvent OnInventoryChangedEventCallBack;
     public Dictionary<InventoryItemData, InventoryItem> _itemDictionary;
     public List<InventoryItem> inventoryItems;
     void Awake()
@@ -18,14 +16,12 @@ public class InventorySystemA5 : MonoBehaviour
         if (_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.AddStack();
-            OnInventoryChangedEventCallBack.Invoke();
         }
         else
         {
             InventoryItem newItem = new(referenceData);
             inventoryItems.Add(newItem);
             _itemDictionary.Add(referenceData, newItem);
-            OnInventoryChangedEventCallBack.Invoke();
         }
     }*/
 }
