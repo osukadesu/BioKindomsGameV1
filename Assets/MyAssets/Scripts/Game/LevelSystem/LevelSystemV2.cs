@@ -6,7 +6,6 @@ public class LevelSystemV2 : MonoBehaviour
     [SerializeField] LoadControllerGame loadController;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] LoadLevelSystem loadLevelSystem;
-    [SerializeField] protected MouseController mouseController;
     int currentLevel;
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
     void Awake()
@@ -14,8 +13,7 @@ public class LevelSystemV2 : MonoBehaviour
         loadController = FindObjectOfType<LoadControllerGame>();
         loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
         showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
-        mouseController = FindObjectOfType<MouseController>();
-        mouseController.MouseLock();
+        GeneralSingleton.generalSingleton.MouseLock();
     }
     void Start()
     {

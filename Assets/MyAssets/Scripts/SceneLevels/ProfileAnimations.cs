@@ -5,15 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ProfileAnimations : MonoBehaviour
 {
-    [SerializeField] QuestLevel questLevel;
     [SerializeField] Animator[] subUnlockAnim, imgCompleteAnim, txtCompleteAnim, btnResetQuestAnim;
     [SerializeField] Button[] btnResetQuest;
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] GameObject[] Attention;
     void Awake()
     {
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
-        questLevel = FindObjectOfType<QuestLevel>();
         for (int i = 0; i < btnResetQuest.Length; i++)
         {
             int increment = i;
@@ -26,10 +22,10 @@ public class ProfileAnimations : MonoBehaviour
     }
     void ShowAttentionAnimation()
     {
-        Attention[0].SetActive(questLevel.CaseValue is 0 or -1 && !questLevel._endQuest);
+        Attention[0].SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest);
         for (int i = 1; i < Attention.Length; i++)
         {
-            Attention[i].SetActive(questLevel.CaseValue == i && questLevel._endQuest);
+            Attention[i].SetActive(GeneralSingleton.generalSingleton.CaseValue == i && GeneralSingleton.generalSingleton.endQuest);
         }
     }
     public void SubLevel(int _SubLevelIndex)
@@ -51,12 +47,12 @@ public class ProfileAnimations : MonoBehaviour
     {
         Action action = _btn switch
         {
-            0 => () => questLevel.CaseValue = 0,
-            1 => () => questLevel.CaseValue = 1,
-            2 => () => questLevel.CaseValue = 2,
-            3 => () => questLevel.CaseValue = 3,
-            4 => () => questLevel.CaseValue = 4,
-            _=> () => Debug.Log("AgainQuest case default!"),
+            0 => () => GeneralSingleton.generalSingleton.CaseValue = 0,
+            1 => () => GeneralSingleton.generalSingleton.CaseValue = 1,
+            2 => () => GeneralSingleton.generalSingleton.CaseValue = 2,
+            3 => () => GeneralSingleton.generalSingleton.CaseValue = 3,
+            4 => () => GeneralSingleton.generalSingleton.CaseValue = 4,
+            _ => () => Debug.Log("AgainQuest case default!"),
         };
         action();
         StartCoroutine(ChageScene());

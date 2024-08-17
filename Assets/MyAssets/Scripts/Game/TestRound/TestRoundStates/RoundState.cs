@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 public class RoundState : QuestBaseState
 {
-    [SerializeField] QuestLevel questLevel;
     [SerializeField] TextManager textManager;
     [SerializeField] SetQuestSystem setQuestSystem;
     [SerializeField] LogicQuestSystem logicQuestSystem;
@@ -11,10 +10,6 @@ public class RoundState : QuestBaseState
     [SerializeField] bool startGame;
     public bool _startGame { get => startGame; set => startGame = value; }
     public int _currentRound { get => currentRound; set => currentRound = value; }
-    void Awake()
-    {
-        questLevel = FindObjectOfType<QuestLevel>();
-    }
     void Start()
     {
         startGame = false;
@@ -34,7 +29,7 @@ public class RoundState : QuestBaseState
     void StartQuest()
     {
         compareState._resetGame = false;
-        setQuestSystem.SetCase(questLevel.CaseValue);
+        setQuestSystem.SetCase(GeneralSingleton.generalSingleton.CaseValue);
         logicQuestSystem.ResetUCS();
         StartCoroutine(IEStartQuest());
     }

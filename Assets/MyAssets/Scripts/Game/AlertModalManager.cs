@@ -5,7 +5,6 @@ public class AlertModalManager : MonoBehaviour
 {
     [SerializeField] Text txtInfoAlert, txtAlertNew;
     [SerializeField] Animator alertModalAnimator, alertModalNew;
-    [SerializeField] MouseController mouseController;
     [SerializeField] EscapeLogicGame escapeLogicV1;
     [SerializeField] Button btnContinueAM;
     [SerializeField] GameObject[] imgAlertNew;
@@ -18,7 +17,7 @@ public class AlertModalManager : MonoBehaviour
     void CloseContinue()
     {
         escapeLogicV1.CanEscape = true;
-        mouseController.MouseLock();
+        GeneralSingleton.generalSingleton.MouseLock();
         alertModalAnimator.SetBool("alertmodal", false);
         ResumeGame();
     }
@@ -29,7 +28,7 @@ public class AlertModalManager : MonoBehaviour
     IEnumerator AlertInfoMethod(string textAIM)
     {
         escapeLogicV1.CanEscape = false;
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
         alertModalAnimator.SetBool("alertmodal", true);
         ShowText(textAIM);
         yield return new WaitForSecondsRealtime(.7f);

@@ -4,17 +4,12 @@ public class QuestCaseData : MonoBehaviour
 {
     [SerializeField] AnswerButtonData[] answerButtonDatas;
     [SerializeField] QuestLevelData questLevelDatas;
-    [SerializeField] MouseController mouseController;
     [SerializeField] Text textQuest;
     [SerializeField] Image[] imageItem;
     [SerializeField] Image imageKindom;
     [SerializeField] int[] idButton, idQuest;
     public int[] _idQuest { get => idQuest; set => idQuest = value; }
     public int[] _idButton { get => idButton; set => idButton = value; }
-    void Awake()
-    {
-        mouseController = FindObjectOfType<MouseController>();
-    }
     public void SetDataCases(int _idQuest, int _idAnswer1, int _idAnswer2, int _idAnswer3, int _idImgA1, int _idImgA2, int _idImgA3)
     {
         idQuest[_idQuest] = questLevelDatas.idQuest[_idQuest];
@@ -27,6 +22,6 @@ public class QuestCaseData : MonoBehaviour
             idButton[i] = answerButtonDatas[i].idAnswer = answers[i];
             imageItem[i].sprite = answerButtonDatas[i].imageItem[images[i]];
         }
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
     }
 }

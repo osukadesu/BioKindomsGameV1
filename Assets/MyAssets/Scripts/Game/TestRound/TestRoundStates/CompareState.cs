@@ -4,8 +4,6 @@ using UnityEngine.SceneManagement;
 public class CompareState : QuestBaseState
 {
     [SerializeField] QuestCaseRandom questCaseRandom;
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
-    [SerializeField] QuestLevel questLevel;
     [SerializeField] SaveScoreMethod saveScoreMethod;
     [SerializeField] AnimationsManager animationsManager;
     [SerializeField] QuestCaseData questCaseData;
@@ -20,8 +18,6 @@ public class CompareState : QuestBaseState
     {
         questCaseRandom = FindObjectOfType<QuestCaseRandom>();
         questCaseData = FindObjectOfType<QuestCaseData>();
-        questLevel = FindObjectOfType<QuestLevel>();
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     void Start()
     {
@@ -64,11 +60,11 @@ public class CompareState : QuestBaseState
             yield return new WaitForSeconds(2.5f);
             textManager.ShowText(1, "Puntaje: " + score, "txtShow");
             yield return new WaitForSeconds(2f);
-            ScoreCase(questLevel.CaseValue);
+            ScoreCase(GeneralSingleton.generalSingleton.CaseValue);
             saveScoreMethod.SavingScore();
-            questLevel._endQuest = true;
+            GeneralSingleton.generalSingleton.endQuest = true;
             yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene(MenuController.menuController.IsMyProfile ? 3 : 4);
+            SceneManager.LoadScene(GeneralSingleton.generalSingleton.isMyProfile ? 3 : 4);
         }
         if (roundState._currentRound > 5)
         {
@@ -91,7 +87,7 @@ public class CompareState : QuestBaseState
         {
             textManager.ShowText(1, _text, "txtShow");
             yield return new WaitForSeconds(2f);
-            questLevel._endQuest = false;
+            GeneralSingleton.generalSingleton.endQuest = false;
             resetGame = true;
         }
     }
@@ -99,7 +95,7 @@ public class CompareState : QuestBaseState
     {
         for (int i = 0; i < _score.Length; i++)
         {
-            _score[i] = (i == _case) ? score : loadProfileSingleton._num[i];
+            _score[i] = (i == _case) ? score : GeneralSingleton.generalSingleton._num[i];
         }
     }
 }

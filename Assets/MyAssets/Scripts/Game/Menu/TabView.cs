@@ -2,12 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TabView : MonoBehaviour
 {
-    [SerializeField] MouseController mouseController;
     [SerializeField] Text textTab;
     [SerializeField] bool active = false;
     void Awake()
     {
-        mouseController = FindObjectOfType<MouseController>();
     }
     void Update()
     {
@@ -21,11 +19,11 @@ public class TabView : MonoBehaviour
             active = !active;
             if (!active)
             {
-                mouseController.MouseLock();
+                GeneralSingleton.generalSingleton.MouseLock();
             }
             else
             {
-                mouseController.MouseUnLock();
+                GeneralSingleton.generalSingleton.MouseUnLock();
             }
         }
     }

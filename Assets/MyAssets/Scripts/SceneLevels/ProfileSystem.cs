@@ -6,17 +6,15 @@ public class ProfileSystem : MonoBehaviour
     [SerializeField] ProfileAnimations levelAnimations;
     [SerializeField] LoadProfile loadLevel;
     [SerializeField] LoadControllerProfile loadLevelSelect;
-    [SerializeField] MouseController mouseController;
     public int currentLevel;
     void Awake()
     {
-        mouseController = FindObjectOfType<MouseController>();
         loadLevel = FindObjectOfType<LoadProfile>();
     }
     void Start()
     {
         ReadData();
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
     }
     void ReadData()
     {

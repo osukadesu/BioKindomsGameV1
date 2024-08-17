@@ -3,15 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EscapeLogicGame : MonoBehaviour
 {
-    [SerializeField] protected MenuController menuController;
-    [SerializeField] protected MouseController mouseController;
     [SerializeField] bool canEscape;
     public bool CanEscape { get => canEscape; set => canEscape = value; }
-    void Awake()
-    {
-        menuController = FindObjectOfType<MenuController>();
-        mouseController = FindObjectOfType<MouseController>();
-    }
     void Update()
     {
         EscapeMethod();
@@ -21,7 +14,7 @@ public class EscapeLogicGame : MonoBehaviour
         Action action = SceneManager.GetActiveScene().buildIndex switch
         {
             4 => () => EscapeFromGame(),
-            _=> () => Debug.Log("EscapeMethod case default!"),
+            _ => () => Debug.Log("EscapeMethod case default!"),
         };
         action();
     }
@@ -29,9 +22,9 @@ public class EscapeLogicGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            mouseController.MouseUnLock();
-            menuController.IsNewGame = false;
-            menuController.IsLoadGame = false;
+            GeneralSingleton.generalSingleton.MouseUnLock();
+            GeneralSingleton.generalSingleton.isNewGame = false;
+            GeneralSingleton.generalSingleton.isLoadGame = false;
             SceneManager.LoadScene(2);
         }
     }

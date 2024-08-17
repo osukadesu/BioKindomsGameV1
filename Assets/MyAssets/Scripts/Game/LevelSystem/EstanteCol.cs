@@ -7,14 +7,12 @@ public class EstanteCol : MonoBehaviour
     [SerializeField] LevelSystemV2 levelSystemV2;
     [SerializeField] InventoryItemDataV2 referenceItem;
     [SerializeField] TextGralController textInfo;
-    [SerializeField] InfoViewController infoViewController;
     string textMessage;
     public int id;
     [SerializeField] bool canpressG, canpressF;
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
-        infoViewController = FindObjectOfType<InfoViewController>();
     }
     void Update()
     {
@@ -29,7 +27,7 @@ public class EstanteCol : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                canpressG = false; infoViewController._kingdomIndex = id; SceneManager.LoadScene(6); textInfo.HideText();
+                canpressG = false; GeneralSingleton.generalSingleton._kingdomIndex = id; SceneManager.LoadScene(6); textInfo.HideText();
             }
         }
     }

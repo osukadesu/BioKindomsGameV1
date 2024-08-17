@@ -3,10 +3,7 @@ using UnityEngine;
 public class ShowLevelCaseV2 : MonoBehaviour
 {
     [SerializeField] Notification notification;
-    [SerializeField] QuestLevel questLevel;
     [SerializeField] LoadLevelSystem loadLevelSystem;
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
-    [SerializeField] MouseController mouseController;
     [SerializeField] AlertModalManager alertModalManager;
     [SerializeField] PlayerEstanteCol playerEstanteCol;
     [SerializeField] ShootLogic shootLogic;
@@ -17,9 +14,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] protected internal GameObject pedestal;
     void Awake()
     {
-        questLevel = FindObjectOfType<QuestLevel>();
         notification = FindObjectOfType<Notification>();
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     void Update()
     {
@@ -43,7 +38,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 3:
-                if (!loadProfileSingleton.wasFirtsTime)
+                if (!GeneralSingleton.generalSingleton.wasFirtsTime)
                 {
                     notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!");
                 }
@@ -95,7 +90,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
                 break;
             case 11:
-                if (!questLevel._endQuest)
+                if (!GeneralSingleton.generalSingleton.endQuest)
                 {
                     notification.AddNotification("Felicidades haz completado el reino animal!");
                     StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!"));
@@ -103,7 +98,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(1);
-                loadLevelSystem.SetPlayerPositionUnLoad(questLevel._endQuest ? 0 : 1);
+                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.endQuest ? 0 : 1);
                 SaveLevel();
                 break;
             case 12:
@@ -191,12 +186,12 @@ public class ShowLevelCaseV2 : MonoBehaviour
     void QuestExitKing(int _index, bool _bool)
     {
         questKing[_index].SetActive(_bool);
-        exitQuest[_index].SetActive(questLevel._endQuest);
+        exitQuest[_index].SetActive(GeneralSingleton.generalSingleton.endQuest);
     }
     IEnumerator LevelTutorialCoroutine()
     {
         yield return new WaitForSeconds(1f);
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
         alertModalManager.AlertInfo("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!");
         yield return new WaitForSeconds(1f);
         alertModalManager.AlertModalNew(true, "¡Presiona las teclas y ve a la puerta del reino animal!", 0, true, 1, false);

@@ -3,7 +3,6 @@ using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
     [SerializeField] PlayerMove playerMove;
-    [SerializeField] QuestLevel questLevel;
     [SerializeField] protected internal ItemObject[] IOA;
     [SerializeField] protected internal ItemObjectA2[] IOV;
     [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
@@ -12,7 +11,6 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] Transform[] targetPlayerPosition;
     void Awake()
     {
-        questLevel = FindObjectOfType<QuestLevel>();
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
@@ -25,8 +23,8 @@ public class LoadLevelSystem : MonoBehaviour
         {
             inventoryItemDataV2[i].itemIsCheck = false;
         }
-        questLevel._endQuest = false;
-        questLevel.CaseValue = -1;
+        GeneralSingleton.generalSingleton.endQuest = false;
+        GeneralSingleton.generalSingleton.CaseValue = -1;
     }
     protected internal void GoLoadGame()
     {
@@ -87,8 +85,8 @@ public class LoadLevelSystem : MonoBehaviour
     }
     protected internal void SetQuestSingleton(ScoreData scoreData)
     {
-        questLevel._endQuest = scoreData._endQuestV2;
-        questLevel.CaseValue = scoreData._caseValueV2;
+        GeneralSingleton.generalSingleton.endQuest = scoreData._endQuestV2;
+        GeneralSingleton.generalSingleton.CaseValue = scoreData._caseValueV2;
     }
     protected internal void SetPlayerPositionUnLoad(int index)
     {
@@ -99,7 +97,7 @@ public class LoadLevelSystem : MonoBehaviour
         Action action = _value switch
         {
             12 => () => showLevelCaseV2.DestroyingObjects(0),
-            _=> () => Debug.Log(" SetDestroyObject case default!"),
+            _ => () => Debug.Log(" SetDestroyObject case default!"),
         };
         action();
     }

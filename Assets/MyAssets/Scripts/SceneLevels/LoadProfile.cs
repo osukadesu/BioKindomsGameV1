@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class LoadProfile : MonoBehaviour
 {
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] ScoreAnimations[] scoreAnimations;
     [SerializeField] ProfileSystem levelSelect;
     [SerializeField] Text txtFinalScore;
@@ -12,7 +11,6 @@ public class LoadProfile : MonoBehaviour
     void Awake()
     {
         levelSelect = FindObjectOfType<ProfileSystem>();
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     protected internal void GoNewProfile()
     {
@@ -50,7 +48,7 @@ public class LoadProfile : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             num[i] = scoreData.score[i];
-            loadProfileSingleton._num[i] = scoreData.score[i];
+            GeneralSingleton.generalSingleton._num[i] = scoreData.score[i];
         }
         for (int i = 0; i < txtScore.Length; i++)
         {

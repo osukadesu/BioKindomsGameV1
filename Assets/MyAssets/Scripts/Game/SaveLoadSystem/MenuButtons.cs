@@ -8,20 +8,16 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
     [SerializeField] GameObject btnLoadGame, btnProfile;
-    [SerializeField] MenuController menuController;
     [SerializeField] VerticalLayoutGroup verticalLayoutGroup;
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] Animator alertDelete;
     [SerializeField] Image ImageNotify;
     void Awake()
     {
-        menuController = FindObjectOfType<MenuController>();
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
         verticalLayoutGroup = GameObject.FindGameObjectWithTag("menuGameVL").GetComponent<VerticalLayoutGroup>();
         btnLoadGame = GameObject.FindGameObjectWithTag("btnLoadGame");
         btnProfile = GameObject.FindGameObjectWithTag("btnProfile");
         MenuOrder();
-        ImageNotify.gameObject.SetActive(loadProfileSingleton.isFirtsTime);
+        ImageNotify.gameObject.SetActive(GeneralSingleton.generalSingleton.isFirtsTime);
     }
     public void ButtonNewGame()
     {
@@ -29,20 +25,31 @@ public class MenuButtons : MonoBehaviour
         Action action = File.Exists(playerData) switch
         {
             true => () => alertDelete.SetBool("alertDelete", true),
-            false => () => { menuController.IsNewGame = true; SceneManager.LoadScene(4); }
+            false => () => { GeneralSingleton.generalSingleton.isNewGame = true; SceneManager.LoadScene(4); }
             ,
         };
         action();
     }
     public void ButtonYes()
     {
-        menuController.DeletePlayerData();
+        DeletePlayerData();
         StartCoroutine(waitSettings());
+    }
+    void DeletePlayerData()
+    {
+        string[] fileNames = { Application.persistentDataPath + "/player.data", Application.persistentDataPath + "/level.data", Application.persistentDataPath + "/quest.data", Application.persistentDataPath + "/score.data" };
+        for (int i = 0; i < fileNames.Length; i++)
+        {
+            if (File.Exists(fileNames[i]))
+            {
+                File.Delete(fileNames[i]);
+            }
+        }
     }
     IEnumerator waitSettings()
     {
         yield return new WaitForSeconds(.5f);
-        menuController.IsNewGame = true;
+        GeneralSingleton.generalSingleton.isNewGame = true;
         SceneManager.LoadScene(4);
     }
     public void ButtonNo()
@@ -51,17 +58,17 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonLoadGame()
     {
-        menuController.IsLoadGame = true;
+        GeneralSingleton.generalSingleton.isLoadGame = true;
         SceneManager.LoadScene(4);
     }
     public void ButtonProfile()
     {
-        if (loadProfileSingleton.isFirtsTime)
+        if (GeneralSingleton.generalSingleton.isFirtsTime)
         {
-            loadProfileSingleton.isFirtsTime = false;
-            loadProfileSingleton.wasFirtsTime = true;
+            GeneralSingleton.generalSingleton.isFirtsTime = false;
+            GeneralSingleton.generalSingleton.wasFirtsTime = true;
         }
-        menuController.IsMyProfile = true;
+        GeneralSingleton.generalSingleton.isMyProfile = true;
         SceneManager.LoadScene(3);
     }
     public void ButtonExit()

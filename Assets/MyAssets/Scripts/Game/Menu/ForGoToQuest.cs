@@ -4,16 +4,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ForGoToQuest : MonoBehaviour
 {
-    [SerializeField] QuestLevel questLevel;
-    [SerializeField] LevelSystemV2 LevelSystemV2;
     [SerializeField] Animator QuestAlertModalAnim;
-    [SerializeField] MouseController mouseController;
     [SerializeField] Button btnAcept;
     void Awake()
     {
-        questLevel = FindObjectOfType<QuestLevel>();
-        LevelSystemV2 = FindObjectOfType<LevelSystemV2>();
-        mouseController = FindObjectOfType<MouseController>();
         btnAcept.onClick.AddListener(GoToQuest);
     }
     void OnTriggerEnter(Collider other)
@@ -26,14 +20,14 @@ public class ForGoToQuest : MonoBehaviour
     }
     IEnumerator PauseGame()
     {
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
         yield return new WaitForSecondsRealtime(.8f);
         Time.timeScale = 0f;
     }
     void GoToQuest()
     {
         Time.timeScale = 1f;
-        MenuController.menuController.IsMyProfile = true;
+        GeneralSingleton.generalSingleton.isMyProfile = true;
         StartCoroutine(ChageScene());
     }
     IEnumerator ChageScene()

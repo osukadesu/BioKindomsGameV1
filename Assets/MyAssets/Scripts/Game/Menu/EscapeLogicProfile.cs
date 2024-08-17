@@ -4,15 +4,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class EscapeLogicProfile : MonoBehaviour
 {
-    [SerializeField] protected MenuController menuController;
-    [SerializeField] protected MouseController mouseController;
-    [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] Button btnBack;
     void Awake()
     {
-        loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
-        menuController = FindObjectOfType<MenuController>();
-        mouseController = FindObjectOfType<MouseController>();
         btnBack.onClick.AddListener(ButtonBack);
     }
     void Update()
@@ -24,24 +18,24 @@ public class EscapeLogicProfile : MonoBehaviour
         Action action = SceneManager.GetActiveScene().buildIndex switch
         {
             3 => () => EscapeFromProfile(),
-            _=> () => Debug.Log("EscapeMethod case default!"),
+            _ => () => Debug.Log("EscapeMethod case default!"),
         };
         action();
     }
     void ButtonBack()
     {
-        loadProfileSingleton.isFirtsTime = false;
-        menuController.IsMyProfile = false;
+        GeneralSingleton.generalSingleton.isFirtsTime = false;
+        GeneralSingleton.generalSingleton.isMyProfile = false;
         SceneManager.LoadScene(2);
     }
     void EscapeFromProfile()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            menuController.IsNewGame = false;
-            menuController.IsLoadGame = false;
-            menuController.IsMyProfile = false;
-            mouseController.MouseUnLock();
+            GeneralSingleton.generalSingleton.isNewGame = false;
+            GeneralSingleton.generalSingleton.isLoadGame = false;
+            GeneralSingleton.generalSingleton.isMyProfile = false;
+            GeneralSingleton.generalSingleton.MouseUnLock();
             SceneManager.LoadScene(2);
         }
     }

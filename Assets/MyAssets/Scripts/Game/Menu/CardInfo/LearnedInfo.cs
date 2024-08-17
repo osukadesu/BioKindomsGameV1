@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class LearnedInfo : MonoBehaviour
 {
     [SerializeField] Camera _camera;
-    [SerializeField] InfoViewController _infoViewController;
     [SerializeField] InfoKindomData infoKindomData;
     [SerializeField] TextInfoAnimations textInfoAnimations;
     [SerializeField] GameObject objec3D;
@@ -16,10 +15,9 @@ public class LearnedInfo : MonoBehaviour
     [SerializeField] Text textName, text2, textInfo, textInfo2, textTitle, textInfoKingdom;
     void Awake()
     {
-        _infoViewController = FindObjectOfType<InfoViewController>();
         objec3D = GameObject.FindGameObjectWithTag("object3D").GetComponent<GameObject>();
         transform3D = GameObject.FindGameObjectWithTag("object3D").GetComponent<Transform>();
-        ShowInfo(_infoViewController._kingdomIndex);
+        ShowInfo(GeneralSingleton.generalSingleton._kingdomIndex);
         ButtonsOnclick();
     }
     void Start()

@@ -8,12 +8,10 @@ public class Notification : MonoBehaviour
     [SerializeField] Button btnNotification;
     [SerializeField] GameObject notificationContent, notificationPrefab;
     [SerializeField] Transform transformContent;
-    [SerializeField] MouseController mouseController;
     int notificationCount;
     bool active;
     void Awake()
     {
-        mouseController = FindObjectOfType<MouseController>();
         btnNotification.onClick.AddListener(ShowNotification);
     }
     void Update()
@@ -38,12 +36,12 @@ public class Notification : MonoBehaviour
         {
             notificationCount = 0;
             SetVariables(false, notificationCount.ToString());
-            mouseController.MouseLock();
+            GeneralSingleton.generalSingleton.MouseLock();
         }
     }
     public void AddNotification(string message)
     {
-        mouseController.MouseUnLock();
+        GeneralSingleton.generalSingleton.MouseUnLock();
         StartCoroutine(WaitForNotification(message));
     }
     IEnumerator WaitForNotification(string message)
