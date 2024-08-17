@@ -24,7 +24,7 @@ public class EscapeLogicProfile : MonoBehaviour
         Action action = SceneManager.GetActiveScene().buildIndex switch
         {
             3 => () => EscapeFromProfile(),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }

@@ -14,7 +14,7 @@ public class SetQuestSystem : MonoBehaviour
             2 => () => FungiQuest(questCaseRandom.SetRandom(_value)),
             3 => () => ProtistaQuest(questCaseRandom.SetRandom(_value)),
             4 => () => MoneraQuest(questCaseRandom.SetRandom(_value)),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }
@@ -27,7 +27,7 @@ public class SetQuestSystem : MonoBehaviour
             2 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
             3 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
             4 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }
@@ -40,7 +40,7 @@ public class SetQuestSystem : MonoBehaviour
             7 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
             8 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
             9 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }
@@ -53,7 +53,7 @@ public class SetQuestSystem : MonoBehaviour
             12 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
             13 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
             14 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }
@@ -66,7 +66,7 @@ public class SetQuestSystem : MonoBehaviour
             18 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
             19 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
             20 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }
@@ -79,7 +79,7 @@ public class SetQuestSystem : MonoBehaviour
             23 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
             24 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
             25 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _ => throw new NotImplementedException("Case default!"),
+            _=> () => Debug.Log("Case default!"),
         };
         action();
     }

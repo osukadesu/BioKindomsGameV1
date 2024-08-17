@@ -14,7 +14,7 @@ public class QuestCaseRandom : MonoBehaviour
             2 => () => random = NotRepiteRandom(10, 15),
             3 => () => random = NotRepiteRandom(15, 20),
             4 => () => random = NotRepiteRandom(20, 25),
-            _ => throw new NotImplementedException("Case default!"),
+            _ => () => Debug.Log("Case default!"),
         };
         action();
         return random;
