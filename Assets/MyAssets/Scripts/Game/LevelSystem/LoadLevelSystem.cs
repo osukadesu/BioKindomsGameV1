@@ -99,7 +99,7 @@ public class LoadLevelSystem : MonoBehaviour
         Action action = _value switch
         {
             12 => () => showLevelCaseV2.DestroyingObjects(0),
-            _=> () => Debug.Log("Case default!"),
+            _=> () => Debug.Log(" SetDestroyObject case default!"),
         };
         action();
     }

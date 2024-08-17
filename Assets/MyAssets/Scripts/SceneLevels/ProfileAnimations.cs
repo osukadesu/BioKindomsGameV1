@@ -56,7 +56,7 @@ public class ProfileAnimations : MonoBehaviour
             2 => () => questLevel.CaseValue = 2,
             3 => () => questLevel.CaseValue = 3,
             4 => () => questLevel.CaseValue = 4,
-            _=> () => Debug.Log("Case default!"),
+            _=> () => Debug.Log("AgainQuest case default!"),
         };
         action();
         StartCoroutine(ChageScene());

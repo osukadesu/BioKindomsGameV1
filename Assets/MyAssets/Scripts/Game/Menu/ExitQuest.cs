@@ -32,7 +32,7 @@ public class ExitQuest : MonoBehaviour
         {
             11 => () => { Destroy(showLevelCaseV2.questKing[0], .2f); showLevelCaseV2.changeLevel[0].SetActive(true); }
             ,
-            _=> () => Debug.Log("Case default!"),
+            _=> () => Debug.Log("DestroyingObjetc case default!"),
         };
         action();
     }

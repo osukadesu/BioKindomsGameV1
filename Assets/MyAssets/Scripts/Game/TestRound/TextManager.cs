@@ -17,7 +17,7 @@ public class TextManager : MonoBehaviour
         {
             0 => () => textPosition.position = textPositionInit.position,
             1 => () => textPosition.position = textPositionEnd.position,
-            _=> () => Debug.Log("Case default!"),
+            _=> () => Debug.Log("IEShowText case default!"),
         };
         action();
         textRoundInfo.text = _message;
