@@ -18,7 +18,7 @@ public class GameOver : MonoBehaviour
     }
     IEnumerator IEChangeScene()
     {
-        yield return new WaitForSeconds(.7f);
-        SceneManager.LoadScene(2);
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(4);
     }
 }

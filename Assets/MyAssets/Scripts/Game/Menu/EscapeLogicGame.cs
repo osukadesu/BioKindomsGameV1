@@ -21,7 +21,7 @@ public class EscapeLogicGame : MonoBehaviour
         Action action = SceneManager.GetActiveScene().buildIndex switch
         {
             4 => () => EscapeFromGame(),
-            _ => () => Debug.Log("Case default!")
+            _ => throw new NotImplementedException("Case default!"),
         };
         action();
     }

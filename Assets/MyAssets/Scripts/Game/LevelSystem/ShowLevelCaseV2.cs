@@ -103,7 +103,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(1);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
+                loadLevelSystem.SetPlayerPositionUnLoad(questLevel._endQuest ? 0 : 1);
                 SaveLevel();
                 break;
             case 12:

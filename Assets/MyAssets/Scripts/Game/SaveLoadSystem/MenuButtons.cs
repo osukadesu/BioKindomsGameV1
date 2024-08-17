@@ -66,7 +66,7 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonExit()
     {
-        SceneManager.LoadScene(1);
+        Application.Quit(); //SceneManager.LoadScene(1);
     }
     public void MenuOrder()
     {

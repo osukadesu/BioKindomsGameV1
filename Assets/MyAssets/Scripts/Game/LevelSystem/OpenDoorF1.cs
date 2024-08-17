@@ -7,17 +7,8 @@ public class OpenDoorF1 : MonoBehaviour
     [SerializeField] bool canOpen;
     void Update()
     {
-        for (int i = 0; i < referenceItemV.Length; i++)
-        {
-            if (referenceItemV[i].itemIsCheck)
-            {
-                canOpen = true;
-            }
-            else
-            {
-                canOpen = false;
-            }
-        }
+        canOpen = referenceItemV[0].itemIsCheck && referenceItemV[1].itemIsCheck && referenceItemV[2].itemIsCheck &&
+        referenceItemV[3].itemIsCheck && referenceItemV[4].itemIsCheck;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -28,6 +19,7 @@ public class OpenDoorF1 : MonoBehaviour
         }
         else
         {
+            openDoorAnim.SetBool("openDoor", false);
             openDoorMessage.SetMessage(0, 0f);
         }
     }

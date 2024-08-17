@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,17 +22,14 @@ public class EstanteCol : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                canpressF = false;
-                levelSystemV2.ChangeLevel();
+                canpressF = false; levelSystemV2.ChangeLevel(); textInfo.HideText();
             }
         }
         if (canpressG)
         {
             if (Input.GetKeyDown(KeyCode.G))
             {
-                canpressG = false;
-                infoViewController._kingdomIndex = id;
-                SceneManager.LoadScene(6);
+                canpressG = false; infoViewController._kingdomIndex = id; SceneManager.LoadScene(6); textInfo.HideText();
             }
         }
     }
@@ -52,16 +50,15 @@ public class EstanteCol : MonoBehaviour
     }
     public void SetInfo(int value)
     {
-        switch (value)
+        Action action = value switch
         {
-            case 1:
-                textMessage = "Presiona la tecla 'G' para ver la reliquia.";
-                break;
-            case 2:
-                textMessage = "Presiona la tecla 'F' y recupera la reliquia.";
-                break;
-        }
-        textInfo.ShowText(textMessage);
+            1 => () => { textMessage = "Presiona la tecla 'G' para ver la reliquia."; textInfo.ShowText(textMessage); }
+            ,
+            2 => () => { textMessage = "Presiona la tecla 'F' y recupera la reliquia."; textInfo.ShowText(textMessage); }
+            ,
+            _ => throw new NotImplementedException("Default case!"),
+        };
+        action();
     }
     IEnumerator WaitForHideText()
     {

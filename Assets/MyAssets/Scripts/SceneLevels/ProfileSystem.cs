@@ -46,7 +46,7 @@ public class ProfileSystem : MonoBehaviour
             11 or 12 => () => SetAnimFinish(1),
             13 or 14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); }
             ,
-            _ => () => Debug.Log("Case Default!")
+            _ => throw new NotImplementedException("Case default!"),
         };
         action();
     }

@@ -1449,6 +1449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504035625}
   - component: {fileID: 1504035619}
+  - component: {fileID: 1504035632}
   - component: {fileID: 1504035627}
   - component: {fileID: 1504035626}
   - component: {fileID: 1504035628}
@@ -1458,6 +1459,8 @@ GameObject:
   - component: {fileID: 1504035621}
   - component: {fileID: 1504035629}
   - component: {fileID: 1504035630}
+  - component: {fileID: 1504035631}
+  - component: {fileID: 1504035633}
   m_Layer: 0
   m_Name: TestRoundSystem
   m_TagString: Untagged
@@ -1494,15 +1497,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c180075afc134af4ab12bfdb8d67606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questCaseRandom: {fileID: 1504035633}
   loadProfileSingleton: {fileID: 408723791}
   questLevel: {fileID: 0}
   saveScoreMethod: {fileID: 1504035630}
   animationsManager: {fileID: 1504035628}
+  questCaseData: {fileID: 1504035632}
   setQuestSystem: {fileID: 1504035627}
   roundState: {fileID: 1504035623}
   textManager: {fileID: 1504035619}
   idBtnSelect: 0
   score: 0
+  correct: 0
+  incorrect: 0
   _score: 0000000000000000000000000000000000000000
   resetGame: 0
 --- !u!114 &1504035622
@@ -1586,8 +1593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be961a55e46a2c49a311f42c45374ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationsManager: {fileID: 0}
-  setQuestSystem: {fileID: 1504035627}
+  animationsManager: {fileID: 1504035628}
+  questCaseData: {fileID: 1504035632}
   btnCardSelects:
   - {fileID: 43251880}
   - {fileID: 954657686}
@@ -1604,21 +1611,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c617ea5590d33bf4fae812321d9c936b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerButtonDatas:
-  - {fileID: 11400000, guid: 812d0cc92db129940ac1e3cd702c9c5a, type: 2}
-  - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
-  - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
-  questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
-  textQuest: {fileID: 934768123}
-  imageItem:
-  - {fileID: 1849707309}
-  - {fileID: 1407378264}
-  - {fileID: 1614898629}
-  imageKindom: {fileID: 948079314}
-  random: 0
-  lastRandom: -1
-  idButton: 000000000000000000000000
-  idQuest: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+  questCaseRandom: {fileID: 1504035633}
+  questCaseAnimal: {fileID: 1504035631}
 --- !u!114 &1504035628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,6 +1659,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compareState: {fileID: 1504035621}
   questLevel: {fileID: 0}
+--- !u!114 &1504035631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3c3042dc7ef9c46824622e4e020dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questCaseData: {fileID: 1504035632}
+--- !u!114 &1504035632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d05f38509ad32c143aa9687506b2460f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  answerButtonDatas:
+  - {fileID: 11400000, guid: 812d0cc92db129940ac1e3cd702c9c5a, type: 2}
+  - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
+  - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
+  questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
+  mouseController: {fileID: 1504035629}
+  textQuest: {fileID: 934768123}
+  imageItem:
+  - {fileID: 1849707309}
+  - {fileID: 1407378264}
+  - {fileID: 1614898629}
+  imageKindom: {fileID: 948079314}
+  idButton: 000000000100000002000000
+  idQuest: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+--- !u!114 &1504035633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df5c412ff8876e4f9c00eb49296f01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  random: 0
+  lastRandom: -1
 --- !u!1 &1505316935
 GameObject:
   m_ObjectHideFlags: 0

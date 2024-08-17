@@ -3,31 +3,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class CompareState : QuestBaseState
 {
+    [SerializeField] QuestCaseRandom questCaseRandom;
     [SerializeField] LoadProfileSingleton loadProfileSingleton;
     [SerializeField] QuestLevel questLevel;
     [SerializeField] SaveScoreMethod saveScoreMethod;
     [SerializeField] AnimationsManager animationsManager;
-    [SerializeField] SetQuestSystem setQuestSystem;
+    [SerializeField] QuestCaseData questCaseData;
     [SerializeField] RoundState roundState;
     [SerializeField] TextManager textManager;
-    [SerializeField] int idBtnSelect, score;
+    [SerializeField] int idBtnSelect, score, correct, incorrect;
     public int[] _score = new int[5];
     [SerializeField] bool resetGame;
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     void Awake()
     {
+        questCaseRandom = FindObjectOfType<QuestCaseRandom>();
+        questCaseData = FindObjectOfType<QuestCaseData>();
         questLevel = FindObjectOfType<QuestLevel>();
         loadProfileSingleton = FindObjectOfType<LoadProfileSingleton>();
     }
     void Start()
     {
         idBtnSelect = 10;
-        score = 5;
     }
     public override void EnterState(QuestStateManager questStateManager)
     {
-        CompareMethod(setQuestSystem._myRandom);
+        CompareMethod(questCaseRandom._myRandom);
     }
     public override void UpdateState(QuestStateManager questStateManager)
     {
@@ -41,7 +43,7 @@ public class CompareState : QuestBaseState
     {
         roundState._startGame = false;
         roundState._currentRound++;
-        if (idBtnSelect == setQuestSystem._idQuest[_idquest] && idBtnSelect != 10)
+        if (idBtnSelect == questCaseData._idQuest[_idquest] && idBtnSelect != 10)
         {
             StartCoroutine(WinOrLoseMethod(0, "Correcto!"));
         }
@@ -53,7 +55,8 @@ public class CompareState : QuestBaseState
     }
     IEnumerator WinOrLoseMethod(int _scoreType, string _text)
     {
-        score = (_scoreType == 0 && score < 5) ? score + 1 : (_scoreType == 1 && score > 1) ? score - 1 : score;
+        correct = (_scoreType == 0) ? correct + 1 : correct;
+        incorrect = (_scoreType == 1) ? incorrect + 1 : incorrect;
         yield return new WaitForSeconds(.5f);
         IEnumerator ShowResult(string _message)
         {
@@ -69,6 +72,8 @@ public class CompareState : QuestBaseState
         }
         if (roundState._currentRound > 5)
         {
+            score = (5 + (correct - incorrect)) / 2;
+            yield return new WaitForSeconds(1f);
             if (score > 2)
             {
                 yield return ShowResult("Has ganado el quiz!");
