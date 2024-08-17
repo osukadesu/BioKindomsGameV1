@@ -539,53 +539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305689369}
   m_CullTransparentMesh: 1
---- !u!1 &408723790
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 408723792}
-  - component: {fileID: 408723791}
-  m_Layer: 0
-  m_Name: ProfileSingleton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &408723791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408723790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eb05595478769040befd353f5da6f49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _num: 0000000000000000000000000000000000000000
-  isFirtsTime: 0
-  wasFirtsTime: 0
---- !u!4 &408723792
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408723790}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519150457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,7 +1410,6 @@ GameObject:
   - component: {fileID: 1504035623}
   - component: {fileID: 1504035622}
   - component: {fileID: 1504035621}
-  - component: {fileID: 1504035629}
   - component: {fileID: 1504035630}
   - component: {fileID: 1504035631}
   - component: {fileID: 1504035633}
@@ -1498,12 +1450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questCaseRandom: {fileID: 1504035633}
-  loadProfileSingleton: {fileID: 408723791}
-  questLevel: {fileID: 0}
   saveScoreMethod: {fileID: 1504035630}
   animationsManager: {fileID: 1504035628}
   questCaseData: {fileID: 1504035632}
-  setQuestSystem: {fileID: 1504035627}
   roundState: {fileID: 1504035623}
   textManager: {fileID: 1504035619}
   idBtnSelect: 0
@@ -1544,7 +1493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483697938838f72479bb324e22595e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 0}
   textManager: {fileID: 1504035619}
   setQuestSystem: {fileID: 1504035627}
   logicQuestSystem: {fileID: 1504035626}
@@ -1633,18 +1581,6 @@ MonoBehaviour:
   containerCardAnim: {fileID: 1938540687}
   timerAnim: {fileID: 1741193103}
   btnPressed: 000000
---- !u!114 &1504035629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504035618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6257b818609bd744bc409c50850d5d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1504035630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,7 +1594,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareState: {fileID: 1504035621}
-  questLevel: {fileID: 0}
 --- !u!114 &1504035631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1689,7 +1624,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 82275148b6ee9974e98b66ca5aafc6d0, type: 2}
   - {fileID: 11400000, guid: cf9863683b51c994d86d4fbdfc3f4798, type: 2}
   questLevelDatas: {fileID: 11400000, guid: f87e9ac08ee350f439021ad6e2be3f84, type: 2}
-  mouseController: {fileID: 1504035629}
   textQuest: {fileID: 934768123}
   imageItem:
   - {fileID: 1849707309}

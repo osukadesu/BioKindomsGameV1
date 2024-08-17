@@ -3099,7 +3099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
-  questLevel: {fileID: 1222646214}
 --- !u!1 &200898189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,10 +3536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254c57f5c90d81b4dac7167970804b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
-  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!1 &207694862
 GameObject:
@@ -5994,7 +5990,6 @@ MonoBehaviour:
   txtAlertNew: {fileID: 2113139510}
   alertModalAnimator: {fileID: 480312571}
   alertModalNew: {fileID: 1690977979}
-  mouseController: {fileID: 354055302}
   escapeLogicV1: {fileID: 326398881}
   btnContinueAM: {fileID: 534471620}
   imgAlertNew:
@@ -6025,7 +6020,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 71a9096d1f025f14784ad73efb8eca16, type: 2}
   levelSystemV2: {fileID: 1259189127}
   textGralController: {fileID: 326398874}
-  questLevel: {fileID: 0}
 --- !u!114 &326398880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6044,7 +6038,6 @@ MonoBehaviour:
   notificationContent: {fileID: 2138242326}
   notificationPrefab: {fileID: 5667128334816991707, guid: 5af0ed9c14f0e1042a0eb17a5ebc758b, type: 3}
   transformContent: {fileID: 678505669}
-  mouseController: {fileID: 354055302}
 --- !u!114 &326398881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6057,8 +6050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171ada325173bf54991bcb0baafdb447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 0}
-  mouseController: {fileID: 354055302}
   canEscape: 0
 --- !u!114 &326398882
 MonoBehaviour:
@@ -6072,7 +6063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c04823601787f43b8d629dd5b81b51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseController: {fileID: 354055302}
   textTab: {fileID: 1670972099}
   active: 0
 --- !u!1 &326589562
@@ -6440,7 +6430,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &397344663
 GameObject:
@@ -6752,7 +6742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
-  questLevel: {fileID: 1222646214}
 --- !u!65 &428844472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8660,7 +8649,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &651982877
 MonoBehaviour:
@@ -8867,7 +8856,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 8112307e147118544802df436de8305f, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 6
   canpressG: 0
   canpressF: 0
@@ -9138,7 +9126,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: c909bcae6b2f1cd44af30f3e9f6d34fb, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 3
   canpressG: 0
   canpressF: 0
@@ -9346,10 +9333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254c57f5c90d81b4dac7167970804b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
-  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!65 &702693150
 BoxCollider:
@@ -10061,10 +10045,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254c57f5c90d81b4dac7167970804b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
-  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!65 &777099943
 BoxCollider:
@@ -11492,7 +11473,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 0c31cc841d9f4564aa5e0f0f9bcee80c, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 8
   canpressG: 0
   canpressF: 0
@@ -12159,7 +12139,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 45482ddfaa62f05449b0b43f91c34bb8, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 5
   canpressG: 0
   canpressF: 0
@@ -14913,10 +14892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254c57f5c90d81b4dac7167970804b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
-  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!65 &1210687113
 BoxCollider:
@@ -14981,52 +14957,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210687110}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1222646213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1222646215}
-  - component: {fileID: 1222646214}
-  m_Layer: 0
-  m_Name: QuestSingleton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1222646214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222646213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dacb25736f209c043846819754155dc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  caseValue: 0
-  _endQuest: 0
---- !u!4 &1222646215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222646213}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 943.1606, y: 748.06433, z: 1.2059326}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1225762024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15421,7 +15351,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
-  questLevel: {fileID: 1222646214}
 --- !u!65 &1251418329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15656,7 +15585,6 @@ MonoBehaviour:
   loadController: {fileID: 1295979057}
   showLevelCaseV2: {fileID: 1259189128}
   loadLevelSystem: {fileID: 1259189129}
-  mouseController: {fileID: 354055302}
 --- !u!114 &1259189128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15670,10 +15598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   notification: {fileID: 326398880}
-  questLevel: {fileID: 1222646214}
   loadLevelSystem: {fileID: 1259189129}
-  loadProfileSingleton: {fileID: 0}
-  mouseController: {fileID: 354055302}
   alertModalManager: {fileID: 326398877}
   playerEstanteCol: {fileID: 354055304}
   shootLogic: {fileID: 354055303}
@@ -15736,7 +15661,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 354055298}
-  questLevel: {fileID: 1222646214}
   IOA:
   - {fileID: 1142242187}
   - {fileID: 288253231}
@@ -16282,7 +16206,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 3a2d30af503016e468c56b4a279bc5b1, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 4
   canpressG: 0
   canpressF: 0
@@ -16525,7 +16448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa37fa04d8d6624eb3681ed6442acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 0}
   levelLoadGame: 0
 --- !u!1 &1297794252
 GameObject:
@@ -16840,10 +16762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254c57f5c90d81b4dac7167970804b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questLevel: {fileID: 1222646214}
-  LevelSystemV2: {fileID: 1259189127}
   QuestAlertModalAnim: {fileID: 2040373163}
-  mouseController: {fileID: 0}
   btnAcept: {fileID: 1270858365}
 --- !u!65 &1313753775
 BoxCollider:
@@ -17245,7 +17164,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 1433ce71251d7ae48814bd173c1535e9, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 7
   canpressG: 0
   canpressF: 0
@@ -17758,7 +17676,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: f8934503241983b4882bc0bac5ca9933, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 2
   canpressG: 0
   canpressF: 0
@@ -19255,7 +19172,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
-  questLevel: {fileID: 1222646214}
 --- !u!65 &1497055626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22094,7 +22010,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: a21dcff25c7fd9b4e8c5a83e26b470fd, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 1
   canpressG: 0
   canpressF: 0
@@ -22347,51 +22262,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02, y: 0.02, z: 0.02}
   m_Center: {x: 0.000023735836, y: -0.000027021737, z: 0.000000007955304}
---- !u!1 &1761001545
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1761001547}
-  - component: {fileID: 1761001546}
-  m_Layer: 0
-  m_Name: InfoViewController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1761001546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761001545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce008d117ef188d4082772ee1525145f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _kingdomIndex: 0
---- !u!4 &1761001547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1761001545}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761713642
 GameObject:
   m_ObjectHideFlags: 0
@@ -23010,7 +22880,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: 71a9096d1f025f14784ad73efb8eca16, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 9
   canpressG: 0
   canpressF: 0
@@ -24387,7 +24256,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSystemV2: {fileID: 1259189127}
   showLevelCaseV2: {fileID: 1259189128}
-  questLevel: {fileID: 1222646214}
 --- !u!65 &1967265479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26578,7 +26446,6 @@ MonoBehaviour:
   levelSystemV2: {fileID: 0}
   referenceItem: {fileID: 11400000, guid: d81fb7ef0adf5544cb36274561f62f72, type: 2}
   textInfo: {fileID: 326398874}
-  infoViewController: {fileID: 0}
   id: 0
   canpressG: 0
   canpressF: 0
