@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 public class SaveMethod : MonoBehaviour
 {
     [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;

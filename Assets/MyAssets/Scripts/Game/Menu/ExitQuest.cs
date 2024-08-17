@@ -21,6 +21,8 @@ public class ExitQuest : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GeneralSingleton.generalSingleton.endQuest = false;
+            GeneralSingleton.generalSingleton.wasEndQuest = true;
+            SaveAndLoadManager.SaveSingleton(GeneralSingleton.generalSingleton);
             DestroyingObjetc(levelSystemV2.CurrentLevel);
         }
     }

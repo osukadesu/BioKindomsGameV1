@@ -14,14 +14,6 @@ public class Notification : MonoBehaviour
     {
         btnNotification.onClick.AddListener(ShowNotification);
     }
-    void Update()
-    {
-        //Delete This.
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddNotification("Felicidades haz terminado el reino animal!");
-        }
-    }
     void Start()
     {
         active = false;
@@ -39,8 +31,9 @@ public class Notification : MonoBehaviour
             GeneralSingleton.generalSingleton.MouseLock();
         }
     }
-    public void AddNotification(string message)
+    public void AddNotification(string message, bool _isBtnNotify)
     {
+        GeneralSingleton.generalSingleton.isBtnNotify = _isBtnNotify;
         GeneralSingleton.generalSingleton.MouseUnLock();
         StartCoroutine(WaitForNotification(message));
     }

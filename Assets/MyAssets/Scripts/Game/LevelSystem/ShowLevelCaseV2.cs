@@ -40,7 +40,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
             case 3:
                 if (!GeneralSingleton.generalSingleton.wasFirtsTime)
                 {
-                    notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!");
+                    notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true);
                 }
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
@@ -92,8 +92,8 @@ public class ShowLevelCaseV2 : MonoBehaviour
             case 11:
                 if (!GeneralSingleton.generalSingleton.endQuest)
                 {
-                    notification.AddNotification("Felicidades haz completado el reino animal!");
-                    StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!"));
+                    notification.AddNotification("Felicidades haz completado el reino animal!", false);
+                    StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!", false));
                 }
                 platformV2.SetActive(true);
                 levelFight.SetActive(false);
@@ -117,10 +117,10 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 break;
         }
     }
-    IEnumerator WaitForNotify(string _message)
+    IEnumerator WaitForNotify(string _message, bool _isBtnNotify)
     {
         yield return new WaitForSeconds(1f);
-        notification.AddNotification(_message);
+        notification.AddNotification(_message, _isBtnNotify);
     }
     public void DestroyingObjects(int _index)
     {

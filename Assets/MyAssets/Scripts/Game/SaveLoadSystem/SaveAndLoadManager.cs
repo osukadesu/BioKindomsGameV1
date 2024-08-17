@@ -59,4 +59,32 @@ public static class SaveAndLoadManager
             return null;
         }
     }
+    public static void SaveSingleton(GeneralSingleton generalSingleton)
+    {
+        SingletonData singletonData = new(generalSingleton);
+        string datapath = Application.persistentDataPath + "/singleton.data";
+        FileStream fileStream = new(datapath, FileMode.Create);
+        BinaryFormatter binaryFormatter = new();
+        binaryFormatter.Serialize(fileStream, singletonData);
+        Debug.Log("Save Singleton");
+        fileStream.Close();
+    }
+    public static SingletonData LoadSingleton()
+    {
+        string datapath = Application.persistentDataPath + "/singleton.data";
+        if (File.Exists(datapath))
+        {
+            FileStream fileStream = new(datapath, FileMode.Open);
+            BinaryFormatter binaryFormatter = new();
+            SingletonData singletonData = (SingletonData)binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            Debug.Log("Load Singleton");
+            return singletonData;
+        }
+        else
+        {
+            Debug.LogError("Singleton is missing!");
+            return null;
+        }
+    }
 }

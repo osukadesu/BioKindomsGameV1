@@ -4,12 +4,13 @@ public class GeneralSingleton : MonoBehaviour
     public static GeneralSingleton generalSingleton;
     public int[] _num = new int[5];
     public int CaseValue, _kingdomIndex;
-    public bool isNewGame, isLoadGame, isMyProfile, endQuest, isFirtsTime, wasFirtsTime;
+    public bool isNewGame, isLoadGame, isMyProfile, endQuest, wasEndQuest, isFirtsTime, wasFirtsTime, isBtnNotify;
     void Awake()
     {
         Singleton();
         MouseUnLock();
         CaseValue = -1;
+        SaveAndLoadManager.LoadSingleton();
     }
     void Singleton()
     {

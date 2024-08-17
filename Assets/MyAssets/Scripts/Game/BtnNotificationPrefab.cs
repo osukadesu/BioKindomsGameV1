@@ -8,7 +8,7 @@ public class BtnNotificationPrefab : MonoBehaviour
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
-        btnGoto.gameObject.SetActive(levelSystemV2.CurrentLevel is 3);
+        btnGoto.gameObject.SetActive(GeneralSingleton.generalSingleton.isBtnNotify);
         btnGoto.onClick.AddListener(Goto);
     }
     public void Goto()
