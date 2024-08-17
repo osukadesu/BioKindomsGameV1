@@ -7,7 +7,6 @@ public class QuestCaseRandom : MonoBehaviour
     public int _myRandom { get => random; set => random = value; }
     public int SetRandom(int _value)
     {
-        Debug.Log("Random value: " + _value);
         Action action = _value switch
         {
             0 => () => random = NotRepiteRandom(0, 5),

@@ -44,7 +44,6 @@ public class LoadProfile : MonoBehaviour
     {
         levelSelect.currentLevel = playerData.currentLevelData;
         levelSelect.ShowLevel(levelSelect.currentLevel);
-        Debug.Log("LevelSelect: " + levelSelect.currentLevel);
     }
     public void SettScore(ScoreData scoreData)
     {

@@ -35,7 +35,7 @@ public class ProfileSystem : MonoBehaviour
     }
     public void ShowLevel(int level)
     {
-        Debug.Log("Current Level: " + level);
+        Debug.Log("Profile Level: " + level);
         Action action = level switch
         {
             1 or 2 => () => LevelAnimations(null, null),

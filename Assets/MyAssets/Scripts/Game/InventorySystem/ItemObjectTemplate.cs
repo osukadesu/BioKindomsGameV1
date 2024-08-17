@@ -45,7 +45,6 @@ public abstract class ItemObjectTemplate : MonoBehaviour
             textMessage = "Presiona E para guardar " + "( " + referenceItem.itemName + " )";
             textGralController.ShowText(textMessage);
             item = true;
-            Debug.Log("In Enter");
         }
     }
     void OnTriggerExit(Collider other)
@@ -54,7 +53,6 @@ public abstract class ItemObjectTemplate : MonoBehaviour
         {
             textGralController.HideText();
             item = false;
-            Debug.Log("In Exit");
         }
     }
     protected internal abstract void OnHandlePickUp();

@@ -19,7 +19,6 @@ public class LoadLevelSystem : MonoBehaviour
     }
     protected internal void GoNewGame()
     {
-        Debug.Log("New Game!");
         levelSystemV2.CurrentLevel = 1;
         showLevelCaseV2.ShowLevel(levelSystemV2.CurrentLevel);
         for (int i = 0; i < inventoryItemDataV2.Length; i++)
@@ -31,7 +30,6 @@ public class LoadLevelSystem : MonoBehaviour
     }
     protected internal void GoLoadGame()
     {
-        Debug.Log("Game Loaded!");
         PlayerData playerData = SaveAndLoadManager.LoadGame();
         SettingLevels(playerData);
         SettingAnimals(playerData);
@@ -49,7 +47,6 @@ public class LoadLevelSystem : MonoBehaviour
     {
         levelSystemV2.CurrentLevel = playerData.currentLevelData;
         showLevelCaseV2.ShowLevel(levelSystemV2.CurrentLevel);
-        Debug.Log("LevelSelect: " + levelSystemV2.CurrentLevel);
     }
     protected internal void SettingAnimals(PlayerData playerData)
     {

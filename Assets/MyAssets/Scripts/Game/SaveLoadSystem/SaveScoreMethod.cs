@@ -11,6 +11,5 @@ public class SaveScoreMethod : MonoBehaviour
     public void SavingScore()
     {
         SaveScoreData.SaveScore(compareState, questLevel);
-        Debug.Log("score saved");
     }
 }
