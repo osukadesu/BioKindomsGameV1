@@ -1413,6 +1413,10 @@ GameObject:
   - component: {fileID: 1504035630}
   - component: {fileID: 1504035631}
   - component: {fileID: 1504035633}
+  - component: {fileID: 1504035637}
+  - component: {fileID: 1504035636}
+  - component: {fileID: 1504035635}
+  - component: {fileID: 1504035634}
   m_Layer: 0
   m_Name: TestRoundSystem
   m_TagString: Untagged
@@ -1561,6 +1565,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questCaseRandom: {fileID: 1504035633}
   questCaseAnimal: {fileID: 1504035631}
+  questCaseVegetal: {fileID: 1504035634}
+  questCaseFungi: {fileID: 1504035635}
+  questCaseProtista: {fileID: 1504035637}
+  questCaseMonera: {fileID: 1504035636}
 --- !u!114 &1504035628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,7 +1653,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   random: 0
-  lastRandom: -1
+  randomKing: 0
+--- !u!114 &1504035634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308ad5753885018409381f533d189a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questCaseData: {fileID: 1504035632}
+--- !u!114 &1504035635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fef8069b3b558c4e87bc76f7402cffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questCaseData: {fileID: 1504035632}
+--- !u!114 &1504035636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fba5138a9ab6f8489dbd1f81c0c9d24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questCaseData: {fileID: 1504035632}
+--- !u!114 &1504035637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504035618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f648baf58931d434cb80898ee497c742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questCaseData: {fileID: 1504035632}
 --- !u!1 &1505316935
 GameObject:
   m_ObjectHideFlags: 0

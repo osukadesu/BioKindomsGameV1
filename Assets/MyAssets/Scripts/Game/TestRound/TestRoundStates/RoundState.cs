@@ -32,6 +32,7 @@ public class RoundState : QuestBaseState
         setQuestSystem.SetCase(GeneralSingleton.generalSingleton.CaseValue);
         logicQuestSystem.ResetUCS();
         StartCoroutine(IEStartQuest());
+        Debug.Log("Quest value: " + GeneralSingleton.generalSingleton.CaseValue);
     }
     IEnumerator IEStartQuest()
     {

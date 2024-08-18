@@ -21,17 +21,17 @@ public class CompareState : QuestBaseState
     }
     void Start()
     {
-        idBtnSelect = 10;
+        idBtnSelect = -1;
     }
     public override void EnterState(QuestStateManager questStateManager)
     {
-        CompareMethod(questCaseRandom._myRandom);
+        CompareMethod(questCaseRandom.MyRandom);
     }
     public override void UpdateState(QuestStateManager questStateManager)
     {
         if (resetGame)
         {
-            idBtnSelect = 10;
+            idBtnSelect = -1;
             questStateManager.SwitchState(questStateManager.roundState);
         }
     }
@@ -39,14 +39,14 @@ public class CompareState : QuestBaseState
     {
         roundState._startGame = false;
         roundState._currentRound++;
-        if (idBtnSelect == questCaseData._idQuest[_idquest] && idBtnSelect != 10)
+        if (idBtnSelect == questCaseData._idQuest[_idquest] && idBtnSelect != -1)
         {
             StartCoroutine(WinOrLoseMethod(0, "Correcto!"));
         }
         else
         {
             animationsManager.containerCardAnim.SetBool("containerCardHide", true);
-            StartCoroutine(WinOrLoseMethod(1, idBtnSelect == 10 ? "No seleccionaste!" : "Incorrecto!"));
+            StartCoroutine(WinOrLoseMethod(1, idBtnSelect == -1 ? "No seleccionaste!" : "Incorrecto!"));
         }
     }
     IEnumerator WinOrLoseMethod(int _scoreType, string _text)

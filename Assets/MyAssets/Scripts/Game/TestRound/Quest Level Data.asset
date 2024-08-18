@@ -22,8 +22,8 @@ MonoBehaviour:
   - Selecciona el vegetal que vive bajo del agual.
   - 'Selecciona el vegetal que no necesita agua para vivir. '
   - Selecciona el vegetal que se puede comer.
+  - Selecciona el vegetal que puede dar fruto.
   - Selecciona el vegetal que tiene mayor altura.
-  - 'Selecciona el vegetal que puede dar fruto. '
   imageKindom:
   - {fileID: 21300000, guid: 3c632dcaf8110a94697bec99f88c0ca0, type: 3}
   - {fileID: 21300000, guid: ae211ff3625b64646a9241499da4b6a0, type: 3}

@@ -4,17 +4,30 @@ public class SetQuestSystem : MonoBehaviour
 {
     [SerializeField] QuestCaseRandom questCaseRandom;
     [SerializeField] QuestCaseAnimal questCaseAnimal;
+    [SerializeField] QuestCaseVegetal questCaseVegetal;
+    [SerializeField] QuestCaseFungi questCaseFungi;
+    [SerializeField] QuestCaseProtista questCaseProtista;
+    [SerializeField] QuestCaseMonera questCaseMonera;
+    void Awake()
+    {
+        questCaseRandom = FindObjectOfType<QuestCaseRandom>();
+        questCaseAnimal = FindObjectOfType<QuestCaseAnimal>();
+        questCaseVegetal = FindObjectOfType<QuestCaseVegetal>();
+        questCaseFungi = FindObjectOfType<QuestCaseFungi>();
+        questCaseProtista = FindObjectOfType<QuestCaseProtista>();
+        questCaseMonera = FindObjectOfType<QuestCaseMonera>();
+    }
     public void SetCase(int _value)
     {
-        questCaseRandom.SetRandom(_value);
+        questCaseRandom.SetRandomCase(_value);
         Action action = _value switch
         {
-            0 => () => AnimalQuest(questCaseRandom.SetRandom(_value)),
-            1 => () => VegetalQuest(questCaseRandom.SetRandom(_value)),
-            2 => () => FungiQuest(questCaseRandom.SetRandom(_value)),
-            3 => () => ProtistaQuest(questCaseRandom.SetRandom(_value)),
-            4 => () => MoneraQuest(questCaseRandom.SetRandom(_value)),
-            _=> () => Debug.Log("SetCase case default!"),
+            0 => () => AnimalQuest(questCaseRandom.SetRandomCase(_value)),
+            1 => () => VegetalQuest(questCaseRandom.SetRandomCase(_value)),
+            2 => () => FungiQuest(questCaseRandom.SetRandomCase(_value)),
+            3 => () => ProtistaQuest(questCaseRandom.SetRandomCase(_value)),
+            4 => () => MoneraQuest(questCaseRandom.SetRandomCase(_value)),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }
@@ -22,12 +35,12 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            0 => () => questCaseAnimal.SetAnimal1(questCaseRandom._myRandom),
-            1 => () => questCaseAnimal.SetAnimal2(questCaseRandom._myRandom),
-            2 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
-            3 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
-            4 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _=> () => Debug.Log("SetCase case default!"),
+            0 => () => questCaseAnimal.SetAnimal1(questCaseRandom.SetRandomKing()),
+            1 => () => questCaseAnimal.SetAnimal2(questCaseRandom.SetRandomKing()),
+            2 => () => questCaseAnimal.SetAnimal3(questCaseRandom.SetRandomKing()),
+            3 => () => questCaseAnimal.SetAnimal4(questCaseRandom.SetRandomKing()),
+            4 => () => questCaseAnimal.SetAnimal5(questCaseRandom.SetRandomKing()),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }
@@ -35,12 +48,12 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            5 => () => questCaseAnimal.SetAnimal1(questCaseRandom._myRandom),
-            6 => () => questCaseAnimal.SetAnimal2(questCaseRandom._myRandom),
-            7 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
-            8 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
-            9 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _=> () => Debug.Log("SetCase case default!"),
+            5 => () => questCaseVegetal.SetVegetal1(questCaseRandom.SetRandomKing()),
+            6 => () => questCaseVegetal.SetVegetal2(questCaseRandom.SetRandomKing()),
+            7 => () => questCaseVegetal.SetVegetal3(questCaseRandom.SetRandomKing()),
+            8 => () => questCaseVegetal.SetVegetal4(questCaseRandom.SetRandomKing()),
+            9 => () => questCaseVegetal.SetVegetal5(questCaseRandom.SetRandomKing()),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }
@@ -48,12 +61,12 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            10 => () => questCaseAnimal.SetAnimal1(questCaseRandom._myRandom),
-            11 => () => questCaseAnimal.SetAnimal2(questCaseRandom._myRandom),
-            12 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
-            13 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
-            14 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _=> () => Debug.Log("SetCase case default!"),
+            10 => () => questCaseFungi.SetFungi1(questCaseRandom.SetRandomKing()),
+            11 => () => questCaseFungi.SetFungi2(questCaseRandom.SetRandomKing()),
+            12 => () => questCaseFungi.SetFungi3(questCaseRandom.SetRandomKing()),
+            13 => () => questCaseFungi.SetFungi4(questCaseRandom.SetRandomKing()),
+            14 => () => questCaseFungi.SetFungi5(questCaseRandom.SetRandomKing()),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }
@@ -61,12 +74,12 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            16 => () => questCaseAnimal.SetAnimal1(questCaseRandom._myRandom),
-            17 => () => questCaseAnimal.SetAnimal2(questCaseRandom._myRandom),
-            18 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
-            19 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
-            20 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _=> () => Debug.Log("SetCase case default!"),
+            16 => () => questCaseProtista.SetProtista1(questCaseRandom.SetRandomKing()),
+            17 => () => questCaseProtista.SetProtista2(questCaseRandom.SetRandomKing()),
+            18 => () => questCaseProtista.SetProtista3(questCaseRandom.SetRandomKing()),
+            19 => () => questCaseProtista.SetProtista4(questCaseRandom.SetRandomKing()),
+            20 => () => questCaseProtista.SetProtista5(questCaseRandom.SetRandomKing()),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }
@@ -74,12 +87,12 @@ public class SetQuestSystem : MonoBehaviour
     {
         Action action = _value switch
         {
-            21 => () => questCaseAnimal.SetAnimal1(questCaseRandom._myRandom),
-            22 => () => questCaseAnimal.SetAnimal2(questCaseRandom._myRandom),
-            23 => () => questCaseAnimal.SetAnimal3(questCaseRandom._myRandom),
-            24 => () => questCaseAnimal.SetAnimal4(questCaseRandom._myRandom),
-            25 => () => questCaseAnimal.SetAnimal5(questCaseRandom._myRandom),
-            _=> () => Debug.Log("SetCase case default!"),
+            21 => () => questCaseMonera.SetMonera1(questCaseRandom.SetRandomKing()),
+            22 => () => questCaseMonera.SetMonera1(questCaseRandom.SetRandomKing()),
+            23 => () => questCaseMonera.SetMonera1(questCaseRandom.SetRandomKing()),
+            24 => () => questCaseMonera.SetMonera1(questCaseRandom.SetRandomKing()),
+            25 => () => questCaseMonera.SetMonera1(questCaseRandom.SetRandomKing()),
+            _ => () => Debug.Log("SetCase case default!"),
         };
         action();
     }

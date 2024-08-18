@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class QuestCaseData : MonoBehaviour
@@ -23,5 +24,16 @@ public class QuestCaseData : MonoBehaviour
             imageItem[i].sprite = answerButtonDatas[i].imageItem[images[i]];
         }
         GeneralSingleton.generalSingleton.MouseUnLock();
+    }
+    public void SetValues(int[] values)
+    {
+        if (values != null)
+        {
+            SetDataCases(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
+        }
+        else
+        {
+            Debug.Log("Quest error!");
+        }
     }
 }
