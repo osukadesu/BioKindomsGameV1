@@ -25,10 +25,15 @@ public class DeadEnemy : DeadManager
             {
                 shootLogic.canShoot = false;
                 SetAlertInfo(value2);
-                levelWinMethod.WinMethod(playerEstanteCol.setId);
+                StartCoroutine(IEWinMethod());
                 StartCoroutine(ResetEnemy());
             }
         }
+    }
+    IEnumerator IEWinMethod()
+    {
+        yield return new WaitForSeconds(.5f);
+        levelWinMethod.WinMethod(playerEstanteCol.setId);
     }
     void SetAlertInfo(bool value2)
     {
@@ -45,11 +50,18 @@ public class DeadEnemy : DeadManager
     {
         yield return new WaitForSeconds(.5f);
         SetLifeControllerEnemy();
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < lifeControllerEnemy.Length; i++)
+        {
+            lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(false);
+        }
     }
     void SetLifeControllerEnemy()
     {
         for (int i = 0; i < lifeControllerEnemy.Length; i++)
         {
+            enemyStateManager.agent.speed = 0;
+            lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(true);
             lifeControllerEnemy[i].currentLife = 100;
         }
     }

@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 public class LifeController : MonoBehaviour
 {
     [SerializeField] int maxLife = 100;
     [SerializeField] protected internal float currentLife;
-    [SerializeField] Image imgLife;
+    [SerializeField] protected internal Image imgLife, imgLifeHide;
     [SerializeField] bool hit;
     void Start()
     {
         currentLife = maxLife;
+        imgLifeHide.gameObject.SetActive(false);
     }
     void Update()
     {

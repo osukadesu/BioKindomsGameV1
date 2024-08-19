@@ -157,6 +157,7 @@ public class LearnedInfo : MonoBehaviour
     }
     void Close()
     {
+        GeneralSingleton.generalSingleton.iscloseInfo = true;
         SceneManager.LoadScene(4);
     }
     void SetTextInfo(int value)

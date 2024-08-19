@@ -13,7 +13,7 @@ public class LevelWinMethod : MonoBehaviour
     {
         shootLogic.canShoot = false;
         showLevelSystem.money[_indexItems].SetActive(true);
-        showLevelSystem.pedestal.SetActive(true);
+        showLevelSystem.pedestalAnim.SetBool("pedestalShow", true);
         StartCoroutine(DestroyingEnemy(_indexItems));
     }
     IEnumerator DestroyingEnemy(int _IEenemy)

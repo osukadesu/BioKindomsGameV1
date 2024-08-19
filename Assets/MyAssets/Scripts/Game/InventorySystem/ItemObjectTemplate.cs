@@ -2,6 +2,7 @@ using UnityEngine;
 public abstract class ItemObjectTemplate : MonoBehaviour
 {
     [SerializeField] protected InventoryItemDataV2 referenceItem;
+    [SerializeField] protected ShowLevelCaseV2 showLevelCaseV2;
     [SerializeField] protected bool item, isNextLevel;
     [SerializeField] protected TextGralController textGralController;
     protected string textMessage;
@@ -11,6 +12,7 @@ public abstract class ItemObjectTemplate : MonoBehaviour
     {
         AwakeCharge();
         textGralController = FindObjectOfType<TextGralController>();
+        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
     }
     void Update()
     {
@@ -31,6 +33,7 @@ public abstract class ItemObjectTemplate : MonoBehaviour
         {
             OnHandlePickUp();
             isNextLevel = true;
+            showLevelCaseV2.pedestalAnim.SetBool("pedestalShow", false);
         }
         else
         {

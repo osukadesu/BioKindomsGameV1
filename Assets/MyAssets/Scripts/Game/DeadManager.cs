@@ -8,8 +8,10 @@ public abstract class DeadManager : MonoBehaviour
     [SerializeField] protected internal AlertModalManager alertModalManager;
     [SerializeField] protected internal ShootLogic shootLogic;
     [SerializeField] protected internal LevelWinMethod levelWinMethod;
+    [SerializeField] protected internal EnemyStateManager enemyStateManager;
     void Awake()
     {
+        enemyStateManager = FindObjectOfType<EnemyStateManager>();
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         lifeControllerPlayer = GameObject.FindGameObjectWithTag("PlayerDamage").GetComponent<LifeController>();
         alertModalManager = FindObjectOfType<AlertModalManager>();

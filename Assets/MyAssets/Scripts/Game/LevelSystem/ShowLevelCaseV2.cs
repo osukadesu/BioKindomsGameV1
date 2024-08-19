@@ -8,10 +8,10 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] PlayerEstanteCol playerEstanteCol;
     [SerializeField] ShootLogic shootLogic;
     [SerializeField] SaveMethod saveMethod;
-    [SerializeField] GameObject _NextLevel, levelFight, platformV2;
-    [SerializeField] Animator nextLevelAnim;
+    [SerializeField] GameObject levelFight, platformV2;
+    [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
     [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest, changeLevel;
-    [SerializeField] protected internal GameObject pedestal;
+    [SerializeField] BoxCollider boxCollider;
     void Awake()
     {
         notification = FindObjectOfType<Notification>();
@@ -107,7 +107,8 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(2);
                 DestroyingObjects(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
+                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo ? 1 : 0);
+                GeneralSingleton.generalSingleton.iscloseInfo = false;
                 SaveLevel();
                 break;
             case 13:
@@ -216,9 +217,8 @@ public class ShowLevelCaseV2 : MonoBehaviour
         NextLevelMethod(false);
         enemy[playerEstanteCol.setId].SetActive(true);
         money[playerEstanteCol.setId].SetActive(false);
-        pedestal.SetActive(false);
+        pedestalAnim.SetBool("pedestalShow", false);
     }
-
     IEnumerator IECanshot(bool _canShoot)
     {
         yield return new WaitForSeconds(1f);
@@ -239,7 +239,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     void NextLevelMethod(bool _value)
     {
-        _NextLevel.SetActive(_value);
+        boxCollider.enabled = _value;
         nextLevelAnim.SetBool("nextLevelShow", _value);
     }
 }
