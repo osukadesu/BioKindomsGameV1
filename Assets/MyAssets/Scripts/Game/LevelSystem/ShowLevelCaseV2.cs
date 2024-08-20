@@ -12,6 +12,7 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
     [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest, changeLevel;
     [SerializeField] BoxCollider boxCollider;
+
     void Awake()
     {
         notification = FindObjectOfType<Notification>();
@@ -107,14 +108,24 @@ public class ShowLevelCaseV2 : MonoBehaviour
                 levelFight.SetActive(false);
                 SwitchQuestExitKing(2);
                 DestroyingObjects(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo ? 1 : 0);
-                GeneralSingleton.generalSingleton.iscloseInfo = false;
+                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 1 : 0);
+                GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
                 SaveLevel();
                 break;
             case 13:
                 LevelFight();
                 SwitchQuestExitKing(2);
                 loadLevelSystem.SetPlayerPositionUnLoad(0);
+                break;
+            case 14:
+                loadLevelSystem.GoLoadSingletonQuest();
+                platformV2.SetActive(true);
+                levelFight.SetActive(false);
+                SwitchQuestExitKing(2);
+                DestroyingObjects(0);
+                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 2 : 0);
+                GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
+                SaveLevel();
                 break;
         }
     }

@@ -5773,8 +5773,11 @@ MonoBehaviour:
   isLoadGame: 0
   isMyProfile: 0
   endQuest: 0
+  wasEndQuest: 0
   isFirtsTime: 0
   wasFirtsTime: 0
+  isBtnNotify: 0
+  iscloseInfo: 00000000000000000000
 --- !u!1 &603259643
 GameObject:
   m_ObjectHideFlags: 0
