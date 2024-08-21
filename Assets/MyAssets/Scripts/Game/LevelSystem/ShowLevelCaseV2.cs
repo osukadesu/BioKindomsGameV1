@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 public class ShowLevelCaseV2 : MonoBehaviour
 {
+    [SerializeField] QuestGameObjects questGameObjects;
+    [SerializeField] EnemyStats enemyStats;
+    [SerializeField] PlayerPosition playerPosition;
     [SerializeField] Notification notification;
     [SerializeField] LoadLevelSystem loadLevelSystem;
     [SerializeField] AlertModalManager alertModalManager;
@@ -10,12 +14,19 @@ public class ShowLevelCaseV2 : MonoBehaviour
     [SerializeField] SaveMethod saveMethod;
     [SerializeField] GameObject levelFight, platformV2;
     [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
-    [SerializeField] protected internal GameObject[] enemy, money, questKing, exitQuest, changeLevel;
+    [SerializeField] protected internal GameObject[] enemy, money;
     [SerializeField] BoxCollider boxCollider;
-
     void Awake()
     {
+        questGameObjects = FindObjectOfType<QuestGameObjects>();
+        enemyStats = FindObjectOfType<EnemyStats>();
+        playerPosition = FindObjectOfType<PlayerPosition>();
         notification = FindObjectOfType<Notification>();
+        loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
+        alertModalManager = FindObjectOfType<AlertModalManager>();
+        playerEstanteCol = FindObjectOfType<PlayerEstanteCol>();
+        shootLogic = FindObjectOfType<ShootLogic>();
+        saveMethod = FindObjectOfType<SaveMethod>();
     }
     void Update()
     {
@@ -23,182 +34,119 @@ public class ShowLevelCaseV2 : MonoBehaviour
     }
     protected internal void ShowLevel(int level)
     {
-        Debug.Log("Current Level: " + level);
-        switch (level)
+        Action action = level switch
         {
-            case 1:
-                platformV2.SetActive(true);
-                SwitchQuestExitKing(0);
+            1 => () =>
+            {
+                IsPlataformOrFight(true, false, 0, 0, null, null);
                 StartCoroutine(LevelTutorialCoroutine());
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 2:
-                LevelFight();
-                SwitchQuestExitKing(0);
-                StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 3:
-                if (!GeneralSingleton.generalSingleton.wasFirtsTime)
-                {
-                    notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true);
-                }
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            case 4:
-                LevelFight();
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 5:
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            case 6:
-                LevelFight();
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 7:
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            case 8:
-                LevelFight();
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 9:
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(1);
-                SaveLevel();
-                break;
-            case 10:
-                LevelFight();
-                SwitchQuestExitKing(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 11:
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                {
-                    notification.AddNotification("Felicidades haz completado el reino animal!", false);
-                    StartCoroutine(WaitForNotify("Ahora ve al reino vegetal!", false));
-                }
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(1);
-                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.endQuest ? 0 : 1);
-                SaveLevel();
-                break;
-            case 12:
+            }
+            ,
+            2 => () =>
+           {
+               IsPlataformOrFight(false, null, 0, 0, 0, 0);
+               StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true);
+           }
+            ,
+            3 => () =>
+           {
+               if (!GeneralSingleton.generalSingleton.wasFirtsTime)
+               {
+                   notification.AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true);
+               }
+               IsPlataformOrFight(true, true, 0, 1, null, null);
+           }
+            ,
+            4 => () =>
+            {
+                IsPlataformOrFight(false, null, 0, 0, 0, 1);
+            }
+            ,
+            5 => () =>
+            {
+                IsPlataformOrFight(true, true, 0, 1, null, null);
+            }
+            ,
+            6 => () =>
+            {
+                IsPlataformOrFight(false, null, 0, 0, 0, 2);
+            }
+            ,
+            7 => () =>
+           {
+               IsPlataformOrFight(true, true, 0, 1, null, null);
+           }
+            ,
+            8 => () =>
+            {
+                IsPlataformOrFight(false, null, 0, 0, 0, 3);
+            }
+            ,
+            9 => () =>
+           {
+               IsPlataformOrFight(true, true, 0, 1, null, null);
+           }
+            ,
+            10 => () =>
+            {
+                IsPlataformOrFight(false, null, 0, 0, 0, 4);
+            }
+            ,
+            11 => () =>
+           {
+               if (!GeneralSingleton.generalSingleton.endQuest)
+               { DoubleNotifys("Felicidades haz completado el reino animal!", false, "Ahora ve al reino vegetal!", false); }
+               IsPlataformOrFight(true, true, 1, GeneralSingleton.generalSingleton.endQuest ? 0 : 1, null, null);
+           }
+            ,
+            12 => () =>
+           {
+               loadLevelSystem.GoLoadSingletonQuest();
+               IsPlataformOrFight(true, true, 2, GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 1 : 0, null, null);
+               questGameObjects.DestroyingObjects(0);
+               //playerPosition.SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 1 : 0);
+               GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
+           }
+            ,
+            13 => () =>
+            {
                 loadLevelSystem.GoLoadSingletonQuest();
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(2);
-                DestroyingObjects(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 1 : 0);
-                GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
-                SaveLevel();
-                break;
-            case 13:
-                LevelFight();
-                SwitchQuestExitKing(2);
-                loadLevelSystem.SetPlayerPositionUnLoad(0);
-                break;
-            case 14:
+                IsPlataformOrFight(false, null, 2, 0, 1, 0);
+            }
+            ,
+            14 => () =>
+            {
                 loadLevelSystem.GoLoadSingletonQuest();
-                platformV2.SetActive(true);
-                levelFight.SetActive(false);
-                SwitchQuestExitKing(2);
-                DestroyingObjects(0);
-                loadLevelSystem.SetPlayerPositionUnLoad(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 2 : 0);
+                IsPlataformOrFight(true, true, 2, null, null, null);
+                questGameObjects.DestroyingObjects(0);
+                playerPosition.SetPlayerPositionWithConditions(0);
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
-                SaveLevel();
-                break;
-        }
+            }
+            ,
+            15 => () =>
+            {
+                loadLevelSystem.GoLoadSingletonQuest();
+                IsPlataformOrFight(false, null, 2, 0, 1, 1);
+            }
+            ,
+            16 => () =>
+           {
+               loadLevelSystem.GoLoadSingletonQuest();
+               IsPlataformOrFight(true, true, 2, null, null, null);
+               questGameObjects.DestroyingObjects(0);
+               playerPosition.SetPlayerPositionWithConditions(0);
+               GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] = false;
+           }
+            ,
+            _ => () => Debug.Log("Current Level in default"),
+        };
+        action();
+        Debug.Log("Current Level: " + level);
     }
-    IEnumerator WaitForNotify(string _message, bool _isBtnNotify)
+    void DoubleNotifys(string _notify1, bool _isBtnNotify1, string _notify2, bool _isBtnNotify2)
     {
-        yield return new WaitForSeconds(1f);
-        notification.AddNotification(_message, _isBtnNotify);
-    }
-    public void DestroyingObjects(int _index)
-    {
-        Destroy(questKing[_index], .2f);
-        Destroy(exitQuest[_index], .2f);
-        Destroy(changeLevel[_index], .2f);
-    }
-    void SwitchQuestExitKing(int _value)
-    {
-        switch (_value)
-        {
-            case 0:
-                for (int i = 0; i < 5; i++)
-                {
-                    QuestExitKing(i, false);
-                }
-                break;
-            case 1:
-                QuestExitKing(0, true);
-                QuestExitKing(1, false);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 2:
-                QuestExitKing(1, false);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 3:
-                QuestExitKing(1, true);
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 4:
-                QuestExitKing(2, false);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 5:
-                QuestExitKing(2, true);
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 6:
-                QuestExitKing(3, false);
-                QuestExitKing(4, false);
-                break;
-            case 7:
-                QuestExitKing(3, true);
-                QuestExitKing(4, false);
-                break;
-            case 8:
-                QuestExitKing(4, false);
-                break;
-            case 9:
-                QuestExitKing(4, true);
-                break;
-        }
-    }
-    void QuestExitKing(int _index, bool _bool)
-    {
-        questKing[_index].SetActive(_bool);
-        exitQuest[_index].SetActive(GeneralSingleton.generalSingleton.endQuest);
+        notification.AddNotification(_notify1, _isBtnNotify1);
+        notification.SetWaitForNotify(_notify2, _isBtnNotify2);
     }
     IEnumerator LevelTutorialCoroutine()
     {
@@ -220,29 +168,46 @@ public class ShowLevelCaseV2 : MonoBehaviour
         yield return new WaitForSeconds(5f);
         alertModalManager.AlertModalNew(false, "", indexImg, false, indexImg, false);
     }
-    protected internal void LevelFight()
+    void IsPlataformOrFight(bool _isPlataform, bool? _isSaving, int _QuestExitKingCase, int? _playerPositionTarget, int? _enemyKingdom, int? enemyIndex)
     {
-        StartCoroutine(IECanshot(true));
+        Action action = _isPlataform switch
+        {
+            true => () => { if (_isSaving.HasValue) { LevelPlatform(_isSaving.Value ? true : false); } }
+            ,
+            false => () => { if (_enemyKingdom.HasValue && enemyIndex.HasValue) { LevelFight(_enemyKingdom.Value, enemyIndex.Value); } }
+            ,
+        };
+        action();
+        questGameObjects.SwitchQuestExitKing(_QuestExitKingCase);
+        if (_playerPositionTarget.HasValue) { playerPosition.SetPlayerPosition(_playerPositionTarget.Value); }
+    }
+    void LevelPlatform(bool _isSave)
+    {
+        platformV2.SetActive(true);
+        levelFight.SetActive(false);
+        if (_isSave) { saveMethod.SaveLevel(); }
+    }
+    void LevelFight(int _enemyKingdom, int enemyIndex)
+    {
+        shootLogic.SetCanShoot();
         levelFight.SetActive(true);
         platformV2.SetActive(false);
         NextLevelMethod(false);
         enemy[playerEstanteCol.setId].SetActive(true);
         money[playerEstanteCol.setId].SetActive(false);
         pedestalAnim.SetBool("pedestalShow", false);
-    }
-    IEnumerator IECanshot(bool _canShoot)
-    {
-        yield return new WaitForSeconds(1f);
-        shootLogic.canShoot = _canShoot;
-    }
-    public void SaveLevel()
-    {
-        StartCoroutine(IESaveLevel());
-    }
-    IEnumerator IESaveLevel()
-    {
-        yield return new WaitForSeconds(.5f);
-        saveMethod.SaveGame();
+        Action action = _enemyKingdom switch
+        {
+            0 => () => enemyStats.SetAnimalStats(enemyIndex),
+            1 => () => enemyStats.SetVegetalStats(enemyIndex),
+            /*
+            2 => () => enemyStats.SetFungiStats(enemyIndex),
+            3 => () => enemyStats.SetProtistaStats(enemyIndex),
+            4 => () => enemyStats.SetMoneraStats(enemyIndex),
+            */
+            _ => () => Debug.Log("Default case!"),
+        };
+        action();
     }
     void ItemCondition()
     {

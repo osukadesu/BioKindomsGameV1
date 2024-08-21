@@ -3,18 +3,16 @@ using UnityEngine;
 public class ExitQuest : MonoBehaviour
 {
     [SerializeField] LevelSystemV2 levelSystemV2;
-    [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
-    void Start()
-    {
-        for (int i = 0; i < showLevelCaseV2.changeLevel.Length; i++)
-        {
-            showLevelCaseV2.changeLevel[i].SetActive(false);
-        }
-    }
+    [SerializeField] QuestGameObjects questGameObjects;
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
-        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
+        questGameObjects = FindObjectOfType<QuestGameObjects>();
+    }
+    void Start()
+    {
+        for (int i = 0; i < questGameObjects.changeLevel.Length; i++)
+        { questGameObjects.changeLevel[i].SetActive(false); }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -30,7 +28,11 @@ public class ExitQuest : MonoBehaviour
     {
         Action action = _value switch
         {
-            11 => () => { Destroy(showLevelCaseV2.questKing[0], .2f); showLevelCaseV2.changeLevel[0].SetActive(true); }
+            11 => () =>
+            {
+                Destroy(questGameObjects.questKing[0], .2f);
+                questGameObjects.changeLevel[0].SetActive(true);
+            }
             ,
             _ => () => Debug.Log("DestroyingObjetc case default!"),
         };

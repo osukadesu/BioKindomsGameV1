@@ -12,7 +12,7 @@ public class DeadEnemy : DeadManager
         Action action = value switch
         {
             2 => () => DeadActionsMethod(true, true),
-            4 or 6 or 8 or 10 or 13 => () => DeadActionsMethod(true, false),
+            4 or 6 or 8 or 10 or 13 or 15 => () => DeadActionsMethod(true, false),
             _ => () => DeadActionsMethod(false, false)
         };
         action();

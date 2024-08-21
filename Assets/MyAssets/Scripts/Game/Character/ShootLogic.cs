@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 public class ShootLogic : MonoBehaviour
 {
@@ -25,5 +25,14 @@ public class ShootLogic : MonoBehaviour
     public void DestroyNewBullet()
     {
         Destroy(newBullet, 0f);
+    }
+    public void SetCanShoot()
+    {
+        StartCoroutine(IECanshot(true));
+    }
+    IEnumerator IECanshot(bool _canShoot)
+    {
+        yield return new WaitForSeconds(1f);
+        canShoot = _canShoot;
     }
 }

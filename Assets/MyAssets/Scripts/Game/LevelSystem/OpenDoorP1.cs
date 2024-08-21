@@ -7,10 +7,11 @@ public class OpenDoorP1 : MonoBehaviour
     [SerializeField] bool canOpen;
     void Update()
     {
-         canOpen = referenceItemF[0].itemIsCheck && referenceItemF[1].itemIsCheck && referenceItemF[2].itemIsCheck &&
+        canOpen = referenceItemF[0].itemIsCheck && referenceItemF[1].itemIsCheck && referenceItemF[2].itemIsCheck &&
         referenceItemF[3].itemIsCheck && referenceItemF[4].itemIsCheck;
+        openDoorMessage.UnlockDoors(2, "unlockDoor", canOpen);
     }
-   void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && canOpen)
         {

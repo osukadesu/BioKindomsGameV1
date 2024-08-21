@@ -9,6 +9,7 @@ public class OpenDoorF1 : MonoBehaviour
     {
         canOpen = referenceItemV[0].itemIsCheck && referenceItemV[1].itemIsCheck && referenceItemV[2].itemIsCheck &&
         referenceItemV[3].itemIsCheck && referenceItemV[4].itemIsCheck;
+        openDoorMessage.UnlockDoors(1, "unlockDoor", canOpen);
     }
     void OnTriggerEnter(Collider other)
     {

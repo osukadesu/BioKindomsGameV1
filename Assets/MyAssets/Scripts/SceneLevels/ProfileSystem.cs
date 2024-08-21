@@ -19,7 +19,7 @@ public class ProfileSystem : MonoBehaviour
     void ReadData()
     {
         string datapath = Application.persistentDataPath + "/score.data";
-        if (loadLevelSelect.LoadProfile && File.Exists(datapath))
+        if (loadLevelSelect.LoadProfile && File.Exists(datapath) && !GeneralSingleton.generalSingleton.wasFirtsTime)
         {
             loadLevel.GoLoadProfile();
         }
@@ -31,46 +31,46 @@ public class ProfileSystem : MonoBehaviour
             }
         }
     }
-    public void ShowLevel(int level)
+    public void ShowLevel(int level, bool isLoad)
     {
         Debug.Log("Profile Level: " + level);
         Action action = level switch
         {
-            1 or 2 => () => LevelAnimations(null, null),
-            3 or 4 => () => SetAnimSubLevels(1),
-            5 or 6 => () => SetAnimSubLevels(2),
-            7 or 8 => () => SetAnimSubLevels(3),
-            9 or 10 => () => SetAnimSubLevels(4),
-            11 or 12 => () => SetAnimFinish(1),
-            13 or 14 => () => { SetAnimFinish(1); SetAnimSubLevels(6); }
+            1 or 2 => () => LevelAnimations(null, null, isLoad),
+            3 or 4 => () => SetAnimSubLevels(1, isLoad),
+            5 or 6 => () => SetAnimSubLevels(2, isLoad),
+            7 or 8 => () => SetAnimSubLevels(3, isLoad),
+            9 or 10 => () => SetAnimSubLevels(4, isLoad),
+            11 or 12 => () => SetAnimFinish(1, isLoad),
+            13 or 14 => () => { SetAnimFinish(1, isLoad); SetAnimSubLevels(6, isLoad); }
             ,
             _ => () => Debug.Log("ShowLevel case default!"),
         };
         action();
     }
-    void SetAnimSubLevels(int _length)
+    public void SetAnimSubLevels(int _length, bool isLoad)
     {
         for (int i = 0; i < _length; i++)
         {
-            LevelAnimations(i, null);
+            LevelAnimations(i, null, isLoad);
         }
     }
-    void SetAnimFinish(int _length)
+    public void SetAnimFinish(int _length, bool isLoad)
     {
         for (int i = 0; i < _length; i++)
         {
-            LevelAnimations(null, i);
+            LevelAnimations(null, i, isLoad);
         }
     }
-    void LevelAnimations(int? subLevel, int? levelFinished)
+    public void LevelAnimations(int? subLevel, int? levelFinished, bool isLoad)
     {
         if (subLevel.HasValue)
         {
-            levelAnimations.SubLevel(subLevel.Value);
+            levelAnimations.SubLevel(subLevel.Value, isLoad);
         }
         if (levelFinished.HasValue)
         {
-            levelAnimations.LevelFinished(levelFinished.Value);
+            levelAnimations.LevelFinished(levelFinished.Value, isLoad);
         }
     }
 }

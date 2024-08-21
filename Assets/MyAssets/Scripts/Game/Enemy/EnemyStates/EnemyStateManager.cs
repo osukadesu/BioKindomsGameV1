@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-
 public class EnemyStateManager : MonoBehaviour
 {
     EnemyBaseState currentState;
@@ -8,6 +7,7 @@ public class EnemyStateManager : MonoBehaviour
     public AttackState attackState;
     public NavMeshAgent agent;
     public Transform player;
+    public float walkSpeed, attackSpeed;
     public void Start()
     {
         currentState = walkingState;

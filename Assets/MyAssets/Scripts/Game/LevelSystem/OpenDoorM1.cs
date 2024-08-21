@@ -9,8 +9,9 @@ public class OpenDoorM1 : MonoBehaviour
     {
         canOpen = referenceItemP[0].itemIsCheck && referenceItemP[1].itemIsCheck && referenceItemP[2].itemIsCheck &&
         referenceItemP[3].itemIsCheck && referenceItemP[4].itemIsCheck;
+        openDoorMessage.UnlockDoors(3, "unlockDoor", canOpen);
     }
-   void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && canOpen)
         {

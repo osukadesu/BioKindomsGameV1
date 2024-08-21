@@ -1,14 +1,21 @@
 using UnityEngine;
 public class RotateObject : MonoBehaviour
 {
-    [SerializeField] float speed = 300f;
+    [SerializeField] float rotationSpeed = 350f;
+    private Vector3 _currentRotation;
+    private void Start()
+    {
+        _currentRotation = transform.rotation.eulerAngles;
+    }
     void OnMouseDrag()
     {
         GeneralSingleton.generalSingleton.MouseLockRotate();
-        float x = Input.GetAxis("Mouse X") * speed * Mathf.Deg2Rad;
-        float y = Input.GetAxis("Mouse Y") * speed * Mathf.Deg2Rad;
-        transform.Rotate(Vector3.up, -x);
-        transform.Rotate(Vector3.right, -y);
+        float rotX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+        float rotY = -Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+        _currentRotation.y -= rotX;
+        _currentRotation.x -= rotY;
+        Quaternion targetRotation = Quaternion.Euler(_currentRotation);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
     void OnMouseUp()
     {

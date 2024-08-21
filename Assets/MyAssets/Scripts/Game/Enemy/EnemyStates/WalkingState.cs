@@ -6,7 +6,7 @@ public class WalkingState : EnemyBaseState
     public override void UpdateState(EnemyStateManager enemyStateManager)
     {
         enemyStateManager.agent.SetDestination(wayPoints[wayIndex].position);
-        enemyStateManager.agent.speed = 2;
+        enemyStateManager.agent.speed = enemyStateManager.walkSpeed;
         if (Vector3.Distance(wayPoints[wayIndex].position, transform.position) < 3f)
         {
             wayIndex++;

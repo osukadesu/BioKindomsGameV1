@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class LoadProfile : MonoBehaviour
@@ -25,7 +26,7 @@ public class LoadProfile : MonoBehaviour
             scoreAnimations[i].SwitchAnimations(scoreValue);
         }
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
-        SettingLevelsSelect(playerData);
+        SettingLevelsSelect(playerData, false);
     }
     int FinalScore()
     {
@@ -35,13 +36,13 @@ public class LoadProfile : MonoBehaviour
     {
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
         ScoreData scoreData = SaveScoreData.LoadScore();
-        SettingLevelsSelect(playerData);
+        SettingLevelsSelect(playerData, true);
         SettScore(scoreData);
     }
-    protected internal void SettingLevelsSelect(PlayerData playerData)
+    protected internal void SettingLevelsSelect(PlayerData playerData, bool isLoad)
     {
         levelSelect.currentLevel = playerData.currentLevelData;
-        levelSelect.ShowLevel(levelSelect.currentLevel);
+        levelSelect.ShowLevel(levelSelect.currentLevel, isLoad);
     }
     public void SettScore(ScoreData scoreData)
     {

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class SaveMethod : MonoBehaviour
 {
@@ -8,6 +9,15 @@ public class SaveMethod : MonoBehaviour
     {
         textGralController = FindObjectOfType<TextGralController>();
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
+    }
+    public void SaveLevel()
+    {
+        StartCoroutine(IESaveLevel());
+    }
+    IEnumerator IESaveLevel()
+    {
+        yield return new WaitForSeconds(.5f);
+        SaveGame();
     }
     protected internal void SaveGame()
     {

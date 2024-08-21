@@ -31,6 +31,15 @@ public class Notification : MonoBehaviour
             GeneralSingleton.generalSingleton.MouseLock();
         }
     }
+    public void SetWaitForNotify(string _message, bool _isBtnNotify)
+    {
+        StartCoroutine(WaitForNotify(_message, _isBtnNotify));
+    }
+    IEnumerator WaitForNotify(string _message, bool _isBtnNotify)
+    {
+        yield return new WaitForSeconds(1f);
+        AddNotification(_message, _isBtnNotify);
+    }
     public void AddNotification(string message, bool _isBtnNotify)
     {
         GeneralSingleton.generalSingleton.isBtnNotify = _isBtnNotify;

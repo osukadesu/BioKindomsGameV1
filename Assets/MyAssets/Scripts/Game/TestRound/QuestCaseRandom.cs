@@ -22,6 +22,6 @@ public class QuestCaseRandom : MonoBehaviour
     public int SetRandomKing()
     {
         Debug.Log("SetRandomKing value: " + randomKing);
-        return randomKing = Random.Range(0, 6);
+        return randomKing = Random.Range(0, 3);
     }
 }

@@ -24,18 +24,28 @@ public class ProfileAnimations : MonoBehaviour
     {
         Attention.SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest);
     }
-    public void SubLevel(int _SubLevelIndex)
+    public void SubLevel(int _SubLevelIndex, bool isLoad)
     {
-        subUnlockAnim[_SubLevelIndex].SetBool("subunlock", true);
+        Action action = isLoad switch
+        {
+            true => () => subUnlockAnim[_SubLevelIndex].SetBool("subunlockload", true),
+            false => () => subUnlockAnim[_SubLevelIndex].SetBool("subunlock", true),
+        };
+        action();
     }
-    public void LevelFinished(int _index)
+    public void LevelFinished(int _index, bool isLoad)
     {
-        StartCoroutine(WaitForShow(_index));
+        StartCoroutine(WaitForShow(_index, isLoad));
     }
-    IEnumerator WaitForShow(int _index)
+    IEnumerator WaitForShow(int _index, bool isLoad)
     {
-        imgCompleteAnim[_index].SetBool("imgComplete", true);
-        txtCompleteAnim[_index].SetBool("txtComplete", true);
+        Action action = isLoad switch
+        {
+            true => () => { imgCompleteAnim[_index].SetBool("imgCompleteLoad", true); txtCompleteAnim[_index].SetBool("txtCompleteLoad", true); }
+            ,
+            false => () => { imgCompleteAnim[_index].SetBool("imgComplete", true); txtCompleteAnim[_index].SetBool("txtComplete", true); }
+        };
+        action();
         yield return new WaitForSeconds(1f);
         btnResetQuestAnim[_index].SetBool("btnRepiteQuest", true);
     }

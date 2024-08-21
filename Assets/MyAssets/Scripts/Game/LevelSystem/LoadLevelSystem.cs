@@ -2,17 +2,18 @@ using System;
 using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
-    [SerializeField] PlayerMove playerMove;
-    [SerializeField] protected internal ItemObject[] itemObjects;
-    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
+    [SerializeField] QuestGameObjects questGameObjects;
     [SerializeField] LevelSystemV2 levelSystemV2;
     [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
-    [SerializeField] Transform[] targetPlayerPosition;
+    [SerializeField] EstanteColChecked estanteColChecked;
+    [SerializeField] protected internal ItemObject[] itemObjects;
+    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
     void Awake()
     {
+        questGameObjects = FindObjectOfType<QuestGameObjects>();
         levelSystemV2 = FindObjectOfType<LevelSystemV2>();
         showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
-        playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+        estanteColChecked = FindObjectOfType<EstanteColChecked>();
     }
     protected internal void GoNewGame()
     {
@@ -24,6 +25,7 @@ public class LoadLevelSystem : MonoBehaviour
         }
         GeneralSingleton.generalSingleton.endQuest = false;
         GeneralSingleton.generalSingleton.CaseValue = -1;
+        estanteColChecked.EstantesInitial();
     }
     protected internal void GoLoadGame()
     {
@@ -32,6 +34,7 @@ public class LoadLevelSystem : MonoBehaviour
         SettingKingdom(playerData);
         CheckingKingdom(playerData);
         SetDestroyObject(levelSystemV2.CurrentLevel);
+        estanteColChecked.EstanteBool("estanteLoad");
     }
     protected internal void GoLoadSingletonQuest()
     {
@@ -62,15 +65,11 @@ public class LoadLevelSystem : MonoBehaviour
         GeneralSingleton.generalSingleton.endQuest = scoreData._endQuestV2;
         GeneralSingleton.generalSingleton.CaseValue = scoreData._caseValueV2;
     }
-    protected internal void SetPlayerPositionUnLoad(int index)
-    {
-        playerMove.transform.position = targetPlayerPosition[index].position;
-    }
     protected internal void SetDestroyObject(int _value)
     {
         Action action = _value switch
         {
-            12 => () => showLevelCaseV2.DestroyingObjects(0),
+            12 => () => questGameObjects.DestroyingObjects(0),
             _ => () => Debug.Log(" SetDestroyObject case default!"),
         };
         action();
