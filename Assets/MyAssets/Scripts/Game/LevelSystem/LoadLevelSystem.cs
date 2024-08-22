@@ -19,10 +19,8 @@ public class LoadLevelSystem : MonoBehaviour
     {
         Action action = _level switch
         {
-            12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21
-            or 22 or 23 or 24 or 25
-            => () => GoLoadSingletonQuest(),
-            _ => () => Debug.Log("Case default!"),
+            >= 1 and <= 11 => () => Debug.Log("Not load singleton quest!"),
+            _ => () => GoLoadSingletonQuest(),
         };
         action();
     }
@@ -81,6 +79,10 @@ public class LoadLevelSystem : MonoBehaviour
         Action action = _value switch
         {
             12 => () => questGameObjects.DestroyingObjects(0),
+            23 => () => questGameObjects.DestroyingObjects(1),
+            34 => () => questGameObjects.DestroyingObjects(2),
+            45 => () => questGameObjects.DestroyingObjects(3),
+            56 => () => questGameObjects.DestroyingObjects(4),
             _ => () => Debug.Log(" SetDestroyObject case default!"),
         };
         action();

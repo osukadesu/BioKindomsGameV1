@@ -7,12 +7,11 @@ public class QuestGameObjects : MonoBehaviour
     {
         Action action = _level switch
         {
-            12 or 14 or 16 or 18 or 20 or 22
-            => () => DestroyingObjects(0)
-            ,
-            23
-            => () => DestroyingObjects(1)
-            ,
+            12 or 14 or 16 or 18 or 20 or 22 => () => DestroyingObjects(0),
+            23 or 25 or 27 or 29 or 31 or 33 => () => DestroyingObjects(1),
+            34 or 36 or 38 or 40 or 42 or 44 => () => DestroyingObjects(2),
+            45 or 47 or 49 or 51 or 53 or 55 => () => DestroyingObjects(3),
+            56 => () => DestroyingObjects(4),
             _ => () => Debug.Log("Case default"),
         };
         action();
@@ -27,19 +26,16 @@ public class QuestGameObjects : MonoBehaviour
     {
         Action action = _level switch
         {
-            1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10
-            => () => SwitchQuestExitKing(0)
-            ,
-            11 => () => SwitchQuestExitKing(1)
-            ,
-            12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21
-            => () => SwitchQuestExitKing(2)
-            ,
-            22 => () => SwitchQuestExitKing(3)
-            ,
-            23 or 24 or 25 or 26 or 27 or 28 or 29 or 30 or 31 or 32
-            => () => SwitchQuestExitKing(4)
-            ,
+            >= 1 and <= 10 => () => SwitchQuestExitKing(0),
+            11 => () => SwitchQuestExitKing(1),
+            >= 12 and <= 21 => () => SwitchQuestExitKing(2),
+            22 => () => SwitchQuestExitKing(3),
+            >= 23 and <= 32 => () => SwitchQuestExitKing(4),
+            33 => () => SwitchQuestExitKing(5),
+            >= 34 and <= 43 => () => SwitchQuestExitKing(6),
+            44 => () => SwitchQuestExitKing(7),
+            >= 45 and <= 54 => () => SwitchQuestExitKing(8),
+            55 => () => SwitchQuestExitKing(9),
             _ => () => Debug.Log("Case default"),
         };
         action();

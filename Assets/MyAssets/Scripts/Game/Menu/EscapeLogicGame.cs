@@ -25,6 +25,7 @@ public class EscapeLogicGame : MonoBehaviour
             GeneralSingleton.generalSingleton.MouseUnLock();
             GeneralSingleton.generalSingleton.isNewGame = false;
             GeneralSingleton.generalSingleton.isLoadGame = false;
+            GeneralSingleton.generalSingleton._kingdomIndex = 0;
             SceneManager.LoadScene(2);
         }
     }

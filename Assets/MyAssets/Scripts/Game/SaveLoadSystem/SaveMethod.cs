@@ -15,9 +15,8 @@ public class SaveMethod : MonoBehaviour
     {
         Action action = _level switch
         {
-            3 or 5 or 7 or 9 or 11 or 12 or 14 or 16 or 18 or 20 or 22 or 23
-            => () => { StartCoroutine(IESaveLevel()); }
-            ,
+            3 or 5 or 7 or 9 or 11 or 12 or 14 or 16 or 18 or 20 or 22 or 23 or 25 or 27 or 29 or 31 or 33 or 34 or 36 or 38
+            or 40 or 42 or 44 or 45 or 47 or 49 or 51 or 53 or 55 or 56 => () => StartCoroutine(IESaveLevel()),
             _ => () => Debug.Log("Default case!"),
         };
         action();

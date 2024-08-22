@@ -3672,7 +3672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestAlertModalAnim: {fileID: 2040373163}
+  textGoQuest: {fileID: 129784612}
   btnAcept: {fileID: 1270858365}
+  levelSystem: {fileID: 1259189127}
 --- !u!1 &205738041
 GameObject:
   m_ObjectHideFlags: 0
@@ -10522,7 +10524,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestAlertModalAnim: {fileID: 2040373163}
+  textGoQuest: {fileID: 129784612}
   btnAcept: {fileID: 1270858365}
+  levelSystem: {fileID: 1259189127}
 --- !u!65 &702693150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11586,7 +11590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestAlertModalAnim: {fileID: 2040373163}
+  textGoQuest: {fileID: 129784612}
   btnAcept: {fileID: 1270858365}
+  levelSystem: {fileID: 1259189127}
 --- !u!65 &777099943
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16881,7 +16887,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestAlertModalAnim: {fileID: 2040373163}
+  textGoQuest: {fileID: 129784612}
   btnAcept: {fileID: 1270858365}
+  levelSystem: {fileID: 1259189127}
 --- !u!65 &1210687113
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17591,6 +17599,11 @@ MonoBehaviour:
   playerEstanteCol: {fileID: 354055304}
   shootLogic: {fileID: 354055303}
   alertModalManager: {fileID: 326398877}
+  saveMethod: {fileID: 326398878}
+  questGameObjects: {fileID: 1259189133}
+  notification: {fileID: 326398880}
+  playerPosition: {fileID: 1259189132}
+  enemyStats: {fileID: 1259189131}
   levelFight: {fileID: 1904752006}
   platformV2: {fileID: 919132149181104220}
   nextLevelAnim: {fileID: 303202174}
@@ -17700,7 +17713,6 @@ MonoBehaviour:
   - {fileID: 771384784}
   - {fileID: 1097786764}
   playerEstanteCol: {fileID: 354055304}
-  levelSystemV2: {fileID: 0}
 --- !u!114 &1259189132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17714,7 +17726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 354055298}
-  levelSystemV2: {fileID: 1259189127}
   targetPlayerPosition:
   - {fileID: 1053376200}
   - {fileID: 809978271}
@@ -18661,7 +18672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuestAlertModalAnim: {fileID: 2040373163}
+  textGoQuest: {fileID: 129784612}
   btnAcept: {fileID: 1270858365}
+  levelSystem: {fileID: 1259189127}
 --- !u!65 &1313753775
 BoxCollider:
   m_ObjectHideFlags: 0

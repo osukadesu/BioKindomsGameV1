@@ -39,9 +39,7 @@ public class Notification : MonoBehaviour
             3 => () =>
             {
                 if (!GeneralSingleton.generalSingleton.wasFirtsTime)
-                {
-                    AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true);
-                }
+                { AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true); }
             }
             ,
             11 => () =>
@@ -54,6 +52,24 @@ public class Notification : MonoBehaviour
             {
                 if (!GeneralSingleton.generalSingleton.endQuest)
                 { DoubleNotifys("Felicidades haz completado el reino Vegetal!", false, "Ahora ve al reino Fungi!", false); }
+            }
+            ,
+            33 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.endQuest)
+                { DoubleNotifys("Felicidades haz completado el reino Fungi!", false, "Ahora ve al reino Protista!", false); }
+            }
+            ,
+            44 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.endQuest)
+                { DoubleNotifys("Felicidades haz completado el reino Protista!", false, "Ahora ve al reino Monera!", false); }
+            }
+            ,
+            55 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.endQuest)
+                { DoubleNotifys("Felicidades haz completado el reino Monera!", false, "Haz terminado el juego!", false); }
             }
             ,
             _ => () => Debug.Log("Case Default"),

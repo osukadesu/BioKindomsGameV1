@@ -15,11 +15,11 @@ public class AlertModalManager : MonoBehaviour
         btnContinueAM.onClick.AddListener(CloseContinue);
         escapeLogicV1 = FindObjectOfType<EscapeLogicGame>();
     }
-    public void ShowTutorialAlerts(int _case)
+    public void ShowTutorialAlerts(int _level)
     {
-        Action action = _case switch
+        Action action = _level switch
         {
-            1 => () => StartCoroutine(LevelTutorialCoroutine()),
+            1 => () => StartCoroutine(LevelTutorialCoroutine("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!", "¡Presiona las teclas y ve a la puerta del reino animal!")),
             2 => () => StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true),
             _ => () => Debug.Log("Default case!"),
         };
@@ -35,13 +35,13 @@ public class AlertModalManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         AlertModalNew(false, "", indexImg, false, indexImg, false);
     }
-    IEnumerator LevelTutorialCoroutine()
+    IEnumerator LevelTutorialCoroutine(string message1, string message2)
     {
         yield return new WaitForSeconds(1f);
         GeneralSingleton.generalSingleton.MouseUnLock();
-        AlertInfo("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!");
+        AlertInfo(message1);
         yield return new WaitForSeconds(1f);
-        AlertModalNew(true, "¡Presiona las teclas y ve a la puerta del reino animal!", 0, true, 1, false);
+        AlertModalNew(true, message2, 0, true, 1, false);
         yield return new WaitForSeconds(5f);
         AlertModalNew(false, "", 0, false, 1, false);
     }
