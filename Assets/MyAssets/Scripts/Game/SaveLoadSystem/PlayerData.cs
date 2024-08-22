@@ -3,16 +3,16 @@ public class PlayerData
 {
     public bool[] kingdoms = new bool[10];
     public int currentLevelData;
-    public PlayerData(LevelSystemV2 levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
+    public PlayerData(LevelSystem levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
     {
         MappingLevels(levelSystemV2);
         MappingKingdoms(inventoryItemDataV2);
     }
-    public PlayerData(LevelSystemV2 levelSystemV2)
+    public PlayerData(LevelSystem levelSystemV2)
     {
         MappingLevels(levelSystemV2);
     }
-    void MappingLevels(LevelSystemV2 levelSystemV2)
+    void MappingLevels(LevelSystem levelSystemV2)
     {
         currentLevelData = levelSystemV2.CurrentLevel;
     }

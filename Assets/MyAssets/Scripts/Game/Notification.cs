@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +31,39 @@ public class Notification : MonoBehaviour
             SetVariables(false, notificationCount.ToString());
             GeneralSingleton.generalSingleton.MouseLock();
         }
+    }
+    public void SetNotificationsLevel(int _level)
+    {
+        Action action = _level switch
+        {
+            3 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.wasFirtsTime)
+                {
+                    AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true);
+                }
+            }
+            ,
+            11 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.endQuest)
+                { DoubleNotifys("Felicidades haz completado el reino Animal!", false, "Ahora ve al reino vegetal!", false); }
+            }
+            ,
+            22 => () =>
+            {
+                if (!GeneralSingleton.generalSingleton.endQuest)
+                { DoubleNotifys("Felicidades haz completado el reino Vegetal!", false, "Ahora ve al reino Fungi!", false); }
+            }
+            ,
+            _ => () => Debug.Log("Case Default"),
+        };
+        action();
+    }
+    void DoubleNotifys(string _notify1, bool _isBtnNotify1, string _notify2, bool _isBtnNotify2)
+    {
+        AddNotification(_notify1, _isBtnNotify1);
+        SetWaitForNotify(_notify2, _isBtnNotify2);
     }
     public void SetWaitForNotify(string _message, bool _isBtnNotify)
     {

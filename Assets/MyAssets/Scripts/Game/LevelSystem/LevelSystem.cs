@@ -1,10 +1,9 @@
 using System.IO;
 using UnityEngine;
-public class LevelSystemV2 : MonoBehaviour
+public class LevelSystem : MonoBehaviour
 {
-    [SerializeField] GameObject platformBase, platformFight;
     [SerializeField] LoadControllerGame loadController;
-    [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
+    [SerializeField] LevelDisplay levelDisplay;
     [SerializeField] LoadLevelSystem loadLevelSystem;
     int currentLevel;
     public int CurrentLevel { get => currentLevel; set => currentLevel = value; }
@@ -12,15 +11,12 @@ public class LevelSystemV2 : MonoBehaviour
     {
         loadController = FindObjectOfType<LoadControllerGame>();
         loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
-        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
+        levelDisplay = FindObjectOfType<LevelDisplay>();
         GeneralSingleton.generalSingleton.MouseLock();
     }
     void Start()
     {
         ReadData();
-        platformBase.SetActive(true);
-        platformFight.SetActive(false);
-        ElementsHide();
     }
     void ReadData()
     {
@@ -41,21 +37,11 @@ public class LevelSystemV2 : MonoBehaviour
             }
         }
     }
-    void ElementsHide()
-    {
-        for (int i = 0; i < showLevelCaseV2.money.Length; i++)
-        {
-            showLevelCaseV2.money[i].SetActive(false);
-        }
-        for (int i = 0; i < showLevelCaseV2.enemy.Length; i++)
-        {
-            showLevelCaseV2.enemy[i].SetActive(false);
-        }
-    }
+
     protected internal void ChangeLevel()
     {
         currentLevel++;
-        showLevelCaseV2.ShowLevel(currentLevel);
+        levelDisplay.ShowLevel(currentLevel);
         Debug.Log("currentLevelChanged = " + currentLevel);
     }
 }

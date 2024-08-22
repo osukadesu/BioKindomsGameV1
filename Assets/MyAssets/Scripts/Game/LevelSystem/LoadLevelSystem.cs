@@ -3,22 +3,33 @@ using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
     [SerializeField] QuestGameObjects questGameObjects;
-    [SerializeField] LevelSystemV2 levelSystemV2;
-    [SerializeField] ShowLevelCaseV2 showLevelCaseV2;
+    [SerializeField] LevelSystem levelSystemV2;
+    [SerializeField] LevelDisplay levelDisplay;
     [SerializeField] EstanteColChecked estanteColChecked;
     [SerializeField] protected internal ItemObject[] itemObjects;
     [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
     void Awake()
     {
         questGameObjects = FindObjectOfType<QuestGameObjects>();
-        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
-        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
+        levelSystemV2 = FindObjectOfType<LevelSystem>();
+        levelDisplay = FindObjectOfType<LevelDisplay>();
         estanteColChecked = FindObjectOfType<EstanteColChecked>();
+    }
+    public void LoadSingletonQuest(int _level)
+    {
+        Action action = _level switch
+        {
+            12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21
+            or 22 or 23 or 24 or 25
+            => () => GoLoadSingletonQuest(),
+            _ => () => Debug.Log("Case default!"),
+        };
+        action();
     }
     protected internal void GoNewGame()
     {
         levelSystemV2.CurrentLevel = 1;
-        showLevelCaseV2.ShowLevel(levelSystemV2.CurrentLevel);
+        levelDisplay.ShowLevel(levelSystemV2.CurrentLevel);
         for (int i = 0; i < inventoryItemDataV2.Length; i++)
         {
             inventoryItemDataV2[i].itemIsCheck = false;
@@ -44,7 +55,7 @@ public class LoadLevelSystem : MonoBehaviour
     protected internal void SettingLevels(PlayerData playerData)
     {
         levelSystemV2.CurrentLevel = playerData.currentLevelData;
-        showLevelCaseV2.ShowLevel(levelSystemV2.CurrentLevel);
+        levelDisplay.ShowLevel(levelSystemV2.CurrentLevel);
     }
     protected internal void SettingKingdom(PlayerData playerData)
     {

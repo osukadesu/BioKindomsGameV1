@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveAndLoadManager
 {
-    public static void SaveLevel(LevelSystemV2 levelSystemV2)
+    public static void SaveLevel(LevelSystem levelSystemV2)
     {
         PlayerData playerData = new(levelSystemV2);
         string datapath = Application.persistentDataPath + "/level.data";
@@ -31,7 +31,7 @@ public static class SaveAndLoadManager
             return null;
         }
     }
-    public static void SaveGame(LevelSystemV2 levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
+    public static void SaveGame(LevelSystem levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
     {
         PlayerData playerData = new(levelSystemV2, inventoryItemDataV2);
         string datapath = Application.persistentDataPath + "/player.data";

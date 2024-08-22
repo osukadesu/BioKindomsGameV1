@@ -2,16 +2,16 @@ using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] protected InventoryItemDataV2 referenceItem;
-    [SerializeField] protected ShowLevelCaseV2 showLevelCaseV2;
-    [SerializeField] protected bool item, isNextLevel;
+    [SerializeField] protected LevelDisplay levelDisplay;
     [SerializeField] protected TextGralController textGralController;
+    [SerializeField] protected bool item, isNextLevel;
     protected string textMessage;
     public bool IsNextLevel { get => isNextLevel; set => isNextLevel = value; }
     void Awake()
     {
         AwakeCharge();
         textGralController = FindObjectOfType<TextGralController>();
-        showLevelCaseV2 = FindObjectOfType<ShowLevelCaseV2>();
+        levelDisplay = FindObjectOfType<LevelDisplay>();
     }
     void Update()
     {
@@ -32,7 +32,7 @@ public class ItemObject : MonoBehaviour
         {
             OnHandlePickUp();
             isNextLevel = true;
-            showLevelCaseV2.pedestalAnim.SetBool("pedestalShow", false);
+            levelDisplay.pedestalAnim.SetBool("pedestalShow", false);
         }
         else
         {

@@ -25,7 +25,7 @@ public class OpenDoorMessage : MonoBehaviour
             ,
             1 => () => { textInfo.HideText(); }
             ,
-            _ => throw new NotImplementedException(),
+            _ => () => Debug.Log("Default case!"),
         };
         action();
     }

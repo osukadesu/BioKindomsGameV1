@@ -5525,7 +5525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.98823535, a: 1}
+  m_Color: {r: 1, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5622,7 +5622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 580389332}
-  _infoViewController: {fileID: 0}
   infoKindomData: {fileID: 11400000, guid: 23b3d156e7506d44db73cce5556ee7a3, type: 2}
   textInfoAnimations: {fileID: 367903649}
   objec3D: {fileID: 236230466}
@@ -5645,6 +5644,7 @@ MonoBehaviour:
   textInfo2: {fileID: 306487857}
   textTitle: {fileID: 1621503475}
   textInfoKingdom: {fileID: 734769388}
+  topColor: {fileID: 357732705}
 --- !u!114 &367903649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19765,7 +19765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5db72711aebf9b54d9ac5e270f83c14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlotPrefab: {fileID: 260820904771722126, guid: 3ecebaab1c163ec43bf4e61fbce4bb20, type: 3}
 --- !u!114 &1261139763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22597,7 +22596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c94d8e6b3b0061458bfc015193de1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSlotPrefab: {fileID: 260820904771722126, guid: 3ecebaab1c163ec43bf4e61fbce4bb20, type: 3}
 --- !u!114 &1451785041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24328,7 +24326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9960785, g: 0.9960785, b: 0.9921569, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

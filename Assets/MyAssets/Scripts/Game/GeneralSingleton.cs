@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class GeneralSingleton : MonoBehaviour
 {
@@ -12,6 +13,16 @@ public class GeneralSingleton : MonoBehaviour
         MouseUnLock();
         CaseValue = -1;
         SaveAndLoadManager.LoadSingleton();
+    }
+    public void SetIscloseInfo(int _level)
+    {
+        Action action = _level switch
+        {
+            12 or 14 or 16 or 18 or 20 or 22 or 23
+            => () => iscloseInfo[_kingdomIndex] = false,
+            _ => () => Debug.Log("Case default!"),
+        };
+        action();
     }
     void Singleton()
     {

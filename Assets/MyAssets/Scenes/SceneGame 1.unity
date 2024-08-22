@@ -2150,10 +2150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 45482ddfaa62f05449b0b43f91c34bb8, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!1 &129784610
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,10 +2335,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 3a2d30af503016e468c56b4a279bc5b1, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!65 &130841925
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4946,10 +4946,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: f8934503241983b4882bc0bac5ca9933, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!65 &260445022
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5324,10 +5324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: a21dcff25c7fd9b4e8c5a83e26b470fd, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!65 &288253232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14736,10 +14736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 71a9096d1f025f14784ad73efb8eca16, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!1 &1077643324
 GameObject:
   m_ObjectHideFlags: 0
@@ -15713,10 +15713,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: d81fb7ef0adf5544cb36274561f62f72, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!65 &1142242188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17569,13 +17569,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259189125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010aef8557765154fb36a96140a1d25d, type: 3}
+  m_Script: {fileID: 11500000, guid: 06c4a16dd5411c84f85a65acedeb665a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  platformBase: {fileID: 919132149181104220}
-  platformFight: {fileID: 1904752006}
   loadController: {fileID: 1295979057}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
   loadLevelSystem: {fileID: 1259189129}
 --- !u!114 &1259189128
 MonoBehaviour:
@@ -17586,18 +17584,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259189125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b6068e973b1ba49b3c22ed724eec2a, type: 3}
+  m_Script: {fileID: 11500000, guid: c1746e126290890458aceca8f916f4e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGameObjects: {fileID: 1259189133}
-  enemyStats: {fileID: 1259189131}
-  playerPosition: {fileID: 1259189132}
-  notification: {fileID: 326398880}
   loadLevelSystem: {fileID: 1259189129}
-  alertModalManager: {fileID: 326398877}
   playerEstanteCol: {fileID: 354055304}
   shootLogic: {fileID: 354055303}
-  saveMethod: {fileID: 326398878}
+  alertModalManager: {fileID: 326398877}
   levelFight: {fileID: 1904752006}
   platformV2: {fileID: 919132149181104220}
   nextLevelAnim: {fileID: 303202174}
@@ -17639,7 +17632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questGameObjects: {fileID: 1259189133}
   levelSystemV2: {fileID: 1259189127}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
   estanteColChecked: {fileID: 386790165}
   itemObjects:
   - {fileID: 1142242187}
@@ -17675,7 +17668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8adf4c1c972bd5d44991862b9b5e682a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showLevelSystem: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
   shootLogic: {fileID: 354055303}
 --- !u!114 &1259189131
 MonoBehaviour:
@@ -17707,6 +17700,7 @@ MonoBehaviour:
   - {fileID: 771384784}
   - {fileID: 1097786764}
   playerEstanteCol: {fileID: 354055304}
+  levelSystemV2: {fileID: 0}
 --- !u!114 &1259189132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17720,6 +17714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMove: {fileID: 354055298}
+  levelSystemV2: {fileID: 1259189127}
   targetPlayerPosition:
   - {fileID: 1053376200}
   - {fileID: 809978271}
@@ -19544,10 +19539,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 0c31cc841d9f4564aa5e0f0f9bcee80c, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!1 &1408490225
 GameObject:
   m_ObjectHideFlags: 0
@@ -21120,10 +21115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 1433ce71251d7ae48814bd173c1535e9, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!1 &1512554234
 GameObject:
   m_ObjectHideFlags: 0
@@ -24478,10 +24473,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: c909bcae6b2f1cd44af30f3e9f6d34fb, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!65 &1771566316
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27699,10 +27694,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   referenceItem: {fileID: 11400000, guid: 8112307e147118544802df436de8305f, type: 2}
-  showLevelCaseV2: {fileID: 1259189128}
+  levelDisplay: {fileID: 1259189128}
+  textGralController: {fileID: 326398874}
   item: 0
   isNextLevel: 0
-  textGralController: {fileID: 326398874}
 --- !u!1 &2103682758
 GameObject:
   m_ObjectHideFlags: 0

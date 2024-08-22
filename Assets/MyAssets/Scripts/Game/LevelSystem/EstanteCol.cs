@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class EstanteCol : MonoBehaviour
 {
-    [SerializeField] LevelSystemV2 levelSystemV2;
+    [SerializeField] LevelSystem levelSystemV2;
     [SerializeField] InventoryItemDataV2 referenceItem;
     [SerializeField] TextGralController textInfo;
     string textMessage;
@@ -12,7 +12,7 @@ public class EstanteCol : MonoBehaviour
     [SerializeField] bool canpressG, canpressF;
     void Awake()
     {
-        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
+        levelSystemV2 = FindObjectOfType<LevelSystem>();
     }
     void Update()
     {

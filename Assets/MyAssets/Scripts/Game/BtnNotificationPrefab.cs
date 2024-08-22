@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class BtnNotificationPrefab : MonoBehaviour
 {
-    [SerializeField] LevelSystemV2 levelSystemV2;
+    [SerializeField] LevelSystem levelSystemV2;
     [SerializeField] Button btnGoto;
     void Awake()
     {
-        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
+        levelSystemV2 = FindObjectOfType<LevelSystem>();
         btnGoto.gameObject.SetActive(GeneralSingleton.generalSingleton.isBtnNotify);
         btnGoto.onClick.AddListener(Goto);
     }

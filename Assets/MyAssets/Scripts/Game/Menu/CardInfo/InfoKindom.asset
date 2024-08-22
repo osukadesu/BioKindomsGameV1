@@ -58,6 +58,20 @@ MonoBehaviour:
     las fiestas de navidad!"
   - "El alga uva marina es un alga verde submarina con bolitas verdes que parecen
     uvas. Se puede comer y es crujiente y salada. \xA1Es como un snack del mar!"
+  - "El Champi\xF1on es un hongo comestible que se usa en muchas comidas, tiene un
+    sombrerito redondo puede ser blanco o marr\xF3n. \xA1Es delicioso en pizzas y
+    ensaladas!"
+  - "La Amanita Muscaria es un hongo famoso por su aspecto llamativo, tiene un sombrero
+    rojo con puntos blancos. Es muy bonito, pero venenoso, as\xED que no se debe
+    tocar ni comer."
+  - "La Trufa es un hongo que crece bajo tierra, se parece a una peque\xF1a piedra
+    marr\xF3n y es muy valorado en la cocina por su sabor fuerte. \xA1Es un tesoro
+    escondido en el bosque!"
+  - El Moho es un hongo que crece en comida que se ha echado a perder. Aparece como
+    manchas verdes o negras en cosas viejas como pan o frutas. No es bueno comerlo.
+  - "La Levadura es un hongo microsc\xF3pico. Es tan peque\xF1o que no se ve a simple
+    vista, pero es muy importante en la cocina porque hace que el pan suba y sea
+    esponjoso. Tambi\xE9n se usa para fermentar bebidas como la cerveza."
   kindom:
   - {fileID: 2759885286018085369, guid: d736a7ada97799e4889406dd357d40ee, type: 3}
   - {fileID: 3108067785242569659, guid: 83859d580d49cc34ca835bc19dfd3d68, type: 3}

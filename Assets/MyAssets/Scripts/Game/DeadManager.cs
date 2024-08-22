@@ -1,7 +1,7 @@
 using UnityEngine;
 public abstract class DeadManager : MonoBehaviour
 {
-    [SerializeField] protected internal LevelSystemV2 levelSystemV2;
+    [SerializeField] protected internal LevelSystem levelSystemV2;
     [SerializeField] protected internal PlayerEstanteCol playerEstanteCol;
     [SerializeField] protected internal LifeController[] lifeControllerEnemy;
     [SerializeField] protected internal LifeController lifeControllerPlayer;
@@ -12,7 +12,7 @@ public abstract class DeadManager : MonoBehaviour
     void Awake()
     {
         enemyStateManager = FindObjectOfType<EnemyStateManager>();
-        levelSystemV2 = FindObjectOfType<LevelSystemV2>();
+        levelSystemV2 = FindObjectOfType<LevelSystem>();
         lifeControllerPlayer = GameObject.FindGameObjectWithTag("PlayerDamage").GetComponent<LifeController>();
         alertModalManager = FindObjectOfType<AlertModalManager>();
         shootLogic = FindObjectOfType<ShootLogic>();

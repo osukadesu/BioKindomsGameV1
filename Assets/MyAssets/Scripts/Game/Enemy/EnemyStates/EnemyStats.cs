@@ -9,6 +9,38 @@ public class EnemyStats : MonoBehaviour
     {
         playerEstanteCol = FindObjectOfType<PlayerEstanteCol>();
     }
+    public void SetKingdomStatsInLevel(int _level)
+    {
+        Action action = _level switch
+        {
+            2 => () => SetKingdomStats(0, 0),
+            4 => () => SetKingdomStats(0, 1),
+            6 => () => SetKingdomStats(0, 2),
+            8 => () => SetKingdomStats(0, 3),
+            10 => () => SetKingdomStats(0, 4),
+            13 => () => SetKingdomStats(1, 0),
+            15 => () => SetKingdomStats(1, 1),
+            17 => () => SetKingdomStats(1, 2),
+            19 => () => SetKingdomStats(1, 3),
+            21 => () => SetKingdomStats(1, 4),
+            24 => () => SetKingdomStats(2, 0),
+            _ => () => Debug.Log("Default case!"),
+        };
+        action();
+    }
+    void SetKingdomStats(int _enemyKingdom, int enemyIndex)
+    {
+        Action action = _enemyKingdom switch
+        {
+            0 => () => SetAnimalStats(enemyIndex),
+            1 => () => SetVegetalStats(enemyIndex),
+            2 => () => SetFungiStats(enemyIndex),
+            3 => () => SetProtistaStats(enemyIndex),
+            4 => () => SetMoneraStats(enemyIndex),
+            _ => () => Debug.Log("Default case!"),
+        };
+        action();
+    }
     public void SetAnimalStats(int _type)
     {
         Action action = _type switch
@@ -46,8 +78,6 @@ public class EnemyStats : MonoBehaviour
         ChangeDamage(_damage);
         ChangeAttackSpeedVegetal(_attackSpeed);
     }
-    /*
-    
     public void SetFungiStats(int _type)
     {
         Action action = _type switch
@@ -104,7 +134,6 @@ public class EnemyStats : MonoBehaviour
         ChangeAttackSpeed(_attackSpeed);
         ChangeWalkSpeed(_walkSpeed);
     }
-    */
     public float ChangeAttackSpeed(float _attackSpeed)
     {
         return enemyStateManager[playerEstanteCol.setId].attackSpeed = _attackSpeed;
