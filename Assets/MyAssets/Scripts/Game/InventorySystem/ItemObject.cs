@@ -1,11 +1,11 @@
 using UnityEngine;
 public class ItemObject : MonoBehaviour
 {
-    [SerializeField] protected InventoryItemDataV2 referenceItem;
-    [SerializeField] protected LevelDisplay levelDisplay;
-    [SerializeField] protected TextGralController textGralController;
-    [SerializeField] protected bool item, isNextLevel;
-    protected string textMessage;
+    [SerializeField] InventoryItemDataV2 referenceItem;
+    [SerializeField] LevelDisplay levelDisplay;
+    [SerializeField] TextGralController textGralController;
+    [SerializeField] bool item, isNextLevel;
+    string textMessage;
     public bool IsNextLevel { get => isNextLevel; set => isNextLevel = value; }
     void Awake()
     {

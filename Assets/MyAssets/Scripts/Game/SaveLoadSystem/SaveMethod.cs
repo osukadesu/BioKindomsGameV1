@@ -26,7 +26,7 @@ public class SaveMethod : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         SaveGame();
     }
-    protected internal void SaveGame()
+    void SaveGame()
     {
         SaveAndLoadManager.SaveGame(levelSystemV2, inventoryItemDataV2);
         SaveAndLoadManager.SaveLevel(levelSystemV2);

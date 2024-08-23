@@ -8,7 +8,7 @@ public class PlayerPosition : MonoBehaviour
     {
         playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
     }
-    public void SetPlayerPosition(int _index)
+    void SetPlayerPosition(int _index)
     {
         playerMove.transform.position = targetPlayerPosition[_index].position;
     }

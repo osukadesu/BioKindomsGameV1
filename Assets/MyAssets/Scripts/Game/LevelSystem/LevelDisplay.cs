@@ -13,7 +13,7 @@ public class LevelDisplay : MonoBehaviour
     [SerializeField] EnemyStats enemyStats;
     [SerializeField] GameObject levelFight, platformV2;
     [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
-    [SerializeField] protected internal GameObject[] enemy, money;
+    public GameObject[] enemy, money;
     [SerializeField] BoxCollider boxCollider;
     void Awake()
     {
@@ -41,7 +41,7 @@ public class LevelDisplay : MonoBehaviour
         for (int i = 0; i < money.Length; i++) { money[i].SetActive(false); }
         for (int i = 0; i < enemy.Length; i++) { enemy[i].SetActive(false); }
     }
-    protected internal void ShowLevel(int level)
+    public void ShowLevel(int level)
     {
         Action action = level switch
         {

@@ -21,10 +21,8 @@ public class OpenDoorMessage : MonoBehaviour
         yield return new WaitForSeconds(_time);
         Action action = _case switch
         {
-            0 => () => { textInfo.ShowText(text); }
-            ,
-            1 => () => { textInfo.HideText(); }
-            ,
+            0 => () => textInfo.ShowText(text),
+            1 => () => textInfo.HideText(),
             _ => () => Debug.Log("Default case!"),
         };
         action();

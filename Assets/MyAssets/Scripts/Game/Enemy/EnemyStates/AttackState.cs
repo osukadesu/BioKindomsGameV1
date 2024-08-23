@@ -8,19 +8,19 @@ public class AttackState : EnemyBaseState
         if (Vector3.Distance(enemyStateManager.player.position, transform.position) > 6f)
         {
             enemyStateManager.agent.speed = enemyStateManager.walkSpeed;
-            StopCoroutine(EnemyAttack());
+            StopCoroutine(EnemyAttack(false));
             enemyStateManager.SwitchState(enemyStateManager.walkingState);
         }
         else
         {
             enemyStateManager.agent.SetDestination(enemyStateManager.player.position);
             enemyStateManager.agent.speed = enemyStateManager.attackSpeed;
-            StartCoroutine(EnemyAttack());
+            StartCoroutine(EnemyAttack(true));
         }
     }
-    IEnumerator EnemyAttack()
+    IEnumerator EnemyAttack(bool _isAttack)
     {
         yield return new WaitForSeconds(1f);
-        enemiAnim.SetBool("attack", true);
+        enemiAnim.SetBool("attack", _isAttack);
     }
 }

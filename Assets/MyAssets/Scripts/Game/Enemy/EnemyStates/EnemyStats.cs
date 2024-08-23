@@ -13,6 +13,9 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _level switch
         {
+            2 or 4 or 6 or 8 or 10 or 13 or 15 or 17 or 19 or 21 or 24 or 6 or 28 or 30 or 32 or 35 or 37 or 39 or 41
+            or 43 or 46 or 48 or 50 or 52 or 54 => () => ForSetKingdomStats(),
+            /*
             2 => () => SetKingdomStats(0, 0),
             4 => () => SetKingdomStats(0, 1),
             6 => () => SetKingdomStats(0, 2),
@@ -38,9 +41,20 @@ public class EnemyStats : MonoBehaviour
             50 => () => SetKingdomStats(4, 2),
             52 => () => SetKingdomStats(4, 3),
             54 => () => SetKingdomStats(4, 4),
+            */
             _ => () => Debug.Log("Default case!"),
         };
         action();
+    }
+    void ForSetKingdomStats()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                SetKingdomStats(i, j);
+            }
+        }
     }
     void SetKingdomStats(int _enemyKingdom, int enemyIndex)
     {
@@ -55,7 +69,7 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetAnimalStats(int _type)
+    void SetAnimalStats(int _type)
     {
         Action action = _type switch
         {
@@ -68,13 +82,13 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetEnemyStatsAnimal(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsAnimal(int _damage, float _attackSpeed, float _walkSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
         ChangeWalkSpeed(_walkSpeed);
     }
-    public void SetVegetalStats(int _type)
+    void SetVegetalStats(int _type)
     {
         Action action = _type switch
         {
@@ -87,12 +101,12 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetEnemyStatsVegetal(int _damage, float _attackSpeed)
+    void SetEnemyStatsVegetal(int _damage, float _attackSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeedVegetal(_attackSpeed);
     }
-    public void SetFungiStats(int _type)
+    void SetFungiStats(int _type)
     {
         Action action = _type switch
         {
@@ -105,13 +119,13 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetEnemyStatsFungi(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsFungi(int _damage, float _attackSpeed, float _walkSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
         ChangeWalkSpeed(_walkSpeed);
     }
-    public void SetProtistaStats(int _type)
+    void SetProtistaStats(int _type)
     {
         Action action = _type switch
         {
@@ -124,12 +138,12 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetEnemyStatsProtista(int _damage, float _attackSpeed)
+    void SetEnemyStatsProtista(int _damage, float _attackSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
     }
-    public void SetMoneraStats(int _type)
+    void SetMoneraStats(int _type)
     {
         Action action = _type switch
         {
@@ -142,25 +156,25 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    public void SetEnemyStatsMonera(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsMonera(int _damage, float _attackSpeed, float _walkSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
         ChangeWalkSpeed(_walkSpeed);
     }
-    public float ChangeAttackSpeed(float _attackSpeed)
+    float ChangeAttackSpeed(float _attackSpeed)
     {
         return enemyStateManager[playerEstanteCol.setId].attackSpeed = _attackSpeed;
     }
-    public float ChangeAttackSpeedVegetal(float _attackSpeedVegetal)
+    float ChangeAttackSpeedVegetal(float _attackSpeedVegetal)
     {
         return _attackSpeedVegetal;
     }
-    public float ChangeWalkSpeed(float _walkSpeed)
+    float ChangeWalkSpeed(float _walkSpeed)
     {
         return enemyStateManager[playerEstanteCol.setId].walkSpeed = _walkSpeed;
     }
-    public float ChangeDamage(int newDamage)
+    float ChangeDamage(int newDamage)
     {
         return damagePlayer[playerEstanteCol.setId].daño = newDamage;
     }

@@ -6,8 +6,8 @@ public class LoadLevelSystem : MonoBehaviour
     [SerializeField] LevelSystem levelSystemV2;
     [SerializeField] LevelDisplay levelDisplay;
     [SerializeField] EstanteColChecked estanteColChecked;
-    [SerializeField] protected internal ItemObject[] itemObjects;
-    [SerializeField] protected internal InventoryItemDataV2[] inventoryItemDataV2;
+    [SerializeField] ItemObject[] itemObjects;
+    public InventoryItemDataV2[] inventoryItemDataV2;
     void Awake()
     {
         questGameObjects = FindObjectOfType<QuestGameObjects>();
@@ -24,7 +24,7 @@ public class LoadLevelSystem : MonoBehaviour
         };
         action();
     }
-    protected internal void GoNewGame()
+    public void GoNewGame()
     {
         levelSystemV2.CurrentLevel = 1;
         levelDisplay.ShowLevel(levelSystemV2.CurrentLevel);
@@ -36,55 +36,46 @@ public class LoadLevelSystem : MonoBehaviour
         GeneralSingleton.generalSingleton.CaseValue = -1;
         estanteColChecked.EstantesInitial();
     }
-    protected internal void GoLoadGame()
+    public void GoLoadGame()
     {
         PlayerData playerData = SaveAndLoadManager.LoadGame();
         SettingLevels(playerData);
         SettingKingdom(playerData);
         CheckingKingdom(playerData);
-        SetDestroyObject(levelSystemV2.CurrentLevel);
+        DestroyObjectsQuest(levelSystemV2.CurrentLevel);
         estanteColChecked.EstanteBool("estanteLoad");
     }
-    protected internal void GoLoadSingletonQuest()
+    void GoLoadSingletonQuest()
     {
         ScoreData scoreData = SaveScoreData.LoadScore();
         SetQuestSingleton(scoreData);
     }
-    protected internal void SettingLevels(PlayerData playerData)
+    void SettingLevels(PlayerData playerData)
     {
         levelSystemV2.CurrentLevel = playerData.currentLevelData;
         levelDisplay.ShowLevel(levelSystemV2.CurrentLevel);
     }
-    protected internal void SettingKingdom(PlayerData playerData)
+    void SettingKingdom(PlayerData playerData)
     {
         for (int i = 0; i < inventoryItemDataV2.Length; i++)
         {
             inventoryItemDataV2[i].itemIsCheck = playerData.kingdoms[i];
         }
     }
-    protected internal void CheckingKingdom(PlayerData playerData)
+    void CheckingKingdom(PlayerData playerData)
     {
         for (int i = 0; i < itemObjects.Length; i++)
         {
             if (playerData.kingdoms[i]) { itemObjects[i].OnHandlePickUpLoad(); }
         }
     }
-    protected internal void SetQuestSingleton(ScoreData scoreData)
+    void SetQuestSingleton(ScoreData scoreData)
     {
         GeneralSingleton.generalSingleton.endQuest = scoreData._endQuestV2;
         GeneralSingleton.generalSingleton.CaseValue = scoreData._caseValueV2;
     }
-    protected internal void SetDestroyObject(int _value)
+    void DestroyObjectsQuest(int _value)
     {
-        Action action = _value switch
-        {
-            12 => () => questGameObjects.DestroyingObjects(0),
-            23 => () => questGameObjects.DestroyingObjects(1),
-            34 => () => questGameObjects.DestroyingObjects(2),
-            45 => () => questGameObjects.DestroyingObjects(3),
-            56 => () => questGameObjects.DestroyingObjects(4),
-            _ => () => Debug.Log(" SetDestroyObject case default!"),
-        };
-        action();
+        questGameObjects.DestroyObjects(_value);
     }
 }

@@ -13,7 +13,7 @@ public class LearnedInfo : MonoBehaviour
     [SerializeField] Transform transform3D;
     [SerializeField] Button btnClose, btnBack, btnInfoText1, btnInfoText2, btnKingdomContent;
     [SerializeField] Text textName, text2, textInfo, textInfo2, textTitle, textInfoKingdom;
-    [SerializeField] Image topColor;
+    [SerializeField] Image topColor, contentColorItem, contentColorKingdom, contentText, btnKingdom;
     void Awake()
     {
         objec3D = GameObject.FindGameObjectWithTag("object3D").GetComponent<GameObject>();
@@ -161,30 +161,50 @@ public class LearnedInfo : MonoBehaviour
             case 0:
                 textTitle.color = new Color(0, 0, 0);
                 topColor.color = new Color(1, 1, 0);
+                contentColorItem.color = new Color(1, 1, .8f);
+                contentColorKingdom.color = new Color(1, 1, .8f);
+                contentText.color = new Color(1, 1, .8f);
+                btnKingdom.color = new Color(1, 1, .8f);
                 textTitle.text = "Reino Animal"; SetImageK(0);
                 textInfoKingdom.text = "El reino animal, también conocido como reino Animalia, es uno de los principales grupos de organismos vivos en la Tierra. Está compuesto por una amplia variedad de seres vivos, desde invertebrados como insectos y gusanos, hasta vertebrados como peces, aves, mamíferos y reptiles.";
                 break;
             case 1:
                 textTitle.color = new Color(1, 1, 1);
                 topColor.color = new Color(0, 1, 0);
+                contentColorItem.color = new Color(.8f, 1, .8f);
+                contentColorKingdom.color = new Color(.8f, 1, .8f);
+                contentText.color = new Color(.8f, 1, .8f);
+                btnKingdom.color = new Color(.8f, 1, .8f);
                 textTitle.text = "Reino Vegetal"; SetImageK(1);
                 textInfoKingdom.text = "El reino vegetal está formado por plantas, como los árboles, las flores y las hierbas. Estas plantas hacen su propia comida usando la luz del sol en un proceso llamado fotosíntesis. Las plantas son muy importantes porque nos dan aire fresco para respirar y son el principio de la cadena de alimentos.";
                 break;
             case 2:
                 textTitle.color = new Color(1, 1, 1);
                 topColor.color = new Color(1, .5f, 0);
+                contentColorItem.color = new Color(1, .8f, .8f);
+                contentColorKingdom.color = new Color(1, .8f, .8f);
+                contentText.color = new Color(1, .8f, .8f);
+                btnKingdom.color = new Color(1, .8f, .8f);
                 textTitle.text = "Reino Fungi"; SetImageK(2);
                 textInfoKingdom.text = "El reino fungi son diferentes de las plantas y los animales. Los hongos no hacen su propia comida como las plantas, en su lugar, obtienen nutrientes descomponiendo materia orgánica. Los hongos son útiles para descomponer cosas en la naturaleza y algunos son comestibles.";
                 break;
             case 3:
                 textTitle.color = new Color(1, 1, 1);
                 topColor.color = new Color(0, 0, 1);
+                contentColorItem.color = new Color(.8f, .8f, 1);
+                contentColorKingdom.color = new Color(.8f, .8f, 1);
+                contentText.color = new Color(.8f, .8f, 1);
+                btnKingdom.color = new Color(.8f, .8f, 1);
                 textTitle.text = "Reino Protista"; SetImageK(3);
                 textInfoKingdom.text = "El reino protista es como una mezcla de diferentes tipos de seres vivos. Aquí encontramos organismos unicelulares y algunos pocos multicelulares. Los protistas viven en el agua y pueden ser muy pequeños. Los protistas son variados y únicos en su forma y forma de vida.";
                 break;
             case 4:
                 textTitle.color = new Color(1, 1, 1);
                 topColor.color = new Color(1, 0, 0);
+                contentColorItem.color = new Color(1, .8f, .8f);
+                contentColorKingdom.color = new Color(1, .8f, .8f);
+                contentText.color = new Color(1, .8f, .8f);
+                btnKingdom.color = new Color(1, .8f, .8f);
                 textTitle.text = "Reino Monera"; SetImageK(4);
                 textInfoKingdom.text = "El reino monera se compone principalmente de bacterias. Estos son seres microscópicos sin núcleo definido en sus células. Las bacterias se pueden encontrar en todas partes, algunas bacterias son útiles, como las que nos ayudan a digerir los alimentos,otras pueden causar enfermedades.";
                 break;

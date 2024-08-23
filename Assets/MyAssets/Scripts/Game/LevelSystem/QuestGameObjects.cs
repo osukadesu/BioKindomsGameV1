@@ -40,7 +40,7 @@ public class QuestGameObjects : MonoBehaviour
         };
         action();
     }
-    public void SwitchQuestExitKing(int _value)
+    void SwitchQuestExitKing(int _value)
     {
         Action action = _value switch
         {
@@ -108,7 +108,7 @@ public class QuestGameObjects : MonoBehaviour
         };
         action();
     }
-    public void SetQuestExitKing(int _index, bool _bool)
+    void SetQuestExitKing(int _index, bool _bool)
     {
         questKing[_index].SetActive(_bool);
         exitQuest[_index].SetActive(GeneralSingleton.generalSingleton.endQuest);

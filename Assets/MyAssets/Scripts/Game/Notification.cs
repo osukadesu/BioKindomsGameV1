@@ -79,11 +79,7 @@ public class Notification : MonoBehaviour
     void DoubleNotifys(string _notify1, bool _isBtnNotify1, string _notify2, bool _isBtnNotify2)
     {
         AddNotification(_notify1, _isBtnNotify1);
-        SetWaitForNotify(_notify2, _isBtnNotify2);
-    }
-    public void SetWaitForNotify(string _message, bool _isBtnNotify)
-    {
-        StartCoroutine(WaitForNotify(_message, _isBtnNotify));
+        StartCoroutine(WaitForNotify(_notify2, _isBtnNotify2));
     }
     IEnumerator WaitForNotify(string _message, bool _isBtnNotify)
     {

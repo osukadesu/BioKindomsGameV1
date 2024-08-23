@@ -6,7 +6,6 @@ public class TextGralController : MonoBehaviour
 {
     [SerializeField] Animator txtAnim;
     [SerializeField] Text textGral;
-
     public void ShowText(string message)
     {
         textGral.text = message;

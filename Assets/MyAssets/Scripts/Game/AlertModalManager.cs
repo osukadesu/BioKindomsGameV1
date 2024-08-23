@@ -52,7 +52,7 @@ public class AlertModalManager : MonoBehaviour
         alertModalAnimator.SetBool("alertmodal", false);
         ResumeGame();
     }
-    protected internal void AlertInfo(string textAI)
+    public void AlertInfo(string textAI)
     {
         StartCoroutine(AlertInfoMethod(textAI));
     }
@@ -70,11 +70,11 @@ public class AlertModalManager : MonoBehaviour
         txtInfoAlert.fontSize = 22;
         txtInfoAlert.text = textST;
     }
-    protected internal void HideText()
+    public void HideText()
     {
         alertModalAnimator.SetBool("alertmodal", false);
     }
-    protected internal void PauseGame()
+    void PauseGame()
     {
         Time.timeScale = 0f;
     }

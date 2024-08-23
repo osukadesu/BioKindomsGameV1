@@ -5,11 +5,6 @@ public class EstanteColChecked : MonoBehaviour
     [SerializeField] Animator[] CheckEstante;
     [SerializeField] InventoryItemDataV2[] inventoryItemDataV2;
     [SerializeField] GameObject[] itemKindom;
-    [SerializeField] LoadControllerGame loadController;
-    void Awake()
-    {
-        loadController = FindObjectOfType<LoadControllerGame>();
-    }
     void Update()
     {
         string datapath = Application.persistentDataPath + "/player.data";

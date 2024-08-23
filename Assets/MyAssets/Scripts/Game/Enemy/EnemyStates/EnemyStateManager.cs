@@ -8,7 +8,7 @@ public class EnemyStateManager : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public float walkSpeed, attackSpeed;
-    public void Start()
+    void Start()
     {
         currentState = walkingState;
     }

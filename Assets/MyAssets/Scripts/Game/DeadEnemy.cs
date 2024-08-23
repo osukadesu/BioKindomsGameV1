@@ -61,7 +61,7 @@ public class DeadEnemy : DeadManager
     {
         for (int i = 0; i < lifeControllerEnemy.Length; i++)
         {
-            enemyStateManager.agent.speed = 0;
+            enemyStateManager[playerEstanteCol.setId].agent.speed = 0;
             lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(true);
             lifeControllerEnemy[i].currentLife = 100;
         }
