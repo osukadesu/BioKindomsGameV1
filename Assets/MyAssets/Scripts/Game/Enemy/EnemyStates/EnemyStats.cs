@@ -13,10 +13,6 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _level switch
         {
-            /*
-            2 or 4 or 6 or 8 or 10 or 13 or 15 or 17 or 19 or 21 or 24 or 6 or 28 or 30 or 32 or 35 or 37 or 39 or 41
-            or 43 or 46 or 48 or 50 or 52 or 54 => () => ForSetKingdomStats(),
-            */
             2 => () => SetKingdomStats(0, 0),
             4 => () => SetKingdomStats(0, 1),
             6 => () => SetKingdomStats(0, 2),
