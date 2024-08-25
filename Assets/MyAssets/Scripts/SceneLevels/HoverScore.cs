@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class HoverScore : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class HoverScore : MonoBehaviour//, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] Animator scoreHover;
+    /*
     void Start()
     {
         scoreHover.SetBool("showinfoscore", false);
@@ -15,4 +16,5 @@ public class HoverScore : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         scoreHover.SetBool("showinfoscore", false);
     }
+    */
 }

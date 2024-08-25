@@ -66,9 +66,8 @@ public class MenuButtons : MonoBehaviour
         {
             GeneralSingleton.generalSingleton.isFirtsTime = false;
             GeneralSingleton.generalSingleton.wasFirtsTime = true;
-            SaveAndLoadManager.SaveSingleton(GeneralSingleton.generalSingleton);
+            //SaveAndLoadManager.SaveSingleton(GeneralSingleton.generalSingleton);
         }
-
         GeneralSingleton.generalSingleton.isLoadGame = false;
         GeneralSingleton.generalSingleton.isMyProfile = true;
         SceneManager.LoadScene(3);

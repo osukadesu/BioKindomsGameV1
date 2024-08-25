@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class LoadProfile : MonoBehaviour
@@ -37,19 +36,20 @@ public class LoadProfile : MonoBehaviour
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
         ScoreData scoreData = SaveScoreData.LoadScore();
         SettingLevelsSelect(playerData, true);
-        SettScore(scoreData);
+        SetScore(scoreData);
     }
     protected internal void SettingLevelsSelect(PlayerData playerData, bool isLoad)
     {
         levelSelect.currentLevel = playerData.currentLevelData;
         levelSelect.ShowLevel(levelSelect.currentLevel, isLoad);
     }
-    public void SettScore(ScoreData scoreData)
+    public void SetScore(ScoreData scoreData)
     {
         for (int i = 0; i < 5; i++)
         {
             num[i] = scoreData.score[i];
             GeneralSingleton.generalSingleton._num[i] = scoreData.score[i];
+            GeneralSingleton.generalSingleton.endQuest[i] = scoreData.endQuest[i];
         }
         for (int i = 0; i < txtScore.Length; i++)
         {

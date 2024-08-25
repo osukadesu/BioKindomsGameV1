@@ -2549,7 +2549,6 @@ GameObject:
   - component: {fileID: 168309709}
   - component: {fileID: 168309708}
   - component: {fileID: 168309707}
-  - component: {fileID: 168309706}
   - component: {fileID: 168309705}
   m_Layer: 0
   m_Name: Estante2
@@ -2593,19 +2592,6 @@ MonoBehaviour:
   id: 21
   canpressG: 0
   canpressF: 0
---- !u!65 &168309706
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168309703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &168309707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4533,7 +4519,6 @@ GameObject:
   - component: {fileID: 238379296}
   - component: {fileID: 238379295}
   - component: {fileID: 238379294}
-  - component: {fileID: 238379293}
   - component: {fileID: 238379292}
   m_Layer: 0
   m_Name: Estante3
@@ -4578,19 +4563,6 @@ MonoBehaviour:
   id: 7
   canpressG: 0
   canpressF: 0
---- !u!65 &238379293
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 238379290}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &238379294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4727,8 +4699,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245214407}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -5.89986, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.80769217, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -5567,7 +5539,6 @@ GameObject:
   - component: {fileID: 302656458}
   - component: {fileID: 302656457}
   - component: {fileID: 302656456}
-  - component: {fileID: 302656455}
   - component: {fileID: 302656454}
   m_Layer: 0
   m_Name: Estante3
@@ -5611,19 +5582,6 @@ MonoBehaviour:
   id: 12
   canpressG: 0
   canpressF: 0
---- !u!65 &302656455
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302656452}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &302656456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6167,7 +6125,6 @@ GameObject:
   - component: {fileID: 310342602}
   - component: {fileID: 310342601}
   - component: {fileID: 310342600}
-  - component: {fileID: 310342599}
   - component: {fileID: 310342598}
   m_Layer: 0
   m_Name: Estante3
@@ -6212,19 +6169,6 @@ MonoBehaviour:
   id: 2
   canpressG: 0
   canpressF: 0
---- !u!65 &310342599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310342596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &310342600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6335,7 +6279,12 @@ MonoBehaviour:
   alertModalManager: {fileID: 326398877}
   shootLogic: {fileID: 354055303}
   levelWinMethod: {fileID: 1259189130}
-  enemyStateManager: []
+  enemyStateManager:
+  - {fileID: 784976924}
+  - {fileID: 1150172674}
+  - {fileID: 203013295}
+  - {fileID: 178252865}
+  - {fileID: 104112165}
 --- !u!114 &315976524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6864,7 +6813,6 @@ GameObject:
   - component: {fileID: 336138169}
   - component: {fileID: 336138168}
   - component: {fileID: 336138167}
-  - component: {fileID: 336138166}
   - component: {fileID: 336138165}
   m_Layer: 0
   m_Name: Estante4
@@ -6909,19 +6857,6 @@ MonoBehaviour:
   id: 8
   canpressG: 0
   canpressF: 0
---- !u!65 &336138166
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 336138163}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &336138167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7467,7 +7402,6 @@ GameObject:
   - component: {fileID: 388040911}
   - component: {fileID: 388040910}
   - component: {fileID: 388040909}
-  - component: {fileID: 388040908}
   - component: {fileID: 388040907}
   m_Layer: 0
   m_Name: Estante1
@@ -7511,19 +7445,6 @@ MonoBehaviour:
   id: 20
   canpressG: 0
   canpressF: 0
---- !u!65 &388040908
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388040905}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &388040909
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7876,8 +7797,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428844469}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 9.91, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.807692, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -8293,7 +8214,6 @@ GameObject:
   - component: {fileID: 471760313}
   - component: {fileID: 471760312}
   - component: {fileID: 471760311}
-  - component: {fileID: 471760310}
   - component: {fileID: 471760309}
   m_Layer: 0
   m_Name: Estante4
@@ -8338,19 +8258,6 @@ MonoBehaviour:
   id: 3
   canpressG: 0
   canpressF: 0
---- !u!65 &471760310
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471760307}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &471760311
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8577,8 +8484,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482977741}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 25.90042, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.80769193, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -9185,7 +9092,6 @@ GameObject:
   - component: {fileID: 550469997}
   - component: {fileID: 550469996}
   - component: {fileID: 550469995}
-  - component: {fileID: 550469994}
   - component: {fileID: 550469993}
   m_Layer: 0
   m_Name: Estante5
@@ -9229,19 +9135,6 @@ MonoBehaviour:
   id: 14
   canpressG: 0
   canpressF: 0
---- !u!65 &550469994
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 550469991}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &550469995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9375,7 +9268,6 @@ GameObject:
   - component: {fileID: 600470533}
   - component: {fileID: 600470532}
   - component: {fileID: 600470531}
-  - component: {fileID: 600470530}
   - component: {fileID: 600470529}
   m_Layer: 0
   m_Name: Estante1
@@ -9419,19 +9311,6 @@ MonoBehaviour:
   id: 10
   canpressG: 0
   canpressF: 0
---- !u!65 &600470530
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600470527}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &600470531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10281,7 +10160,6 @@ GameObject:
   - component: {fileID: 681225376}
   - component: {fileID: 681225375}
   - component: {fileID: 681225374}
-  - component: {fileID: 681225373}
   - component: {fileID: 681225372}
   m_Layer: 0
   m_Name: Estante2
@@ -10325,19 +10203,6 @@ MonoBehaviour:
   id: 11
   canpressG: 0
   canpressF: 0
---- !u!65 &681225373
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681225370}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &681225374
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11425,7 +11290,6 @@ GameObject:
   - component: {fileID: 775691153}
   - component: {fileID: 775691152}
   - component: {fileID: 775691151}
-  - component: {fileID: 775691150}
   - component: {fileID: 775691149}
   m_Layer: 0
   m_Name: Estante5
@@ -11470,19 +11334,6 @@ MonoBehaviour:
   id: 9
   canpressG: 0
   canpressF: 0
---- !u!65 &775691150
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775691147}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &775691151
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12283,7 +12134,6 @@ GameObject:
   - component: {fileID: 855370940}
   - component: {fileID: 855370939}
   - component: {fileID: 855370938}
-  - component: {fileID: 855370937}
   - component: {fileID: 855370936}
   m_Layer: 0
   m_Name: Estante2
@@ -12328,19 +12178,6 @@ MonoBehaviour:
   id: 1
   canpressG: 0
   canpressF: 0
---- !u!65 &855370937
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855370934}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &855370938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12727,7 +12564,6 @@ GameObject:
   - component: {fileID: 887426203}
   - component: {fileID: 887426202}
   - component: {fileID: 887426201}
-  - component: {fileID: 887426200}
   - component: {fileID: 887426199}
   m_Layer: 0
   m_Name: Estante2
@@ -12772,19 +12608,6 @@ MonoBehaviour:
   id: 6
   canpressG: 0
   canpressF: 0
---- !u!65 &887426200
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 887426197}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &887426201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13102,7 +12925,6 @@ GameObject:
   - component: {fileID: 921353641}
   - component: {fileID: 921353640}
   - component: {fileID: 921353639}
-  - component: {fileID: 921353638}
   - component: {fileID: 921353637}
   m_Layer: 0
   m_Name: Estante4
@@ -13146,19 +12968,6 @@ MonoBehaviour:
   id: 23
   canpressG: 0
   canpressF: 0
---- !u!65 &921353638
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921353635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &921353639
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15270,7 +15079,6 @@ GameObject:
   - component: {fileID: 1114478092}
   - component: {fileID: 1114478091}
   - component: {fileID: 1114478090}
-  - component: {fileID: 1114478089}
   - component: {fileID: 1114478088}
   m_Layer: 0
   m_Name: Estante3
@@ -15314,19 +15122,6 @@ MonoBehaviour:
   id: 17
   canpressG: 0
   canpressF: 0
---- !u!65 &1114478089
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114478086}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1114478090
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17331,8 +17126,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251418326}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.000097935015, y: 0, z: 9.98}
-  m_LocalScale: {x: 0.8076921, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -17779,7 +17574,6 @@ GameObject:
   - component: {fileID: 1261866036}
   - component: {fileID: 1261866035}
   - component: {fileID: 1261866034}
-  - component: {fileID: 1261866033}
   - component: {fileID: 1261866032}
   m_Layer: 0
   m_Name: Estante1
@@ -17824,19 +17618,6 @@ MonoBehaviour:
   id: 5
   canpressG: 0
   canpressF: 0
---- !u!65 &1261866033
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261866030}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1261866034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18877,7 +18658,6 @@ GameObject:
   - component: {fileID: 1327320555}
   - component: {fileID: 1327320554}
   - component: {fileID: 1327320553}
-  - component: {fileID: 1327320552}
   - component: {fileID: 1327320551}
   m_Layer: 0
   m_Name: Estante5
@@ -18921,19 +18701,6 @@ MonoBehaviour:
   id: 24
   canpressG: 0
   canpressF: 0
---- !u!65 &1327320552
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327320549}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1327320553
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19101,8 +18868,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1337394505}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.000097935015, y: 0, z: 5.900372}
-  m_LocalScale: {x: 0.8076921, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -20384,7 +20151,6 @@ GameObject:
   - component: {fileID: 1482149286}
   - component: {fileID: 1482149285}
   - component: {fileID: 1482149284}
-  - component: {fileID: 1482149283}
   - component: {fileID: 1482149282}
   m_Layer: 0
   m_Name: Estante1
@@ -20429,19 +20195,6 @@ MonoBehaviour:
   id: 0
   canpressG: 0
   canpressF: 0
---- !u!65 &1482149283
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1482149280}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1482149284
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20647,8 +20400,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497055623}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 25.90042, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.80769193, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -21733,7 +21486,6 @@ GameObject:
   - component: {fileID: 1556319106}
   - component: {fileID: 1556319105}
   - component: {fileID: 1556319104}
-  - component: {fileID: 1556319103}
   - component: {fileID: 1556319102}
   m_Layer: 0
   m_Name: Estante5
@@ -21777,19 +21529,6 @@ MonoBehaviour:
   id: 19
   canpressG: 0
   canpressF: 0
---- !u!65 &1556319103
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1556319100}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1556319104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21986,7 +21725,6 @@ GameObject:
   - component: {fileID: 1557558567}
   - component: {fileID: 1557558566}
   - component: {fileID: 1557558565}
-  - component: {fileID: 1557558564}
   - component: {fileID: 1557558563}
   m_Layer: 0
   m_Name: Estante4
@@ -22030,19 +21768,6 @@ MonoBehaviour:
   id: 18
   canpressG: 0
   canpressF: 0
---- !u!65 &1557558564
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557558561}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1557558565
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22457,7 +22182,6 @@ GameObject:
   - component: {fileID: 1623412141}
   - component: {fileID: 1623412140}
   - component: {fileID: 1623412139}
-  - component: {fileID: 1623412138}
   - component: {fileID: 1623412137}
   m_Layer: 0
   m_Name: Estante5
@@ -22502,19 +22226,6 @@ MonoBehaviour:
   id: 4
   canpressG: 0
   canpressF: 0
---- !u!65 &1623412138
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623412135}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1623412139
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23778,7 +23489,6 @@ GameObject:
   - component: {fileID: 1742527331}
   - component: {fileID: 1742527330}
   - component: {fileID: 1742527329}
-  - component: {fileID: 1742527328}
   - component: {fileID: 1742527327}
   m_Layer: 0
   m_Name: Estante1
@@ -23822,19 +23532,6 @@ MonoBehaviour:
   id: 15
   canpressG: 0
   canpressF: 0
---- !u!65 &1742527328
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1742527325}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1742527329
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23910,7 +23607,6 @@ GameObject:
   - component: {fileID: 1744518869}
   - component: {fileID: 1744518868}
   - component: {fileID: 1744518867}
-  - component: {fileID: 1744518866}
   - component: {fileID: 1744518865}
   m_Layer: 0
   m_Name: Estante4
@@ -23954,19 +23650,6 @@ MonoBehaviour:
   id: 13
   canpressG: 0
   canpressF: 0
---- !u!65 &1744518866
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1744518863}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &1744518867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25531,7 +25214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1904752007
 Transform:
   m_ObjectHideFlags: 0
@@ -25992,8 +25675,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967265476}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -9.79, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.80769217, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -27116,7 +26799,6 @@ GameObject:
   - component: {fileID: 2034993392}
   - component: {fileID: 2034993391}
   - component: {fileID: 2034993390}
-  - component: {fileID: 2034993389}
   - component: {fileID: 2034993388}
   m_Layer: 0
   m_Name: Estante2
@@ -27160,19 +26842,6 @@ MonoBehaviour:
   id: 16
   canpressG: 0
   canpressF: 0
---- !u!65 &2034993389
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034993386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &2034993390
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27552,8 +27221,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079153617}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 5.9000554, y: 0, z: 0.00041448153}
-  m_LocalScale: {x: 0.807692, y: 1.6153847, z: 0.80769235}
+  m_LocalPosition: {x: 0.05692519, y: -0.17230842, z: 2.2307682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 543450653706722022}
@@ -27971,7 +27640,6 @@ GameObject:
   - component: {fileID: 2124882947}
   - component: {fileID: 2124882946}
   - component: {fileID: 2124882945}
-  - component: {fileID: 2124882944}
   - component: {fileID: 2124882943}
   m_Layer: 0
   m_Name: Estante3
@@ -28015,19 +27683,6 @@ MonoBehaviour:
   id: 22
   canpressG: 0
   canpressF: 0
---- !u!65 &2124882944
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124882941}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.05, z: 0.02}
-  m_Center: {x: -0.00000011920929, y: -0.00000011920929, z: -0.000000011175871}
 --- !u!65 &2124882945
 BoxCollider:
   m_ObjectHideFlags: 0

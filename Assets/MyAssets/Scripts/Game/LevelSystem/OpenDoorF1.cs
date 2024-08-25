@@ -13,7 +13,6 @@ public class OpenDoorF1 : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("cAN OPEN FUNGI" + canOpen);
         if (other.gameObject.CompareTag("Player") && canOpen)
         {
             openDoorAnim.SetBool("openDoor", true);
@@ -21,8 +20,7 @@ public class OpenDoorF1 : MonoBehaviour
         }
         else
         {
-            openDoorAnim.SetBool("openDoor", false);
-            openDoorMessage.SetMessage(0, 0f);
+            openDoorMessage.SetMessage(1, .2f);
         }
     }
     void OnTriggerExit(Collider other)

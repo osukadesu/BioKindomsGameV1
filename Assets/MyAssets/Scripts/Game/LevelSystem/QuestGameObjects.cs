@@ -3,6 +3,29 @@ using UnityEngine;
 public class QuestGameObjects : MonoBehaviour
 {
     [SerializeField] protected internal GameObject[] questKing, exitQuest, changeLevel;
+    void Start()
+    {
+        for (int i = 0; i < changeLevel.Length; i++)
+        { changeLevel[i].SetActive(false); }
+    }
+    public void DestroyAndChangeLevel(int _level)
+    {
+        Action action = _level switch
+        {
+            11 => () => SetDestroyAndChangeLevel(0),
+            22 => () => SetDestroyAndChangeLevel(1),
+            33 => () => SetDestroyAndChangeLevel(2),
+            44 => () => SetDestroyAndChangeLevel(3),
+            55 => () => SetDestroyAndChangeLevel(4),
+            _ => () => Debug.Log("DestroyingObjetc case default!"),
+        };
+        action();
+    }
+    public void SetDestroyAndChangeLevel(int _index)
+    {
+        Destroy(questKing[_index], .2f);
+        changeLevel[_index].SetActive(true);
+    }
     public void DestroyObjects(int _level)
     {
         Action action = _level switch
@@ -52,46 +75,53 @@ public class QuestGameObjects : MonoBehaviour
             1 => () =>
             {
                 SetQuestExitKing(0, true);
-                SetQuestExitKing(1, false);
-                SetQuestExitKing(2, false);
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 1; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+
+                }
             }
             ,
             2 => () =>
             {
-                SetQuestExitKing(1, false);
-                SetQuestExitKing(2, false);
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 1; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+                }
             }
             ,
             3 => () =>
             {
                 SetQuestExitKing(1, true);
-                SetQuestExitKing(2, false);
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 2; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+                }
             }
             ,
             4 => () =>
             {
-                SetQuestExitKing(2, false);
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 2; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+                }
             }
             ,
             5 => () =>
             {
                 SetQuestExitKing(2, true);
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 3; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+                }
             }
             ,
             6 => () =>
             {
-                SetQuestExitKing(3, false);
-                SetQuestExitKing(4, false);
+                for (int i = 3; i < 5; i++)
+                {
+                    SetQuestExitKing(i, false);
+                }
             }
             ,
             7 => () =>
@@ -111,6 +141,6 @@ public class QuestGameObjects : MonoBehaviour
     void SetQuestExitKing(int _index, bool _bool)
     {
         questKing[_index].SetActive(_bool);
-        exitQuest[_index].SetActive(GeneralSingleton.generalSingleton.endQuest);
+        exitQuest[_index].SetActive(GeneralSingleton.generalSingleton.endQuest[_index]);
     }
 }

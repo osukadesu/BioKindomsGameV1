@@ -42,39 +42,19 @@ public class Notification : MonoBehaviour
                 { AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true); }
             }
             ,
-            11 => () =>
-            {
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                { DoubleNotifys("Felicidades haz completado el reino Animal!", false, "Ahora ve al reino vegetal!", false); }
-            }
-            ,
-            22 => () =>
-            {
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                { DoubleNotifys("Felicidades haz completado el reino Vegetal!", false, "Ahora ve al reino Fungi!", false); }
-            }
-            ,
-            33 => () =>
-            {
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                { DoubleNotifys("Felicidades haz completado el reino Fungi!", false, "Ahora ve al reino Protista!", false); }
-            }
-            ,
-            44 => () =>
-            {
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                { DoubleNotifys("Felicidades haz completado el reino Protista!", false, "Ahora ve al reino Monera!", false); }
-            }
-            ,
-            55 => () =>
-            {
-                if (!GeneralSingleton.generalSingleton.endQuest)
-                { DoubleNotifys("Felicidades haz completado el reino Monera!", false, "Haz terminado el juego!", false); }
-            }
-            ,
+            11 => () => SetDoubleNotification(0, "Animal!", "Ahora ve al reino vegetal!"),
+            22 => () => SetDoubleNotification(1, "Vegetal!", "Ahora ve al reino Fungi!"),
+            33 => () => SetDoubleNotification(2, "Fungi!", "Ahora ve al reino Protista!"),
+            44 => () => SetDoubleNotification(3, "Protista!", "Ahora ve al reino Monera!"),
+            55 => () => SetDoubleNotification(4, "Monera!", "Haz terminado el juego!"),
             _ => () => Debug.Log("Case Default"),
         };
         action();
+    }
+    void SetDoubleNotification(int _index, string _kingdom, string _endMessagge)
+    {
+        if (!GeneralSingleton.generalSingleton.endQuest[_index])
+        { DoubleNotifys("Felicidades haz completado el reino " + _kingdom, false, _endMessagge, false); }
     }
     void DoubleNotifys(string _notify1, bool _isBtnNotify1, string _notify2, bool _isBtnNotify2)
     {

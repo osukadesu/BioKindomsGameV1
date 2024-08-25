@@ -32,7 +32,10 @@ public class LoadLevelSystem : MonoBehaviour
         {
             inventoryItemDataV2[i].itemIsCheck = false;
         }
-        GeneralSingleton.generalSingleton.endQuest = false;
+        for (int i = 0; i < 5; i++)
+        {
+            GeneralSingleton.generalSingleton.endQuest[i] = false;
+        }
         GeneralSingleton.generalSingleton.CaseValue = -1;
         estanteColChecked.EstantesInitial();
     }
@@ -42,7 +45,7 @@ public class LoadLevelSystem : MonoBehaviour
         SettingLevels(playerData);
         SettingKingdom(playerData);
         CheckingKingdom(playerData);
-        DestroyObjectsQuest(levelSystemV2.CurrentLevel);
+        questGameObjects.DestroyObjects(levelSystemV2.CurrentLevel);
         estanteColChecked.EstanteBool("estanteLoad");
     }
     void GoLoadSingletonQuest()
@@ -71,11 +74,10 @@ public class LoadLevelSystem : MonoBehaviour
     }
     void SetQuestSingleton(ScoreData scoreData)
     {
-        GeneralSingleton.generalSingleton.endQuest = scoreData._endQuestV2;
-        GeneralSingleton.generalSingleton.CaseValue = scoreData._caseValueV2;
-    }
-    void DestroyObjectsQuest(int _value)
-    {
-        questGameObjects.DestroyObjects(_value);
+        for (int i = 0; i < 5; i++)
+        {
+            GeneralSingleton.generalSingleton.endQuest[i] = scoreData.endQuest[i];
+        }
+        GeneralSingleton.generalSingleton.CaseValue = scoreData._caseValue;
     }
 }

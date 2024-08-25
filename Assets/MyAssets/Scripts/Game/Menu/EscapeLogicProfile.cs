@@ -24,7 +24,6 @@ public class EscapeLogicProfile : MonoBehaviour
     }
     void ButtonBack()
     {
-        GeneralSingleton.generalSingleton.isFirtsTime = false;
         GeneralSingleton.generalSingleton.isMyProfile = false;
         SceneManager.LoadScene(2);
     }

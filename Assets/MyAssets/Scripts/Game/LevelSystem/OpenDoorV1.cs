@@ -20,8 +20,7 @@ public class OpenDoorV1 : MonoBehaviour
         }
         else
         {
-            openDoorAnim.SetBool("openDoor", false);
-            openDoorMessage.SetMessage(0, 0f);
+            openDoorMessage.SetMessage(1, .2f);
         }
     }
     void OnTriggerExit(Collider other)

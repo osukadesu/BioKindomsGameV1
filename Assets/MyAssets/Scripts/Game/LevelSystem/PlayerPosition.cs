@@ -20,21 +20,21 @@ public class PlayerPosition : MonoBehaviour
             48 or 50 or 52 or 54
             => () => SetPlayerPosition(0),
             3 or 5 or 7 or 9 => () => SetPlayerPosition(1),
-            11 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest ? 0 : 1),
+            11 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest[0] ? 0 : 1),
             12 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex] ? 1 : 0),
             14 or 16 or 18 or 20 => () =>
                 SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex < 5 ? 1 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex > 4 || GeneralSingleton.generalSingleton._kingdomIndex > 4 ? 2 : 0),
-            22 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest ? 0 : 2),
+            22 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest[1] ? 0 : 2),
             23 or 25 or 27 or 29 or 31 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex < 5 ? 1 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex > 4 || GeneralSingleton.generalSingleton._kingdomIndex > 4 ? 2 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex > 9 || GeneralSingleton.generalSingleton._kingdomIndex > 9 ? 3 : 0),
-            33 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest ? 0 : 3),
+            33 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest[2] ? 0 : 3),
             34 or 36 or 38 or 40 or 42 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex < 5 ? 1 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
@@ -43,7 +43,7 @@ public class PlayerPosition : MonoBehaviour
                 && GeneralSingleton.generalSingleton._kingdomIndex > 9 || GeneralSingleton.generalSingleton._kingdomIndex > 9 ? 3 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex > 14 || GeneralSingleton.generalSingleton._kingdomIndex > 14 ? 4 : 0),
-            44 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest ? 0 : 4),
+            44 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest[3] ? 0 : 4),
             45 or 47 or 49 or 51 or 53 or 56 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex < 5 ? 1 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
@@ -54,7 +54,7 @@ public class PlayerPosition : MonoBehaviour
                 && GeneralSingleton.generalSingleton._kingdomIndex > 14 || GeneralSingleton.generalSingleton._kingdomIndex > 14 ? 4 :
                 GeneralSingleton.generalSingleton.iscloseInfo[GeneralSingleton.generalSingleton._kingdomIndex]
                 && GeneralSingleton.generalSingleton._kingdomIndex > 19 || GeneralSingleton.generalSingleton._kingdomIndex > 19 ? 5 : 0),
-            55 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest ? 0 : 5),
+            55 => () => SetPlayerPosition(GeneralSingleton.generalSingleton.endQuest[4] ? 0 : 5),
             _ => () => Debug.Log("Case default!"),
         };
         action();

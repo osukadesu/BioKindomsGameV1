@@ -34,7 +34,10 @@ public class LevelDisplay : MonoBehaviour
     }
     void Update()
     {
-        ItemCondition();
+        if (nextLevelAnim.isActiveAndEnabled)
+        {
+            ItemCondition();
+        }
     }
     void ElementsHide()
     {
@@ -95,7 +98,7 @@ public class LevelDisplay : MonoBehaviour
     }
     void NextLevelMethod(bool _value)
     {
-        boxCollider.enabled = _value;
-        nextLevelAnim.SetBool("nextLevelShow", _value);
+            boxCollider.enabled = _value;
+            nextLevelAnim.SetBool("nextLevelShow", _value);
     }
 }

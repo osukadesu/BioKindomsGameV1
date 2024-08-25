@@ -11,7 +11,8 @@ public class CompareState : QuestBaseState
     [SerializeField] TextManager textManager;
     [SerializeField] int idBtnSelect, score, correct, incorrect;
     public int[] _score = new int[5];
-    [SerializeField] bool resetGame;
+    [SerializeField] bool resetGame, endQuest;
+    [SerializeField] bool[] _endQuest = new bool[5];
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     void Awake()
@@ -62,13 +63,13 @@ public class CompareState : QuestBaseState
             yield return new WaitForSeconds(2f);
             ScoreCase(GeneralSingleton.generalSingleton.CaseValue);
             saveScoreMethod.SavingScore();
-            GeneralSingleton.generalSingleton.endQuest = true;
             yield return new WaitForSeconds(2f);
             SceneManager.LoadScene(GeneralSingleton.generalSingleton.isMyProfile ? 3 : 4);
         }
         if (roundState._currentRound > 5)
         {
             score = (5 + (correct - incorrect)) / 2;
+            GeneralSingleton.generalSingleton.endQuest[GeneralSingleton.generalSingleton.CaseValue] = true;
             yield return new WaitForSeconds(1f);
             if (score > 2)
             {
@@ -87,7 +88,7 @@ public class CompareState : QuestBaseState
         {
             textManager.ShowText(1, _text, "txtShow");
             yield return new WaitForSeconds(2f);
-            GeneralSingleton.generalSingleton.endQuest = false;
+            endQuest = false;
             resetGame = true;
         }
     }
