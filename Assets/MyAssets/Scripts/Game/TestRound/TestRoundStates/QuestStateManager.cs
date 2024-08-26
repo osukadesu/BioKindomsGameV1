@@ -2,10 +2,10 @@ using UnityEngine;
 public class QuestStateManager : MonoBehaviour
 {
     QuestBaseState currentState;
-    public RoundState roundState = new();
-    public TimerState timerState = new();
-    public CompareState compareState = new();
-    public void Start()
+    public RoundState roundState;
+    public TimerState timerState;
+    public CompareState compareState;
+    void Start()
     {
         currentState = roundState;
         currentState.EnterState(this);

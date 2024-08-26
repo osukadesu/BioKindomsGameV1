@@ -4,12 +4,19 @@ public class LogicQuestSystem : MonoBehaviour
 {
     [SerializeField] AnimationsManager animationsManager;
     [SerializeField] QuestCaseData questCaseData;
-    [SerializeField] Button[] btnCardSelects;
+    [SerializeField] public Button[] btnCardSelects;
     void Awake()
     {
         questCaseData = FindObjectOfType<QuestCaseData>();
         animationsManager = FindObjectOfType<AnimationsManager>();
         BtnCardsOnclick();
+    }
+    public void BtnIsEnabled(bool _isEnabled)
+    {
+        for (int i = 0; i < btnCardSelects.Length; i++)
+        {
+            btnCardSelects[i].enabled = _isEnabled;
+        }
     }
     void BtnCardsOnclick()
     {
@@ -23,14 +30,14 @@ public class LogicQuestSystem : MonoBehaviour
     {
         switch (btnCardValue)
         {
-            case 0: animationsManager.SetAnimations(questCaseData._idButton[0], 0, "cardSelect1Move"); btnCardSelects[0].enabled = false; break;
-            case 1: animationsManager.SetAnimations(questCaseData._idButton[1], 1, "cardSelect2Move"); btnCardSelects[1].enabled = false; break;
-            case 2: animationsManager.SetAnimations(questCaseData._idButton[2], 2, "cardSelect3Move"); btnCardSelects[2].enabled = false; break;
+            case 0: animationsManager.SetAnimations(questCaseData._idButton[0], 0, "cardSelect1Move"); break;
+            case 1: animationsManager.SetAnimations(questCaseData._idButton[1], 1, "cardSelect2Move"); break;
+            case 2: animationsManager.SetAnimations(questCaseData._idButton[2], 2, "cardSelect3Move"); break;
             default: ResetUCS(); break;
         }
     }
     public void ResetUCS()
     {
-        animationsManager.BtnLogicFalse(); btnCardSelects[0].enabled = true; btnCardSelects[1].enabled = true; btnCardSelects[2].enabled = true;
+        animationsManager.BtnLogicFalse();
     }
 }

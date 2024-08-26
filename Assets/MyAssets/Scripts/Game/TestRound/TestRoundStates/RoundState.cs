@@ -6,6 +6,7 @@ public class RoundState : QuestBaseState
     [SerializeField] SetQuestSystem setQuestSystem;
     [SerializeField] LogicQuestSystem logicQuestSystem;
     [SerializeField] CompareState compareState;
+    [SerializeField] TimerState timerState;
     [SerializeField] int currentRound;
     [SerializeField] bool startGame;
     public bool _startGame { get => startGame; set => startGame = value; }
@@ -18,6 +19,8 @@ public class RoundState : QuestBaseState
     public override void EnterState(QuestStateManager questStateManager)
     {
         StartQuest();
+        timerState.hiderTimer.SetBool("hideTimer",false);
+        logicQuestSystem.BtnIsEnabled(false);
     }
     public override void UpdateState(QuestStateManager questStateManager)
     {

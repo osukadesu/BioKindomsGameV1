@@ -1,15 +1,19 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class TimerState : QuestBaseState
 {
+    [SerializeField] LogicQuestSystem logicQuestSystem;
     [SerializeField] AnimationsManager animationsManager;
     [SerializeField] RoundState roundState;
-    [SerializeField] GameObject timerContainer;
+    [SerializeField] protected internal Animator hiderTimer;
     [SerializeField] Text textTimer;
     [SerializeField] Image imgFiller;
     [SerializeField] int fillMax;
     [SerializeField] float timer, currentFill;
+    void Awake()
+    {
+        logicQuestSystem = FindObjectOfType<LogicQuestSystem>();
+    }
     public override void EnterState(QuestStateManager questStateManager)
     {
         fillMax = 5;
@@ -32,7 +36,8 @@ public class TimerState : QuestBaseState
     {
         if (timer > 0 && roundState._startGame)
         {
-            timerContainer.SetActive(true);
+            hiderTimer.SetBool("hideTimer", true);
+            logicQuestSystem.BtnIsEnabled(true);
             timer -= Time.deltaTime;
             currentFill -= Time.deltaTime;
             float timerRound = Mathf.Round(timer);

@@ -13,15 +13,16 @@ public class OpenDoorM1 : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && canOpen)
+        if (!other.gameObject.CompareTag("Player"))
         {
-            openDoorAnim.SetBool("openDoor", true);
-            openDoorMessage.SetMessage(1, .2f);
+            openDoorMessage.SetMessage(!canOpen ? 0 : CanOpenIsTrue(1), .2f);
         }
-        else
-        {
-            openDoorMessage.SetMessage(1, .2f);
-        }
+    }
+    int CanOpenIsTrue(int _case)
+    {
+        openDoorAnim.SetBool("openDoor", true);
+        openDoorMessage.SetMessage(_case, .2f);
+        return _case;
     }
     void OnTriggerExit(Collider other)
     {
