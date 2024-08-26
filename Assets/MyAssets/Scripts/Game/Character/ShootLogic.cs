@@ -16,15 +16,11 @@ public class ShootLogic : MonoBehaviour
                 bullet = ShootingPool.shootingPool.RequestBullet();
                 bullet.transform.position = spawnBullet.position;
                 bullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
-                /*
-                newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
-                newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
-                */
                 shootRateTime = Time.time + shootRate;
             }
         }
     }
-    public void HideNewBullet() => bullet.SetActive(false);// Destroy(newBullet);
+    public void HideNewBullet() => bullet.SetActive(false);
     public void SetCanShoot() => StartCoroutine(IECanshot(true));
     IEnumerator IECanshot(bool _canShoot)
     {
