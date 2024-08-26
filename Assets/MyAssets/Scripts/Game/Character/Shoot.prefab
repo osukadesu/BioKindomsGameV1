@@ -129,5 +129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 20
-  lifeControllerEnemy: {fileID: 0}
   lifeControllerPlayer: {fileID: 0}
+  lifeControllerEnemy:
+  - {fileID: 0}
+  playerEstanteCol: {fileID: 0}
+  shootLogic: {fileID: 0}
+  damageAnim: []

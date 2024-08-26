@@ -51,10 +51,7 @@ public class MenuButtons : MonoBehaviour
         GeneralSingleton.generalSingleton.isNewGame = true;
         SceneManager.LoadScene(4);
     }
-    public void ButtonNo()
-    {
-        alertDelete.SetBool("alertDelete", false);
-    }
+    public void ButtonNo() => alertDelete.SetBool("alertDelete", false);
     public void ButtonLoadGame()
     {
         GeneralSingleton.generalSingleton.isLoadGame = true;
@@ -72,10 +69,7 @@ public class MenuButtons : MonoBehaviour
         GeneralSingleton.generalSingleton.isMyProfile = true;
         SceneManager.LoadScene(3);
     }
-    public void ButtonExit()
-    {
-        Application.Quit(); //SceneManager.LoadScene(1);
-    }
+    public void ButtonExit() => Application.Quit(); //SceneManager.LoadScene(1);
     public void MenuOrder()
     {
         string datapath = Application.persistentDataPath + "/level.data";

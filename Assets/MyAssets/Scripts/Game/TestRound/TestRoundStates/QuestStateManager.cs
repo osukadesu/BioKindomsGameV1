@@ -10,10 +10,7 @@ public class QuestStateManager : MonoBehaviour
         currentState = roundState;
         currentState.EnterState(this);
     }
-    void Update()
-    {
-        currentState.UpdateState(this);
-    }
+    void Update() => currentState.UpdateState(this);
     public void SwitchState(QuestBaseState questBaseState)
     {
         currentState = questBaseState;

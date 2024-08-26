@@ -575,7 +575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &52436689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a5603979a72741b8d04e066c1efdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabBullet: {fileID: 1325566188569129189, guid: 5aef4ed4237c94c40ac651f7c185aee8, type: 3}
+  bulletList: []
 --- !u!4 &52436690
 Transform:
   m_ObjectHideFlags: 0
@@ -7024,8 +7026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a135e8128dd5dc4aba8d84fdb4df0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1325566188569129189, guid: 5aef4ed4237c94c40ac651f7c185aee8, type: 3}
-  newBullet: {fileID: 0}
+  bullet: {fileID: 0}
   spawnBullet: {fileID: 1588898373}
   shootForce: 1500
   shootRate: 0.5
@@ -15682,7 +15683,7 @@ MonoBehaviour:
   lifeControllerPlayer: {fileID: 270708098}
   playerEstanteCol: {fileID: 354055304}
   shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 784976921}
+  damageAnim: {fileID: 1150172671}
 --- !u!95 &1150172671
 Animator:
   serializedVersion: 5

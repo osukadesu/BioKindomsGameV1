@@ -2,10 +2,7 @@ using UnityEngine;
 public class QuestCaseProtista : MonoBehaviour
 {
     [SerializeField] QuestCaseData questCaseData;
-    void Awake()
-    {
-        questCaseData = FindObjectOfType<QuestCaseData>();
-    }
+    void Awake() => questCaseData = FindObjectOfType<QuestCaseData>();
     public void SetProtista1(int _value)
     {
         var values = _value switch

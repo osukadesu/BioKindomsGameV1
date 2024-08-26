@@ -4,14 +4,8 @@ public class PlayerPosition : MonoBehaviour
 {
     [SerializeField] PlayerMove playerMove;
     [SerializeField] Transform[] targetPlayerPosition;
-    void Awake()
-    {
-        playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
-    }
-    void SetPlayerPosition(int _index)
-    {
-        playerMove.transform.position = targetPlayerPosition[_index].position;
-    }
+    void Awake() => playerMove = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMove>();
+    void SetPlayerPosition(int _index) => playerMove.transform.position = targetPlayerPosition[_index].position;
     public void SetPlayerPositionWithConditions(int _level)
     {
         Action action = _level switch

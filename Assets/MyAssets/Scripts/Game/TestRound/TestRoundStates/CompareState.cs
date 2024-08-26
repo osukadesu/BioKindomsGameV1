@@ -19,14 +19,8 @@ public class CompareState : QuestBaseState
         questCaseRandom = FindObjectOfType<QuestCaseRandom>();
         questCaseData = FindObjectOfType<QuestCaseData>();
     }
-    void Start()
-    {
-        idBtnSelect = -1;
-    }
-    public override void EnterState(QuestStateManager questStateManager)
-    {
-        CompareMethod(questCaseRandom.MyRandom);
-    }
+    void Start() => idBtnSelect = -1;
+    public override void EnterState(QuestStateManager questStateManager) => CompareMethod(questCaseRandom.MyRandom);
     public override void UpdateState(QuestStateManager questStateManager)
     {
         if (resetGame)

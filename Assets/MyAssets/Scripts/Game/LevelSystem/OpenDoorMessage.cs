@@ -12,10 +12,7 @@ public class OpenDoorMessage : MonoBehaviour
             UnlockDoors(i, "unlockDoor", false);
         }
     }
-    public void SetMessage(int _case, float _time)
-    {
-        StartCoroutine(IETextShow("Aun no has desbloqueado este nivel!", _case, _time));
-    }
+    public void SetMessage(int _case, float _time) => StartCoroutine(IETextShow("Aun no has desbloqueado este nivel!", _case, _time));
     IEnumerator IETextShow(string text, int _case, float _time)
     {
         yield return new WaitForSeconds(_time);
@@ -27,8 +24,5 @@ public class OpenDoorMessage : MonoBehaviour
         };
         action();
     }
-    public void UnlockDoors(int _index, string _name, bool _bool)
-    {
-        _unlockDoors[_index].SetBool(_name, _bool);
-    }
+    public void UnlockDoors(int _index, string _name, bool _bool) => _unlockDoors[_index].SetBool(_name, _bool);
 }

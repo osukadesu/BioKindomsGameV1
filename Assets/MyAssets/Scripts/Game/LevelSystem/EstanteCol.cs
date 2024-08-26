@@ -10,10 +10,7 @@ public class EstanteCol : MonoBehaviour
     string textMessage;
     public int id;
     [SerializeField] bool canpressG, canpressF;
-    void Awake()
-    {
-        levelSystemV2 = FindObjectOfType<LevelSystem>();
-    }
+    void Awake() => levelSystemV2 = FindObjectOfType<LevelSystem>();
     void Update()
     {
         if (canpressF)

@@ -10,10 +10,7 @@ public class TimerState : QuestBaseState
     [SerializeField] Image imgFiller;
     [SerializeField] int fillMax;
     [SerializeField] float timer, currentFill;
-    void Awake()
-    {
-        logicQuestSystem = FindObjectOfType<LogicQuestSystem>();
-    }
+    void Awake() => logicQuestSystem = FindObjectOfType<LogicQuestSystem>();
     public override void EnterState(QuestStateManager questStateManager)
     {
         fillMax = 5;

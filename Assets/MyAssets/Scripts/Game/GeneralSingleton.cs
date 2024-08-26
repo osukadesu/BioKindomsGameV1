@@ -35,18 +35,9 @@ public class GeneralSingleton : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void MouseLockRotate()
-    {
-        SetCursorState(false, CursorLockMode.None);
-    }
-    public void MouseLock()
-    {
-        SetCursorState(false, CursorLockMode.Locked);
-    }
-    public void MouseUnLock()
-    {
-        SetCursorState(true, CursorLockMode.None);
-    }
+    public void MouseLockRotate() => SetCursorState(false, CursorLockMode.None);
+    public void MouseLock() => SetCursorState(false, CursorLockMode.Locked);
+    public void MouseUnLock() => SetCursorState(true, CursorLockMode.None);
     void SetCursorState(bool _bool, CursorLockMode Mode)
     {
         Cursor.visible = _bool;

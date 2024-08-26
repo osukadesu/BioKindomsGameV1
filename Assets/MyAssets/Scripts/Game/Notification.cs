@@ -11,10 +11,7 @@ public class Notification : MonoBehaviour
     [SerializeField] Transform transformContent;
     int notificationCount;
     bool active;
-    void Awake()
-    {
-        btnNotification.onClick.AddListener(ShowNotification);
-    }
+    void Awake() => btnNotification.onClick.AddListener(ShowNotification);
     void Start()
     {
         active = false;

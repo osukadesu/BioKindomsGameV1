@@ -14,10 +14,7 @@ public class LevelSystem : MonoBehaviour
         levelDisplay = FindObjectOfType<LevelDisplay>();
         GeneralSingleton.generalSingleton.MouseLock();
     }
-    void Start()
-    {
-        ReadData();
-    }
+    void Start() => ReadData();
     void ReadData()
     {
         string datapath = Application.persistentDataPath + "/level.data";

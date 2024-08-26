@@ -3,10 +3,7 @@ using UnityEngine;
 public class QuestCaseVegetal : MonoBehaviour
 {
     [SerializeField] QuestCaseData questCaseData;
-    void Awake()
-    {
-        questCaseData = FindObjectOfType<QuestCaseData>();
-    }
+    void Awake() => questCaseData = FindObjectOfType<QuestCaseData>();
     public void SetVegetal1(int _value)
     {
         var values = _value switch

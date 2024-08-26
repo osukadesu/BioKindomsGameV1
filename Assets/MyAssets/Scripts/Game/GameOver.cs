@@ -4,10 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] AlertModalManager alertModalManager;
-    void Awake()
-    {
-        alertModalManager = FindObjectOfType<AlertModalManager>();
-    }
+    void Awake() => alertModalManager = FindObjectOfType<AlertModalManager>();
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

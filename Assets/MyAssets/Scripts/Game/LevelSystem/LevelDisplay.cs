@@ -92,13 +92,10 @@ public class LevelDisplay : MonoBehaviour
         money[playerEstanteCol.setId].SetActive(false);
         pedestalAnim.SetBool("pedestalShow", false);
     }
-    void ItemCondition()
-    {
-        NextLevelMethod(loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck);
-    }
+    void ItemCondition() => NextLevelMethod(loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck);
     void NextLevelMethod(bool _value)
     {
-            boxCollider.enabled = _value;
-            nextLevelAnim.SetBool("nextLevelShow", _value);
+        boxCollider.enabled = _value;
+        nextLevelAnim.SetBool("nextLevelShow", _value);
     }
 }

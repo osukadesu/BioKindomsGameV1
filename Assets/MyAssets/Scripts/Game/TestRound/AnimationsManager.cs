@@ -5,10 +5,7 @@ public class AnimationsManager : MonoBehaviour
     [SerializeField] Animator[] cardSelects;
     [SerializeField] protected internal Animator containerCardAnim, timerAnim;
     [SerializeField] protected internal bool[] btnPressed = { false, false, false };
-    void Start()
-    {
-        BtnLogicFalse();
-    }
+    void Start() => BtnLogicFalse();
     protected internal void BtnLogicFalse()
     {
         AnimationButtons("cardSelect1Move", false);
@@ -34,8 +31,5 @@ public class AnimationsManager : MonoBehaviour
             cardSelects[i].SetBool(_nameAnim, _boolAnim);
         }
     }
-    protected internal void SetTimerAnimation(bool _bool)
-    {
-        timerAnim.SetBool("timerLoadChange", _bool);
-    }
+    protected internal void SetTimerAnimation(bool _bool) => timerAnim.SetBool("timerLoadChange", _bool);
 }

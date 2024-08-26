@@ -25,10 +25,7 @@ public class AlertModalManager : MonoBehaviour
         };
         action();
     }
-    void StartIELevelCase(bool myBoolAnim, string myText, int indexImg, bool myBoolImg, int indexImg2, bool myBoolImg2)
-    {
-        StartCoroutine(IELevelCases(myBoolAnim, myText, indexImg, myBoolImg, indexImg2, myBoolImg2));
-    }
+    void StartIELevelCase(bool myBoolAnim, string myText, int indexImg, bool myBoolImg, int indexImg2, bool myBoolImg2) => StartCoroutine(IELevelCases(myBoolAnim, myText, indexImg, myBoolImg, indexImg2, myBoolImg2));
     IEnumerator IELevelCases(bool myBoolAnim, string myText, int indexImg, bool myBoolImg, int indexImg2, bool myBoolImg2)
     {
         AlertModalNew(myBoolAnim, myText, indexImg, myBoolImg, indexImg2, myBoolImg2);
@@ -52,10 +49,7 @@ public class AlertModalManager : MonoBehaviour
         alertModalAnimator.SetBool("alertmodal", false);
         ResumeGame();
     }
-    public void AlertInfo(string textAI)
-    {
-        StartCoroutine(AlertInfoMethod(textAI));
-    }
+    public void AlertInfo(string textAI) => StartCoroutine(AlertInfoMethod(textAI));
     IEnumerator AlertInfoMethod(string textAIM)
     {
         escapeLogicV1.CanEscape = false;
@@ -70,18 +64,9 @@ public class AlertModalManager : MonoBehaviour
         txtInfoAlert.fontSize = 22;
         txtInfoAlert.text = textST;
     }
-    public void HideText()
-    {
-        alertModalAnimator.SetBool("alertmodal", false);
-    }
-    void PauseGame()
-    {
-        Time.timeScale = 0f;
-    }
-    void ResumeGame()
-    {
-        Time.timeScale = 1f;
-    }
+    public void HideText() => alertModalAnimator.SetBool("alertmodal", false);
+    void PauseGame() => Time.timeScale = 0f;
+    void ResumeGame() => Time.timeScale = 1f;
     public void AlertModalNew(bool myBoolAnim, string myText, int indexImg, bool myBoolImg, int indexImg2, bool myBoolImg2)
     {
         alertModalNew.SetBool("alertmodal", myBoolAnim);

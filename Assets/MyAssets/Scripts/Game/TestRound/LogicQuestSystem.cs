@@ -36,8 +36,5 @@ public class LogicQuestSystem : MonoBehaviour
             default: ResetUCS(); break;
         }
     }
-    public void ResetUCS()
-    {
-        animationsManager.BtnLogicFalse();
-    }
+    public void ResetUCS() => animationsManager.BtnLogicFalse();
 }
