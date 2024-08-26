@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 public class ShootLogic : MonoBehaviour
 {
-    [SerializeField] GameObject bullet, newBullet;
+    [SerializeField] GameObject bullet;
     public Transform spawnBullet;
-    public float shootForce = 1500f, shootRate = 0.5f, shootRateTime = 0.5f;
+    public float shootForce = 2000f, shootRate = 0.5f, shootRateTime = 0.5f;
     public bool canShoot;
     void Start() => canShoot = false;
     void Update()
