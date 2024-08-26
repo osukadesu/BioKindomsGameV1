@@ -991,11 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 73356349}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 73356353}
 --- !u!54 &73356351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1607,11 +1603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 104112157}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 104112160}
 --- !u!95 &104112160
 Animator:
   serializedVersion: 5
@@ -2890,11 +2882,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 178252859}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 178252862}
 --- !u!95 &178252862
 Animator:
   serializedVersion: 5
@@ -3444,11 +3432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 203013289}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 203013292}
 --- !u!95 &203013292
 Animator:
   serializedVersion: 5
@@ -5959,11 +5943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 306655115}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 306655118}
 --- !u!114 &306655115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7026,7 +7006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a135e8128dd5dc4aba8d84fdb4df0c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 1325566188569129189, guid: 5aef4ed4237c94c40ac651f7c185aee8, type: 3}
+  newBullet: {fileID: 0}
   spawnBullet: {fileID: 1588898373}
   shootForce: 1500
   shootRate: 0.5
@@ -11223,11 +11204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 771384783}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 771384787}
 --- !u!54 &771384785
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11706,11 +11683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 784976919}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 784976921}
 --- !u!114 &784976919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14783,11 +14756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 1097786763}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 1097786767}
 --- !u!54 &1097786765
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15679,11 +15648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 1150172668}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 1150172671}
 --- !u!95 &1150172671
 Animator:
   serializedVersion: 5
@@ -16802,11 +16767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   "da\xF1o": 4
-  lifeControllerEnemy: {fileID: 1225762027}
   lifeControllerPlayer: {fileID: 270708098}
-  playerEstanteCol: {fileID: 354055304}
-  shootLogic: {fileID: 354055303}
-  damageAnim: {fileID: 1225762031}
 --- !u!54 &1225762029
 Rigidbody:
   m_ObjectHideFlags: 0
