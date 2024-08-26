@@ -17,9 +17,6 @@ public abstract class DeadManager : MonoBehaviour
         shootLogic = FindObjectOfType<ShootLogic>();
         levelWinMethod = FindObjectOfType<LevelWinMethod>();
     }
-    void Update()
-    {
-        DeadActions();
-    }
+    void Update() => DeadActions();
     protected internal abstract void DeadActions();
 }

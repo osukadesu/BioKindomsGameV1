@@ -7,9 +7,9 @@ public class DeadEnemy : DeadManager
     {
         CaseDeadActionsMethod(levelSystemV2.CurrentLevel);
     }
-    void CaseDeadActionsMethod(int value)
+    void CaseDeadActionsMethod(int _level)
     {
-        Action action = value switch
+        Action action = _level switch
         {
             2 => () => DeadActionsMethod(true, true),
             4 or 6 or 8 or 10 or 13 or 15 or 17 or 19 or 21
