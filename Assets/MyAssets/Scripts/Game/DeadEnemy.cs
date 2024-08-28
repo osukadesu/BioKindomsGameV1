@@ -11,14 +11,14 @@ public class DeadEnemy : DeadManager
     {
         Action action = _level switch
         {
-            2 => () => DeadActionsMethod(true, true),
-            4 or 6 or 8 or 10 or 13 or 15 or 17 or 19 or 21
-            => () => DeadActionsMethod(true, false),
-            _ => () => DeadActionsMethod(false, false)
+            2 => () => DeadActionsMethod(true, true, 0),
+            4 or 6 or 8 or 10 => () => DeadActionsMethod(true, false, 0),
+            13 or 15 or 17 or 19 or 21 => () => DeadActionsMethod(true, false, 1),
+            _ => () => DeadActionsMethod(false, false, 1)
         };
         action();
     }
-    void DeadActionsMethod(bool value, bool value2)
+    void DeadActionsMethod(bool value, bool value2, int _case)
     {
         if (value)
         {
@@ -27,7 +27,7 @@ public class DeadEnemy : DeadManager
                 shootLogic.canShoot = false;
                 SetAlertInfo(value2);
                 StartCoroutine(IEWinMethod());
-                StartCoroutine(ResetEnemy());
+                StartCoroutine(ResetEnemy(_case));
             }
         }
     }
@@ -47,21 +47,26 @@ public class DeadEnemy : DeadManager
             alertModalManager.HideText();
         }
     }
-    IEnumerator ResetEnemy()
+    IEnumerator ResetEnemy(int _case)
     {
         yield return new WaitForSeconds(.5f);
-        SetLifeControllerEnemy();
+        SetLifeControllerEnemy(_case);
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < lifeControllerEnemy.Length; i++)
         {
             lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(false);
         }
     }
-    void SetLifeControllerEnemy()
+    void SetLifeControllerEnemy(int _case)
     {
+        Action action = _case switch
+        {
+            0 => () => enemyStateManager[playerEstanteCol.setId].agent.speed = 0,
+            _ => () => Debug.Log("Is other kingdom!"),
+        };
+        action();
         for (int i = 0; i < lifeControllerEnemy.Length; i++)
         {
-            enemyStateManager[playerEstanteCol.setId].agent.speed = 0;
             lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(true);
             lifeControllerEnemy[i].currentLife = 100;
         }

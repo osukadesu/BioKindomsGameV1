@@ -21,15 +21,15 @@ public class DamageEnemy : DamageSystem
     void OnTriggerEnter(Collider other) => SubtractLife(other);
     protected internal override void SubtractLife(Collider other)
     {
-        if (other.tag != "Enemy")
-        {
-            shootLogic.HideNewBullet();
-        }
-        else
+        if (other.CompareTag("Enemy"))
         {
             lifeControllerEnemy.RestarVida(daño);
             damageAnim.SetTrigger("damage");
-            shootLogic.HideNewBullet();
+            shootLogic.DestroyNewBullet();
+        }
+        else
+        {
+            shootLogic.DestroyNewBullet();
         }
     }
 }
