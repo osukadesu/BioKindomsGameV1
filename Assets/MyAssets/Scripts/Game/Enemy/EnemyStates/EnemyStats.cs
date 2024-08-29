@@ -4,11 +4,18 @@ public class EnemyStats : MonoBehaviour
 {
     [SerializeField] EnemyStateManager[] enemyStateManager;
     [SerializeField] DamagePlayer[] damagePlayer;
+    [SerializeField] DamagePlayerVegetal[] damagePlayerVegetal;
     [SerializeField] PlayerEstanteCol playerEstanteCol;
     void Awake()
     {
         playerEstanteCol = FindObjectOfType<PlayerEstanteCol>();
     }
+    /*
+    void Update()
+    {
+        damagePlayerVegetal = FindObjectsOfType<DamagePlayerVegetal>();
+    }
+    */
     public void SetKingdomStatsInLevel(int _level)
     {
         Action action = _level switch
@@ -18,26 +25,28 @@ public class EnemyStats : MonoBehaviour
             6 => () => SetKingdomStats(0, 2),
             8 => () => SetKingdomStats(0, 3),
             10 => () => SetKingdomStats(0, 4),
-            13 => () => SetKingdomStats(1, 0),
-            15 => () => SetKingdomStats(1, 1),
-            17 => () => SetKingdomStats(1, 2),
-            19 => () => SetKingdomStats(1, 3),
-            21 => () => SetKingdomStats(1, 4),
-            24 => () => SetKingdomStats(2, 0),
-            26 => () => SetKingdomStats(2, 1),
-            28 => () => SetKingdomStats(2, 2),
-            30 => () => SetKingdomStats(2, 3),
-            32 => () => SetKingdomStats(2, 4),
-            35 => () => SetKingdomStats(3, 0),
-            37 => () => SetKingdomStats(3, 1),
-            39 => () => SetKingdomStats(3, 2),
-            41 => () => SetKingdomStats(3, 3),
-            43 => () => SetKingdomStats(3, 4),
-            46 => () => SetKingdomStats(4, 0),
-            48 => () => SetKingdomStats(4, 1),
-            50 => () => SetKingdomStats(4, 2),
-            52 => () => SetKingdomStats(4, 3),
-            54 => () => SetKingdomStats(4, 4),
+            /*
+             13 => () => SetKingdomStats(1, 0),
+             15 => () => SetKingdomStats(1, 1),
+             17 => () => SetKingdomStats(1, 2),
+             19 => () => SetKingdomStats(1, 3),
+             21 => () => SetKingdomStats(1, 4),
+             24 => () => SetKingdomStats(2, 0),
+             26 => () => SetKingdomStats(2, 1),
+             28 => () => SetKingdomStats(2, 2),
+             30 => () => SetKingdomStats(2, 3),
+             32 => () => SetKingdomStats(2, 4),
+             35 => () => SetKingdomStats(3, 0),
+             37 => () => SetKingdomStats(3, 1),
+             39 => () => SetKingdomStats(3, 2),
+             41 => () => SetKingdomStats(3, 3),
+             43 => () => SetKingdomStats(3, 4),
+             46 => () => SetKingdomStats(4, 0),
+             48 => () => SetKingdomStats(4, 1),
+             50 => () => SetKingdomStats(4, 2),
+             52 => () => SetKingdomStats(4, 3),
+             54 => () => SetKingdomStats(4, 4),
+            */
             _ => () => Debug.Log("Default case!"),
         };
         action();
@@ -88,18 +97,18 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _type switch
         {
-            0 => () => SetEnemyStatsVegetal(4, 5),
-            1 => () => SetEnemyStatsVegetal(6, 4),
-            2 => () => SetEnemyStatsVegetal(8, 3),
-            3 => () => SetEnemyStatsVegetal(10, 2),
-            4 => () => SetEnemyStatsVegetal(12, 2),
+            0 => () => SetEnemyStatsVegetal(4, 1f),
+            1 => () => SetEnemyStatsVegetal(6, 1.5f),
+            2 => () => SetEnemyStatsVegetal(8, 2),
+            3 => () => SetEnemyStatsVegetal(10, 2.5f),
+            4 => () => SetEnemyStatsVegetal(12, 3),
             _ => () => Debug.Log("Default case!"),
         };
         action();
     }
     void SetEnemyStatsVegetal(int _damage, float _attackSpeed)
     {
-        ChangeDamage(_damage);
+        ChangeDamageVegetal(_damage);
         ChangeAttackSpeedVegetal(_attackSpeed);
     }
     void SetFungiStats(int _type)
@@ -164,7 +173,7 @@ public class EnemyStats : MonoBehaviour
     }
     float ChangeAttackSpeedVegetal(float _attackSpeedVegetal)
     {
-        return _attackSpeedVegetal;
+        return damagePlayerVegetal[playerEstanteCol.setId].shooterVegetal.velAttack = _attackSpeedVegetal;
     }
     float ChangeWalkSpeed(float _walkSpeed)
     {
@@ -173,5 +182,9 @@ public class EnemyStats : MonoBehaviour
     float ChangeDamage(int newDamage)
     {
         return damagePlayer[playerEstanteCol.setId].daño = newDamage;
+    }
+    float ChangeDamageVegetal(int newDamage)
+    {
+        return damagePlayerVegetal[playerEstanteCol.setId].daño = newDamage;
     }
 }

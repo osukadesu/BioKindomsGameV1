@@ -21,6 +21,6 @@ public class DeadPlayer : DeadManager
     IEnumerator IEChangeScene()
     {
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

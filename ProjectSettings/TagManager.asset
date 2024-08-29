@@ -29,6 +29,7 @@ TagManager:
   - btnInfo
   - btnProfile
   - btnGoto
+  - DestroyerBullet
   layers:
   - Default
   - TransparentFX

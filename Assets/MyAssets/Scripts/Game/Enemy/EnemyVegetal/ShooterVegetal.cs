@@ -4,25 +4,27 @@ public class ShooterVegetal : MonoBehaviour
 {
     public GameObject bullet, newBullet;
     public Transform spawnBullet;
-    public float shootForce = 1500f, velocityShoot = 1f;
-    private bool canShoot = true;
+    public float shootForce = 1500f, velAttack = 1f;
+    public bool canShoot;
+    void Start() => canShoot = true;
     void Update()
     {
         if (canShoot)
         {
-            StartCoroutine(IEShoot(velocityShoot));
+            SetCanShoot(velAttack);
         }
-    }
-    IEnumerator IEShoot(float _velocityShoot)
-    {
-        canShoot = false;
-        newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
-        newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
-        yield return new WaitForSeconds(_velocityShoot);
-        canShoot = true;
     }
     public void DestroyNewBullet()
     {
         Destroy(newBullet);
+    }
+    void SetCanShoot(float _velAttack) => StartCoroutine(IECanshot(_velAttack));
+    IEnumerator IECanshot(float _velAttack)
+    {
+        canShoot = false;
+        newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
+        newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
+        yield return new WaitForSeconds(_velAttack);
+        canShoot = true;
     }
 }

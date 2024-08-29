@@ -24,6 +24,7 @@ public class DeadEnemy : DeadManager
         {
             if (lifeControllerEnemy[playerEstanteCol.setId].currentLife <= 0)
             {
+                shootLogic.DestroyNewBullet();
                 shootLogic.canShoot = false;
                 SetAlertInfo(value2);
                 StartCoroutine(IEWinMethod());

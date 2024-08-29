@@ -27,9 +27,6 @@ public class DamageEnemy : DamageSystem
             damageAnim.SetTrigger("damage");
             shootLogic.DestroyNewBullet();
         }
-        else
-        {
-            shootLogic.DestroyNewBullet();
-        }
+        if (other.CompareTag("DestroyerBullet")) { shootLogic.DestroyNewBullet(); }
     }
 }

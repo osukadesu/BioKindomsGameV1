@@ -13,12 +13,6 @@ public class ShootLogic : MonoBehaviour
         {
             newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
             newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
-            /*
-            ShootingPool
-            bullet = ShootingPool.shootingPool.RequestBullet();
-            bullet.transform.position = spawnBullet.position;
-            bullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
-            */
         }
     }
     public void DestroyNewBullet()
