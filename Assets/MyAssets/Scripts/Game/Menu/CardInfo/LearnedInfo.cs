@@ -93,14 +93,14 @@ public class LearnedInfo : MonoBehaviour
                 ShowForKingdom(1);
                 textName.text = infoKindomData.TextName[7];
                 textInfo.text = infoKindomData.TextInfo[7];
-                textInfo2.text = "\n \n Ambiente: Zonas templadas y cálidas. Se cultiva en huertos y jardines. \n Tipo: Arbol frutal \n ";
+                textInfo2.text = "\n \n Ambiente: Bosques y áreas frías o templadas. \n Tipo: Cónifera \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[7], transform3D);
                 break;
             case 8:
                 ShowForKingdom(1);
                 textName.text = infoKindomData.TextName[8];
                 textInfo.text = infoKindomData.TextInfo[8];
-                textInfo2.text = "\n \n Ambiente: Bosques y áreas frías o templadas. \n Tipo: Cónifera \n ";
+                textInfo2.text = "\n \n Ambiente: Zonas templadas y cálidas. Se cultiva en huertos y jardines. \n Tipo: Arbol frutal \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[8], transform3D);
                 break;
             case 9:
