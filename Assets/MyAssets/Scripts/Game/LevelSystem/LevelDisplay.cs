@@ -8,7 +8,6 @@ public class LevelDisplay : MonoBehaviour
     [SerializeField] AlertModalManager alertModalManager;
     [SerializeField] SaveMethod saveMethod;
     [SerializeField] QuestGameObjects questGameObjects;
-    [SerializeField] Notification notification;
     [SerializeField] PlayerPosition playerPosition;
     [SerializeField] EnemyStats enemyStats;
     [SerializeField] GameObject levelFight, platformV2;
@@ -24,7 +23,6 @@ public class LevelDisplay : MonoBehaviour
         alertModalManager = FindObjectOfType<AlertModalManager>();
         saveMethod = FindObjectOfType<SaveMethod>();
         questGameObjects = FindObjectOfType<QuestGameObjects>();
-        notification = FindObjectOfType<Notification>();
         playerPosition = FindObjectOfType<PlayerPosition>();
         enemyStats = FindObjectOfType<EnemyStats>();
         escapeLogicGame = FindObjectOfType<EscapeLogicGame>();
@@ -34,13 +32,7 @@ public class LevelDisplay : MonoBehaviour
         ElementsHide();
         LevelPlatform();
     }
-    void Update()
-    {
-        if (nextLevelAnim.isActiveAndEnabled)
-        {
-            ItemCondition();
-        }
-    }
+    void Update() { if (nextLevelAnim.isActiveAndEnabled) { ItemCondition(); } }
     void ElementsHide()
     {
         for (int i = 0; i < money.Length; i++) { money[i].SetActive(false); }
@@ -65,7 +57,6 @@ public class LevelDisplay : MonoBehaviour
         questGameObjects.DestroyObjects(level);
         questGameObjects.QuestExitKingInLevel(level);
         loadLevelSystem.LoadSingletonQuest(level);
-        notification.SetNotificationsLevel(level);
         enemyStats.SetKingdomStatsInLevel(level);
         escapeLogicGame.IsCanEscape(level);
     }
