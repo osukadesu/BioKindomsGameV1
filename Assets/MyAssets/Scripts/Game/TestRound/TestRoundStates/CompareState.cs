@@ -9,6 +9,7 @@ public class CompareState : QuestBaseState
     [SerializeField] QuestCaseData questCaseData;
     [SerializeField] RoundState roundState;
     [SerializeField] TextManager textManager;
+    [SerializeField] TimerState timerState;
     [SerializeField] int idBtnSelect, score, correct, incorrect;
     public int[] _score = new int[5];
     [SerializeField] bool resetGame;
@@ -16,6 +17,7 @@ public class CompareState : QuestBaseState
     public bool _resetGame { get => resetGame; set => resetGame = value; }
     void Awake()
     {
+        timerState = FindObjectOfType<TimerState>();
         questCaseRandom = FindObjectOfType<QuestCaseRandom>();
         questCaseData = FindObjectOfType<QuestCaseData>();
     }

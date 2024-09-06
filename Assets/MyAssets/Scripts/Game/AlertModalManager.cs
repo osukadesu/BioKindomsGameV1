@@ -2,18 +2,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 public class AlertModalManager : MonoBehaviour
 {
-    [SerializeField] Text txtInfoAlert, txtAlertNew;
-    [SerializeField] Animator alertModalAnimator, alertModalNew;
+    [SerializeField] LevelSystem levelSystem;
     [SerializeField] EscapeLogicGame escapeLogicV1;
+    [SerializeField] Text txtInfoAlert, txtAlertNew, txtAlertNewV2;
+    [SerializeField] Animator alertModalAnimator, alertModalNew, alertModalNewV2;
     [SerializeField] Button btnContinueAM;
     [SerializeField] GameObject[] imgAlertNew;
     void Awake()
     {
-        alertModalAnimator.SetBool("alertmodal", false);
-        btnContinueAM.onClick.AddListener(CloseContinue);
+        levelSystem = FindObjectOfType<LevelSystem>();
         escapeLogicV1 = FindObjectOfType<EscapeLogicGame>();
+        alertModalAnimator.SetBool("alertmodal", false);
+        btnContinueAM.onClick.AddListener(() => CloseContinue(levelSystem.CurrentLevel));
     }
     public void ShowTutorialAlerts(int _level)
     {
@@ -32,7 +35,20 @@ public class AlertModalManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         AlertModalNew(false, "", indexImg, false, indexImg, false);
     }
-    IEnumerator LevelTutorialCoroutine(string message1, string message2)
+    public void StartIELevelCaseV2(bool myBoolAnim, string myText) => StartCoroutine(IELevelCaseV2(myBoolAnim, myText));
+    IEnumerator IELevelCaseV2(bool myBoolAnim, string myText)
+    {
+        AlertModalNewV2(myBoolAnim, myText);
+        yield return new WaitForSeconds(5f);
+        AlertModalNewV2(false, "");
+    }
+    public IEnumerator GoTos(string message1)
+    {
+        yield return new WaitForSeconds(1f);
+        GeneralSingleton.generalSingleton.MouseUnLock();
+        AlertInfo(message1);
+    }
+    public IEnumerator LevelTutorialCoroutine(string message1, string message2)
     {
         yield return new WaitForSeconds(1f);
         GeneralSingleton.generalSingleton.MouseUnLock();
@@ -42,12 +58,36 @@ public class AlertModalManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         AlertModalNew(false, "", 0, false, 1, false);
     }
-    void CloseContinue()
+    void CloseContinue(int _level)
     {
-        escapeLogicV1.CanEscape = true;
-        GeneralSingleton.generalSingleton.MouseLock();
-        alertModalAnimator.SetBool("alertmodal", false);
         ResumeGame();
+        escapeLogicV1.CanEscape = true;
+        Action action = _level switch
+        {
+            3 => () =>
+                {
+                    GeneralSingleton.generalSingleton.isNewGame = false;
+                    GeneralSingleton.generalSingleton.isLoadGame = false;
+                    GeneralSingleton.generalSingleton.isMyProfile = true;
+                    if (GeneralSingleton.generalSingleton.wasFirtsTime)
+                    {
+                        GeneralSingleton.generalSingleton.isFirtsTime = false;
+                    }
+                    else
+                    {
+                        GeneralSingleton.generalSingleton.isFirtsTime = levelSystem.CurrentLevel == 3;
+                    }
+                    SceneManager.LoadScene(2);
+                }
+            ,
+            _ => () =>
+            {
+                GeneralSingleton.generalSingleton.MouseLock();
+                alertModalAnimator.SetBool("alertmodal", false);
+            }
+            ,
+        };
+        action();
     }
     public void AlertInfo(string textAI) => StartCoroutine(AlertInfoMethod(textAI));
     IEnumerator AlertInfoMethod(string textAIM)
@@ -73,5 +113,10 @@ public class AlertModalManager : MonoBehaviour
         txtAlertNew.text = myText;
         imgAlertNew[indexImg].SetActive(myBoolImg);
         imgAlertNew[indexImg2].SetActive(myBoolImg2);
+    }
+    public void AlertModalNewV2(bool myBoolAnim, string myText)
+    {
+        alertModalNewV2.SetBool("alertmodal", myBoolAnim);
+        txtAlertNewV2.text = myText;
     }
 }

@@ -78,20 +78,20 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _type switch
         {
-            0 => () => SetEnemyStatsAnimal(4, 5, 4),
-            1 => () => SetEnemyStatsAnimal(6, 4, 3),
-            2 => () => SetEnemyStatsAnimal(8, 3, 2),
-            3 => () => SetEnemyStatsAnimal(10, 2, 1),
-            4 => () => SetEnemyStatsAnimal(12, 2, 1),
+            0 => () => SetEnemyStatsAnimal(4, 5, 4.5f, 2.5f),
+            1 => () => SetEnemyStatsAnimal(8, 4, 4, 2),
+            2 => () => SetEnemyStatsAnimal(12, 3, 3.5f, 1.5f),
+            3 => () => SetEnemyStatsAnimal(16, 2, 3, 1),
+            4 => () => SetEnemyStatsAnimal(20, 2, 3, 1),
             _ => () => Debug.Log("Default case!"),
         };
         action();
     }
-    void SetEnemyStatsAnimal(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsAnimal(int _damage, float _attackSpeed, float _walkSpeed, float _animSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
-        ChangeWalkSpeed(_walkSpeed);
+        ChangeWalkSpeed(_walkSpeed, _animSpeed);
     }
     void SetVegetalStats(int _type)
     {
@@ -128,7 +128,7 @@ public class EnemyStats : MonoBehaviour
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
-        ChangeWalkSpeed(_walkSpeed);
+        //ChangeWalkSpeed(_walkSpeed);
     }
     void SetProtistaStats(int _type)
     {
@@ -152,20 +152,20 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _type switch
         {
-            0 => () => SetEnemyStatsMonera(4, 5, 4),
-            1 => () => SetEnemyStatsMonera(6, 4, 3),
-            2 => () => SetEnemyStatsMonera(8, 3, 2),
-            3 => () => SetEnemyStatsMonera(10, 2, 1),
-            4 => () => SetEnemyStatsMonera(12, 2, 1),
+            0 => () => SetEnemyStatsMonera(4, 5, 4, 2),
+            1 => () => SetEnemyStatsMonera(6, 4, 3, 1.5f),
+            2 => () => SetEnemyStatsMonera(8, 3, 2, 1),
+            3 => () => SetEnemyStatsMonera(10, 2, 1, 1),
+            4 => () => SetEnemyStatsMonera(12, 2, 1, 0.5f),
             _ => () => Debug.Log("Default case!"),
         };
         action();
     }
-    void SetEnemyStatsMonera(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsMonera(int _damage, float _attackSpeed, float _walkSpeed, float _animSpeed)
     {
         ChangeDamage(_damage);
         ChangeAttackSpeed(_attackSpeed);
-        ChangeWalkSpeed(_walkSpeed);
+        ChangeWalkSpeed(_walkSpeed, _animSpeed);
     }
     float ChangeAttackSpeed(float _attackSpeed)
     {
@@ -175,8 +175,9 @@ public class EnemyStats : MonoBehaviour
     {
         return damagePlayerVegetal[playerEstanteCol.setId].shooterVegetal.velAttack = _attackSpeedVegetal;
     }
-    float ChangeWalkSpeed(float _walkSpeed)
+    float ChangeWalkSpeed(float _walkSpeed, float _animSpeed)
     {
+        enemyStateManager[playerEstanteCol.setId].enemiAnim.SetFloat("speed", _animSpeed);
         return enemyStateManager[playerEstanteCol.setId].walkSpeed = _walkSpeed;
     }
     float ChangeDamage(int newDamage)

@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class Notification : MonoBehaviour
 {
+    [SerializeField] AlertModalManager alertModalManager;
     [SerializeField] Text textCount;
     [SerializeField] Image imageRound;
     [SerializeField] Button btnNotification;
@@ -11,7 +13,11 @@ public class Notification : MonoBehaviour
     [SerializeField] Transform transformContent;
     int notificationCount;
     bool active;
-    void Awake() => btnNotification.onClick.AddListener(ShowNotification);
+    void Awake()
+    {
+        alertModalManager = FindObjectOfType<AlertModalManager>();
+        btnNotification.onClick.AddListener(ShowNotification);
+    }
     void Start()
     {
         active = false;
@@ -36,14 +42,16 @@ public class Notification : MonoBehaviour
             3 => () =>
             {
                 if (!GeneralSingleton.generalSingleton.wasFirtsTime)
-                { AddNotification("Haz desbloqueado tu perfil presiona este botón para ver!", true); }
+                {
+                    StartCoroutine(alertModalManager.GoTos("Haz desbloqueado tu perfil presiona continuar para verlo!"));
+                }
             }
             ,
-            11 => () => SetDoubleNotification(0, "Animal!", "Ahora ve al reino vegetal!"),
-            22 => () => SetDoubleNotification(1, "Vegetal!", "Ahora ve al reino Fungi!"),
-            33 => () => SetDoubleNotification(2, "Fungi!", "Ahora ve al reino Protista!"),
-            44 => () => SetDoubleNotification(3, "Protista!", "Ahora ve al reino Monera!"),
-            55 => () => SetDoubleNotification(4, "Monera!", "Haz terminado el juego!"),
+            11 => () => alertModalManager.StartIELevelCaseV2(true, "Felicidades haz completado el reino Animal! \n Ahora ve al reino Vegetal!"),
+            22 => () => alertModalManager.StartIELevelCaseV2(true, "Felicidades haz completado el reino Vegetal! \n Ahora ve al reino Fungi!"),
+            33 => () => alertModalManager.StartIELevelCaseV2(true, "Felicidades haz completado el reino Fungi! \n Ahora ve al reino Protista!"),
+            44 => () => alertModalManager.StartIELevelCaseV2(true, "Felicidades haz completado el reino Protista! \n Ahora ve al reino Monera!"),
+            55 => () => alertModalManager.StartIELevelCaseV2(true, "Felicidades haz completado el juego!"),
             _ => () => Debug.Log("Case Default"),
         };
         action();
@@ -51,21 +59,20 @@ public class Notification : MonoBehaviour
     void SetDoubleNotification(int _index, string _kingdom, string _endMessagge)
     {
         if (!GeneralSingleton.generalSingleton.endQuest[_index])
-        { DoubleNotifys("Felicidades haz completado el reino " + _kingdom, false, _endMessagge, false); }
+        { DoubleNotifys("Felicidades haz completado el reino " + _kingdom, _endMessagge); }
     }
-    void DoubleNotifys(string _notify1, bool _isBtnNotify1, string _notify2, bool _isBtnNotify2)
+    void DoubleNotifys(string _notify1, string _notify2)
     {
-        AddNotification(_notify1, _isBtnNotify1);
-        StartCoroutine(WaitForNotify(_notify2, _isBtnNotify2));
+        AddNotification(_notify1);
+        StartCoroutine(WaitForNotify(_notify2));
     }
-    IEnumerator WaitForNotify(string _message, bool _isBtnNotify)
+    IEnumerator WaitForNotify(string _message)
     {
         yield return new WaitForSeconds(1f);
-        AddNotification(_message, _isBtnNotify);
+        AddNotification(_message);
     }
-    public void AddNotification(string message, bool _isBtnNotify)
+    public void AddNotification(string message)
     {
-        GeneralSingleton.generalSingleton.isBtnNotify = _isBtnNotify;
         GeneralSingleton.generalSingleton.MouseUnLock();
         StartCoroutine(WaitForNotification(message));
     }

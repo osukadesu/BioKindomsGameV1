@@ -36,7 +36,8 @@ public class MenuButtons : MonoBehaviour
     }
     void DeletePlayerData()
     {
-        string[] fileNames = { Application.persistentDataPath + "/player.data", Application.persistentDataPath + "/level.data", Application.persistentDataPath + "/quest.data", Application.persistentDataPath + "/score.data" };
+        string[] fileNames = { Application.persistentDataPath + "/player.data", Application.persistentDataPath + "/level.data",
+        Application.persistentDataPath + "/quest.data", Application.persistentDataPath + "/score.data", Application.persistentDataPath + "/FirtsTime.data" };
         for (int i = 0; i < fileNames.Length; i++)
         {
             if (File.Exists(fileNames[i]))
@@ -63,7 +64,7 @@ public class MenuButtons : MonoBehaviour
         {
             GeneralSingleton.generalSingleton.isFirtsTime = false;
             GeneralSingleton.generalSingleton.wasFirtsTime = true;
-            //SaveAndLoadManager.SaveSingleton(GeneralSingleton.generalSingleton);
+            SaveAndLoadManager.SaveFirtsTime(GeneralSingleton.generalSingleton);
         }
         GeneralSingleton.generalSingleton.isLoadGame = false;
         GeneralSingleton.generalSingleton.isMyProfile = true;

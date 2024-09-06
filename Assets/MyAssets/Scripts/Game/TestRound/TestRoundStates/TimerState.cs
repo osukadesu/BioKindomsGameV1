@@ -8,8 +8,8 @@ public class TimerState : QuestBaseState
     [SerializeField] protected internal Animator hiderTimer;
     [SerializeField] Text textTimer;
     [SerializeField] Image imgFiller;
-    [SerializeField] int fillMax;
-    [SerializeField] float timer, currentFill;
+    [SerializeField] protected internal int fillMax;
+    [SerializeField] protected internal float timer, currentFill;
     void Awake() => logicQuestSystem = FindObjectOfType<LogicQuestSystem>();
     public override void EnterState(QuestStateManager questStateManager)
     {

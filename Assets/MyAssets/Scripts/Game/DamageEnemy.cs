@@ -25,8 +25,8 @@ public class DamageEnemy : DamageSystem
         {
             lifeControllerEnemy.RestarVida(daño);
             damageAnim.SetTrigger("damage");
-            shootLogic.DestroyNewBullet();
+            shootLogic.HideNewBullet();
         }
-        if (other.CompareTag("DestroyerBullet")) { shootLogic.DestroyNewBullet(); }
+        if (other.CompareTag("DestroyerBullet")) { shootLogic.HideNewBullet(); }
     }
 }

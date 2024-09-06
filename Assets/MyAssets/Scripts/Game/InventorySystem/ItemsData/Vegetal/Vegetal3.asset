@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa254e12a2f0954787ffe6170697b50, type: 3}
   m_Name: Vegetal3
   m_EditorClassIdentifier: 
-  itemName: Alga Uva Marina
-  imgItem: {fileID: 21300000, guid: 87e44cf92b09285479ee38662833ab92, type: 3}
+  itemName: Limonera
+  imgItem: {fileID: 21300000, guid: 0fe75fe0d53ba654699841976b262206, type: 3}
   itemIsCheck: 0

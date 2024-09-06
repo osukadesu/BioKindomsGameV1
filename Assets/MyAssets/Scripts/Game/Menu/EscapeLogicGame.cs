@@ -20,7 +20,7 @@ public class EscapeLogicGame : MonoBehaviour
     }
     void EscapeFromGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canEscape)
         {
             GeneralSingleton.generalSingleton.MouseUnLock();
             GeneralSingleton.generalSingleton.isNewGame = false;
@@ -28,5 +28,19 @@ public class EscapeLogicGame : MonoBehaviour
             GeneralSingleton.generalSingleton._kingdomIndex = 0;
             SceneManager.LoadScene(2);
         }
+    }
+    public void IsCanEscape(int _level)
+    {
+        Action action = _level switch
+        {
+            3 => () => canEscape = false,
+            11 => () => canEscape = false,
+            22 => () => canEscape = false,
+            33 => () => canEscape = false,
+            44 => () => canEscape = false,
+            55 => () => canEscape = false,
+            _ => () => canEscape = true,
+        };
+        action();
     }
 }

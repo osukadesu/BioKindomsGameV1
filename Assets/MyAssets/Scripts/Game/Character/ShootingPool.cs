@@ -7,10 +7,7 @@ public class ShootingPool : MonoBehaviour
     [SerializeField] protected internal GameObject prefabBullet, bullet;
     [SerializeField] List<GameObject> playerBulletList;
     [SerializeField] readonly int poolSize = 5;
-    void Awake()
-    {
-        Singleton();
-    }
+    void Awake() => Singleton();
     void Start() => AddBulletInPool(poolSize);
     void Singleton()
     {

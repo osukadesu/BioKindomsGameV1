@@ -59,4 +59,32 @@ public static class SaveAndLoadManager
             return null;
         }
     }
+    public static void SaveFirtsTime(GeneralSingleton generalSingleton)
+    {
+        FirtsTimeData firtsTimeData = new(generalSingleton);
+        string datapath = Application.persistentDataPath + "/FirtsTime.data";
+        FileStream fileStream = new(datapath, FileMode.Create);
+        BinaryFormatter binaryFormatter = new();
+        binaryFormatter.Serialize(fileStream, firtsTimeData);
+        Debug.Log("Save FirtsTime");
+        fileStream.Close();
+    }
+    public static FirtsTimeData LoadFirtsTime()
+    {
+        string datapath = Application.persistentDataPath + "/FirtsTime.data";
+        if (File.Exists(datapath))
+        {
+            FileStream fileStream = new(datapath, FileMode.Open);
+            BinaryFormatter binaryFormatter = new();
+            FirtsTimeData firtsTimeData = (FirtsTimeData)binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            Debug.Log("Load Firts Time");
+            return firtsTimeData;
+        }
+        else
+        {
+            Debug.LogError("Firts Time is missing!");
+            return null;
+        }
+    }
 }

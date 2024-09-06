@@ -12,6 +12,7 @@ public class LevelDisplay : MonoBehaviour
     [SerializeField] PlayerPosition playerPosition;
     [SerializeField] EnemyStats enemyStats;
     [SerializeField] GameObject levelFight, platformV2;
+    [SerializeField] EscapeLogicGame escapeLogicGame;
     [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
     public GameObject[] enemy, money;
     [SerializeField] BoxCollider boxCollider;
@@ -26,6 +27,7 @@ public class LevelDisplay : MonoBehaviour
         notification = FindObjectOfType<Notification>();
         playerPosition = FindObjectOfType<PlayerPosition>();
         enemyStats = FindObjectOfType<EnemyStats>();
+        escapeLogicGame = FindObjectOfType<EscapeLogicGame>();
     }
     void Start()
     {
@@ -65,6 +67,7 @@ public class LevelDisplay : MonoBehaviour
         loadLevelSystem.LoadSingletonQuest(level);
         notification.SetNotificationsLevel(level);
         enemyStats.SetKingdomStatsInLevel(level);
+        escapeLogicGame.IsCanEscape(level);
     }
     bool IsPlatform() { return true; }
     bool IsFight() { return false; }

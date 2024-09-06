@@ -2,14 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TabView : MonoBehaviour
 {
-    [SerializeField] Text textTab;
+    [SerializeField] Text textTab, textEsc;
     [SerializeField] bool active = false;
-    void Awake()
-    {
-    }
     void Update()
     {
         textTab.text = "Presiona \"Tab\" para activar o desactivar el mouse!";
+        textEsc.text = "Presiona \"Esc\" para salir!";
         TabVieW();
     }
     public void TabVieW()

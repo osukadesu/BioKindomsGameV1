@@ -38,7 +38,7 @@ public class ForGoToQuest : MonoBehaviour
     }
     void SetText(string _text)
     {
-        textGoQuest.text = "Antes de Finalizar el juego " + _text + "realiza el siguiente Quiz. \n Para guardar tu calificación.";
+        textGoQuest.text = "Antes de Finalizar el Reino " + _text + " realiza el siguiente Quiz. \n Para guardar tu calificación.";
     }
     void SetTextFinal()
     {

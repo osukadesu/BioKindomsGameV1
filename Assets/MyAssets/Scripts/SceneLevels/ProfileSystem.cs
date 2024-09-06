@@ -10,16 +10,16 @@ public class ProfileSystem : MonoBehaviour
     void Awake()
     {
         loadLevel = FindObjectOfType<LoadProfile>();
+        ReadData();
     }
     void Start()
     {
-        ReadData();
         GeneralSingleton.generalSingleton.MouseUnLock();
     }
     void ReadData()
     {
         string datapath = Application.persistentDataPath + "/score.data";
-        if (loadLevelSelect.LoadProfile && File.Exists(datapath) && !GeneralSingleton.generalSingleton.wasFirtsTime)
+        if (loadLevelSelect.LoadProfile && File.Exists(datapath))
         {
             loadLevel.GoLoadProfile();
         }

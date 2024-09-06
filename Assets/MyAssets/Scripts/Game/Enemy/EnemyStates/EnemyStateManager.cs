@@ -6,7 +6,9 @@ public class EnemyStateManager : MonoBehaviour
     public WalkingState walkingState;
     public AttackState attackState;
     public NavMeshAgent agent;
+    public Animator enemiAnim;
     public Transform player;
+    public Transform[] wayPoints;
     public float walkSpeed, attackSpeed;
     void Start()
     {

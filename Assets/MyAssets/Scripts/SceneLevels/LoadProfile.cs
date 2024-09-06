@@ -35,8 +35,14 @@ public class LoadProfile : MonoBehaviour
     {
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
         ScoreData scoreData = SaveScoreData.LoadScore();
+        FirtsTimeData firtsTimeData = SaveAndLoadManager.LoadFirtsTime();
         SettingLevelsSelect(playerData, true);
+        LoadFirtsTime(firtsTimeData);
         SetScore(scoreData);
+    }
+    void LoadFirtsTime(FirtsTimeData firtsTimeData)
+    {
+        GeneralSingleton.generalSingleton.wasFirtsTime = firtsTimeData._wasFirtsTime;
     }
     protected internal void SettingLevelsSelect(PlayerData playerData, bool isLoad)
     {

@@ -1,11 +1,12 @@
 using System;
+using System.IO;
 using UnityEngine;
 public class GeneralSingleton : MonoBehaviour
 {
     public static GeneralSingleton generalSingleton;
     public int[] _num = new int[5];
     public int CaseValue, _kingdomIndex;
-    public bool isNewGame, isLoadGame, isMyProfile, isFirtsTime, wasFirtsTime, isBtnNotify;
+    public bool isNewGame, isLoadGame, isMyProfile, isFirtsTime, wasFirtsTime;
     public bool[] iscloseInfo, endQuest = new bool[5];
     void Awake()
     {

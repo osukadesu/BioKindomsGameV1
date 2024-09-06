@@ -12,7 +12,7 @@ public class LearnedInfo : MonoBehaviour
     [SerializeField] GameObject[] imageKingdom;
     [SerializeField] Transform transform3D;
     [SerializeField] Button btnClose, btnBack, btnInfoText1, btnInfoText2, btnKingdomContent;
-    [SerializeField] Text textName, text2, textInfo, textInfo2, textTitle, textInfoKingdom;
+    [SerializeField] Text textName, textInfo, textInfo2, textTitle, textInfoKingdom;
     [SerializeField] Image topColor, contentColorItem, contentColorKingdom, contentText, btnKingdom;
     void Awake()
     {
@@ -37,7 +37,6 @@ public class LearnedInfo : MonoBehaviour
     }
     void ShowInfo(int value)
     {
-        text2.text = "Vista 3D";
         switch (value)
         {
             case 0:
@@ -93,14 +92,14 @@ public class LearnedInfo : MonoBehaviour
                 ShowForKingdom(1);
                 textName.text = infoKindomData.TextName[7];
                 textInfo.text = infoKindomData.TextInfo[7];
-                textInfo2.text = "\n \n Ambiente: Bosques y áreas frías o templadas. \n Tipo: Cónifera \n ";
+                textInfo2.text = "\n \n Ambiente: Zonas templadas y cálidas. Se cultiva en huertos y jardines. \n Tipo: Arbol frutal \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[7], transform3D);
                 break;
             case 8:
                 ShowForKingdom(1);
                 textName.text = infoKindomData.TextName[8];
                 textInfo.text = infoKindomData.TextInfo[8];
-                textInfo2.text = "\n \n Ambiente: Zonas templadas y cálidas. Se cultiva en huertos y jardines. \n Tipo: Arbol frutal \n ";
+                textInfo2.text = "\n \n Ambiente: Bosques y áreas frías o templadas. \n Tipo: Cónifera \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[8], transform3D);
                 break;
             case 9:

@@ -12,7 +12,6 @@ public class ShooterVegetal : MonoBehaviour
         shooterVegetalAnim.SetBool("attack", false);
         canShoot = true;
     }
-
     void Update()
     {
         if (canShoot)

@@ -20,8 +20,8 @@ MonoBehaviour:
   - Mariposa Monarca
   - "Cactus Mel\xF3n"
   - Helecho
-  - Pino
   - "Lim\xF3n"
+  - Pino
   - Alga
   textInfo:
   - "La carpa asi\xE1tica dorada es como una celebridad entre los peces, con colores
@@ -50,12 +50,12 @@ MonoBehaviour:
   - El helecho es una planta verde con hojas largas que parecen plumas El helecho
     es una planta verde con hojas largas que parecen plumas, crece en lugares frescos,
     humedos  y sombreados, como en los bosques.
-  - "El pino es un \xE1rbol muy alto y siempre verde, con hojas en forma de agujas.
-    Sus pi\xF1as guardan semillas y huele a bosque fresco. Sirve de decoracion para
-    las fiestas de navidad!"
   - "El limonero es un \xE1rbol que da limones, frutas amarillas y \xE1cidas. Sus
     flores huelen delicioso y sus frutos son perfectos para hacer jugo de limonada.
     \xA1Es como un \xE1rbol que regala frescura!"
+  - "El pino es un \xE1rbol muy alto y siempre verde, con hojas en forma de agujas.
+    Sus pi\xF1as guardan semillas y huele a bosque fresco. Sirve de decoracion para
+    las fiestas de navidad!"
   - "El alga uva marina es un alga verde submarina con bolitas verdes que parecen
     uvas. Se puede comer y es crujiente y salada. \xA1Es como un snack del mar!"
   - "El Champi\xF1on es un hongo comestible que se usa en muchas comidas, tiene un
@@ -80,6 +80,6 @@ MonoBehaviour:
   - {fileID: 6136178312442412578, guid: 756c5b65e865ab240b6425f89f68a1da, type: 3}
   - {fileID: 6877486473313604972, guid: b37d4c4ecf33bfe4e80b3d234158ba8c, type: 3}
   - {fileID: 3798253230925153765, guid: 9940ebd16030cb5468bb831f0cb395dd, type: 3}
-  - {fileID: 3938157708530620012, guid: 57f66b14519409946ab7bbb396243a10, type: 3}
   - {fileID: 4216293699573356618, guid: 19611228c23c3d642aba8e5ba117d02e, type: 3}
+  - {fileID: 3938157708530620012, guid: 57f66b14519409946ab7bbb396243a10, type: 3}
   - {fileID: 277264299125809144, guid: c83c2c74dbaae724cab914b5f8c14587, type: 3}
