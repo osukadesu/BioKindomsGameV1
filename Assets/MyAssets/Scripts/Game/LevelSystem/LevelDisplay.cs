@@ -10,29 +10,32 @@ public class LevelDisplay : MonoBehaviour
     [SerializeField] QuestGameObjects questGameObjects;
     [SerializeField] PlayerPosition playerPosition;
     [SerializeField] EnemyStats enemyStats;
-    [SerializeField] GameObject levelFight, platformV2;
     [SerializeField] EscapeLogicGame escapeLogicGame;
     [SerializeField] protected internal Animator nextLevelAnim, pedestalAnim;
+    [SerializeField] GameObject levelFight, platformV2;
     public GameObject[] enemy, money;
     [SerializeField] BoxCollider boxCollider;
     void Awake()
     {
-        loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
-        playerEstanteCol = FindObjectOfType<PlayerEstanteCol>();
-        shootLogic = FindObjectOfType<ShootLogic>();
-        alertModalManager = FindObjectOfType<AlertModalManager>();
         saveMethod = FindObjectOfType<SaveMethod>();
-        questGameObjects = FindObjectOfType<QuestGameObjects>();
-        playerPosition = FindObjectOfType<PlayerPosition>();
         enemyStats = FindObjectOfType<EnemyStats>();
+        shootLogic = FindObjectOfType<ShootLogic>();
+        playerPosition = FindObjectOfType<PlayerPosition>();
+        loadLevelSystem = FindObjectOfType<LoadLevelSystem>();
         escapeLogicGame = FindObjectOfType<EscapeLogicGame>();
+        playerEstanteCol = FindObjectOfType<PlayerEstanteCol>();
+        questGameObjects = FindObjectOfType<QuestGameObjects>();
+        alertModalManager = FindObjectOfType<AlertModalManager>();
     }
     void Start()
     {
         ElementsHide();
         LevelPlatform();
     }
-    void Update() { if (nextLevelAnim.isActiveAndEnabled) { ItemCondition(); } }
+    void Update()
+    {
+        if (nextLevelAnim.isActiveAndEnabled) { ItemCondition(); }
+    }
     void ElementsHide()
     {
         for (int i = 0; i < money.Length; i++) { money[i].SetActive(false); }
@@ -78,13 +81,13 @@ public class LevelDisplay : MonoBehaviour
     }
     void LevelFight()
     {
+        NextLevelMethod(false);
         shootLogic.SetCanShoot();
         levelFight.SetActive(true);
         platformV2.SetActive(false);
-        NextLevelMethod(false);
+        pedestalAnim.SetBool("pedestalShow", false);
         enemy[playerEstanteCol.setId].SetActive(true);
         money[playerEstanteCol.setId].SetActive(false);
-        pedestalAnim.SetBool("pedestalShow", false);
     }
     void ItemCondition() => NextLevelMethod(loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck);
     void NextLevelMethod(bool _value)

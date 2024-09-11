@@ -25,12 +25,14 @@ public class AlertModalManager : MonoBehaviour
             1 => () => StartLevelTutorialCoroutine("¡Hola BioBot! Unos seres invasores han robado algunas reliquias de los reinos biológicos, tu misión es derrotarlos y recuperar las reliquias!", "¡Presiona las teclas y ve a la puerta del reino animal!"),
             2 => () => StartIELevelCase(true, "Presiona el Clic izquierdo para disparar y derrotar al enemigo.", 0, false, 1, true),
             3 => () =>
-            { if (!GeneralSingleton.generalSingleton.wasFirtsTime) { StartCoroutine(GoTos("Haz desbloqueado tu perfil presiona continuar para verlo!")); } }
+            {
+                if (!GeneralSingleton.generalSingleton.wasFirtsTime) { StartCoroutine(GoTos("Haz desbloqueado tu perfil presiona continuar para verlo!")); }
+            }
             ,
-            11 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Animal! \n Ahora ve al reino Vegetal!"),
-            22 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Vegetal! \n Ahora ve al reino Fungi!"),
-            33 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Fungi! \n Ahora ve al reino Protista!"),
-            44 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Protista! \n Ahora ve al reino Monera!"),
+            11 or 12 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Animal! \n Ahora ve al reino Vegetal!"),
+            22 or 23 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Vegetal! \n Ahora ve al reino Fungi!"),
+            33 or 34 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Fungi! \n Ahora ve al reino Protista!"),
+            44 or 45 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Protista! \n Ahora ve al reino Monera!"),
             55 => () => StartIELevelCaseV2(true, "Felicidades haz completado el juego!"),
             _ => () => Debug.Log("Default case!"),
         };
@@ -60,7 +62,7 @@ public class AlertModalManager : MonoBehaviour
     {
         StartCoroutine(LevelTutorialCoroutine(message1, message2));
     }
-    public IEnumerator LevelTutorialCoroutine(string message1, string message2)
+    IEnumerator LevelTutorialCoroutine(string message1, string message2)
     {
         yield return new WaitForSeconds(1f);
         GeneralSingleton.generalSingleton.MouseUnLock();

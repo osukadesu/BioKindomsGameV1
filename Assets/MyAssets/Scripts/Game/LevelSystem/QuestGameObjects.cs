@@ -39,7 +39,7 @@ public class QuestGameObjects : MonoBehaviour
         };
         action();
     }
-    public void DestroyingObjects(int _index)
+    void DestroyingObjects(int _index)
     {
         Destroy(questKing[_index], .2f);
         Destroy(exitQuest[_index], .2f);

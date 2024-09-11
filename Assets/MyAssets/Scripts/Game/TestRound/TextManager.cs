@@ -8,7 +8,7 @@ public class TextManager : MonoBehaviour
     [SerializeField] protected internal Animator textRoundInfoAnim;
     [SerializeField] Transform textPosition, textPositionInit, textPositionEnd;
     public void ShowText(int posType, string message, string animation) => StartCoroutine(IEShowText(posType, message, animation));
-    public IEnumerator IEShowText(int _posType, string _message, string _animation)
+    IEnumerator IEShowText(int _posType, string _message, string _animation)
     {
         Action action = _posType switch
         {

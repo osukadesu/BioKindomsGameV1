@@ -9,7 +9,7 @@ public class EstanteCol : MonoBehaviour
     [SerializeField] TextGralController textInfo;
     string textMessage;
     public int id;
-    [SerializeField] bool canpressG, canpressF;
+    [SerializeField] public bool canpressG, canpressF;
     void Awake() => levelSystemV2 = FindObjectOfType<LevelSystem>();
     void Update()
     {

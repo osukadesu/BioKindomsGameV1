@@ -51,16 +51,6 @@ public class EnemyStats : MonoBehaviour
         };
         action();
     }
-    void ForSetKingdomStats()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                SetKingdomStats(i, j);
-            }
-        }
-    }
     void SetKingdomStats(int _enemyKingdom, int enemyIndex)
     {
         Action action = _enemyKingdom switch

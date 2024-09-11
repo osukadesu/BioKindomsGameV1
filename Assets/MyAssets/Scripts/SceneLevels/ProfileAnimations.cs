@@ -38,19 +38,27 @@ public class ProfileAnimations : MonoBehaviour
     }
     public void LevelFinished(int _index, bool isLoad)
     {
-        StartCoroutine(WaitForShow(_index, isLoad));
+        ConditionForShow(_index, isLoad);
     }
-    IEnumerator WaitForShow(int _index, bool isLoad)
+    void ConditionForShow(int _index, bool isLoad)
     {
         Action action = isLoad switch
         {
-            true => () => { imgCompleteAnim[_index].SetBool("imgCompleteLoad", true); txtCompleteAnim[_index].SetBool("txtCompleteLoad", true); }
+            true => () =>
+            {
+                imgCompleteAnim[_index].SetBool("imgCompleteLoad", true);
+                txtCompleteAnim[_index].SetBool("txtCompleteLoad", true);
+                btnResetQuestAnim[_index].SetBool("btnRepiteQuestLoad", true);
+            }
             ,
-            false => () => { imgCompleteAnim[_index].SetBool("imgComplete", true); txtCompleteAnim[_index].SetBool("txtComplete", true); }
+            false => () =>
+            {
+                imgCompleteAnim[_index].SetBool("imgComplete", true);
+                txtCompleteAnim[_index].SetBool("txtComplete", true);
+                btnResetQuestAnim[_index].SetBool("btnRepiteQuest", true);
+            }
         };
         action();
-        yield return new WaitForSeconds(1f);
-        btnResetQuestAnim[_index].SetBool("btnRepiteQuest", true);
     }
     void AgainQuest(int _btn)
     {
