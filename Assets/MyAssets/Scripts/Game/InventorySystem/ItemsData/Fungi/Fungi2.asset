@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffa254e12a2f0954787ffe6170697b50, type: 3}
   m_Name: Fungi2
   m_EditorClassIdentifier: 
-  itemName: 
-  imgItem: {fileID: 0}
+  itemName: "Champi\xF1on"
+  imgItem: {fileID: 21300000, guid: c0337842b3199ae4ab1d69715c1d1954, type: 3}
   itemIsCheck: 0

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyAssets/Scenes/LearnedInfo.unity
     guid: 749a93c7fea67924cbbbef01d3ed4066
+  - enabled: 0
+    path: Assets/MyAssets/Scenes/PruebaFish.unity
+    guid: 5d68252c5cf71f240bde62d835cfb738
   m_configObjects: {}

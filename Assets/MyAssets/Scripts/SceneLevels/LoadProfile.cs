@@ -19,9 +19,9 @@ public class LoadProfile : MonoBehaviour
             txtScore[i].text = num[i].ToString();
         }
         txtFinalScore.text = FinalScore().ToString();
-        for (int i = 0; i < scoreAnimations.Length; i++)
+        for (int i = 0; i < 5; i++)
         {
-            int scoreValue = i < 5 ? num[i] : finalScore;
+            int scoreValue = i < scoreAnimations.Length ? num[i] : finalScore;
             scoreAnimations[i].SwitchAnimations(scoreValue);
         }
         PlayerData playerData = SaveAndLoadManager.LoadLevel();
@@ -29,7 +29,7 @@ public class LoadProfile : MonoBehaviour
     }
     int FinalScore()
     {
-        return finalScore = (num[0] + num[1] + num[2] + num[3] + num[4]) / 5;
+        return finalScore = (num[0] + num[1] /*+ score[2]*/) / 2;
     }
     protected internal void GoLoadProfile()
     {
@@ -61,13 +61,13 @@ public class LoadProfile : MonoBehaviour
         {
             txtScore[i].text = num[i].ToString();
         }
-        finalScore = scoreData.finalScore;
+        finalScore = scoreData.FinalScore();
         txtFinalScore.text = finalScore.ToString();
-        for (int i = 0; i < scoreAnimations.Length; i++)
+        for (int i = 0; i < 6; i++)
         {
             int scoreValue = i < 5 ? num[i] : finalScore;
             scoreAnimations[i].SwitchAnimations(scoreValue);
         }
-        Debug.Log("score load: " + scoreData.score[0] + " " + scoreData.score[1] + " " + scoreData.score[2] + " " + scoreData.score[3] + " " + scoreData.score[4]);
+        Debug.Log("score load: " + scoreData.score[0] + " " + scoreData.score[1] + " " + scoreData.score[2]);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShootLogic : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
+    [SerializeField] AudioSource shootAudio;
     public Transform spawnBullet;
     public float shootForce = 100f, shootRate = 1f, shootRateTime = 1f;
     public bool canShoot;
@@ -20,6 +21,7 @@ public class ShootLogic : MonoBehaviour
                 bulletRb.velocity = Vector3.zero;
                 bulletRb.AddForce(spawnBullet.forward * shootForce);
                 shootRateTime = Time.time + shootRate;
+                shootAudio.Play();
             }
         }
     }

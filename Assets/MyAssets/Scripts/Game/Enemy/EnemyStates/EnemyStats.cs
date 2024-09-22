@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     [SerializeField] EnemyStateManager[] enemyStateManager;
+    [SerializeField] AttackStateF[] attackStateF;
     [SerializeField] DamagePlayer[] damagePlayer;
     [SerializeField] DamagePlayerVegetal[] damagePlayerVegetal;
     [SerializeField] PlayerEstanteCol playerEstanteCol;
@@ -25,17 +26,17 @@ public class EnemyStats : MonoBehaviour
             6 => () => SetKingdomStats(0, 2),
             8 => () => SetKingdomStats(0, 3),
             10 => () => SetKingdomStats(0, 4),
+            24 => () => SetKingdomStats(2, 0),
+            26 => () => SetKingdomStats(2, 1),
+            28 => () => SetKingdomStats(2, 2),
+            30 => () => SetKingdomStats(2, 3),
+            32 => () => SetKingdomStats(2, 4),
             /*
              13 => () => SetKingdomStats(1, 0),
              15 => () => SetKingdomStats(1, 1),
              17 => () => SetKingdomStats(1, 2),
              19 => () => SetKingdomStats(1, 3),
              21 => () => SetKingdomStats(1, 4),
-             24 => () => SetKingdomStats(2, 0),
-             26 => () => SetKingdomStats(2, 1),
-             28 => () => SetKingdomStats(2, 2),
-             30 => () => SetKingdomStats(2, 3),
-             32 => () => SetKingdomStats(2, 4),
              35 => () => SetKingdomStats(3, 0),
              37 => () => SetKingdomStats(3, 1),
              39 => () => SetKingdomStats(3, 2),
@@ -105,20 +106,29 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _type switch
         {
-            0 => () => SetEnemyStatsFungi(4, 5, 4),
-            1 => () => SetEnemyStatsFungi(6, 4, 3),
-            2 => () => SetEnemyStatsFungi(8, 3, 2),
-            3 => () => SetEnemyStatsFungi(10, 2, 1),
-            4 => () => SetEnemyStatsFungi(12, 2, 1),
+            0 => () => SetEnemyStatsFungi(4, 5, 4.5f, 2.5f),
+            1 => () => SetEnemyStatsFungi(8, 4, 4, 2),
+            2 => () => SetEnemyStatsFungi(12, 3, 3.5f, 1.5f),
+            3 => () => SetEnemyStatsFungi(16, 2, 3, 1),
+            4 => () => SetEnemyStatsFungi(20, 2, 3, 1),
             _ => () => Debug.Log("Default case!"),
         };
         action();
     }
-    void SetEnemyStatsFungi(int _damage, float _attackSpeed, float _walkSpeed)
+    void SetEnemyStatsFungi(int _damage, float _attackSpeed, float _walkSpeed, float _animSpeed)
     {
         ChangeDamage(_damage);
-        ChangeAttackSpeed(_attackSpeed);
-        //ChangeWalkSpeed(_walkSpeed);
+        ChangeAttackSpeedF(_attackSpeed);
+        ChangeWalkSpeedF(_walkSpeed, _animSpeed);
+    }
+    float ChangeAttackSpeedF(float _attackSpeed)
+    {
+        return attackStateF[playerEstanteCol.setId].attackSpeed = _attackSpeed;
+    }
+    float ChangeWalkSpeedF(float _walkSpeed, float _animSpeed)
+    {
+        // attackStateF[playerEstanteCol.setId].enemiAnim.SetFloat("speed", _animSpeed);
+        return attackStateF[playerEstanteCol.setId].walkSpeed = _walkSpeed;
     }
     void SetProtistaStats(int _type)
     {

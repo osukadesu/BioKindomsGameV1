@@ -5,6 +5,7 @@ public class OpenDoorMessage : MonoBehaviour
 {
     [SerializeField] Animator[] _unlockDoors;
     [SerializeField] TextGralController textInfo;
+    void Awake() => textInfo = FindObjectOfType<TextGralController>();
     void Start()
     {
         for (int i = 0; i < 4; i++)

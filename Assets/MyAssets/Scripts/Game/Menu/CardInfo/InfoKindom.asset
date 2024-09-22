@@ -23,6 +23,11 @@ MonoBehaviour:
   - "Lim\xF3n"
   - Pino
   - Alga
+  - Amanita Muscaria
+  - "Champi\xF1on"
+  - Trufa
+  - Moho
+  - Levadura
   textInfo:
   - "La carpa asi\xE1tica dorada es como una celebridad entre los peces, con colores
     s\xFAper brillantes. Les encanta nadar en estanques y lucirse. Aunque son originarias
@@ -58,12 +63,12 @@ MonoBehaviour:
     las fiestas de navidad!"
   - "El alga uva marina es un alga verde submarina con bolitas verdes que parecen
     uvas. Se puede comer y es crujiente y salada. \xA1Es como un snack del mar!"
-  - "El Champi\xF1on es un hongo comestible que se usa en muchas comidas, tiene un
-    sombrerito redondo puede ser blanco o marr\xF3n. \xA1Es delicioso en pizzas y
-    ensaladas!"
   - "La Amanita Muscaria es un hongo famoso por su aspecto llamativo, tiene un sombrero
     rojo con puntos blancos. Es muy bonito, pero venenoso, as\xED que no se debe
     tocar ni comer."
+  - "El Champi\xF1on es un hongo comestible que se usa en muchas comidas, tiene un
+    sombrerito redondo puede ser blanco o marr\xF3n. \xA1Es delicioso en pizzas y
+    ensaladas!"
   - "La Trufa es un hongo que crece bajo tierra, se parece a una peque\xF1a piedra
     marr\xF3n y es muy valorado en la cocina por su sabor fuerte. \xA1Es un tesoro
     escondido en el bosque!"
@@ -83,3 +88,8 @@ MonoBehaviour:
   - {fileID: 4216293699573356618, guid: 19611228c23c3d642aba8e5ba117d02e, type: 3}
   - {fileID: 3938157708530620012, guid: 57f66b14519409946ab7bbb396243a10, type: 3}
   - {fileID: 277264299125809144, guid: c83c2c74dbaae724cab914b5f8c14587, type: 3}
+  - {fileID: 6740040417772454473, guid: 282931a6cd836a64dab7830d2a7d4542, type: 3}
+  - {fileID: 1470307815089509715, guid: ef19e13760a077d4289dd1123e6240e5, type: 3}
+  - {fileID: 8473160650721467715, guid: 80b93effbf77e9244aa95669ae958395, type: 3}
+  - {fileID: 183166243176964205, guid: 87a349c5a62d06748b9889402bc2d480, type: 3}
+  - {fileID: 3662378445159040458, guid: 41be7fd3cbf6ee647ac593860ce99061, type: 3}

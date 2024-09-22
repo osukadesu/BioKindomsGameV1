@@ -4,6 +4,7 @@ public class ShooterVegetal : MonoBehaviour
 {
     public GameObject bullet, newBullet;
     [SerializeField] Animator shooterVegetalAnim;
+    [SerializeField] AudioSource shootAudio;
     public Transform spawnBullet;
     public float shootForce = 1500f, velAttack = 1f;
     public bool canShoot;
@@ -28,6 +29,7 @@ public class ShooterVegetal : MonoBehaviour
     {
         canShoot = false;
         shooterVegetalAnim.SetBool("attack", true);
+        shootAudio.Play();
         newBullet = Instantiate(bullet, spawnBullet.position, spawnBullet.rotation);
         newBullet.GetComponent<Rigidbody>().AddForce(spawnBullet.forward * shootForce);
         yield return new WaitForSeconds(_velAttack);

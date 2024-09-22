@@ -1,6 +1,18 @@
 using UnityEngine;
 public class WalkingState : EnemyBaseState
 {
+    [SerializeField] AudioSource audioSource1, audioSource2;
+    [SerializeField] PlayerMove playerMove;
+    public void Run1A()
+    {
+        audioSource1.Play();
+        audioSource2.Stop();
+    }
+    public void Run2A()
+    {
+        audioSource2.Play();
+        audioSource1.Stop();
+    }
     public int wayIndex = 0;
     public override void UpdateState(EnemyStateManager enemyStateManager)
     {

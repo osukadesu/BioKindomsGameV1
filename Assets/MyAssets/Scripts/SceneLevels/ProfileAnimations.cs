@@ -7,7 +7,7 @@ public class ProfileAnimations : MonoBehaviour
 {
     [SerializeField] Animator[] subUnlockAnim, imgCompleteAnim, txtCompleteAnim, btnResetQuestAnim;
     [SerializeField] Button[] btnResetQuest;
-    [SerializeField] GameObject Attention, alertModal;
+    [SerializeField] GameObject[] Attention, alertModal;
     [SerializeField] ProfileSystem profileSystem;
     void Awake()
     {
@@ -24,8 +24,15 @@ public class ProfileAnimations : MonoBehaviour
     }
     void ShowAttentionAnimation()
     {
-        Attention.SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest[0]);
-        alertModal.SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest[0] && profileSystem.currentLevel == 11);
+        Attention[0].SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest[0]);
+        alertModal[0].SetActive(GeneralSingleton.generalSingleton.CaseValue is 0 or -1 && !GeneralSingleton.generalSingleton.endQuest[0] && profileSystem.currentLevel == 11);
+        for (int i = 1; i < 5; i++)
+        {
+            bool _condition = !GeneralSingleton.generalSingleton.endQuest[i];
+            int _currentLevel = 11 * (i + 1);
+            Attention[i].SetActive(_condition);
+            alertModal[i].SetActive(_condition && profileSystem.currentLevel == _currentLevel);
+        }
     }
     public void SubLevel(int _SubLevelIndex, bool isLoad)
     {

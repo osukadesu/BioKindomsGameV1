@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class LoadLevelSystem : MonoBehaviour
         SettingLevels(playerData);
         SettingKingdom(playerData);
         CheckingKingdom(playerData);
-        questGameObjects.DestroyObjects(levelSystemV2.CurrentLevel);
+        //questGameObjects.DestroyObjects(levelSystemV2.CurrentLevel);
         estanteColChecked.EstanteBool("estanteLoad");
     }
     void GoLoadSingletonQuest()

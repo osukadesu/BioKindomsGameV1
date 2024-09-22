@@ -11,7 +11,7 @@ public class CompareState : QuestBaseState
     [SerializeField] TextManager textManager;
     [SerializeField] TimerState timerState;
     [SerializeField] int idBtnSelect, score, correct, incorrect;
-    public int[] _score = new int[5];
+    public int[] _score = new int[3];
     [SerializeField] bool resetGame;
     public int _idBtnSelect { get => idBtnSelect; set => idBtnSelect = value; }
     public bool _resetGame { get => resetGame; set => resetGame = value; }

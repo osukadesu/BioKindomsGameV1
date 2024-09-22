@@ -113,14 +113,14 @@ public class LearnedInfo : MonoBehaviour
                 ShowForKingdom(2);
                 textName.text = infoKindomData.TextName[10];
                 textInfo.text = infoKindomData.TextInfo[10];
-                textInfo2.text = "\n \n Ambiente: Lugares oscuros y humedos. \n Tipo: Comestible. \n ";
+                textInfo2.text = "\n \n Ambiente: En bosques, especialmente cerca de abedules y pinos. \n Tipo: Venenoso no comestible. \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[10], transform3D);
                 break;
             case 11:
                 ShowForKingdom(2);
                 textName.text = infoKindomData.TextName[11];
                 textInfo.text = infoKindomData.TextInfo[11];
-                textInfo2.text = "\n \n Ambiente: En bosques, especialmente cerca de abedules y pinos. \n Tipo: Venenoso no comestible. \n ";
+                textInfo2.text = "\n \n Ambiente: Lugares oscuros y humedos. \n Tipo: Comestible. \n ";
                 objec3D = Instantiate(infoKindomData.Kindom[11], transform3D);
                 break;
             case 12:

@@ -1,7 +1,7 @@
 [System.Serializable]
 public class PlayerData
 {
-    public bool[] kingdoms = new bool[10];
+    public bool[] kingdoms = new bool[15];
     public int currentLevelData;
     public PlayerData(LevelSystem levelSystemV2, InventoryItemDataV2[] inventoryItemDataV2)
     {

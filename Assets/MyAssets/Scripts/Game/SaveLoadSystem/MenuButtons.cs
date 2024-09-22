@@ -60,12 +60,6 @@ public class MenuButtons : MonoBehaviour
     }
     public void ButtonProfile()
     {
-        if (GeneralSingleton.generalSingleton.isFirtsTime)
-        {
-            GeneralSingleton.generalSingleton.isFirtsTime = false;
-            GeneralSingleton.generalSingleton.wasFirtsTime = true;
-            SaveAndLoadManager.SaveFirtsTime(GeneralSingleton.generalSingleton);
-        }
         GeneralSingleton.generalSingleton.isLoadGame = false;
         GeneralSingleton.generalSingleton.isMyProfile = true;
         SceneManager.LoadScene(3);

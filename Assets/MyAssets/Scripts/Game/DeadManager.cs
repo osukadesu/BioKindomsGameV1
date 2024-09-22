@@ -9,6 +9,7 @@ public abstract class DeadManager : MonoBehaviour
     [SerializeField] protected internal ShootLogic shootLogic;
     [SerializeField] protected internal LevelWinMethod levelWinMethod;
     [SerializeField] protected internal EnemyStateManager[] enemyStateManager;
+    [SerializeField] protected internal AttackStateF[] attackStateF;
     void Awake()
     {
         levelSystemV2 = FindObjectOfType<LevelSystem>();

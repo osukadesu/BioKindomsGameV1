@@ -12,7 +12,7 @@ public class ExitQuest : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GeneralSingleton.generalSingleton.endQuest[GeneralSingleton.generalSingleton.CaseValue] = false;
+            //GeneralSingleton.generalSingleton.endQuest[GeneralSingleton.generalSingleton.CaseValue] = true;
             questGameObjects.DestroyAndChangeLevel(levelSystemV2.CurrentLevel);
         }
     }

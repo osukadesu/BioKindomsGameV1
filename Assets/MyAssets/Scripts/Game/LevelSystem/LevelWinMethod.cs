@@ -4,6 +4,7 @@ public class LevelWinMethod : MonoBehaviour
 {
     [SerializeField] LevelDisplay levelDisplay;
     [SerializeField] ShootLogic shootLogic;
+    [SerializeField] AudioSource moneyAudio;
     void Awake()
     {
         shootLogic = FindObjectOfType<ShootLogic>();
@@ -12,6 +13,7 @@ public class LevelWinMethod : MonoBehaviour
     protected internal void WinMethod(int _indexItems)
     {
         shootLogic.canShoot = false;
+        StartCoroutine(WaitAudio());
         levelDisplay.money[_indexItems].SetActive(true);
         levelDisplay.pedestalAnim.SetBool("pedestalShow", true);
         StartCoroutine(DestroyingEnemy(_indexItems));
@@ -21,5 +23,10 @@ public class LevelWinMethod : MonoBehaviour
         yield return new WaitForSeconds(.8f);
         levelDisplay.enemy[_IEenemy].SetActive(false);
         yield return new WaitForSeconds(2f);
+    }
+    IEnumerator WaitAudio()
+    {
+        yield return new WaitForSeconds(.27f);
+        moneyAudio.Play();
     }
 }

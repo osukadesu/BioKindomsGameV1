@@ -13,7 +13,7 @@ public class DeadEnemy : DeadManager
         {
             2 => () => DeadActionsMethod(true, true, 0),
             4 or 6 or 8 or 10 => () => DeadActionsMethod(true, false, 0),
-            13 or 15 or 17 or 19 or 21 => () => DeadActionsMethod(true, false, 1),
+            13 or 15 or 17 or 19 or 21 or 24 or 26 or 28 or 30 or 32 => () => DeadActionsMethod(true, false, 1),
             _ => () => DeadActionsMethod(false, false, 1)
         };
         action();
@@ -53,23 +53,19 @@ public class DeadEnemy : DeadManager
         yield return new WaitForSeconds(.5f);
         SetLifeControllerEnemy(_case);
         yield return new WaitForSeconds(1f);
-        for (int i = 0; i < lifeControllerEnemy.Length; i++)
-        {
-            lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(false);
-        }
+        lifeControllerEnemy[playerEstanteCol.setId].imgLifeHide.gameObject.SetActive(false);
+
     }
     void SetLifeControllerEnemy(int _case)
     {
         Action action = _case switch
         {
             0 => () => enemyStateManager[playerEstanteCol.setId].agent.speed = 0,
-            _ => () => Debug.Log("Is other kingdom!"),
+            1 => () => Debug.Log("Do Nothing!"),
+            _ => () => attackStateF[playerEstanteCol.setId].agent.speed = 0,
         };
         action();
-        for (int i = 0; i < lifeControllerEnemy.Length; i++)
-        {
-            lifeControllerEnemy[i].imgLifeHide.gameObject.SetActive(true);
-            lifeControllerEnemy[i].currentLife = 100;
-        }
+        lifeControllerEnemy[playerEstanteCol.setId].imgLifeHide.gameObject.SetActive(true);
+        lifeControllerEnemy[playerEstanteCol.setId].currentLife = 100;
     }
 }

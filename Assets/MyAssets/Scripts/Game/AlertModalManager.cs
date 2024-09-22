@@ -31,9 +31,10 @@ public class AlertModalManager : MonoBehaviour
             ,
             11 or 12 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Animal! \n Ahora ve al reino Vegetal!"),
             22 or 23 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Vegetal! \n Ahora ve al reino Fungi!"),
-            33 or 34 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Fungi! \n Ahora ve al reino Protista!"),
+            33 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Fungi! \n Ahora ve al reino Protista!"),
+            34 => () => FinishDemo("¡Felicidades! Haz completado la demo."),
             44 or 45 => () => StartIELevelCaseV2(true, "Felicidades haz completado el reino Protista! \n Ahora ve al reino Monera!"),
-            55 => () => StartIELevelCaseV2(true, "Felicidades haz completado el juego!"),
+            //55 => () => FinishDemo("¡Felicidades! Haz completado la demo."),
             _ => () => Debug.Log("Default case!"),
         };
         action();
@@ -54,13 +55,23 @@ public class AlertModalManager : MonoBehaviour
     }
     public IEnumerator GoTos(string message1)
     {
+        AlertInfo(message1);
         yield return new WaitForSeconds(1f);
         GeneralSingleton.generalSingleton.MouseUnLock();
-        AlertInfo(message1);
     }
     void StartLevelTutorialCoroutine(string message1, string message2)
     {
         StartCoroutine(LevelTutorialCoroutine(message1, message2));
+    }
+    void FinishDemo(string message1)
+    {
+        StartCoroutine(FinishDemoCoroutine(message1));
+    }
+    IEnumerator FinishDemoCoroutine(string message1)
+    {
+        yield return new WaitForSeconds(1f);
+        GeneralSingleton.generalSingleton.MouseUnLock();
+        AlertInfo(message1);
     }
     IEnumerator LevelTutorialCoroutine(string message1, string message2)
     {
@@ -94,6 +105,7 @@ public class AlertModalManager : MonoBehaviour
                     SceneManager.LoadScene(2);
                 }
             ,
+            23 => () => SceneManager.LoadScene(2),
             _ => () =>
             {
                 GeneralSingleton.generalSingleton.MouseLock();

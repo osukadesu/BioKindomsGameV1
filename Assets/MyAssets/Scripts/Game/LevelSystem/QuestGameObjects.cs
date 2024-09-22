@@ -31,16 +31,27 @@ public class QuestGameObjects : MonoBehaviour
         Action action = _level switch
         {
             12 or 14 or 16 or 18 or 20 or 22 => () => DestroyingObjects(0),
-            23 or 25 or 27 or 29 or 31 or 33 => () => DestroyingObjects(1),
-            34 or 36 or 38 or 40 or 42 or 44 => () => DestroyingObjects(2),
-            45 or 47 or 49 or 51 or 53 or 55 => () => DestroyingObjects(3),
-            56 => () => DestroyingObjects(4),
+            23 or 25 or 27 or 29 or 31 or 33 => () => { DestroyingObjects(0); DestroyingObjects(1); }
+            ,
+            34 or 36 or 38 or 40 or 42 or 44 => () => { DestroyingObjects(0); DestroyingObjects(1); DestroyingObjects(2); }
+            ,
+            45 or 47 or 49 or 51 or 53 or 55 => () =>
+            {
+                DestroyingObjects(0); DestroyingObjects(1); DestroyingObjects(2); DestroyingObjects(3);
+            }
+            ,
+            56 => () =>
+            {
+                DestroyingObjects(0); DestroyingObjects(1); DestroyingObjects(2); DestroyingObjects(3); DestroyingObjects(4);
+            }
+            ,
             _ => () => Debug.Log("Case default"),
         };
         action();
     }
     void DestroyingObjects(int _index)
     {
+        Debug.Log("DestroyingObjetcs");
         Destroy(questKing[_index], .2f);
         Destroy(exitQuest[_index], .2f);
         Destroy(changeLevel[_index], .2f);
@@ -78,7 +89,6 @@ public class QuestGameObjects : MonoBehaviour
                 for (int i = 1; i < 5; i++)
                 {
                     SetQuestExitKing(i, false);
-
                 }
             }
             ,

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class PlayerEstanteCol : MonoBehaviour
 {
@@ -11,5 +12,15 @@ public class PlayerEstanteCol : MonoBehaviour
             Debug.Log("Set Id: " + setId);
             setId = objectID.id;
         }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        //Debug.Log("Set Id: " + setId);
+        //StartCoroutine(IEWaitSetId());
+    }
+    IEnumerator IEWaitSetId()
+    {
+        yield return new WaitForSeconds(0.5f);
+        setId = -1;
     }
 }
