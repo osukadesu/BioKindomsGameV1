@@ -3,7 +3,6 @@ using System.IO;
 using UnityEngine;
 public class LoadLevelSystem : MonoBehaviour
 {
-    [SerializeField] QuestGameObjects questGameObjects;
     [SerializeField] LevelSystem levelSystemV2;
     [SerializeField] LevelDisplay levelDisplay;
     [SerializeField] EstanteColChecked estanteColChecked;
@@ -11,7 +10,6 @@ public class LoadLevelSystem : MonoBehaviour
     public InventoryItemDataV2[] inventoryItemDataV2;
     void Awake()
     {
-        questGameObjects = FindObjectOfType<QuestGameObjects>();
         levelSystemV2 = FindObjectOfType<LevelSystem>();
         levelDisplay = FindObjectOfType<LevelDisplay>();
         estanteColChecked = FindObjectOfType<EstanteColChecked>();
@@ -46,7 +44,6 @@ public class LoadLevelSystem : MonoBehaviour
         SettingLevels(playerData);
         SettingKingdom(playerData);
         CheckingKingdom(playerData);
-        //questGameObjects.DestroyObjects(levelSystemV2.CurrentLevel);
         estanteColChecked.EstanteBool("estanteLoad");
     }
     void GoLoadSingletonQuest()

@@ -13,7 +13,8 @@ public class DeadEnemy : DeadManager
         {
             2 => () => DeadActionsMethod(true, true, 0),
             4 or 6 or 8 or 10 => () => DeadActionsMethod(true, false, 0),
-            13 or 15 or 17 or 19 or 21 or 24 or 26 or 28 or 30 or 32 => () => DeadActionsMethod(true, false, 1),
+            13 or 15 or 17 or 19 or 21 => () => DeadActionsMethod(true, false, 1),
+            24 or 26 or 28 or 30 or 32 => () => DeadActionsMethod(true, false, 2),
             _ => () => DeadActionsMethod(false, false, 1)
         };
         action();

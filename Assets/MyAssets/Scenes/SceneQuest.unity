@@ -1051,10 +1051,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: e386b6600ec1368468df42926501afe7, type: 3}
-    m_FontSize: 18
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 196
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1544,6 +1544,7 @@ MonoBehaviour:
   questCaseData: {fileID: 1504035632}
   roundState: {fileID: 1504035623}
   textManager: {fileID: 1504035619}
+  timerState: {fileID: 0}
   idBtnSelect: 0
   score: 0
   correct: 0
@@ -1726,7 +1727,7 @@ MonoBehaviour:
   - {fileID: 1614898629}
   imageKindom: {fileID: 948079314}
   idButton: 000000000100000002000000
-  idQuest: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+  idQuest: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
 --- !u!114 &1504035633
 MonoBehaviour:
   m_ObjectHideFlags: 0

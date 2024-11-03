@@ -17,6 +17,6 @@ public class ScoreData
     }
     public int FinalScore()
     {
-        return finalScore = (score[0] + score[1] /*+ score[2]*/) / 2;
+        return finalScore = (score[0] + score[1] + score[2]) / 3;
     }
 }

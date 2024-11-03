@@ -27,11 +27,11 @@ public class ForGoToQuest : MonoBehaviour
     {
         Action action = _level switch
         {
-            11 => () => SetText("Vegetal"),
-            22 => () => SetText("Fungi"),
-            33 => () => SetText("Protista"),
-            44 => () => SetText("Monera"),
-            55 => () => SetTextFinal(),
+            11 => () => SetText("Animal"),
+            22 => () => SetText("Vegetal"),
+            33 => () => SetTextFinal(),
+            44 => () => SetText("Protista"),
+            55 => () => SetText("Monera"),
             _ => () => Debug.Log("Case default"),
         };
         action();
@@ -42,7 +42,7 @@ public class ForGoToQuest : MonoBehaviour
     }
     void SetTextFinal()
     {
-        textGoQuest.text = "Antes de Finalizar el juego realiza el Quiz del Reino Monera. \n Para guardar tu calificación.";
+        textGoQuest.text = "Antes de Finalizar el juego realiza el Quiz del Reino Fungi. \n Para guardar tu calificación.";
     }
     IEnumerator PauseGame()
     {

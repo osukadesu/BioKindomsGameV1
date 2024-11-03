@@ -106,11 +106,11 @@ public class EnemyStats : MonoBehaviour
     {
         Action action = _type switch
         {
-            0 => () => SetEnemyStatsFungi(4, 5, 4.5f, 2.5f),
+            0 => () => SetEnemyStatsFungi(4, 5, 4f, 2f),
             1 => () => SetEnemyStatsFungi(8, 4, 4, 2),
             2 => () => SetEnemyStatsFungi(12, 3, 3.5f, 1.5f),
-            3 => () => SetEnemyStatsFungi(16, 2, 3, 1),
-            4 => () => SetEnemyStatsFungi(20, 2, 3, 1),
+            3 => () => SetEnemyStatsFungi(16, 2, 3, 1f),
+            4 => () => SetEnemyStatsFungi(20, 1, 2, 1f),
             _ => () => Debug.Log("Default case!"),
         };
         action();
@@ -127,7 +127,7 @@ public class EnemyStats : MonoBehaviour
     }
     float ChangeWalkSpeedF(float _walkSpeed, float _animSpeed)
     {
-        // attackStateF[playerEstanteCol.setId].enemiAnim.SetFloat("speed", _animSpeed);
+        attackStateF[playerEstanteCol.setId].enemiAnim.SetFloat("speed", _animSpeed);
         return attackStateF[playerEstanteCol.setId].walkSpeed = _walkSpeed;
     }
     void SetProtistaStats(int _type)

@@ -89,7 +89,8 @@ public class LevelDisplay : MonoBehaviour
         enemy[playerEstanteCol.setId].SetActive(true);
         money[playerEstanteCol.setId].SetActive(false);
     }
-    void ItemCondition() => NextLevelMethod(loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck);
+    public bool BoolNextLevel() => loadLevelSystem.inventoryItemDataV2[playerEstanteCol.setId].itemIsCheck;
+    void ItemCondition() => NextLevelMethod(BoolNextLevel());
     void NextLevelMethod(bool _value)
     {
         boxCollider.enabled = _value;

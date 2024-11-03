@@ -105,7 +105,7 @@ public class AlertModalManager : MonoBehaviour
                     SceneManager.LoadScene(2);
                 }
             ,
-            23 => () => SceneManager.LoadScene(2),
+            /*34 => () => SceneManager.LoadScene(2),*/
             _ => () =>
             {
                 GeneralSingleton.generalSingleton.MouseLock();

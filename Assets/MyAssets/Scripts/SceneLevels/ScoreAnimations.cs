@@ -1,21 +1,19 @@
+using System;
 using UnityEngine;
 public class ScoreAnimations : MonoBehaviour
 {
     [SerializeField] Animator scoreValueAnim;
     public void SwitchAnimations(int _index)
     {
-        string[] stringAnim = { "score5", "score4", "score3", "scorelose" };
-        foreach (var _string in stringAnim)
+        Action action = _index switch
         {
-            scoreValueAnim.SetBool(_string, false);
-        }
-        if (_index >= 0 && _index <= 2)
-        {
-            scoreValueAnim.SetBool("scorelose", true);
-        }
-        else if (_index >= 3 && _index < stringAnim.Length)
-        {
-            scoreValueAnim.SetBool(stringAnim[stringAnim.Length - _index - 1], true);
-        }
+            0 or 1 or 2 => () => ParametersAnim("scorelose"),
+            3 => () => ParametersAnim("score3"),
+            4 => () => ParametersAnim("score4"),
+            5 => () => ParametersAnim("score5"),
+            _ => throw new NotImplementedException("Score out!"),
+        };
+        action();
     }
+    void ParametersAnim(string name) => scoreValueAnim.SetBool(name, true);
 }

@@ -12,18 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1de9df012a4584dbd04972bff07838, type: 3}
   m_Name: Quest Level Data
   m_EditorClassIdentifier: 
-  idQuest: 00000000010000000200000003000000040000000500000006000000070000000800000009000000
+  idQuest: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e000000
   texQuest:
   - Selecciona al animal que puede nadar y respirar en el agua.
   - 'Selecciona al animal que pertenece a la clase: Molusco.'
   - Selecciona al animal de tipo invertebrado y clase insecto.
   - 'Selecciona al animal que pertenece a la clase: Ave.'
   - 'Selecciona al animal que pertenece a la clase: Reptil.'
-  - Selecciona el vegetal que vive bajo del agual.
+  - Selecciona el vegetal que vive debajo del agua.
   - 'Selecciona el vegetal que no necesita agua para vivir. '
-  - Selecciona el vegetal que se puede comer.
+  - Selecciona el vegetal con hojas largas que parecen plumas.
   - Selecciona el vegetal que puede dar fruto.
   - Selecciona el vegetal que tiene mayor altura.
+  - Selecciona al hongo venenoso.
+  - Selecciona al hongo comestible.
+  - "Selecciona al hongo comestible m\xE1s caro."
+  - Selecciona al hongo que infecta a las comidas dejando una mancha verde.
+  - Selecciona al hongo comestible y microscopico.
   imageKindom:
   - {fileID: 21300000, guid: 3c632dcaf8110a94697bec99f88c0ca0, type: 3}
   - {fileID: 21300000, guid: ae211ff3625b64646a9241499da4b6a0, type: 3}

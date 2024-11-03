@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class EstanteCol : MonoBehaviour
 {
     [SerializeField] LevelSystem levelSystemV2;
     [SerializeField] InventoryItemDataV2 referenceItem;
-    [SerializeField] TextGralController textInfo;
+    [SerializeField] Animator txtAnim;
+    [SerializeField] Text textGral;
     string textMessage;
     public int id;
     [SerializeField] public bool canpressG, canpressF;
@@ -19,7 +21,7 @@ public class EstanteCol : MonoBehaviour
             {
                 canpressF = false;
                 levelSystemV2.ChangeLevel();
-                textInfo.HideText();
+                HideText();
                 GeneralSingleton.generalSingleton._kingdomIndex = id;
             }
         }
@@ -30,7 +32,7 @@ public class EstanteCol : MonoBehaviour
                 canpressG = false;
                 GeneralSingleton.generalSingleton._kingdomIndex = id;
                 SceneManager.LoadScene(6);
-                textInfo.HideText();
+                HideText();
             }
         }
     }
@@ -53,9 +55,9 @@ public class EstanteCol : MonoBehaviour
     {
         Action action = value switch
         {
-            1 => () => { textMessage = "Presiona la tecla 'G' para ver la reliquia."; textInfo.ShowText(textMessage); }
+            1 => () => { textMessage = "Presiona 'G'."; ShowText(textMessage); }
             ,
-            2 => () => { textMessage = "Presiona la tecla 'F' y recupera la reliquia."; textInfo.ShowText(textMessage); }
+            2 => () => { textMessage = "Presiona 'F'."; ShowText(textMessage); }
             ,
             _ => () => Debug.Log("Default case!"),
         };
@@ -63,7 +65,17 @@ public class EstanteCol : MonoBehaviour
     }
     IEnumerator WaitForHideText()
     {
-        yield return new WaitForSeconds(.5f);
-        textInfo.HideText();
+        yield return new WaitForSeconds(.2f);
+        HideText();
+    }
+    public void ShowText(string message)
+    {
+        textGral.text = message;
+        txtAnim.SetBool("uiInteraction", true);
+    }
+    public void HideText()
+    {
+        textGral.text = "";
+        txtAnim.SetBool("uiInteraction", false);
     }
 }

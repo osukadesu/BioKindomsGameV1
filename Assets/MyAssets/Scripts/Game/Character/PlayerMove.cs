@@ -1,13 +1,13 @@
 using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 4f, rotationSpeed = 200f; //jumpValue = 4f, shootOffset = .5f;
+    [SerializeField] float horizontalMove, verticalMove, playerSpeed = 4f; //jumpValue = 4f, shootOffset = .5f;
     [SerializeField] Animator myAnim;
     [SerializeField] bool canJump;
+    [SerializeField] Vector3 moveDirection;
     public bool CanJump { get => canJump; set => canJump = value; }
     /*
 [SerializeField] Rigidbody playerRB;
-[SerializeField] Vector3 moveDirection;
 
 void Awake()
 {
@@ -24,9 +24,22 @@ playerRB = FindObjectOfType<Rigidbody>();
     {
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new(horizontalMove, 0, verticalMove);
+        moveDirection.Normalize();
+        transform.position = transform.position + moveDirection * playerSpeed * Time.deltaTime;
+        if (moveDirection != Vector3.zero) transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), 10f);
+        /*
+--------------------------------------------------------------------------------------------
         transform.Rotate(0, horizontalMove * Time.deltaTime * rotationSpeed, 0);
         transform.Translate(0, 0, verticalMove * Time.deltaTime * playerSpeed);
-        /*
+---------------------------------------------------------------------------------------------
+        transform.Rotate(0, horizontalMove * Time.deltaTime * 50f, 0);
+        if (moveDirection != Vector3.zero)
+        {
+        Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+----------------------------------------------------------------------------------------------------------------
         moveDirection = new(horizontalMove, 0, verticalMove);
         moveDirection.Normalize();
         transform.position = transform.position + moveDirection * playerSpeed * Time.deltaTime;

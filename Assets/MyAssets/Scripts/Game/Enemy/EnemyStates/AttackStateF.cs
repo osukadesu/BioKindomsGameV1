@@ -16,7 +16,6 @@ public class AttackStateF : MonoBehaviour
         }
         else
         {
-            agent.speed = attackSpeed;
             enemiAnim.SetBool("attack", true);
         }
     }

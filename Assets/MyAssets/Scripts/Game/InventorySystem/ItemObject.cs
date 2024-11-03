@@ -1,21 +1,24 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 public class ItemObject : MonoBehaviour
 {
     [SerializeField] InventoryItemDataV2 referenceItem;
     [SerializeField] LevelDisplay levelDisplay;
-    [SerializeField] TextGralController textGralController;
+    [SerializeField] Animator txtAnim, txtAnim2;
+    [SerializeField] Text textGral, textGral2;
     [SerializeField] bool item, isNextLevel;
     string textMessage;
     public bool IsNextLevel { get => isNextLevel; set => isNextLevel = value; }
     void Awake()
     {
         AwakeCharge();
-        textGralController = FindObjectOfType<TextGralController>();
         levelDisplay = FindObjectOfType<LevelDisplay>();
     }
     void Update()
     {
         PickupKeydown();
+        SaveMessage();
     }
     void AwakeCharge()
     {
@@ -45,7 +48,7 @@ public class ItemObject : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             textMessage = "Presiona E para guardar " + "( " + referenceItem.itemName + " )";
-            textGralController.ShowText(textMessage);
+            ShowText(textMessage);
             item = true;
         }
     }
@@ -53,14 +56,12 @@ public class ItemObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            textGralController.HideText();
+            HideText();
             item = false;
         }
     }
     void OnHandlePickUp()
     {
-        textMessage = referenceItem.itemName + " Guardado!";
-        textGralController.StartingAT2(textMessage);
         InventorySystem.inventorySystem.Add(referenceItem);
         referenceItem.itemIsCheck = true;
         Destroy(this.gameObject);
@@ -71,5 +72,35 @@ public class ItemObject : MonoBehaviour
         InventorySystem.inventorySystem.Add(referenceItem);
         referenceItem.itemIsCheck = true;
         Destroy(this.gameObject);
+    }
+    void ShowText(string message)
+    {
+        textGral.text = message;
+        txtAnim.SetBool("uiInteraction", true);
+    }
+    void HideText()
+    {
+        textGral.text = "";
+        txtAnim.SetBool("uiInteraction", false);
+    }
+    void ShowTextV2(string message)
+    {
+        textGral2.text = message;
+        txtAnim2.SetBool("uiMessage", true);
+    }
+    IEnumerator HideTextV2()
+    {
+        yield return new WaitForSeconds(1f);
+        textGral2.text = "";
+        txtAnim2.SetBool("uiMessage", false);
+    }
+    void SaveMessage()
+    {
+        if (levelDisplay.BoolNextLevel())
+        {
+            textMessage = referenceItem.itemName + " Guardado!";
+            ShowTextV2(textMessage);
+            StartCoroutine(HideTextV2());
+        }
     }
 }

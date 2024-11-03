@@ -15,7 +15,7 @@ public class QuestCaseData : MonoBehaviour
     {
         idQuest[_idQuest] = questLevelDatas.idQuest[_idQuest];
         textQuest.text = questLevelDatas.texQuest[_idQuest];
-        imageKindom.sprite = questLevelDatas.imageKindom[0];
+        imageKindom.sprite = questLevelDatas.imageKindom[GeneralSingleton.generalSingleton.CaseValue];
         int[] answers = { _idAnswer1, _idAnswer2, _idAnswer3 };
         int[] images = { _idImgA1, _idImgA2, _idImgA3 };
         for (int i = 0; i < 3; i++)
