@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
-    [SerializeField] GameObject btnLoadGame, btnProfile;
+    [SerializeField] GameObject btnLoadGame, btnProfile, blockRaycast;
     [SerializeField] VerticalLayoutGroup verticalLayoutGroup;
     [SerializeField] Animator alertDelete;
     [SerializeField] Image ImageNotify;
@@ -17,6 +17,7 @@ public class MenuButtons : MonoBehaviour
         btnProfile = GameObject.FindGameObjectWithTag("btnProfile");
         MenuOrder();
         ImageNotify.gameObject.SetActive(GeneralSingleton.generalSingleton.isFirtsTime);
+        blockRaycast.gameObject.SetActive(GeneralSingleton.generalSingleton.isFirtsTime);
     }
     public void ButtonNewGame()
     {

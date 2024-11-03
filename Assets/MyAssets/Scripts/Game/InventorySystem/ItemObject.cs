@@ -88,19 +88,18 @@ public class ItemObject : MonoBehaviour
         textGral2.text = message;
         txtAnim2.SetBool("uiMessage", true);
     }
-    IEnumerator HideTextV2()
+    public void HideTextV2()
     {
-        yield return new WaitForSeconds(1f);
         textGral2.text = "";
         txtAnim2.SetBool("uiMessage", false);
     }
     void SaveMessage()
     {
+        Debug.Log("NextLevel ? " + levelDisplay.BoolNextLevel());
         if (levelDisplay.BoolNextLevel())
         {
             textMessage = referenceItem.itemName + " Guardado!";
             ShowTextV2(textMessage);
-            StartCoroutine(HideTextV2());
         }
     }
 }
