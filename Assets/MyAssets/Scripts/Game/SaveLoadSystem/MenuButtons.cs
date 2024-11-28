@@ -65,7 +65,7 @@ public class MenuButtons : MonoBehaviour
         GeneralSingleton.generalSingleton.isMyProfile = true;
         SceneManager.LoadScene(3);
     }
-    public void ButtonExit() => Application.Quit(); //SceneManager.LoadScene(1);
+    public void ButtonExit() => SceneManager.LoadScene(1);
     public void MenuOrder()
     {
         string datapath = Application.persistentDataPath + "/level.data";

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Firebase.Extensions;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 public class FirebaseAuthManager : MonoBehaviour
 {
     [Header("Firebase")]
@@ -20,7 +21,7 @@ public class FirebaseAuthManager : MonoBehaviour
     void Start()
     {
         InitializeFirebase();
-        SetALert(0, false, 1, false);
+        CloseAlert();
     }
     private void InitializeFirebase()
     {
@@ -30,15 +31,36 @@ public class FirebaseAuthManager : MonoBehaviour
             auth = FirebaseAuth.DefaultInstance;
         });
     }
-    void SetALert(int index, bool myBool, int index2, bool myBool2)
+    void SetALert(int _type)
     {
-        imageAlert[index].SetActive(myBool);
-        imageAlert[index2].SetActive(myBool2);
-        alertModal.SetBool("showAlert", myBool);
+        Action action = _type switch
+        {
+            0 => () =>
+            {
+                imageAlert[0].SetActive(true);
+                imageAlert[1].SetActive(false);
+                alertModal.SetBool("showAlert", true);
+            }
+            ,
+            1 => () =>
+            {
+                imageAlert[0].SetActive(false);
+                imageAlert[1].SetActive(true);
+                alertModal.SetBool("showAlert", true);
+            }
+            ,
+            _ => () =>
+            {
+                imageAlert[0].SetActive(false);
+                imageAlert[1].SetActive(false);
+                alertModal.SetBool("showAlert", false);
+            }
+        };
+        action();
     }
     public void CloseAlert()
     {
-        SetALert(0, false, 1, false);
+        SetALert(2);
     }
     public void Login()
     {
@@ -46,7 +68,6 @@ public class FirebaseAuthManager : MonoBehaviour
     }
     IEnumerator IELogin()
     {
-        SetALert(0, false, 1, false);
         string email = emailInputField.text + "@gmail.com";
         string password = passwordInputField.text;
         var loginTask = auth.SignInWithEmailAndPasswordAsync(email, password);
@@ -64,20 +85,21 @@ public class FirebaseAuthManager : MonoBehaviour
                 AuthError.MissingEmail => "No hay correo",
                 AuthError.MissingPassword => "No hay contraseña",
                 AuthError.UserNotFound => "El usuario no existe",
-                _ => "La cuenta no existe",
+                _ => "Hubo un error desconocido!",
             };
-            SetALert(0, true, 1, false);
+            SetALert(0);
             messageText.text = errorMessage;
         }
         else
         {
             AuthResult result = loginTask.Result;
             FirebaseUser user = result.User;
-            SetALert(0, false, 1, true);
+            SetALert(1);
             messageText.text = "Inicio de sesión exitoso!";
+            yield return new WaitForSeconds(1f);
             CloseAlert();
             ClearLoginInputs();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0.4f);
             SceneManager.LoadScene(2);
         }
     }

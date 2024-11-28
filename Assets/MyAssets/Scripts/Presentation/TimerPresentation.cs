@@ -14,6 +14,6 @@ public class TimerPresentation : MonoBehaviour
     IEnumerator MyTimer()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(2); //Cambiar a Auth.
+        SceneManager.LoadScene(1);
     }
 }
